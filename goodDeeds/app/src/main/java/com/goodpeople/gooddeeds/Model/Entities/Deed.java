@@ -2,7 +2,7 @@ package com.goodpeople.gooddeeds.Model.Entities;
 
 import java.util.UUID;
 
-public class Deeds {
+public class Deed {
 
     private final UUID id;
     private Account receivingAccount;
@@ -10,7 +10,7 @@ public class Deeds {
     private String subject;
     private String description;
 
-    public Deeds(UUID id, Account recievingAccount, Account givingAccount, String subject, String description) {
+    public Deed(UUID id, Account recievingAccount, Account givingAccount, String subject, String description) {
         this.id = id;
         this.receivingAccount = recievingAccount;
         this.givingAccount = givingAccount;
