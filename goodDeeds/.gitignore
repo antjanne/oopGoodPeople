@@ -172,7 +172,7 @@ obj/
 .idea/assetWizardSettings.xml
 
 # OS-specific files
-.DS_Store
+.DS_Store?
 
 # Legacy Eclipse project files
 .classpath
