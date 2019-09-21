@@ -37,7 +37,7 @@ public class GoodDeeds {
                 return accounts.get(i);
             }
         }
-        throw new Exception();
+        throw new Exception("Invalid account id");
     }
 
 }
