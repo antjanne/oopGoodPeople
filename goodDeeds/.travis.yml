@@ -28,4 +28,4 @@ android:
   - extra
 
 script:
-- gradlew.bat clean test build
+- gradlew clean test build
