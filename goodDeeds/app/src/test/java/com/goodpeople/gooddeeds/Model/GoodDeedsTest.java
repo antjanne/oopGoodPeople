@@ -17,8 +17,8 @@ public class GoodDeedsTest {
 
     @Before
     public void initialize(){
-        GoodDeeds gd = new GoodDeeds();
-        gd.addAccount("Test", 00000, "test@test.com");
+        gd = new GoodDeeds();
+        gd.accounts.add(new Account("Test", 00000, "test@test.com"));
         a = gd.accounts.get(0);
         id = a.getId();
 

@@ -10,7 +10,7 @@ import java.util.UUID;
 public class GoodDeeds {
 
     List<Deed> offers = new ArrayList<>();
-    List<Account> accounts;
+    List<Account> accounts = new ArrayList<>();
 
     public GoodDeeds() {
     }
