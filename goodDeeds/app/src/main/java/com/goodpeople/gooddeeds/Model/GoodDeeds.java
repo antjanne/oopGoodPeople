@@ -34,7 +34,6 @@ public class GoodDeeds {
      * @param description the description of the deed
      */
     public void addOffer(UUID givingAccountId, String subject, String description) throws Exception {
-        UUID id = UUID.randomUUID();
         Account givingAccount = fetchAccount(givingAccountId);
         Deed newDeed = new Deed(givingAccount, subject, description);
         deeds.add(newDeed);
