@@ -24,8 +24,8 @@ public class Deed {
         return givingAccount;
     }
 
-    public void setGivingAccount(Account receivingAccount) {
-        this.givingAccount = receivingAccount;
+    public void setGivingAccount(Account givingAccount) {
+        this.givingAccount = givingAccount;
     }
 
     public String getSubject() {
