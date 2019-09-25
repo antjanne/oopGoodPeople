@@ -9,12 +9,11 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.goodpeople.gooddeeds.Controller.DeedController;
-import com.goodpeople.gooddeeds.Model.GoodDeeds;
 import com.goodpeople.gooddeeds.R;
 
 import java.util.UUID;
 
-public class CreateOfferActivity extends AppCompatActivity {
+public class NewOffer extends AppCompatActivity {
 
     UUID id = UUID.randomUUID();
     private DeedController deedController = new DeedController();
@@ -22,7 +21,7 @@ public class CreateOfferActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_createoffer);
+        setContentView(R.layout.new_offer);
 
         Button submitButton = findViewById(R.id.submitButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
