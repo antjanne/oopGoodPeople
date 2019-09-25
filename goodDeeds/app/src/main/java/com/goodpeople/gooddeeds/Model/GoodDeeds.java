@@ -6,7 +6,7 @@ import com.goodpeople.gooddeeds.Model.Entities.Deed;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class GoodDeeds {
+public class GoodDeeds {
 
     private static GoodDeeds goodDeeds;
 
