@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Good Deeds</string>
     <string name="new_offer">New Offer</string>
+    <string name="new_offer_subject">Subject</string>
+    <string name="new_offer_description">Description</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+
 </resources>
