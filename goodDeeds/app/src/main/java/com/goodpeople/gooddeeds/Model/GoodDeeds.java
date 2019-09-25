@@ -9,11 +9,20 @@ import java.util.UUID;
 
 public class GoodDeeds {
 
-    List<Deed> offers = new ArrayList<>();
-    List<Account> accounts = new ArrayList<>();
+    private static GoodDeeds goodDeeds;
+    private List<Deed> deeds = new ArrayList<>();
+    private List<Account> accounts = new ArrayList<>();
 
-    public GoodDeeds() {
+    private GoodDeeds() {
     }
+
+    public static GoodDeeds getGoodDeeds() {
+        if (goodDeeds == null) {
+            goodDeeds = new GoodDeeds();
+        }
+        return goodDeeds;
+    }
+
 
     /**
      * The addOffer method creates a new deed with information
@@ -27,8 +36,8 @@ public class GoodDeeds {
     public void addOffer(UUID givingAccountId, String subject, String description) throws Exception {
         UUID id = UUID.randomUUID();
         Account givingAccount = fetchAccount(givingAccountId);
-        Deed newDeed = new Deed(id, givingAccount, subject, description);
-        offers.add(newDeed);
+        Deed newDeed = new Deed(givingAccount, subject, description);
+        deeds.add(newDeed);
     }
 
     private Account fetchAccount(UUID id) throws Exception {
@@ -39,5 +48,4 @@ public class GoodDeeds {
         }
         throw new Exception("Invalid account id");
     }
-
 }

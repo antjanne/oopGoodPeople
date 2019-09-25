@@ -1,15 +1,21 @@
 package com.goodpeople.gooddeeds.Controller;
+import com.goodpeople.gooddeeds.Model.Repositories.AccountRepository;
+import com.goodpeople.gooddeeds.Model.Repositories.AccountRepositoryImpl;
+import com.goodpeople.gooddeeds.Model.Repositories.DeedRepository;
+import com.goodpeople.gooddeeds.Model.Repositories.DeedRepositoryImpl;
+
+
+import java.util.UUID;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.GoodDeeds;
 
-import java.util.UUID;
-
 public class DeedController {
-    GoodDeeds goodDeeds;
+    private DeedRepository deedRepository = new DeedRepositoryImpl();
+    private AccountRepository accountRepository = new AccountRepositoryImpl();
+
 
     public DeedController() {
-        this.goodDeeds = new GoodDeeds();
     }
 
     /**
@@ -21,7 +27,7 @@ public class DeedController {
      */
     public void addOffer(UUID id, String subject, String description) {
         try {
-            goodDeeds.addOffer(id, subject, description);
+            DeedRepository.addOffer(id, subject, description);
         } catch (Exception e) {
             System.out.println("Could not find giving account " + e.getMessage());
         }
