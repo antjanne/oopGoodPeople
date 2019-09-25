@@ -12,6 +12,7 @@ public final class GoodDeeds {
 
     private List<Deed> deeds = new ArrayList<>();
     private List<Account> accounts = new ArrayList<>();
+    private Account loggedinAccount;
 
     private GoodDeeds() {
     }
@@ -40,5 +41,26 @@ public final class GoodDeeds {
         }
         return false;
 
+    }
+
+    public void login(String email, String password) {
+        for (Account account : accounts) {
+            if (account.getEmail().equals(email) && account.getPassword().equals(password)) {
+                loggedinAccount = account;
+            }
+        }
+    }
+
+    public boolean validateLogin(String email, String password) {
+        for (Account account : accounts) {
+            if (account.getEmail().equals(email) && account.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isLoggedIn() {
+        return loggedinAccount != null;
     }
 }

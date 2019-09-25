@@ -1,23 +1,51 @@
 package com.goodpeople.gooddeeds.View;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-import com.goodpeople.gooddeeds.Controller.DeedController;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.goodpeople.gooddeeds.Controller.AccountController;
 import com.goodpeople.gooddeeds.R;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class CreateAccount extends Activity {
+public class CreateAccount extends AppCompatActivity {
 
-    DeedController deedController = new DeedController();
+    AccountController accountController = new AccountController();
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_account);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        if (menuItem.getItemId() == android.R.id.home) {
+            finish();
+        } else if (menuItem.getItemId() == R.id.toolbar_login) {
+            login();
+
+        }
+        return super.onOptionsItemSelected(menuItem);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
 
     public void submitAccount(View view) {
         EditText editTextName = findViewById(R.id.name);
@@ -34,7 +62,7 @@ public class CreateAccount extends Activity {
 
         if (validateData(name, email, postalCodeText, password)) {
             int postalCode = Integer.valueOf(postalCodeText);
-            deedController.createAccount(name, postalCode, email, password);
+            accountController.createAccount(name, postalCode, email, password);
 
             goBack(view);
         }
@@ -49,7 +77,7 @@ public class CreateAccount extends Activity {
             returnValue = false;
 
         }
-        if (email == null || email.trim().isEmpty() || !email.contains("@") || deedController.validateAccountEmail(email)) {
+        if (email == null || email.trim().isEmpty() || !email.contains("@") || accountController.validateAccountEmail(email)) {
             sendError(R.id.emailLayout, R.string.invalidEmail);
             returnValue = false;
 
@@ -76,6 +104,16 @@ public class CreateAccount extends Activity {
     public void goBack(View view) {
         Intent myIntent = new Intent(view.getContext(), MainActivity.class);
         startActivityForResult(myIntent, 0);
+    }
+
+    public void login() {
+        if (!accountController.isLoggedIn()) {
+            Intent myIntent = new Intent(this, Login.class);
+            startActivityForResult(myIntent, 0);
+        } else {
+
+        }
+
     }
 
 

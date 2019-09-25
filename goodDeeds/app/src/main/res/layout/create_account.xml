@@ -7,6 +7,12 @@
     android:layout_height="match_parent"
     tools:layout_editor_absoluteY="81dp">
 
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="213dp"

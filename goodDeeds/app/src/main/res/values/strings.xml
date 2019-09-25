@@ -12,6 +12,8 @@
     <string name="invalidEmail">Email is invalid</string>
     <string name="invalidPostalCode">Postal code is invalid</string>
     <string name="login_have_no_account">Have no account?</string>
+    <string name="login">Login</string>
+    <string name="login_error">Wrong email or password or the account does not exist</string>
 
 
 </resources>
