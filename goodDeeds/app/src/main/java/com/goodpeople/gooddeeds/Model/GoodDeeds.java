@@ -47,4 +47,12 @@ public class GoodDeeds {
         }
         throw new Exception("Invalid account id");
     }
+
+    public List<Deed> getDeeds() {
+        return deeds;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
 }

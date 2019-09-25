@@ -27,7 +27,7 @@ public class DeedController {
      */
     public void addOffer(UUID id, String subject, String description) {
         try {
-            DeedRepository.addOffer(id, subject, description);
+            deedRepository.addOffer(id, subject, description);
         } catch (Exception e) {
             System.out.println("Could not find giving account " + e.getMessage());
         }

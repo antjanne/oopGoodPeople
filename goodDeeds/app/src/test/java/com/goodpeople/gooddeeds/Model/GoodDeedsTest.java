@@ -17,9 +17,9 @@ public class GoodDeedsTest {
 
     @Before
     public void initialize(){
-        gd = new GoodDeeds();
-        gd.accounts.add(new Account("Test", 00000, "test@test.com"));
-        a = gd.accounts.get(0);
+        gd = GoodDeeds.getGoodDeeds();
+        gd.getAccounts().add(new Account("Test", 00000, "test@test.com"));
+        a = gd.getAccounts().get(0);
         id = a.getId();
 
         try {
@@ -42,21 +42,18 @@ public class GoodDeedsTest {
 
     @Test
     public void addOfferIdStored() {
-        assertTrue("The id of the giving account should be stored.", gd.offers.get(0).getGivingAccount().getId().equals(id));
+        assertTrue("The id of the giving account should be stored.", gd.getDeeds().get(0).getGivingAccount().getId().equals(id));
     }
 
     @Test
     public void addOfferSubjectStored() {
-        assertTrue("The subject of the offer should be stored", gd.offers.get(0).getSubject() == "Subject");
+        assertTrue("The subject of the offer should be stored", gd.getDeeds().get(0).getSubject() == "Subject");
     }
 
     @Test
     public void addOfferDescriptionStored() {
-        assertTrue("The description of the offer should be stored", gd.offers.get(0).getDescription() == "Description");
+        assertTrue("The description of the offer should be stored", gd.getDeeds().get(0).getDescription() == "Description");
     }
 
-    @Test
-    public void addOfferLengthOfOffers(){
-        assertTrue(gd.offers.size() == 1);
-    }
+
 }
