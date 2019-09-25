@@ -1,5 +1,6 @@
 package com.goodpeople.gooddeeds.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,8 +23,13 @@ public class MainActivity extends AppCompatActivity {
         newOfferButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //change view
+                newOffer();
             }
         });
+    }
+
+    private void newOffer() {
+        Intent myIntent = new Intent(this, NewOffer.class);
+        startActivity(myIntent);
     }
 }

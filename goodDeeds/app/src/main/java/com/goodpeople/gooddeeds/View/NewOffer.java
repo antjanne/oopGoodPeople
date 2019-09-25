@@ -33,7 +33,17 @@ public class NewOffer extends AppCompatActivity {
                 deedController.addOffer(id, subjectEditText.toString(), descriptionEditText.toString());
             }
         });
+
+        Button cancelButton = findViewById(R.id.cancelButton);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
+
+
 
 
 
