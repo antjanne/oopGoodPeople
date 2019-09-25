@@ -10,6 +10,4 @@ public class DeedController {
 
     public DeedController() {
     }
-
-
 }
