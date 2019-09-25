@@ -1,8 +1,8 @@
 package com.goodpeople.gooddeeds.View;
 
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.goodpeople.gooddeeds.R;
 

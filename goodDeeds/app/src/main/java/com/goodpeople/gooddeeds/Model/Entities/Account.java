@@ -8,7 +8,7 @@ public class Account {
     private int postalCode;
     private String email;
 
-    Account(String name, int postalCode, String email) {
+    public Account(String name, int postalCode, String email) {
         this.id = UUID.randomUUID();
         this.name = name;
         this.postalCode = postalCode;

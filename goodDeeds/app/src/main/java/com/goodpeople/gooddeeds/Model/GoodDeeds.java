@@ -3,15 +3,23 @@ package com.goodpeople.gooddeeds.Model;
 import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.Entities.Deed;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GoodDeeds {
 
-    List<Deed> offers;
-    List<Account> accounts;
+    private static GoodDeeds goodDeeds;
+    private List<Deed> deeds = new ArrayList<>();
+    private List<Account> accounts = new ArrayList<>();
 
-    public GoodDeeds() {
+    private GoodDeeds() {
     }
 
+    public static GoodDeeds getGoodDeeds() {
+        if (goodDeeds == null) {
+            goodDeeds = new GoodDeeds();
+        }
+        return goodDeeds;
+    }
 
 }

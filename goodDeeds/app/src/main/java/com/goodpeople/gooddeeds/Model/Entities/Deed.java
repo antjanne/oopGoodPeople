@@ -6,14 +6,12 @@ public class Deed {
 
     private final UUID id;
     private Account receivingAccount;
-    private Account givingAccount;
     private String subject;
     private String description;
 
-    public Deed(UUID id, Account recievingAccount, Account givingAccount, String subject, String description) {
-        this.id = id;
-        this.receivingAccount = recievingAccount;
-        this.givingAccount = givingAccount;
+    public Deed(Account receivingAccount, String subject, String description) {
+        this.id = UUID.randomUUID();
+        this.receivingAccount = receivingAccount;
         this.subject = subject;
         this.description = description;
     }
@@ -28,14 +26,6 @@ public class Deed {
 
     public void setReceivingAccount(Account receivingAccount) {
         this.receivingAccount = receivingAccount;
-    }
-
-    public Account getGivingAccount() {
-        return givingAccount;
-    }
-
-    public void setGivingAccount(Account givingAccount) {
-        this.givingAccount = givingAccount;
     }
 
     public String getSubject() {
