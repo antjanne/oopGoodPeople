@@ -9,6 +9,7 @@ public class Account {
     private String email;
     private String password;
 
+
     public Account(String name, int postalCode, String email, String password) {
         this.id = UUID.randomUUID();
         this.name = name;

@@ -10,7 +10,7 @@ public final class GoodDeeds {
 
     private static GoodDeeds goodDeeds;
 
-    private List<Deed> offers = new ArrayList<>();
+    private List<Deed> deeds = new ArrayList<>();
     private List<Account> accounts = new ArrayList<>();
 
     private GoodDeeds() {
@@ -39,6 +39,6 @@ public final class GoodDeeds {
             }
         }
         return false;
-    }
 
+    }
 }

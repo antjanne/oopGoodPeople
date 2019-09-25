@@ -3,7 +3,7 @@
     <string name="create_account">Create Account</string>
     <string name="create_account_name">Name</string>
     <string name="create_account_postal_code">Postal Code</string>
-    <string name="create_account_email">Email</string>
+    <string name="account_email">Email</string>
     <string name="submit">Submit</string>
     <string name="cancel">Cancel</string>
     <string name="invalidName">Name is invalid</string>
@@ -11,8 +11,7 @@
     <string name="invalidPassword">Password is invalid</string>
     <string name="invalidEmail">Email is invalid</string>
     <string name="invalidPostalCode">Postal code is invalid</string>
-
-
+    <string name="login_have_no_account">Have no account?</string>
 
 
 </resources>
