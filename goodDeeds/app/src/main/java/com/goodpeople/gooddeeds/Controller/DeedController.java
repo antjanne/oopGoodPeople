@@ -8,4 +8,8 @@ public class DeedController {
     public DeedController() {
         this.goodDeeds = new GoodDeeds();
     }
+
+    public void getOffers(){
+        this.goodDeeds.getOffers();
+    }
 }

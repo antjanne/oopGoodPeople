@@ -13,5 +13,7 @@ public class GoodDeeds {
     public GoodDeeds() {
     }
 
-
+    public List<Deed> getOffers() {
+        return offers;
+    }
 }
