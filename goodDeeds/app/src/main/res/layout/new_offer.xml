@@ -44,7 +44,7 @@
         android:ems="10"
         android:gravity="top|left"
         android:hint="@string/new_offer_description"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"

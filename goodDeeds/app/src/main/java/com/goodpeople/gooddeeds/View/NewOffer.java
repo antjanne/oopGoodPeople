@@ -31,6 +31,8 @@ public class NewOffer extends AppCompatActivity {
                 EditText descriptionEditText = findViewById(R.id.descriptionEditText);
 
                 deedController.addOffer(id, subjectEditText.toString(), descriptionEditText.toString());
+
+                finish();
             }
         });
 
