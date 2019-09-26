@@ -7,12 +7,15 @@ public class Account {
     private String name;
     private int postalCode;
     private String email;
+    private String password;
 
-    public Account(String name, int postalCode, String email) {
+
+    public Account(String name, int postalCode, String email, String password) {
         this.id = UUID.randomUUID();
         this.name = name;
         this.postalCode = postalCode;
         this.email = email;
+        this.password = password;
     }
 
     public UUID getId() {
@@ -42,5 +45,13 @@ public class Account {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
