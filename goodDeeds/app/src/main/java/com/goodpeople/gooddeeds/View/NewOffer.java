@@ -92,9 +92,4 @@ public class NewOffer extends AppCompatActivity {
         Intent myIntent = new Intent(view.getContext(), MainActivity.class);
         startActivityForResult(myIntent, 0);
     }
-
-
-
-
-
 }
