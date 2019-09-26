@@ -1,11 +1,13 @@
 package com.goodpeople.gooddeeds.Controller;
 
-import com.goodpeople.gooddeeds.Model.GoodDeeds;
+import com.goodpeople.gooddeeds.Model.Repositories.DeedRepository;
+import com.goodpeople.gooddeeds.Model.Repositories.DeedRepositoryImpl;
 
 public class DeedController {
-    GoodDeeds goodDeeds;
+
+    private DeedRepository deedRepository = new DeedRepositoryImpl();
+
 
     public DeedController() {
-        this.goodDeeds = new GoodDeeds();
     }
 }

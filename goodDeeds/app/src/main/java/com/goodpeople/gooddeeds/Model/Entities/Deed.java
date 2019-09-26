@@ -5,14 +5,12 @@ import java.util.UUID;
 public class Deed {
 
     private final UUID id;
-    private Account receivingAccount;
     private Account givingAccount;
     private String subject;
     private String description;
 
-    public Deed(UUID id, Account recievingAccount, Account givingAccount, String subject, String description) {
-        this.id = id;
-        this.receivingAccount = recievingAccount;
+    public Deed(Account givingAccount, String subject, String description) {
+        this.id = UUID.randomUUID();
         this.givingAccount = givingAccount;
         this.subject = subject;
         this.description = description;
@@ -20,14 +18,6 @@ public class Deed {
 
     public UUID getId() {
         return id;
-    }
-
-    public Account getReceivingAccount() {
-        return receivingAccount;
-    }
-
-    public void setReceivingAccount(Account receivingAccount) {
-        this.receivingAccount = receivingAccount;
     }
 
     public Account getGivingAccount() {
