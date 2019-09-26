@@ -17,6 +17,8 @@ public class EditOffer extends AppCompatActivity {
     UUID id = UUID.randomUUID();
     private DeedController deedController = new DeedController();
 
+    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,7 @@ public class EditOffer extends AppCompatActivity {
                 EditText descriptionEditText = findViewById(R.id.descriptionEditText);
                 deedController.editOffer(id, subjectEditText.toString(), descriptionEditText.toString());
                 finish();
+
             }
         });
 
