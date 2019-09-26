@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".View.CreateAccount"></activity>
         <activity android:name=".View.Login"></activity>
+        <activity android:name=".View.EditOffer"></activity>
     </application>
 
 </manifest>
