@@ -9,6 +9,7 @@
     <include
         android:id="@+id/tool_bar"
         layout="@layout/tool_bar"
+        android:clickable="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,6 +23,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tool_bar"
         app:layout_constraintVertical_bias="0.110000014" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
