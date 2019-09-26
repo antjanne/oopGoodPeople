@@ -17,5 +17,7 @@
     <string name="new_offer">New Offer</string>
     <string name="new_offer_subject">Subject</string>
     <string name="new_offer_description">Description</string>
+    <string name="invalidSubject">Subject is missing</string>
+    <string name="invalidDescription">Description is missing</string>
 
 </resources>
