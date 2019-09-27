@@ -16,6 +16,13 @@ public class EditOffer extends AppCompatActivity {
 
     UUID id = UUID.randomUUID();
     private DeedController deedController = new DeedController();
+    private String subject = deedController.getDeedSubject();
+    private String description = deedController.getDeedDescription();
+
+    private EditText editSubj = (EditText)findViewById(R.id.subjectEditText);
+    private EditText editDesc = (EditText)findViewById(R.id.descriptionEditText);
+
+
 
     
 
@@ -24,6 +31,8 @@ public class EditOffer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_offer);
         Button submitButton = findViewById(R.id.submitButton);
+        editSubj.setText(subject);
+        editDesc.setText(description);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
