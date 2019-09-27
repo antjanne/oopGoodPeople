@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Good Deeds</string>
     <string name="create_account">Create Account</string>
-    <string name="create_account_name">Name</string>
-    <string name="create_account_postal_code">Postal Code</string>
+    <string name="account_name">Name</string>
+    <string name="account_postal_code">Postal Code</string>
     <string name="account_email">Email</string>
     <string name="submit">Submit</string>
     <string name="cancel">Cancel</string>
@@ -14,6 +14,7 @@
     <string name="login_have_no_account">Have no account?</string>
     <string name="login">Login</string>
     <string name="login_error">Wrong email or password or the account does not exist</string>
+    <string name="account">Account details</string>
 
 
 </resources>

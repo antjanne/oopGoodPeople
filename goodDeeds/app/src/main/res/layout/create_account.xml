@@ -39,7 +39,7 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/create_account_name"
+            android:hint="@string/account_name"
             android:inputType="text"
             android:maxLines="1"
             tools:layout_editor_absoluteX="2dp"
@@ -78,7 +78,7 @@
             android:id="@+id/postal_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/create_account_postal_code"
+            android:hint="@string/account_postal_code"
             android:inputType="number"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
