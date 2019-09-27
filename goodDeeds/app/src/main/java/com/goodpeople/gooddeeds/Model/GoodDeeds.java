@@ -14,10 +14,6 @@ public class GoodDeeds {
     private Account loggedinAccount;
 
     private GoodDeeds() {
-        // TODO test account
-        Account test = new Account("test", 000000, "test@test", "123");
-        accounts.add(test);
-        loggedinAccount = test;
     }
 
     public static GoodDeeds getGoodDeeds() {
