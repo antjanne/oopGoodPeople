@@ -15,6 +15,8 @@
     <string name="login">Login</string>
     <string name="login_error">Wrong email or password or the account does not exist</string>
     <string name="account">Account details</string>
+    <string name="edit_account">Edit details</string>
+    <string name="edit_password">Edit password</string>
 
 
 </resources>

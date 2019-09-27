@@ -15,6 +15,7 @@ public class GoodDeeds {
     private Account loggedinAccount;
 
     private GoodDeeds() {
+        loggedinAccount = new Account("rm", 41412, "rm@rm.se", "rm");
     }
 
     public static GoodDeeds getGoodDeeds() {
@@ -62,5 +63,9 @@ public class GoodDeeds {
 
     public boolean isLoggedIn() {
         return loggedinAccount != null;
+    }
+
+    public Account getAccount() {
+        return this.loggedinAccount;
     }
 }

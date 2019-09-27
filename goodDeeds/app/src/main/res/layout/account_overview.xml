@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -40,9 +39,8 @@
         android:id="@+id/account_name_data"
         android:layout_width="412dp"
         android:layout_height="20dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="220dp"
         android:gravity="center"
-        android:text="Richard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,9 +49,19 @@
         android:id="@+id/account_postal_code"
         android:layout_width="412dp"
         android:layout_height="20dp"
-        android:layout_marginTop="367dp"
+        android:layout_marginTop="300dp"
         android:gravity="center"
         android:text="@string/account_postal_code"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/account_postal_code_data"
+        android:layout_width="412dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="320dp"
+        android:gravity="center"
         app:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -62,9 +70,43 @@
         android:id="@+id/account_email"
         android:layout_width="412dp"
         android:layout_height="44dp"
+        android:layout_marginTop="400dp"
         android:gravity="center"
         android:text="@string/account_email"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="275dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/account_email_data"
+        android:layout_width="412dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="420dp"
+        android:gravity="center"
+        android:text="rm@rm.se"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="264dp"
+        android:layout_marginLeft="264dp"
+        android:layout_marginTop="520dp"
+        android:onClick="edit"
+        android:text="@string/edit_account"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="520dp"
+        android:text="@string/edit_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

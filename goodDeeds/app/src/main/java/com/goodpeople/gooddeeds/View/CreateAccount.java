@@ -46,7 +46,6 @@ public class CreateAccount extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-
     public void submitAccount(View view) {
         EditText editTextName = findViewById(R.id.name);
         String name = editTextName.getText().toString();

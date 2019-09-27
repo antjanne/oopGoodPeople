@@ -1,5 +1,6 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
+import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.GoodDeeds;
 
 public class AccountRepositoryImpl implements AccountRepository {
@@ -29,6 +30,11 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public boolean isLoggedIn() {
         return goodDeeds.isLoggedIn();
+    }
+
+    @Override
+    public Account getAccount() {
+        return goodDeeds.getAccount();
     }
 
 
