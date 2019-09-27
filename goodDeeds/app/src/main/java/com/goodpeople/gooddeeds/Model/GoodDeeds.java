@@ -2,10 +2,8 @@ package com.goodpeople.gooddeeds.Model;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.Entities.Deed;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class GoodDeeds {
 
@@ -69,19 +67,17 @@ public class GoodDeeds {
         return loggedinAccount != null;
     }
 
-    public void addOffer(String subject, String description) {
-        Account givingAccount = fetchAccount(loggedinAccount.getId());
+    /**
+     * Creates a offer with the currently logged in account as giving account.
+     * A user has to be logged in before calling this method.
+     *
+     * @param subject The subject of the offer
+     * @param description The description of the offer
+     */
+    public void createOffer(String subject, String description) {
+        Account givingAccount = loggedinAccount;
         Deed newDeed = new Deed(givingAccount, subject, description);
         deeds.add(newDeed);
-    }
-
-    private Account fetchAccount(UUID id) {
-        for (int i = 0; i < accounts.size(); i++) {
-            if (accounts.get(i).getId() == id) {
-                return accounts.get(i);
-            }
-        }
-        return null;
     }
 
     public List<Deed> getDeeds() {

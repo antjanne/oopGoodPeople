@@ -1,11 +1,9 @@
 package com.goodpeople.gooddeeds.View;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,17 +13,15 @@ import com.goodpeople.gooddeeds.Controller.DeedController;
 import com.goodpeople.gooddeeds.R;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.UUID;
-
-public class NewOffer extends AppCompatActivity {
+public class CreateOffer extends AppCompatActivity {
 
     private DeedController deedController = new DeedController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_offer);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setContentView(R.layout.create_offer);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -46,7 +42,7 @@ public class NewOffer extends AppCompatActivity {
         String descriptionText = description.getText().toString();
 
         if (validateInput(subjectText, descriptionText)) {
-            deedController.addOffer(subjectText, descriptionText);
+            deedController.createOfferHandler(subjectText, descriptionText);
             goBack(view);
         }
     }
