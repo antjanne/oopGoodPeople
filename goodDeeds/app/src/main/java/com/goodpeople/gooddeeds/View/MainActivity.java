@@ -27,18 +27,15 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
-        Button newOfferButton = findViewById(R.id.newOfferButton);
-        newOfferButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                newOffer();
-            }
-        });
     }
 
-    private void newOffer() {
-        Intent myIntent = new Intent(this, NewOffer.class);
-        startActivity(myIntent);
+    public void newOffer(View view) {
+        if (accountController.isLoggedIn()) {
+            Intent myIntent = new Intent(this, NewOffer.class);
+            startActivity(myIntent);
+        } else {
+            login();
+        }
     }
 
     @Override

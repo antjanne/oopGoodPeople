@@ -8,7 +8,7 @@ public class DeedRepositoryImpl implements DeedRepository {
 
     private GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();
 
-    public void addOffer(UUID id, String subject, String description) throws Exception {
-        goodDeeds.addOffer(id, subject, description);
+    public void addOffer(String subject, String description) {
+        goodDeeds.addOffer(subject, description);
     }
 }

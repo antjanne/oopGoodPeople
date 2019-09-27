@@ -3,6 +3,7 @@ package com.goodpeople.gooddeeds.View;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +19,6 @@ import java.util.UUID;
 
 public class NewOffer extends AppCompatActivity {
 
-    UUID id = UUID.randomUUID();
     private DeedController deedController = new DeedController();
 
     @Override
@@ -30,28 +30,12 @@ public class NewOffer extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        /*Button submitButton = findViewById(R.id.submitButton);
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditText subjectEditText = findViewById(R.id.subjectEditText);
-                EditText descriptionEditText = findViewById(R.id.descriptionEditText);
+    }
 
-                validateInput(subjectEditText.getText().toString(), descriptionEditText.getText().toString());
-
-                deedController.addOffer(id, subjectEditText.getText().toString(), descriptionEditText.getText().toString());
-
-                finish();
-            }
-        });*/
-/*
-        Button cancelButton = findViewById(R.id.cancelButton);
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });*/
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        finish();
+        return super.onOptionsItemSelected(menuItem);
     }
 
     public void submitOffer(View view) {
@@ -62,7 +46,7 @@ public class NewOffer extends AppCompatActivity {
         String descriptionText = description.getText().toString();
 
         if (validateInput(subjectText, descriptionText)) {
-            deedController.addOffer(id, subjectText, descriptionText);
+            deedController.addOffer(subjectText, descriptionText);
             goBack(view);
         }
     }

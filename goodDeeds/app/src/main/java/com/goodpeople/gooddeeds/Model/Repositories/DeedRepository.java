@@ -4,6 +4,6 @@ import java.util.UUID;
 
 public interface DeedRepository {
 
-    void addOffer(UUID id, String subject, String description) throws Exception;
+    void addOffer(String subject, String description);
 
 }

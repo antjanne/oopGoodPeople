@@ -17,18 +17,7 @@ public class DeedController {
     public DeedController() {
     }
 
-    /**
-     * The addOffer method ...
-     *
-     * @param id the id of the account that offers the deed
-     * @param subject the subject of the deed
-     * @param description the description of the deed
-     */
-    public void addOffer(UUID id, String subject, String description) {
-        try {
-            deedRepository.addOffer(id, subject, description);
-        } catch (Exception e) {
-            System.out.println("Could not find giving account " + e.getMessage());
-        }
+    public void addOffer(String subject, String description) {
+        deedRepository.addOffer(subject, description);
     }
 }

@@ -16,6 +16,10 @@ public class GoodDeeds {
     private Account loggedinAccount;
 
     private GoodDeeds() {
+        // TODO test account
+        Account test = new Account("test", 000000, "test@test", "123");
+        accounts.add(test);
+        loggedinAccount = test;
     }
 
     public static GoodDeeds getGoodDeeds() {
@@ -65,28 +69,19 @@ public class GoodDeeds {
         return loggedinAccount != null;
     }
 
-    /**
-     * The addOffer method creates a new deed with information
-     * from the user and a generated UUID and adds it to the list of offers.
-     * Throws exception if the giving account is not found.
-     *
-     * @param givingAccountId the id of the account that offers the deed
-     * @param subject the subject of the deed
-     * @param description the description of the deed
-     */
-    public void addOffer(UUID givingAccountId, String subject, String description) throws Exception {
-        Account givingAccount = fetchAccount(givingAccountId);
+    public void addOffer(String subject, String description) {
+        Account givingAccount = fetchAccount(loggedinAccount.getId());
         Deed newDeed = new Deed(givingAccount, subject, description);
         deeds.add(newDeed);
     }
 
-    private Account fetchAccount(UUID id) throws Exception {
+    private Account fetchAccount(UUID id) {
         for (int i = 0; i < accounts.size(); i++) {
             if (accounts.get(i).getId() == id) {
                 return accounts.get(i);
             }
         }
-        throw new Exception("Invalid account id");
+        return null;
     }
 
     public List<Deed> getDeeds() {
