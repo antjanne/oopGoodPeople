@@ -54,11 +54,17 @@ public class CreateOffer extends AppCompatActivity {
             sendError(R.id.subjectLayout, R.string.invalidSubject);
             returnValue = false;
 
+        } else {
+            removeError(R.id.subjectLayout);
         }
+
         if (description == null || description.trim().isEmpty()) {
             sendError(R.id.descriptionLayout, R.string.invalidDescription);
             returnValue = false;
+        } else {
+            removeError(R.id.descriptionLayout);
         }
+
         return returnValue;
     }
 
@@ -66,6 +72,11 @@ public class CreateOffer extends AppCompatActivity {
         TextInputLayout layout = findViewById(textInputLayout);
         layout.setError(getString(errorCodeId));
 
+    }
+
+    private void removeError(int textInputLayout) {
+        TextInputLayout layout = findViewById(textInputLayout);
+        layout.setError(null);
     }
 
     public void goBack(View view) {
