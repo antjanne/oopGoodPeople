@@ -16,4 +16,6 @@ public interface AccountRepository {
 
     void updatePassword(String newPassword);
 
+    boolean validateEmail(String email);
+
 }

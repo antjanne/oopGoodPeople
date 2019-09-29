@@ -44,10 +44,10 @@ public class EditAccountPassword extends ViewTemplate {
 
     private void setError(String oldPassword, String newPassword) {
         if (!accountController.accountHandler().getPassword().equals(oldPassword)) {
-            sendError(R.id.edit_password_old_password_layout, R.string.invalidPassword);
+            sendError(R.id.edit_password_old_password_layout, R.string.invalid_password);
         }
         if (newPassword.trim().isEmpty()) {
-            sendError(R.id.edit_password_new_password_layout, R.string.invalidPassword);
+            sendError(R.id.edit_password_new_password_layout, R.string.invalid_password);
         }
 
 

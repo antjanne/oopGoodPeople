@@ -20,6 +20,10 @@ public class AccountController {
         return accountRepository.validateLogin(email, password);
     }
 
+    public boolean emailValidationHandler(String email) {
+        return accountRepository.validateEmail(email);
+    }
+
     public void login(String email, String password) {
         accountRepository.login(email, password);
     }

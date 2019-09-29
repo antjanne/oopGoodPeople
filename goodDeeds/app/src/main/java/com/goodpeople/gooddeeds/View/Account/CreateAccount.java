@@ -30,7 +30,7 @@ public class CreateAccount extends ViewTemplate {
 
         if (validateAccountData()) {
             accountController.createAccount(name, postalCode, email, password);
-            finish();
+            this.finish();
 
         } else {
             handleError();
@@ -53,31 +53,31 @@ public class CreateAccount extends ViewTemplate {
     }
 
     private boolean validateAccountData() {
-        return (!name.trim().isEmpty() && validateEmail(email) &&
+        return (!name.trim().isEmpty() && validateEmail(email) && accountController.emailValidationHandler(email) &&
                 validatePostalCode(postalCode) && !password.trim().isEmpty());
     }
 
     private void handleError() {
         if (name.trim().isEmpty()) {
-            sendError(R.id.nameLayout, R.string.invalidName);
+            sendError(R.id.nameLayout, R.string.invalid_name);
         } else {
             removeError(R.id.nameLayout);
         }
 
-        if (!validateEmail(email)) {
-            sendError(R.id.emailLayout, R.string.invalidEmail);
+        if (!validateEmail(email) || !accountController.emailValidationHandler(email)) {
+            sendError(R.id.emailLayout, R.string.invalid_email);
         } else {
             removeError(R.id.emailLayout);
         }
 
         if (!validatePostalCode(postalCode)) {
-            sendError(R.id.postal_codeLayout, R.string.invalidPostalCode);
+            sendError(R.id.postal_codeLayout, R.string.invalid_postal_code);
         } else {
             removeError(R.id.postal_codeLayout);
         }
 
         if (password.trim().isEmpty()) {
-            sendError(R.id.passwordLayout, R.string.invalidPassword);
+            sendError(R.id.passwordLayout, R.string.invalid_password);
         } else {
             removeError(R.id.passwordLayout);
         }

@@ -50,6 +50,15 @@ public class GoodDeeds {
         return false;
     }
 
+    public boolean validateEmail(String email) {
+        for (Account account : accounts) {
+            if (account.getEmail().equals(email)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public boolean isLoggedIn() {
         return loggedinAccount != null;
     }
@@ -60,5 +69,22 @@ public class GoodDeeds {
 
     public void updatePassword(String newPassword) {
         loggedinAccount.setPassword(newPassword);
+    }
+
+    /**
+     * Creates a offer with the currently logged in account as giving account.
+     * A user has to be logged in before calling this method.
+     *
+     * @param subject     The subject of the offer
+     * @param description The description of the offer
+     */
+    public void createOffer(String subject, String description) {
+        Account givingAccount = loggedinAccount;
+        Deed newDeed = new Deed(givingAccount, subject, description);
+        deeds.add(newDeed);
+    }
+
+    public List<Deed> getDeeds() {
+        return deeds;
     }
 }

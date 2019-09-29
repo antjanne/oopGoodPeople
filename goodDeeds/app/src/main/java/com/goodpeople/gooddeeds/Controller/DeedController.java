@@ -10,4 +10,8 @@ public class DeedController {
 
     public DeedController() {
     }
+
+    public void createOfferHandler(String subject, String description) {
+        deedRepository.createOffer(subject, description);
+    }
 }

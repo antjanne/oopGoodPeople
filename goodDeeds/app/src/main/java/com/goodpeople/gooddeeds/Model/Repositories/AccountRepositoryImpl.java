@@ -37,5 +37,10 @@ public class AccountRepositoryImpl implements AccountRepository {
         goodDeeds.updatePassword(newPassword);
     }
 
+    @Override
+    public boolean validateEmail(String email) {
+        return goodDeeds.validateEmail(email);
+    }
+
 
 }

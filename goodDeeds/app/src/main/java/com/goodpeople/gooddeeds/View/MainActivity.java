@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
@@ -56,7 +58,15 @@ public class MainActivity extends AppCompatActivity {
             Intent myIntent = new Intent(this, AccountDetails.class);
             startActivity(myIntent);
         }
+    }
 
+    public void createOffer(View view) {
+        if (accountController.isLoggedIn()) {
+            Intent myIntent = new Intent(this, CreateOffer.class);
+            startActivity(myIntent);
+        } else {
+            login();
+        }
     }
 
 
