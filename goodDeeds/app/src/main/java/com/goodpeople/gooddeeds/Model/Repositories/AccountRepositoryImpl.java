@@ -13,11 +13,6 @@ public class AccountRepositoryImpl implements AccountRepository {
     }
 
     @Override
-    public boolean validateAccountEmail(String email) {
-        return goodDeeds.validateAccountEmail(email);
-    }
-
-    @Override
     public void login(String email, String password) {
         goodDeeds.login(email, password);
     }
@@ -35,6 +30,11 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public Account getAccount() {
         return goodDeeds.getAccount();
+    }
+
+    @Override
+    public void updatePassword(String newPassword) {
+        goodDeeds.updatePassword(newPassword);
     }
 
 

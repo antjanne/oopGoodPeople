@@ -6,8 +6,6 @@ public interface AccountRepository {
 
     void createAccount(String name, int postalCode, String email, String password);
 
-    boolean validateAccountEmail(String email);
-
     void login(String email, String password);
 
     boolean validateLogin(String email, String password);
@@ -15,5 +13,7 @@ public interface AccountRepository {
     boolean isLoggedIn();
 
     Account getAccount();
+
+    void updatePassword(String newPassword);
 
 }

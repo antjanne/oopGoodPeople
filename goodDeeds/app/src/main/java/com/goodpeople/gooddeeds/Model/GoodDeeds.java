@@ -15,7 +15,7 @@ public class GoodDeeds {
     private Account loggedinAccount;
 
     private GoodDeeds() {
-        loggedinAccount = new Account("rm", 41412, "rm@rm.se", "rm");
+        accounts.add(new Account("rm", 41412, "rm@rm.se", "rm"));
     }
 
     public static GoodDeeds getGoodDeeds() {
@@ -31,17 +31,6 @@ public class GoodDeeds {
 
     public void createAccount(String name, int postalCode, String email, String password) {
         accounts.add(new Account(name, postalCode, email, password));
-    }
-
-    public boolean validateAccountEmail(String email) {
-        for (Account account :
-                accounts) {
-            if (account.getEmail().equals(email)) {
-                return true;
-            }
-        }
-        return false;
-
     }
 
     public void login(String email, String password) {
@@ -67,5 +56,9 @@ public class GoodDeeds {
 
     public Account getAccount() {
         return this.loggedinAccount;
+    }
+
+    public void updatePassword(String newPassword) {
+        loggedinAccount.setPassword(newPassword);
     }
 }

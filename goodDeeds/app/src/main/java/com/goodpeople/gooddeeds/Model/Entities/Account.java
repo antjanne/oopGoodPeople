@@ -1,9 +1,7 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
-import java.util.UUID;
-
 public class Account {
-    private final UUID id;
+
     private String name;
     private int postalCode;
     private String email;
@@ -11,15 +9,10 @@ public class Account {
 
 
     public Account(String name, int postalCode, String email, String password) {
-        this.id = UUID.randomUUID();
         this.name = name;
         this.postalCode = postalCode;
         this.email = email;
         this.password = password;
-    }
-
-    public UUID getId() {
-        return id;
     }
 
 

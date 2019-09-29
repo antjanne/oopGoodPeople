@@ -16,10 +16,6 @@ public class AccountController {
         accountRepository.createAccount(name, postalCode, email, password);
     }
 
-    public boolean validateAccountEmail(String email) {
-        return accountRepository.validateAccountEmail(email);
-    }
-
     public boolean validateLogin(String email, String password) {
         return accountRepository.validateLogin(email, password);
     }
@@ -34,5 +30,9 @@ public class AccountController {
 
     public Account accountHandler() {
         return accountRepository.getAccount();
+    }
+
+    public void updatePasswordHandler(String newPassword) {
+        accountRepository.updatePassword(newPassword);
     }
 }

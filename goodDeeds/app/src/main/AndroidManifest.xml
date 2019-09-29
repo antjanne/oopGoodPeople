@@ -16,10 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.CreateAccount"></activity>
-        <activity android:name=".View.Login"></activity>
-        <activity android:name=".View.AccountDetails"></activity>
-        <activity android:name=".View.EditAccount"></activity>
+        <activity android:name=".View.Account.CreateAccount"></activity>
+        <activity android:name=".View.Account.Login"></activity>
+        <activity android:name=".View.Account.AccountDetails"></activity>
+        <activity android:name=".View.Account.EditAccount"></activity>
+        <activity android:name=".View.Account.EditAccountPassword"></activity>
     </application>
 
 </manifest>

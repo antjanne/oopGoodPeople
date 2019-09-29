@@ -11,6 +11,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.goodpeople.gooddeeds.Controller.AccountController;
 import com.goodpeople.gooddeeds.R;
+import com.goodpeople.gooddeeds.View.Account.AccountDetails;
+import com.goodpeople.gooddeeds.View.Account.Login;
 
 public class MainActivity extends AppCompatActivity {
 
