@@ -53,7 +53,7 @@ public class CreateAccount extends ViewTemplate {
     }
 
     private boolean validateAccountData() {
-        return (!name.trim().isEmpty() && validateEmail(email) && accountController.emailValidationHandler(email) &&
+        return (!name.trim().isEmpty() && validateEmail(email) && !accountController.isEmailUsedHandler(email) &&
                 validatePostalCode(postalCode) && !password.trim().isEmpty());
     }
 
@@ -64,7 +64,7 @@ public class CreateAccount extends ViewTemplate {
             removeError(R.id.nameLayout);
         }
 
-        if (!validateEmail(email) || !accountController.emailValidationHandler(email)) {
+        if (!validateEmail(email) || accountController.isEmailUsedHandler(email)) {
             sendError(R.id.emailLayout, R.string.invalid_email);
         } else {
             removeError(R.id.emailLayout);

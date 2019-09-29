@@ -38,8 +38,8 @@ public class AccountRepositoryImpl implements AccountRepository {
     }
 
     @Override
-    public boolean validateEmail(String email) {
-        return goodDeeds.validateEmail(email);
+    public boolean isEmailUsed(String email) {
+        return goodDeeds.isEmailUsed(email);
     }
 
 

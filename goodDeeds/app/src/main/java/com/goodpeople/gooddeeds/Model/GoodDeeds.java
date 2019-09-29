@@ -50,13 +50,13 @@ public class GoodDeeds {
         return false;
     }
 
-    public boolean validateEmail(String email) {
+    public boolean isEmailUsed(String email) {
         for (Account account : accounts) {
             if (account.getEmail().equals(email)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public boolean isLoggedIn() {

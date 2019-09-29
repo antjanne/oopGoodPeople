@@ -50,4 +50,14 @@ public class AccountRepositoryImplTest {
         repositoryTest.updatePassword("nyttpass");
         Assert.assertEquals(repositoryTest.getAccount().getPassword(), "nyttpass");
     }
+
+    @Test
+    public void shouldValidateIfEmailIsAlreadyUsedReturnFalse() {
+        Assert.assertFalse(repositoryTest.isEmailUsed("notUsed@email.se"));
+    }
+
+    @Test
+    public void shouldValidateIfEmailIsAlreadyUsedReturnTrue() {
+        Assert.assertTrue(repositoryTest.isEmailUsed("rm@rm.se"));
+    }
 }

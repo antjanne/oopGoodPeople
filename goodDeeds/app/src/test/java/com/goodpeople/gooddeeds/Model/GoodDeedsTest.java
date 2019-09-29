@@ -76,5 +76,15 @@ public class GoodDeedsTest {
     public void createOfferShouldStoreDescription() {
         assertEquals("Description", goodDeeds.getDeeds().get(0).getDescription());
     }
+
+    @Test
+    public void shouldValidateIfEmailIsAlreadyUsedReturnTrue() {
+        Assert.assertTrue(goodDeeds.isEmailUsed("test@test.com"));
+    }
+
+    @Test
+    public void shouldValidateIfEmailIsAlreadyUsedReturnFalse() {
+        Assert.assertFalse(goodDeeds.isEmailUsed("notUsed@email.se"));
+    }
 }
 

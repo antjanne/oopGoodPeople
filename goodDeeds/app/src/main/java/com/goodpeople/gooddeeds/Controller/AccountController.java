@@ -20,8 +20,8 @@ public class AccountController {
         return accountRepository.validateLogin(email, password);
     }
 
-    public boolean emailValidationHandler(String email) {
-        return accountRepository.validateEmail(email);
+    public boolean isEmailUsedHandler(String email) {
+        return accountRepository.isEmailUsed(email);
     }
 
     public void login(String email, String password) {
