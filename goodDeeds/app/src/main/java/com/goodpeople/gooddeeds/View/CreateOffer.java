@@ -51,7 +51,7 @@ public class CreateOffer extends AppCompatActivity {
         boolean returnValue = true;
 
         if (subject == null || subject.trim().isEmpty()) {
-            sendError(R.id.subjectLayout, R.string.invalidSubject);
+            sendError(R.id.subjectLayout, R.string.invalid_subject);
             returnValue = false;
 
         } else {
@@ -59,7 +59,7 @@ public class CreateOffer extends AppCompatActivity {
         }
 
         if (description == null || description.trim().isEmpty()) {
-            sendError(R.id.descriptionLayout, R.string.invalidDescription);
+            sendError(R.id.descriptionLayout, R.string.invalid_description);
             returnValue = false;
         } else {
             removeError(R.id.descriptionLayout);

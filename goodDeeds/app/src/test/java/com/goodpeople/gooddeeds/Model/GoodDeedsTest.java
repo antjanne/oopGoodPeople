@@ -25,16 +25,16 @@ public class GoodDeedsTest {
 
     @Test
     public void createOfferShouldBeAddedToOffers() {
-        assertTrue(gd.getDeeds().size() == 1);
+        assertEquals(1, gd.getDeeds().size());
     }
 
     @Test
     public void createOfferShouldStoreSubject() {
-        assertTrue(gd.getDeeds().get(0).getSubject() == "Subject");
+        assertEquals("Subject", gd.getDeeds().get(0).getSubject());
     }
 
     @Test
     public void createOfferShouldStoreDescription() {
-        assertTrue(gd.getDeeds().get(0).getDescription() == "Description");
+        assertEquals("Description", gd.getDeeds().get(0).getDescription());
     }
 }

@@ -73,22 +73,22 @@ public class CreateAccount extends AppCompatActivity {
         boolean returnValue = true;
 
         if (name == null || name.trim().isEmpty()) {
-            sendError(R.id.nameLayout, R.string.invalidName);
+            sendError(R.id.nameLayout, R.string.invalid_name);
             returnValue = false;
 
         }
         if (email == null || email.trim().isEmpty() || !email.contains("@") || accountController.validateAccountEmail(email)) {
-            sendError(R.id.emailLayout, R.string.invalidEmail);
+            sendError(R.id.emailLayout, R.string.invalid_email);
             returnValue = false;
 
         }
         if (postalCode == null || postalCode.length() != 5) {
-            sendError(R.id.postal_codeLayout, R.string.invalidPostalCode);
+            sendError(R.id.postal_codeLayout, R.string.invalid_postal_code);
             returnValue = false;
 
         }
         if (password == null || password.isEmpty()) {
-            sendError(R.id.passwordLayout, R.string.invalidPassword);
+            sendError(R.id.passwordLayout, R.string.invalid_password);
             returnValue = false;
         }
         return returnValue;
