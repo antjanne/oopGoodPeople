@@ -16,11 +16,7 @@ import com.goodpeople.gooddeeds.R;
 
 public class ViewOffer extends AppCompatActivity {
 
-    DeedController deedController = new DeedController();
-    //temporary test account. Should just be Deed.
-    private Account account = new Account("Bob", 123, "test@email.com", "123");
-    private Deed deed = new Deed(account, "Subject Title", "Description description");
-
+    private Deed deed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +40,6 @@ public class ViewOffer extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
-
-    /*public void viewOffer(View view) {
-        TextView subject = findViewById(R.id.deedSubject);
-        subject.setText(deed.getSubject());
-        TextView description = findViewById(R.id.deedDescription);
-        description.setText(deed.getDescription());
-    }*/
 
     }
 }
