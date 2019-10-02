@@ -1,7 +1,10 @@
 package com.goodpeople.gooddeeds.Controller;
 
+import com.goodpeople.gooddeeds.Model.Entities.Deed;
 import com.goodpeople.gooddeeds.Model.Repositories.DeedRepository;
 import com.goodpeople.gooddeeds.Model.Repositories.DeedRepositoryImpl;
+
+import java.util.List;
 
 public class DeedController {
 
@@ -11,7 +14,7 @@ public class DeedController {
     public DeedController() {
     }
 
-    public void getOffers(){
-        this.goodDeeds.getOffers();
+    public List<Deed> getOfferHandler(){
+        return(deedRepository.getDeeds());
     }
 }

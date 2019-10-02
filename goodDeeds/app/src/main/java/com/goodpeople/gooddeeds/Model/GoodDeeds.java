@@ -15,6 +15,14 @@ public class GoodDeeds {
     private Account loggedinAccount;
 
     private GoodDeeds() {
+        Account a = new Account("anton",30597,"anton46304@gmail.com","haha");
+        accounts.add(a);
+        loggedinAccount = a;
+
+        Deed d = new Deed(a,"I can cut your grass","I am a friendly soul");
+        deeds.add(d);
+        Deed f = new Deed(a,"I can cut your grass","I am a friendly soullll");
+        deeds.add(f);
     }
 
     public static GoodDeeds getGoodDeeds() {
@@ -64,5 +72,9 @@ public class GoodDeeds {
 
     public boolean isLoggedIn() {
         return loggedinAccount != null;
+    }
+
+    public List<Deed> getDeeds() {
+        return deeds;
     }
 }
