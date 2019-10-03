@@ -9,7 +9,7 @@ public interface DeedRepository {
 
      List<Deed> getDeeds();
 
-     List<Deed> getMyDeeds();
+     List<Deed> getMyOffers();
 
      void createOffer(String subject, String description);
 }

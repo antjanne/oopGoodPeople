@@ -16,8 +16,8 @@ public class DeedRepositoryImpl implements DeedRepository {
     }
 
     @Override
-    public List<Deed> getMyDeeds() {
-        return goodDeeds.getMyDeeds();
+    public List<Deed> getMyOffers() {
+        return goodDeeds.getMyOffers();
     }
     @Override
     public void createOffer(String subject, String description) {

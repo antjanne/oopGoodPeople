@@ -15,12 +15,12 @@ public class DeedController {
     }
 
 
-    public List<Deed> getOfferHandler(){
+    public List<Deed> showOffersHandler(){
         return(deedRepository.getDeeds());
     }
 
-    public List<Deed> getMyDeedsHandler() {
-        return (deedRepository.getMyDeeds());
+    public List<Deed> showMyOffersHandler() {
+        return (deedRepository.getMyOffers());
     }
     public void createOfferHandler(String subject, String description) {
         deedRepository.createOffer(subject, description);

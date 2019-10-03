@@ -29,7 +29,7 @@ public class ActiveOffersActivity extends AppCompatActivity {
         mRecyclerView =findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new DeedAdapter(controller.getMyDeedsHandler());
+        mAdapter = new DeedAdapter(controller.showMyOffersHandler());
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
