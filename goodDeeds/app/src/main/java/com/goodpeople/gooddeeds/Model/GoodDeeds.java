@@ -70,6 +70,18 @@ public class GoodDeeds {
         return false;
     }
 
+    public List<Deed> getMyDeeds(){
+        List<Deed> myDeeds = new ArrayList<>();
+        List<Deed> allDeeds = getDeeds();
+
+        for(int a = 0; a < allDeeds.size(); a++){
+            if(loggedinAccount == allDeeds.get(a).getGivingAccount()){
+                myDeeds.add(allDeeds.get(a));
+            }
+        }
+        return (myDeeds);
+    }
+
     public boolean isLoggedIn() {
         return loggedinAccount != null;
     }

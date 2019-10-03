@@ -17,4 +17,8 @@ public class DeedController {
     public List<Deed> getOfferHandler(){
         return(deedRepository.getDeeds());
     }
+
+    public List<Deed> getMyDeedsHandler(){
+        return(deedRepository.getMyDeeds());
+    }
 }

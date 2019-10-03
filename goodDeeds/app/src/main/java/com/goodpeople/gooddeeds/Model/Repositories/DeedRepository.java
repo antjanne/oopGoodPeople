@@ -6,5 +6,8 @@ import java.util.List;
 
 public interface DeedRepository {
 
-    public List<Deed> getDeeds();
+     List<Deed> getDeeds();
+
+     List<Deed> getMyDeeds();
+
 }
