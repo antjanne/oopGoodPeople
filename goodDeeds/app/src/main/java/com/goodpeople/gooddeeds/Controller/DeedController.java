@@ -33,5 +33,9 @@ public class DeedController {
         return deed.getDescription();
     }
 
+    public UUID getDeedID() {
+        return deed.getId();
+    }
+
 
 }

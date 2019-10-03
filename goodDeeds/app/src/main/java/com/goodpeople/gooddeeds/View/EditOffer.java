@@ -32,7 +32,7 @@ public class EditOffer extends AppCompatActivity {
             public void onClick(View v) {
                 EditText subjectEditText = findViewById(R.id.subjectEditText);
                 EditText descriptionEditText = findViewById(R.id.descriptionEditText);
-                deedController.editOffer(id, subjectEditText.toString(), descriptionEditText.toString());
+                deedController.editOffer(deedController.getDeedID(), subjectEditText.toString(), descriptionEditText.toString());
                 finish();
 
             }
