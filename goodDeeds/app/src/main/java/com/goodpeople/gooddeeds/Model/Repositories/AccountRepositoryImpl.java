@@ -42,5 +42,10 @@ public class AccountRepositoryImpl implements AccountRepository {
         return goodDeeds.isEmailUsed(email);
     }
 
+    @Override
+    public void editAccount(String name, String email, int postalCode) {
+        goodDeeds.editAccount(name, email, postalCode);
+    }
+
 
 }

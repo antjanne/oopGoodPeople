@@ -87,4 +87,10 @@ public class GoodDeeds {
     public List<Deed> getDeeds() {
         return deeds;
     }
+
+    public void editAccount(String name, String email, int postalCode) {
+        loggedinAccount.setName(name);
+        loggedinAccount.setEmail(email);
+        loggedinAccount.setPostalCode(postalCode);
+    }
 }

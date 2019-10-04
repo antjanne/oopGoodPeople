@@ -18,4 +18,6 @@ public interface AccountRepository {
 
     boolean isEmailUsed(String email);
 
+    void editAccount(String name, String email, int postalCode);
+
 }

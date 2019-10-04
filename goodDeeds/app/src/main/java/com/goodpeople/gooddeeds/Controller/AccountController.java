@@ -39,4 +39,8 @@ public class AccountController {
     public void updatePasswordHandler(String newPassword) {
         accountRepository.updatePassword(newPassword);
     }
+
+    public void editAccountHandler(String name, String email, int postalCode) {
+        accountRepository.editAccount(name, email, postalCode);
+    }
 }

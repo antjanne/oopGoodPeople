@@ -5,13 +5,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.goodpeople.gooddeeds.Model.Entities.Account;
+import com.goodpeople.gooddeeds.Controller.AccountController;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.View.ViewTemplate;
 
 import java.util.Locale;
 
 public class EditAccount extends ViewTemplate {
+
+    AccountController accountController;
 
     TextView nameView;
     TextView emailView;
@@ -21,14 +23,13 @@ public class EditAccount extends ViewTemplate {
     String email;
     int postalCode;
 
-    Account account;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.edit_account);
         super.onCreate(savedInstanceState);
 
-        account = accountController.accountHandler();
+        accountController.accountHandler();
         getTextViews();
         populateFields();
     }
@@ -40,9 +41,9 @@ public class EditAccount extends ViewTemplate {
     }
 
     public void populateFields() {
-        nameView.setText(account.getName());
-        emailView.setText(account.getEmail());
-        postalCodeView.setText(String.format(Locale.getDefault(), "%d", account.getPostalCode()));
+        nameView.setText(accountController.accountHandler().getName());
+        emailView.setText(accountController.accountHandler().getEmail());
+        postalCodeView.setText(String.format(Locale.getDefault(), "%d", accountController.accountHandler().getPostalCode()));
     }
 
 
@@ -50,9 +51,7 @@ public class EditAccount extends ViewTemplate {
         getFilledOutFields();
 
         if (validateEditedFields()) {
-            account.setName(name);
-            account.setEmail(email);
-            account.setPostalCode(postalCode);
+            accountController.editAccountHandler(name, email, postalCode);
             finish();
         } else {
             setError();
@@ -81,7 +80,7 @@ public class EditAccount extends ViewTemplate {
     }
 
     private boolean isEmailChanged() {
-        return !this.email.equals(account.getEmail());
+        return !this.email.equals(accountController.accountHandler().getEmail());
     }
 
 
