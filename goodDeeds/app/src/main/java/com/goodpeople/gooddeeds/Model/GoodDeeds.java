@@ -79,9 +79,9 @@ public class GoodDeeds {
     public List<Deed> getMyOffers(){
         List<Deed> myDeeds = new ArrayList<>();
 
-        for(int a = 0; a < deeds.size(); a++){
-            if(loggedinAccount == deeds.get(a).getGivingAccount()){
-                myDeeds.add(deeds.get(a));
+        for(Deed d : deeds){
+            if(loggedinAccount == d.getGivingAccount()){
+                myDeeds.add(d);
             }
         }
         return (myDeeds);
