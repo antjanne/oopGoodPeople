@@ -14,6 +14,14 @@ public class GoodDeeds {
     private Account loggedinAccount;
 
     private GoodDeeds() {
+        Account a = new Account("Anton",30597,"anton46304@gmail.com","ahah");
+        Deed d = new Deed(a,"Gräsklipp","Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
+        Deed d2 = new Deed(a,"Hårklipp","Jag klipper gärna håret på folk! Ge mig en pling vetja!");
+
+        accounts.add(a);
+        loggedinAccount = a;
+        deeds.add(d);
+        deeds.add(d2);
     }
 
     public static GoodDeeds getGoodDeeds() {
