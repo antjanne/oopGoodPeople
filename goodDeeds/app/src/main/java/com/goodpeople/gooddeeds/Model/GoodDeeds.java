@@ -14,14 +14,14 @@ public class GoodDeeds {
     private Account loggedinAccount;
 
     private GoodDeeds() {
-        Account a = new Account("Anton",30597,"anton46304@gmail.com","ahah");
+      /*  Account a = new Account("Anton",30597,"anton46304@gmail.com","ahah");
         Deed d = new Deed(a,"Gräsklipp","Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
         Deed d2 = new Deed(a,"Hårklipp","Jag klipper gärna håret på folk! Ge mig en pling vetja!");
 
         accounts.add(a);
         loggedinAccount = a;
         deeds.add(d);
-        deeds.add(d2);
+        deeds.add(d2);*/
     }
 
     public static GoodDeeds getGoodDeeds() {
@@ -69,13 +69,19 @@ public class GoodDeeds {
         return false;
     }
 
+    /**
+     * Creates a list of deeds with only the logged in account as owner of the deed.
+     * Filters all deeds to only the ones the logged in account is owner of.
+     * A user has to be logged in before calling this method.
+     *
+     * @return a list of deeds with logged in account as owner
+     */
     public List<Deed> getMyOffers(){
         List<Deed> myDeeds = new ArrayList<>();
-        List<Deed> allDeeds = getDeeds();
 
-        for(int a = 0; a < allDeeds.size(); a++){
-            if(loggedinAccount == allDeeds.get(a).getGivingAccount()){
-                myDeeds.add(allDeeds.get(a));
+        for(int a = 0; a < deeds.size(); a++){
+            if(loggedinAccount == deeds.get(a).getGivingAccount()){
+                myDeeds.add(deeds.get(a));
             }
         }
         return (myDeeds);

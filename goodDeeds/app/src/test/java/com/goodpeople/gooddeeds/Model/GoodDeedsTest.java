@@ -12,12 +12,18 @@ public class GoodDeedsTest {
 
     GoodDeeds gd;
     Deed deed;
-
+    Account loggedIn;
     @Before
     public void initialize(){
         gd = GoodDeeds.getGoodDeeds();
         gd.getAccounts().add(new Account("Test", 00000, "test@test.com", "123"));
+        gd.getAccounts().add(new Account("Test2",0000,"test2@test.com","123"));
         gd.createOffer("Subject", "Description");
+        gd.getDeeds().add(new Deed(gd.getAccounts().get(0),"Luras","Kan lura dina test"));
+        gd.getDeeds().add(new Deed(gd.getAccounts().get(1),"Diskar","Diskar dina diskar"));
+
+        gd.login("test@test.com", "123");
+        loggedIn = gd.getAccounts().get(0);
 
     }
 
@@ -48,10 +54,14 @@ public class GoodDeedsTest {
 
     @Test
     public void getAccounts() {
+        gd.createAccount("test3",0000,"test3@test3.com","123");
+        assertEquals(gd.getAccounts().size(),3);
     }
 
     @Test
     public void createAccount() {
+        gd.createAccount("test3",0000,"test3@test3.com","123");
+        assertEquals(gd.getAccounts().size(), 3);
 
     }
 
@@ -65,22 +75,28 @@ public class GoodDeedsTest {
 
     @Test
     public void validateLogin() {
+
+
     }
 
     @Test
     public void getMyOffers() {
+       assertEquals(gd.getMyOffers().size(),1);
+
     }
 
     @Test
     public void isLoggedIn() {
+        assertNotNull(loggedIn);
     }
 
     @Test
     public void createOffer() {
+    assertEquals(gd.getDeeds().size(),1);
     }
 
     @Test
     public void getDeeds() {
-
+    assertEquals(gd.getDeeds().size(),3);
     }
 }
