@@ -11,8 +11,7 @@ import java.util.UUID;
 public class DeedController {
 
     private DeedRepository deedRepository = new DeedRepositoryImpl();
-    private Account account = new Account("Olle", 41843, "olle@hotmail.com", "jajaja");
-    private Deed deed = new Deed(account, "Gräsklippning", "Will do");
+    private Deed deed;
 
 
     public DeedController() {

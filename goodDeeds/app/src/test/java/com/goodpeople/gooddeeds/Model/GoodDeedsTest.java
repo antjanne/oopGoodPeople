@@ -31,6 +31,7 @@ public class GoodDeedsTest {
 
     @After
     public void after() {
+        gd.getDeeds().remove(0);
         gd = null;
     }
 
