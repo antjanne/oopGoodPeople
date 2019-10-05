@@ -71,8 +71,8 @@ public class GoodDeeds {
      * @param description The description of the offer
      */
     public void createOffer(String subject, String description) {
-        Account givingAccount = loggedinAccount;
-        Deed newDeed = new Deed(givingAccount, subject, description);
+        Deed newDeed = new Deed();
+        newDeed.newOffer(loggedinAccount, subject, description);
         deeds.add(newDeed);
     }
 
