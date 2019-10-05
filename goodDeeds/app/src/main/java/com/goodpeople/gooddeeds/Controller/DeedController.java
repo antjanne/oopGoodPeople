@@ -24,7 +24,7 @@ public class DeedController {
     }
 
 
-    public void editOffer(Deed deed, String subject, String description) {
+    public void editOfferHandler(Deed deed, String subject, String description) {
         deedRepository.editOffer(deed, subject, description);
 
     }
