@@ -20,6 +20,11 @@ public class DeedController {
     }
 
 
+    public void createOfferHandler(String subject, String description) {
+        deedRepository.createOffer(subject, description);
+    }
+
+
     public void editOffer(Deed deed, String subject, String description) {
         deedRepository.editOffer(deed, subject, description);
 
@@ -32,8 +37,6 @@ public class DeedController {
     public String getDeedDescription() {
         return deed.getDescription();
     }
-
-
 
 
 }

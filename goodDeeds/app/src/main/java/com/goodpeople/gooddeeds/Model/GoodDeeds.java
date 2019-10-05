@@ -2,10 +2,9 @@ package com.goodpeople.gooddeeds.Model;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.Entities.Deed;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+
 
 public class GoodDeeds {
 
@@ -72,6 +71,20 @@ public class GoodDeeds {
 
 
     /**
+     * Creates a offer with the currently logged in account as giving account.
+     * A user has to be logged in before calling this method.
+     *
+     * @param subject The subject of the offer
+     * @param description The description of the offer
+     */
+    public void createOffer(String subject, String description) {
+        Account givingAccount = loggedinAccount;
+        Deed newDeed = new Deed(givingAccount, subject, description);
+        deeds.add(newDeed);
+    }
+
+
+    /**
      * Edits the subject and description of an already existing deed.
      * The logged in account must be the original creator of the deed.
      * @param deed The deed to be edited.
@@ -83,7 +96,5 @@ public class GoodDeeds {
             deed.setSubject(subject);
             deed.setDescription(description);
         }
-
-
     }
 }

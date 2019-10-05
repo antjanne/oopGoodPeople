@@ -12,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.goodpeople.gooddeeds.Controller.AccountController;
 import com.goodpeople.gooddeeds.R;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
@@ -57,7 +59,15 @@ public class MainActivity extends AppCompatActivity {
         } else {
 
         }
+    }
 
+    public void createOffer(View view) {
+        if (accountController.isLoggedIn()) {
+            Intent myIntent = new Intent(this, CreateOffer.class);
+            startActivity(myIntent);
+        } else {
+            login();
+        }
     }
 
 
