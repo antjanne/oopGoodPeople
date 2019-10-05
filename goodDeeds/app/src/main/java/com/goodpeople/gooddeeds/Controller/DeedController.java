@@ -20,8 +20,8 @@ public class DeedController {
     }
 
 
-    public void editOffer(UUID id, String subject, String description) {
-        deedRepository.editOffer(id, subject, description);
+    public void editOffer(Deed deed, String subject, String description) {
+        deedRepository.editOffer(deed, subject, description);
 
     }
 
@@ -33,9 +33,7 @@ public class DeedController {
         return deed.getDescription();
     }
 
-    public UUID getDeedID() {
-        return deed.getId();
-    }
+
 
 
 }

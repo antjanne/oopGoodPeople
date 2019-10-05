@@ -1,9 +1,10 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
-import java.util.UUID;
+import com.goodpeople.gooddeeds.Model.Entities.Deed;
+
 
 public interface DeedRepository {
 
-    void editOffer(UUID id, String subject, String description);
+    void editOffer(Deed deed, String subject, String description);
 
 }

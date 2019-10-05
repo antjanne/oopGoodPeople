@@ -66,14 +66,24 @@ public class GoodDeeds {
         return loggedinAccount != null;
     }
 
-    public void editOffer(UUID id, String subject, String description) {
-        for (int i = 0; i < deeds.size(); i++ ) {
-            if (deeds.get(i).getId() == id) {
-                deeds.get(i).setSubject(subject);
-                deeds.get(i).setDescription(description);
+    public List<Deed> getDeeds() {
+        return deeds;
+    }
 
-            }
-        } // System.out.println("Deed not found");
+
+    /**
+     * Edits the subject and description of an already existing deed.
+     * The logged in account must be the original creator of the deed.
+     * @param deed The deed to be edited.
+     * @param subject The subject of the deed.
+     * @param description the description of the deed.
+     */
+    public void editOffer(Deed deed, String subject, String description) {
+        if (deed.getGivingAccount() == loggedinAccount) {
+            deed.setSubject(subject);
+            deed.setDescription(description);
+        }
+
 
     }
 }
