@@ -4,20 +4,14 @@ import java.util.UUID;
 
 public class Deed {
 
-    private final UUID id;
     private Account givingAccount;
     private String subject;
     private String description;
 
     public Deed(Account givingAccount, String subject, String description) {
-        this.id = UUID.randomUUID();
         this.givingAccount = givingAccount;
         this.subject = subject;
         this.description = description;
-    }
-
-    public UUID getId() {
-        return id;
     }
 
     public Account getGivingAccount() {
