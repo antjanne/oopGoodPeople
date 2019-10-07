@@ -17,11 +17,7 @@ public class GoodDeedsTest {
     public void initialize(){
         gd = GoodDeeds.getGoodDeeds();
         gd.getAccounts().add(new Account("Test", 00000, "test@test.com", "123"));
-     //   gd.getAccounts().add(new Account("Test2",0000,"test2@test.com","123"));
         gd.createOffer("Subject", "Description");
-
-       // gd.getDeeds().add(new Deed(gd.getAccounts().get(0),"Luras","Kan lura dina test"));
-        //gd.getDeeds().add(new Deed(gd.getAccounts().get(1),"Diskar","Diskar dina diskar"));
 
     }
 
@@ -30,7 +26,6 @@ public class GoodDeedsTest {
 
         gd.getAccounts().clear();
         gd.getDeeds().clear();
-        gd = null;
     }
 
     @Test

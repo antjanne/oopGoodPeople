@@ -28,8 +28,6 @@ public class DeedControllerTest {
     public void after(){
         deedController.showOffersHandler().clear();
         goodDeeds.getDeeds().clear();
-        System.out.println(goodDeeds.getDeeds().size());
-        goodDeeds = null;
     }
 
     @Test
