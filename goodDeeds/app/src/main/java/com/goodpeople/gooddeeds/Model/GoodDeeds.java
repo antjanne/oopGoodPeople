@@ -100,9 +100,8 @@ public class GoodDeeds {
      * @param description The description of the offer
      */
     public void createOffer(String subject, String description) {
-        Deed newDeed = new Deed();
-        newDeed.newOffer(loggedinAccount, subject, description);
-        deeds.add(newDeed);
+        Deed newOffer = Deed.newOffer(loggedinAccount, subject, description);
+        deeds.add(newOffer);
     }
 
 

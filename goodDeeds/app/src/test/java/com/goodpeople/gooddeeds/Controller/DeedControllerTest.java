@@ -19,9 +19,9 @@ public class DeedControllerTest {
     public void initialize() {
         deedController = new DeedController();
         goodDeeds = GoodDeeds.getGoodDeeds();
-        goodDeeds.createOffer("test","test");
         goodDeeds.createAccount("Test",0000,"test@test.se","123");
-        goodDeeds.getDeeds().add(new Deed(goodDeeds.getAccounts().get(0),"test","test"));
+        goodDeeds.login("test@test.se","123");
+        goodDeeds.createOffer("test","test");
     }
 
     @After

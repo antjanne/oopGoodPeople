@@ -7,19 +7,23 @@ public class Deed {
     private String subject;
     private String description;
 
-    public Deed() {
+    private Deed() {
     }
 
-    public void newOffer(Account givingAccount, String subject, String description) {
-        setGivingAccount(givingAccount);
-        setSubject(subject);
-        setDescription(description);
+    public static Deed newOffer(Account givingAccount, String subject, String description) {
+        Deed d = new Deed();
+        d.setGivingAccount(givingAccount);
+        d.setSubject(subject);
+        d.setDescription(description);
+        return d;
     }
 
-    public void newRequest(Account receivingAccount, String subject, String description) {
-        setReceivingAccount(receivingAccount);
-        setSubject(subject);
-        setDescription(description);
+    public static Deed newRequest(Account receivingAccount, String subject, String description) {
+        Deed d = new Deed();
+        d.setReceivingAccount(receivingAccount);
+        d.setSubject(subject);
+        d.setDescription(description);
+        return d;
     }
 
     public Account getGivingAccount() {
