@@ -1,12 +1,9 @@
 package com.goodpeople.gooddeeds.Controller;
 
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
 import com.goodpeople.gooddeeds.Model.GoodDeeds;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class DeedControllerTest {
@@ -14,14 +11,16 @@ public class DeedControllerTest {
     DeedController deedController;
     GoodDeeds goodDeeds;
 
-
     @Before
     public void initialize() {
         deedController = new DeedController();
         goodDeeds = GoodDeeds.getGoodDeeds();
-        goodDeeds.createAccount("Test",0000,"test@test.se","123");
-        goodDeeds.login("test@test.se","123");
-        goodDeeds.createOffer("test","test");
+        goodDeeds.createAccount("Test1",0000,"test1@test.se","123");
+        goodDeeds.createAccount("Test2",0000,"test2@test.se","123");
+        goodDeeds.login("test1@test.se","123");
+        deedController.createOfferHandler("test","test");
+        goodDeeds.login("test2@test.se","123");
+        deedController.createOfferHandler("test","test");
     }
 
     @After
@@ -43,7 +42,6 @@ public class DeedControllerTest {
 
     @Test
     public void createOfferHandler() {
-        deedController.createOfferHandler("test","test");
-        assertEquals(goodDeeds.getDeeds().size(),3);
+        assertEquals(goodDeeds.getDeeds().size(),2);
     }
 }
