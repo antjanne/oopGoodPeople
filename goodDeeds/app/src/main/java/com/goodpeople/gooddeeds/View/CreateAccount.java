@@ -110,7 +110,8 @@ public class CreateAccount extends AppCompatActivity {
             Intent myIntent = new Intent(this, Login.class);
             startActivityForResult(myIntent, 0);
         } else {
-
+            Intent intent = new Intent(this, ActiveOffersActivity.class);
+            startActivity(intent);
         }
 
     }
