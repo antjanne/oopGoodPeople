@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Good Deeds</string>
+
+    <string name="BACK">BACK</string>
+    <string name="OFFER">MyOffer</string>
+    <string name="username">MyName</string>
+
     <string name="create_account">Create Account</string>
     <string name="create_account_name">Name</string>
     <string name="create_account_postal_code">Postal Code</string>
@@ -19,5 +24,6 @@
     <string name="new_offer_description">Description</string>
     <string name="invalid_subject">Subject is missing</string>
     <string name="invalid_description">Description is missing</string>
+
 
 </resources>

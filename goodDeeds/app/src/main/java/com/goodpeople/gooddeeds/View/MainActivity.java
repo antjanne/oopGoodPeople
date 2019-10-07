@@ -7,6 +7,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.View;
+
 import androidx.appcompat.widget.Toolbar;
 
 import com.goodpeople.gooddeeds.Controller.AccountController;
@@ -48,11 +51,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void activeOffers(View view) {
+        Intent intent = new Intent(MainActivity.this, ActiveOffersActivity.class);
+        startActivity(intent);
+    }
+
+
     public void login() {
         if (!accountController.isLoggedIn()) {
             Intent myIntent = new Intent(this, Login.class);
             startActivity(myIntent);
         } else {
+            Intent intent = new Intent(this, ActiveOffersActivity.class);
+            startActivity(intent);
 
         }
     }
@@ -65,6 +76,5 @@ public class MainActivity extends AppCompatActivity {
             login();
         }
     }
-
 
 }
