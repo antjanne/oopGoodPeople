@@ -45,7 +45,7 @@ public class CreateAccount extends ViewTemplate {
         this.email = editTextEmail.getText().toString();
 
         EditText editTextPostalCode = findViewById(R.id.postal_code);
-        if (editTextPostalCode.getText().toString().length() != 0) {
+        if (!editTextPostalCode.getText().toString().trim().isEmpty()) {
             this.postalCode = Integer.parseInt(editTextPostalCode.getText().toString());
         }
         EditText editTextPassword = findViewById(R.id.password);
@@ -53,8 +53,8 @@ public class CreateAccount extends ViewTemplate {
     }
 
     private boolean validateAccountData() {
-        return (!name.trim().isEmpty() && validateEmail(email) && !accountController.isEmailUsedHandler(email) &&
-                validatePostalCode(postalCode) && !password.trim().isEmpty());
+        return (!name.trim().isEmpty() && isEmailValid(email) && !accountController.isEmailUsedHandler(email) &&
+                isPostalCodeValid(postalCode) && !password.trim().isEmpty());
     }
 
     private void handleError() {
@@ -64,13 +64,13 @@ public class CreateAccount extends ViewTemplate {
             removeError(R.id.nameLayout);
         }
 
-        if (!validateEmail(email) || accountController.isEmailUsedHandler(email)) {
+        if (!isEmailValid(email) || accountController.isEmailUsedHandler(email)) {
             sendError(R.id.emailLayout, R.string.invalid_email);
         } else {
             removeError(R.id.emailLayout);
         }
 
-        if (!validatePostalCode(postalCode)) {
+        if (!isPostalCodeValid(postalCode)) {
             sendError(R.id.postal_codeLayout, R.string.invalid_postal_code);
         } else {
             removeError(R.id.postal_codeLayout);

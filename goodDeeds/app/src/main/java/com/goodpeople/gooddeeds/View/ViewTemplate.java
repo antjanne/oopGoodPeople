@@ -36,14 +36,14 @@ public abstract class ViewTemplate extends AppCompatActivity {
         return super.onOptionsItemSelected(menuItem);
     }
 
-    public boolean validateEmail(String email) {
-        if (!email.contains("@") || !email.contains(".")) {
-            return false;
+    public boolean isEmailValid(String email) {
+        if (email.contains("@") && email.contains(".")) {
+            return true;
         }
         return true;
     }
 
-    public boolean validatePostalCode(Integer postalCode) {
+    public boolean isPostalCodeValid(Integer postalCode) {
         return (postalCode != null && postalCode.toString().length() == 5);
 
     }

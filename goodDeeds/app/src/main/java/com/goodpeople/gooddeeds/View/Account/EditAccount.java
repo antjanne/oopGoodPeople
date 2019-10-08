@@ -63,16 +63,20 @@ public class EditAccount extends ViewTemplate {
         email = editTextEmail.getText().toString();
 
         EditText editTextPostalCode = findViewById(R.id.account_edit_postal_code);
-        postalCode = Integer.valueOf(editTextPostalCode.getText().toString().trim());
+        if (!editTextPostalCode.getText().toString().trim().isEmpty()) {
+            postalCode = Integer.valueOf(editTextPostalCode.getText().toString().trim());
+        } else {
+            postalCode = 0;
+        }
     }
 
     private boolean validateEditedFields() {
         if (isEmailChanged()) {
-            return (!accountController.isEmailUsedHandler(this.email) || name.trim().isEmpty() || validateEmail(email) ||
-                    validatePostalCode(postalCode));
+            return (!accountController.isEmailUsedHandler(email) || name.trim().isEmpty() || isEmailValid(email) ||
+                    isPostalCodeValid(postalCode));
         } else {
             return (name.trim().isEmpty() ||
-                    validatePostalCode(postalCode));
+                    isPostalCodeValid(postalCode));
         }
     }
 
@@ -83,22 +87,22 @@ public class EditAccount extends ViewTemplate {
 
     private void setError() {
         if (name.trim().isEmpty()) {
-            sendError(R.id.nameLayout, R.string.invalid_name);
+            sendError(R.id.account_edit_name_layout, R.string.invalid_name);
         } else {
-            removeError(R.id.nameLayout);
+            removeError(R.id.account_edit_name_layout);
         }
 
-        if (validateEmail(email)) {
-            sendError(R.id.emailLayout, R.string.invalid_email);
+        if (!isEmailValid(email)) {
+            sendError(R.id.account_edit_email_layout, R.string.invalid_email);
 
         } else {
-            removeError(R.id.emailLayout);
+            removeError(R.id.account_edit_email_layout);
         }
-        if (validatePostalCode(postalCode)) {
-            sendError(R.id.postal_codeLayout, R.string.invalid_postal_code);
+        if (!isPostalCodeValid(postalCode)) {
+            sendError(R.id.account_edit_postal_code_layout, R.string.invalid_postal_code);
 
         } else {
-            removeError(R.id.postal_codeLayout);
+            removeError(R.id.account_edit_postal_code_layout);
         }
     }
 }
