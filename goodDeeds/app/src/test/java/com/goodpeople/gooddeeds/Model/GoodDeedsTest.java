@@ -1,7 +1,6 @@
 package com.goodpeople.gooddeeds.Model;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
 
 import org.junit.After;
 import org.junit.Before;
@@ -92,6 +91,11 @@ public class GoodDeedsTest {
 
     @Test
     public void getDeeds() {
-    assertEquals(gd.getDeeds().size(),1);
+        assertEquals(gd.getDeeds().size(),1);
+    }
+
+    @Test
+    public void getIDeeds() {
+    assertEquals(gd.getIDeeds().size(),1);
     }
 }

@@ -2,6 +2,8 @@ package com.goodpeople.gooddeeds.Model;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.Entities.Deed;
+import com.goodpeople.gooddeeds.Model.Entities.IDeed;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,9 +16,9 @@ public class GoodDeeds {
     private Account loggedinAccount;
 
     private GoodDeeds() {
-      /*  Account a = new Account("Anton",30597,"anton46304@gmail.com","ahah");
-        Deed d = new Deed(a,"Gräsklipp","Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
-        Deed d2 = new Deed(a,"Hårklipp","Jag klipper gärna håret på folk! Ge mig en pling vetja!");
+        /*Account a = new Account("Anton",30597,"anton46304@gmail.com","ahah");
+        Deed d = Deed.newOffer(a,"Gräsklipp","Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
+        Deed d2 = Deed.newOffer(a,"Hårklipp","Jag klipper gärna håret på folk! Ge mig en pling vetja!");
 
         accounts.add(a);
         loggedinAccount = a;
@@ -76,10 +78,10 @@ public class GoodDeeds {
      *
      * @return a list of deeds with logged in account as owner
      */
-    public List<Deed> getMyOffers(){
-        List<Deed> myDeeds = new ArrayList<>();
+    public List<IDeed> getMyOffers(){
+        List<IDeed> myDeeds = new ArrayList<>();
 
-        for(Deed d : deeds){
+        for(IDeed d : deeds){
             if(loggedinAccount == d.getGivingAccount()){
                 myDeeds.add(d);
             }
@@ -104,8 +106,19 @@ public class GoodDeeds {
         deeds.add(newOffer);
     }
 
-
     public List<Deed> getDeeds() {
         return deeds;
+    }
+
+    /**
+     * Returns a list of all Deeds in the form of IDeed
+     * @return all IDeeds
+     */
+    public List<IDeed> getIDeeds() {
+        List<IDeed> iDeeds = new ArrayList<>();
+        for (IDeed d : deeds) {
+            iDeeds.add(d);
+        }
+        return iDeeds;
     }
 }
