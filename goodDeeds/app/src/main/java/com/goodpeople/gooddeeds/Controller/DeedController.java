@@ -1,6 +1,5 @@
 package com.goodpeople.gooddeeds.Controller;
 
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.Model.Repositories.DeedRepository;
 import com.goodpeople.gooddeeds.Model.Repositories.DeedRepositoryImpl;
