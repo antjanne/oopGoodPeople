@@ -1,6 +1,6 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
-public class Deed {
+public class Deed implements IDeed {
 
     private Account givingAccount;
     private Account receivingAccount;

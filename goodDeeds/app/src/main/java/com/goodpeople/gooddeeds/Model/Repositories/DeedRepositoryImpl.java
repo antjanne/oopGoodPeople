@@ -1,8 +1,9 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
+import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.Model.GoodDeeds;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DeedRepositoryImpl implements DeedRepository {
@@ -11,13 +12,21 @@ public class DeedRepositoryImpl implements DeedRepository {
 
 
     @Override
-    public List<Deed> getDeeds() {
-        return goodDeeds.getDeeds();
+    public List<IDeed> getDeeds() {
+        List<IDeed> deeds = new ArrayList<>();
+        for (IDeed d : goodDeeds.getDeeds()) {
+            deeds.add(d);
+        }
+        return deeds;
     }
 
     @Override
-    public List<Deed> getMyOffers() {
-        return goodDeeds.getMyOffers();
+    public List<IDeed> getMyOffers() {
+        List<IDeed> deeds = new ArrayList<>();
+        for (IDeed d : goodDeeds.getMyOffers()) {
+            deeds.add(d);
+        }
+        return deeds;
     }
     @Override
     public void createOffer(String subject, String description) {

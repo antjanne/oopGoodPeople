@@ -5,17 +5,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
+import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder> {
-    private List<Deed> mDeeds;
+    private List<IDeed> mDeeds;
     public static class DeedViewHolder extends RecyclerView.ViewHolder{
         public TextView mSubject;
         public TextView mDescription;
@@ -28,7 +27,7 @@ public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder
         }
     }
 
-    public DeedAdapter(List<Deed> deeds){
+    public DeedAdapter(List<IDeed> deeds){
         mDeeds = deeds;
     }
     @NonNull
@@ -41,7 +40,7 @@ public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull DeedViewHolder holder, int position) {
-    Deed currentDeed = mDeeds.get(position);
+    IDeed currentDeed = mDeeds.get(position);
 
     holder.mDescription.setText(currentDeed.getDescription());
     holder.mSubject.setText(currentDeed.getSubject());
