@@ -11,7 +11,7 @@ public class GoodDeeds {
 
     private static GoodDeeds goodDeeds;
 
-    private List<Deed> deeds = new ArrayList<>();
+    private List<IDeed> deeds = new ArrayList<>();
     private List<Account> accounts = new ArrayList<>();
     private Account loggedinAccount;
 
@@ -106,19 +106,11 @@ public class GoodDeeds {
         deeds.add(newOffer);
     }
 
-    public List<Deed> getDeeds() {
-        return deeds;
-    }
-
     /**
      * Returns a list of all Deeds in the form of IDeed
      * @return all IDeeds
      */
-    public List<IDeed> getIDeeds() {
-        List<IDeed> iDeeds = new ArrayList<>();
-        for (IDeed d : deeds) {
-            iDeeds.add(d);
-        }
-        return iDeeds;
+    public List<IDeed> getDeeds() {
+        return deeds;
     }
 }

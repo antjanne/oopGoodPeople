@@ -96,6 +96,6 @@ public class GoodDeedsTest {
 
     @Test
     public void getIDeeds() {
-    assertEquals(gd.getIDeeds().size(),1);
+    assertEquals(gd.getDeeds().size(),1);
     }
 }
