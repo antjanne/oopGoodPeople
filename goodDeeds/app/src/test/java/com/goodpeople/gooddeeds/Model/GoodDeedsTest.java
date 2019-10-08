@@ -10,17 +10,19 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
 public class GoodDeedsTest {
 
     GoodDeeds goodDeeds;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         goodDeeds = GoodDeeds.getGoodDeeds();
         goodDeeds.createAccount("Test", 00000, "test@test.com", "123");
         goodDeeds.login("test@test.com", "123");
         goodDeeds.createOffer("Subject", "Description");
+
     }
 
     @After
@@ -86,5 +88,47 @@ public class GoodDeedsTest {
     public void shouldValidateIfEmailIsAlreadyUsedReturnFalse() {
         Assert.assertFalse(goodDeeds.isEmailUsed("notUsed@email.se"));
     }
-}
 
+    @Test
+    public void getAccounts() {
+        goodDeeds.createAccount("test3", 0000, "test3@test3.com", "123");
+        assertEquals(goodDeeds.getAccounts().size(), 2);
+    }
+
+    @Test
+    public void createAccount() {
+        goodDeeds.createAccount("test3", 0000, "test3@test3.com", "123");
+        assertEquals(goodDeeds.getAccounts().size(), 2);
+
+    }
+
+    @Test
+    public void getMyOffers() {
+        assertEquals(goodDeeds.getMyOffers().size(), 1);
+
+    }
+
+    @Test
+    public void isLoggedIn() {
+        goodDeeds.login("test@test.com", "123");
+        assertNotNull(goodDeeds.getAccounts().get(0));
+    }
+
+    @Test
+    public void createOffer() {
+        assertEquals(goodDeeds.getDeeds().size(), 1);
+    }
+
+    @Test
+    public void getDeeds() {
+        assertEquals(goodDeeds.getDeeds().size(), 1);
+    }
+
+    @Test
+    public void shouldUpdateAccountDetails() {
+        goodDeeds.editAccount("newName", "newEmail@email.se", 12345);
+        Assert.assertEquals(goodDeeds.getAccount().getName(), "newName");
+        Assert.assertEquals(goodDeeds.getAccount().getEmail(), "newEmail@email.se");
+        Assert.assertEquals(goodDeeds.getAccount().getPostalCode(), 12345);
+    }
+}

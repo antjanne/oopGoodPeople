@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Good Deeds</string>
+
+    <string name="BACK">BACK</string>
+    <string name="OFFER">MyOffer</string>
+    <string name="username">MyName</string>
+
     <string name="create_account">Create Account</string>
     <string name="account_name">Name</string>
     <string name="account_postal_code">Postal Code</string>
@@ -16,6 +21,7 @@
     <string name="login_error">Wrong email or password or the account does not exist</string>
     <string name="account">Account details</string>
     <string name="edit_account">Edit details</string>
+    <string name="account_details">Account details</string>
     <string name="edit_password">Edit password</string>
     <string name="old_password">Old password</string>
     <string name="new_password">New password</string>
@@ -24,5 +30,7 @@
     <string name="new_offer_description">Description</string>
     <string name="invalid_subject">Subject is missing</string>
     <string name="invalid_description">Description is missing</string>
+    <string name="deeds">Deeds</string>
+
 
 </resources>

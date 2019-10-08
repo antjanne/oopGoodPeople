@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    app:cardBackgroundColor="@color/colorPrimary"
+    android:layout_marginTop="10dp"
+    >
+    <RelativeLayout
+       android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subject Deed"
+            android:textSize="24sp"
+
+            android:textColor="@android:color/black"
+            android:id="@+id/subjectText">
+
+        </TextView>
+        <TextView
+            android:paddingTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deed holder"
+            android:textColor="@android:color/background_light"
+            android:textSize="15sp"
+            android:id="@+id/descriptionText">
+
+        </TextView>
+    </RelativeLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>

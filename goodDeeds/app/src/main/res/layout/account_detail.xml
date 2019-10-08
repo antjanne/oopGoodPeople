@@ -82,7 +82,6 @@
         android:layout_height="44dp"
         android:layout_marginTop="420dp"
         android:gravity="center"
-        android:text="rm@rm.se"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

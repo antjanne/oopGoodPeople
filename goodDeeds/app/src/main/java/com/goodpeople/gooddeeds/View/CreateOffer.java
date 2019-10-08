@@ -1,37 +1,18 @@
 package com.goodpeople.gooddeeds.View;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import com.goodpeople.gooddeeds.Controller.DeedController;
 import com.goodpeople.gooddeeds.R;
-import com.google.android.material.textfield.TextInputLayout;
 
-public class CreateOffer extends AppCompatActivity {
+public class CreateOffer extends ViewTemplate {
 
-    private DeedController deedController = new DeedController();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.create_offer);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem menuItem) {
-        finish();
-        return super.onOptionsItemSelected(menuItem);
+        super.onCreate(savedInstanceState);
     }
 
     public void submitOffer(View view) {
@@ -68,19 +49,4 @@ public class CreateOffer extends AppCompatActivity {
         return returnValue;
     }
 
-    private void sendError(int textInputLayout, int errorCodeId) {
-        TextInputLayout layout = findViewById(textInputLayout);
-        layout.setError(getString(errorCodeId));
-
-    }
-
-    private void removeError(int textInputLayout) {
-        TextInputLayout layout = findViewById(textInputLayout);
-        layout.setError(null);
-    }
-
-    public void goBack(View view) {
-        Intent myIntent = new Intent(view.getContext(), MainActivity.class);
-        startActivityForResult(myIntent, 0);
-    }
 }

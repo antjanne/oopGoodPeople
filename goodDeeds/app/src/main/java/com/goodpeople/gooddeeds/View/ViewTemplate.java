@@ -8,12 +8,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.goodpeople.gooddeeds.Controller.AccountController;
+import com.goodpeople.gooddeeds.Controller.DeedController;
 import com.goodpeople.gooddeeds.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 public abstract class ViewTemplate extends AppCompatActivity {
 
     public AccountController accountController = new AccountController();
+
+    public DeedController deedController = new DeedController();
 
 
     public void onCreate(Bundle savedInstanceState) {

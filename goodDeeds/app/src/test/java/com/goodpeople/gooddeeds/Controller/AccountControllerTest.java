@@ -63,4 +63,14 @@ public class AccountControllerTest {
     public void shouldValidateIfEmailIsAlreadyUsedReturnFalse() {
         Assert.assertFalse(accountController.isEmailUsedHandler("notUsed@email.se"));
     }
+
+    @Test
+    public void shouldUpdateAccountDetails() {
+        accountController.editAccountHandler("newName", "newEmail@email.se", 12345);
+        Assert.assertEquals(accountController.accountHandler().getName(), "newName");
+        Assert.assertEquals(accountController.accountHandler().getEmail(), "newEmail@email.se");
+        Assert.assertEquals(accountController.accountHandler().getPostalCode(), 12345);
+    }
+
+
 }

@@ -5,15 +5,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.goodpeople.gooddeeds.Controller.AccountController;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.View.ViewTemplate;
 
 import java.util.Locale;
 
 public class EditAccount extends ViewTemplate {
-
-    AccountController accountController;
 
     TextView nameView;
     TextView emailView;

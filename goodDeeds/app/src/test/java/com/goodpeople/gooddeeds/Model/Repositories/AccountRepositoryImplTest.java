@@ -60,4 +60,12 @@ public class AccountRepositoryImplTest {
     public void shouldValidateIfEmailIsAlreadyUsedReturnTrue() {
         Assert.assertTrue(repositoryTest.isEmailUsed("rm@rm.se"));
     }
+
+    @Test
+    public void shouldEditAccountAndReturnNewValues() {
+        repositoryTest.editAccount("newName", "newEmail@email.se", 12345);
+        Assert.assertEquals(repositoryTest.getAccount().getName(), "newName");
+        Assert.assertEquals(repositoryTest.getAccount().getEmail(), "newEmail@email.se");
+        Assert.assertEquals(repositoryTest.getAccount().getPostalCode(), 12345);
+    }
 }
