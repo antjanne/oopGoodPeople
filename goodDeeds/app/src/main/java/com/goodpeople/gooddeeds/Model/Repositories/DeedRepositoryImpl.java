@@ -1,6 +1,6 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
+import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.Model.GoodDeeds;
 
 import java.util.List;
@@ -9,16 +9,16 @@ public class DeedRepositoryImpl implements DeedRepository {
 
     private GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();
 
-
     @Override
-    public List<Deed> getDeeds() {
+    public List<IDeed> getDeeds() {
         return goodDeeds.getDeeds();
     }
 
     @Override
-    public List<Deed> getMyOffers() {
+    public List<IDeed> getMyOffers() {
         return goodDeeds.getMyOffers();
     }
+
     @Override
     public void createOffer(String subject, String description) {
         goodDeeds.createOffer(subject, description);

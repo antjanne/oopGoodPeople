@@ -10,19 +10,18 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 
 public class GoodDeedsTest {
+
 
     GoodDeeds goodDeeds;
 
     @Before
-    public void setUp() {
+    public void initialize() {
         goodDeeds = GoodDeeds.getGoodDeeds();
         goodDeeds.createAccount("Test", 00000, "test@test.com", "123");
         goodDeeds.login("test@test.com", "123");
         goodDeeds.createOffer("Subject", "Description");
-
     }
 
     @After
@@ -109,12 +108,6 @@ public class GoodDeedsTest {
     }
 
     @Test
-    public void isLoggedIn() {
-        goodDeeds.login("test@test.com", "123");
-        assertNotNull(goodDeeds.getAccounts().get(0));
-    }
-
-    @Test
     public void createOffer() {
         assertEquals(goodDeeds.getDeeds().size(), 1);
     }
@@ -130,5 +123,7 @@ public class GoodDeedsTest {
         Assert.assertEquals(goodDeeds.getAccount().getName(), "newName");
         Assert.assertEquals(goodDeeds.getAccount().getEmail(), "newEmail@email.se");
         Assert.assertEquals(goodDeeds.getAccount().getPostalCode(), 12345);
+        assertEquals(goodDeeds.getDeeds().size(), 1);
     }
+
 }

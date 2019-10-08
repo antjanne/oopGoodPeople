@@ -15,6 +15,7 @@ public class Account {
         this.password = password;
     }
 
+
     /**
      * @return account name
      */
