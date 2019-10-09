@@ -40,7 +40,7 @@ public abstract class ViewTemplate extends AppCompatActivity {
         if (email.contains("@") && email.contains(".")) {
             return true;
         }
-        return true;
+        return false;
     }
 
     public boolean isPostalCodeValid(Integer postalCode) {

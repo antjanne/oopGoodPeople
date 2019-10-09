@@ -72,10 +72,10 @@ public class EditAccount extends ViewTemplate {
 
     private boolean validateEditedFields() {
         if (isEmailChanged()) {
-            return (!accountController.isEmailUsedHandler(email) || name.trim().isEmpty() || isEmailValid(email) ||
+            return (!accountController.isEmailUsedHandler(email) && !name.trim().isEmpty() && isEmailValid(email) &&
                     isPostalCodeValid(postalCode));
         } else {
-            return (name.trim().isEmpty() ||
+            return (!name.trim().isEmpty() &&
                     isPostalCodeValid(postalCode));
         }
     }

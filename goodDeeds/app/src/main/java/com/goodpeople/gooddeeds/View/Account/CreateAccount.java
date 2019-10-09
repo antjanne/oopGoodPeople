@@ -47,6 +47,8 @@ public class CreateAccount extends ViewTemplate {
         EditText editTextPostalCode = findViewById(R.id.postal_code);
         if (!editTextPostalCode.getText().toString().trim().isEmpty()) {
             this.postalCode = Integer.parseInt(editTextPostalCode.getText().toString());
+        } else {
+            this.postalCode = 0;
         }
         EditText editTextPassword = findViewById(R.id.password);
         this.password = editTextPassword.getText().toString();
