@@ -5,13 +5,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.goodpeople.gooddeeds.Controller.DeedController;
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
 import com.goodpeople.gooddeeds.R;
 
 import java.util.List;
