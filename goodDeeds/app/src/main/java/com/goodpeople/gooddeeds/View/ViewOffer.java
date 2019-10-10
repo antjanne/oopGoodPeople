@@ -1,5 +1,6 @@
 package com.goodpeople.gooddeeds.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.goodpeople.gooddeeds.Controller.DeedController;
@@ -14,20 +15,20 @@ import android.os.Parcelable;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.R;
 
-import java.io.Serializable;
 
 public class ViewOffer extends AppCompatActivity {
     DeedController deedController = new DeedController();
-    private Deed deed;
+    private IDeed deed;
 
-    public ViewOffer(Deed deed) {
-        this.deed = deed;
+    public ViewOffer() {
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.deed = getIntent().getParcelableExtra("clicked_deed");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_offer);
         Toolbar toolbar = findViewById(R.id.toolbar);

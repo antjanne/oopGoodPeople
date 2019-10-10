@@ -3,7 +3,7 @@ package com.goodpeople.gooddeeds.Model.Entities;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Deed implements IDeed, Parcelable {
+public class Deed implements IDeed {
 
     //Parcelable
     public static final Creator<Deed> CREATOR = new Creator<Deed>() {
@@ -27,9 +27,10 @@ public class Deed implements IDeed, Parcelable {
 
     //Parcelable
     protected Deed(Parcel in) {
+        givingAccount = in.readParcelable(Account.class.getClassLoader());
+        receivingAccount = in.readParcelable(Account.class.getClassLoader());
         subject = in.readString();
         description = in.readString();
-        givingAccount = in.
     }
 
     public static Deed newOffer(Account givingAccount, String subject, String description) {
@@ -104,6 +105,8 @@ public class Deed implements IDeed, Parcelable {
      */
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeParcelable(givingAccount, 0);
+        dest.writeParcelable(receivingAccount, 0);
         dest.writeString(subject);
         dest.writeString(description);
     }
