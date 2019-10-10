@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
+import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.View.ViewTemplate;
 
@@ -28,7 +29,7 @@ public class AccountDetails extends ViewTemplate {
 
     private void populateFields() {
 
-        Account account = accountController.accountHandler();
+        IAccount account = accountController.accountHandler();
 
         TextView name = (TextView) findViewById(R.id.account_name_data);
         TextView email = (TextView) findViewById(R.id.account_email_data);

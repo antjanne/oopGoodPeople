@@ -1,6 +1,7 @@
 package com.goodpeople.gooddeeds.Controller;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
+import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -20,7 +21,7 @@ public class AccountControllerTest {
 
     @Test
     public void shouldCreateAccountLoginReturnLoggedinAccount() {
-        Account account = accountController.accountHandler();
+        IAccount account = accountController.accountHandler();
         Assert.assertEquals(account.getPassword(), "pass123");
         Assert.assertEquals(account.getEmail(), "rm123@rm.se");
     }
