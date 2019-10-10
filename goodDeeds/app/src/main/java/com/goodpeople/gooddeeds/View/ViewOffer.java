@@ -9,14 +9,22 @@ import com.goodpeople.gooddeeds.Model.Entities.Deed;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.goodpeople.gooddeeds.R;
 
-public class ViewOffer extends AppCompatActivity {
+import java.io.Serializable;
 
+public class ViewOffer extends AppCompatActivity {
+    DeedController deedController = new DeedController();
     private Deed deed;
+
+    public ViewOffer(Deed deed) {
+        this.deed = deed;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
