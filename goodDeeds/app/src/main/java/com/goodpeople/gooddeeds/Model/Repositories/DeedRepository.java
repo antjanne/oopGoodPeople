@@ -1,15 +1,15 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
 
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
+import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 
 import java.util.List;
 
 public interface DeedRepository {
 
-     List<Deed> getDeeds();
+     List<IDeed> getDeeds();
 
-     List<Deed> getMyOffers();
+     List<IDeed> getMyOffers();
 
      void createOffer(String subject, String description);
 }

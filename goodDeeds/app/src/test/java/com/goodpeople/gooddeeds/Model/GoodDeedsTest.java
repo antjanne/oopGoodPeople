@@ -1,7 +1,6 @@
 package com.goodpeople.gooddeeds.Model;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
 
 import org.junit.After;
 import org.junit.Before;
@@ -11,19 +10,17 @@ import static org.junit.Assert.*;
 public class GoodDeedsTest {
 
     GoodDeeds gd;
-    Deed deed;
-    Account loggedIn;
+
     @Before
     public void initialize(){
         gd = GoodDeeds.getGoodDeeds();
-        gd.getAccounts().add(new Account("Test", 00000, "test@test.com", "123"));
+        gd.createAccount("Test", 00000, "test@test.com", "123");
+        gd.login("test@test.com", "123");
         gd.createOffer("Subject", "Description");
-
     }
 
     @After
     public void after() {
-
         gd.getAccounts().clear();
         gd.getDeeds().clear();
     }
@@ -83,8 +80,7 @@ public class GoodDeedsTest {
 
     @Test
     public void isLoggedIn() {
-        gd.login("test@test.com", "123");
-        loggedIn = gd.getAccounts().get(0);
+        Account loggedIn = gd.getAccounts().get(0);
         assertNotNull(loggedIn);
     }
 
@@ -95,6 +91,11 @@ public class GoodDeedsTest {
 
     @Test
     public void getDeeds() {
+        assertEquals(gd.getDeeds().size(),1);
+    }
+
+    @Test
+    public void getIDeeds() {
     assertEquals(gd.getDeeds().size(),1);
     }
 }

@@ -1,6 +1,6 @@
 package com.goodpeople.gooddeeds.Controller;
 
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
+import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.Model.Repositories.DeedRepository;
 import com.goodpeople.gooddeeds.Model.Repositories.DeedRepositoryImpl;
 
@@ -15,11 +15,11 @@ public class DeedController {
     }
 
 
-    public List<Deed> showOffersHandler() {
+    public List<IDeed> showOffersHandler() {
         return (deedRepository.getDeeds());
     }
 
-    public List<Deed> showMyOffersHandler() {
+    public List<IDeed> showMyOffersHandler() {
         return (deedRepository.getMyOffers());
     }
 
