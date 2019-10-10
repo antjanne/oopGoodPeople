@@ -15,8 +15,13 @@ public class DeedRepositoryImpl implements DeedRepository {
     }
 
     @Override
-    public List<IDeed> getMyOffers() {
-        return goodDeeds.getMyOffers();
+    public List<IDeed> getMyActiveOffers() {
+        return goodDeeds.getMyActiveOffers();
+    }
+
+    @Override
+    public List<IDeed> getMyActiveRequests() {
+        return goodDeeds.getMyActiveRequests();
     }
 
     @Override

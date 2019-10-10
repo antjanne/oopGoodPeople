@@ -35,10 +35,14 @@ public class DeedControllerTest {
     }
 
     @Test
-    public void showMyOffersHandler() {
-        assertEquals(deedController.showMyOffersHandler().size(),1);
-
+    public void showMyActiveOffersHandler() {
+        assertEquals(1, deedController.showMyActiveOffersHandler().size());
     }
+/*
+    @Test // TODO
+    public void showMyActiveRequestsHandler() {
+        assertEquals(1, deedController.showMyActiveRequestsHandler().size());
+    }*/
 
     @Test
     public void createOfferHandler() {

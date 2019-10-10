@@ -9,7 +9,9 @@ public interface DeedRepository {
 
      List<IDeed> getDeeds();
 
-     List<IDeed> getMyOffers();
+     List<IDeed> getMyActiveOffers();
+
+     List<IDeed> getMyActiveRequests();
 
      void createOffer(String subject, String description);
 }

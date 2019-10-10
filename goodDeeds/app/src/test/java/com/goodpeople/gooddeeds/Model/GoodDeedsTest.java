@@ -1,6 +1,8 @@
 package com.goodpeople.gooddeeds.Model;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
+import com.goodpeople.gooddeeds.Model.Entities.Deed;
+import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -102,9 +104,16 @@ public class GoodDeedsTest {
     }
 
     @Test
-    public void getMyOffers() {
-        assertEquals(goodDeeds.getMyOffers().size(), 1);
+    public void getMyActiveOffers() { //TODO fixa så att den kollar just här
+        assertEquals(goodDeeds.getMyActiveOffers().size(), 1);
+    }
 
+    @Test
+    public void getMyActiveRequests() { // TODO är detta bra?
+        goodDeeds.createOffer("test", "test");
+        IDeed d = Deed.newRequest(goodDeeds.getAccount(), "Subject", "Description");
+        goodDeeds.getDeeds().add(d);
+        assertEquals(1, goodDeeds.getMyActiveRequests().size());
     }
 
     @Test

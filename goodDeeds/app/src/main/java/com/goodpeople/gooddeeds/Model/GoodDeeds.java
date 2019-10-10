@@ -99,25 +99,6 @@ public class GoodDeeds {
     }
 
     /**
-     * Creates a list of deeds with only the logged in account as owner of the deed.
-     * Filters all deeds to only the ones the logged in account is owner of.
-     * A user has to be logged in before calling this method.
-     *
-     * @return a list of deeds with logged in account as owner
-     */
-
-    public List<IDeed> getMyOffers() {
-        List<IDeed> myDeeds = new ArrayList<>();
-
-        for (IDeed d : deeds) {
-            if (loggedInAccount == d.getGivingAccount()) {
-                myDeeds.add(d);
-            }
-        }
-        return (myDeeds);
-    }
-
-    /**
      * @return boolean depending on if the user is logged in or not
      */
     public boolean isLoggedIn() {
@@ -140,6 +121,18 @@ public class GoodDeeds {
         loggedInAccount.setPassword(newPassword);
     }
 
+    /**
+     * sets name, email and postal code. It does not care if there actually is new values or not
+     *
+     * @param name       potentially new name
+     * @param email      potentially new email
+     * @param postalCode potentially new postal code
+     */
+    public void editAccount(String name, String email, int postalCode) {
+        loggedInAccount.setName(name);
+        loggedInAccount.setEmail(email);
+        loggedInAccount.setPostalCode(postalCode);
+    }
 
     /**
      * Creates a offer with the currently logged in account as giving account.
@@ -155,24 +148,51 @@ public class GoodDeeds {
     }
 
     /**
-     * Returns a list of all Deeds in the form of IDeed
+     * Returns a list of all existing deeds.
      *
-     * @return all IDeeds
+     * @return all deeds as IDeed
      */
     public List<IDeed> getDeeds() {
         return deeds;
     }
 
     /**
-     * sets name, email and postal code. It does not care if there actually is new values or not
+     * Creates a list of deeds where the logged in account is registered as the giving account
+     * and the receiving account is yet to be claimed.
+     * A user has to be logged in before calling this method.
      *
-     * @param name       potentially new name
-     * @param email      potentially new email
-     * @param postalCode potentially new postal code
+     * @return a list of deeds with logged in account as giving account
      */
-    public void editAccount(String name, String email, int postalCode) {
-        loggedInAccount.setName(name);
-        loggedInAccount.setEmail(email);
-        loggedInAccount.setPostalCode(postalCode);
+
+    public List<IDeed> getMyActiveOffers() {
+        List<IDeed> myActiveOffers = new ArrayList<>();
+
+        for (IDeed d : deeds) {
+            if (loggedInAccount == d.getGivingAccount() && d.getReceivingAccount() == null) {
+                myActiveOffers.add(d);
+            }
+        }
+        return (myActiveOffers);
     }
+
+    /**
+     * Creates a list of deeds where the logged in account is registered as the receiving account
+     * and the giving account is yet to be claimed.
+     * A user has to be logged in before calling this method.
+     *
+     * @return a list of deeds with logged in account as receiving account
+     */
+
+    public List<IDeed> getMyActiveRequests() {
+        List<IDeed> myActiveRequests = new ArrayList<>();
+
+        for (IDeed d : deeds) {
+            if (loggedInAccount == d.getReceivingAccount() && d.getGivingAccount() == null) {
+                myActiveRequests.add(d);
+            }
+        }
+        return (myActiveRequests);
+    }
+
+
 }

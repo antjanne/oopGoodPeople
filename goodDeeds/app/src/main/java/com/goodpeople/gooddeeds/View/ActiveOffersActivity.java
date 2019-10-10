@@ -24,7 +24,7 @@ public class ActiveOffersActivity extends ViewTemplate {
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new DeedAdapter(deedController.showMyOffersHandler());
+        mAdapter = new DeedAdapter(deedController.showMyActiveOffersHandler());
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);

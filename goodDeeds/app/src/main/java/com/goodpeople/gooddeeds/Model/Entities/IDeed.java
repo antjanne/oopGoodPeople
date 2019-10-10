@@ -4,5 +4,6 @@ public interface IDeed {
     String getSubject();
     String getDescription();
     Account getGivingAccount();
+    Account getReceivingAccount();
 
 }
