@@ -1,4 +1,4 @@
-package com.goodpeople.gooddeeds.View;
+package com.goodpeople.gooddeeds.View.Account;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +7,14 @@ import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.R;
-import com.goodpeople.gooddeeds.View.Account.AccountDetails;
+import com.goodpeople.gooddeeds.View.DeedAdapter;
+import com.goodpeople.gooddeeds.View.ViewTemplate;
 
-public class ActiveOffersActivity extends ViewTemplate {
+import java.util.List;
+
+public class ActiveDeeds extends ViewTemplate {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -20,21 +24,17 @@ public class ActiveOffersActivity extends ViewTemplate {
         setContentView(R.layout.activity_active_offers);
         super.onCreate(savedInstanceState);
 
+        viewDeeds(deedController.showMyActiveOffersHandler());
+    }
 
+    private void viewDeeds(List<IDeed> deeds) {
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new DeedAdapter(deedController.showMyActiveOffersHandler());
+        mAdapter = new DeedAdapter(deeds);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
-
-    }
-
-
-    public void goToAccountDetails(View view) {
-        Intent intent = new Intent(this, AccountDetails.class);
-        startActivity(intent);
     }
 
 
