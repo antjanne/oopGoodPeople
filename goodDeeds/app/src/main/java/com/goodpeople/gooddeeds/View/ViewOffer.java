@@ -1,17 +1,12 @@
 package com.goodpeople.gooddeeds.View;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.goodpeople.gooddeeds.Controller.DeedController;
-import com.goodpeople.gooddeeds.Model.Entities.Account;
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -19,7 +14,7 @@ import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.R;
 
 
-public class ViewOffer extends AppCompatActivity {
+public class ViewOffer extends ViewTemplate {
     DeedController deedController = new DeedController();
     private IDeed deed;
 
@@ -27,7 +22,7 @@ public class ViewOffer extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         this.deed = getIntent().getParcelableExtra("clicked_deed");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_offer);
@@ -40,15 +35,6 @@ public class ViewOffer extends AppCompatActivity {
         subject.setText(deed.getSubject());
         TextView description = findViewById(R.id.deedDescription);
         description.setText(deed.getDescription());
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
 
     }
 }

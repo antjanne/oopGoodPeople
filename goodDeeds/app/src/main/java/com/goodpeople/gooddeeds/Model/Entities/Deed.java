@@ -1,7 +1,6 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 
 public class Deed implements IDeed {
 
@@ -25,8 +24,7 @@ public class Deed implements IDeed {
     private Deed() {
     }
 
-    //Parcelable
-    protected Deed(Parcel in) {
+    private Deed(Parcel in) {
         givingAccount = in.readParcelable(Account.class.getClassLoader());
         receivingAccount = in.readParcelable(Account.class.getClassLoader());
         subject = in.readString();

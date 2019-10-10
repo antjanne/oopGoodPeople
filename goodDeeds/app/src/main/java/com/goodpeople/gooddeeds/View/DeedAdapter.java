@@ -1,7 +1,6 @@
 package com.goodpeople.gooddeeds.View;
 
 import android.content.Intent;
-import android.os.Parcel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +25,7 @@ public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder
     @Override
     public DeedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.deed_cardview, parent, false);
-        DeedViewHolder dvh = new DeedViewHolder(v);
-        return dvh;
+        return new DeedViewHolder(v);
     }
 
     @Override
