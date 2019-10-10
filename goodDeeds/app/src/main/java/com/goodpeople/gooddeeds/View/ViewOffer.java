@@ -14,7 +14,7 @@ import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.R;
 
 
-public class ViewOffer extends ViewTemplate {
+public class ViewOffer extends AppCompatActivity {
     DeedController deedController = new DeedController();
     private IDeed deed;
 
@@ -22,15 +22,22 @@ public class ViewOffer extends ViewTemplate {
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        if (menuItem.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(menuItem);
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
-        this.deed = getIntent().getParcelableExtra("clicked_deed");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_offer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        this.deed = getIntent().getParcelableExtra("clicked_deed");
         TextView subject = findViewById(R.id.deedSubject);
         subject.setText(deed.getSubject());
         TextView description = findViewById(R.id.deedDescription);
