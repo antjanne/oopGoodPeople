@@ -1,6 +1,7 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
+import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 import com.goodpeople.gooddeeds.Model.GoodDeeds;
 
 public class AccountRepositoryImpl implements AccountRepository {
@@ -55,7 +56,7 @@ public class AccountRepositoryImpl implements AccountRepository {
      * @return returns logged in account-object
      */
     @Override
-    public Account getAccount() {
+    public IAccount getAccount() {
         return goodDeeds.getAccount();
     }
 
