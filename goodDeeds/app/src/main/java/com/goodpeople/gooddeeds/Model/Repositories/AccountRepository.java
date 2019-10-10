@@ -1,6 +1,6 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
-import com.goodpeople.gooddeeds.Model.Entities.Account;
+import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 
 public interface AccountRepository {
 
@@ -12,7 +12,7 @@ public interface AccountRepository {
 
     boolean isLoggedIn();
 
-    Account getAccount();
+    IAccount getAccount();
 
     void updatePassword(String newPassword);
 

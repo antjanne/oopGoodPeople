@@ -1,6 +1,6 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
-public class Account {
+public class Account implements IAccount{
 
     private String name;
     private int postalCode;
