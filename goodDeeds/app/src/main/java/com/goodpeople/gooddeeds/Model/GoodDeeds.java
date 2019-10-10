@@ -10,6 +10,12 @@ import java.util.List;
 
 public class GoodDeeds {
 
+    /**
+     * Defines the base for the model.
+     * Holds the list of existing deeds and accounts
+     * and the current logged in account.
+     * */
+
     private static GoodDeeds goodDeeds;
 
     private List<IDeed> deeds = new ArrayList<>();
