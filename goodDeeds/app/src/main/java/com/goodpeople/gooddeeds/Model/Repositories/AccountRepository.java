@@ -1,6 +1,5 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
-import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 
 public interface AccountRepository {
