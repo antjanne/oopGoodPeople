@@ -5,7 +5,6 @@ import android.os.Parcelable;
 
 public class Account implements Parcelable {
 
-    //Parcelable
     public static final Creator<Account> CREATOR = new Creator<Account>() {
         @Override
         public Account createFromParcel(Parcel in) {
@@ -29,7 +28,6 @@ public class Account implements Parcelable {
         this.password = password;
     }
 
-    //Parcelable
     protected Account(Parcel in) {
         name = in.readString();
         postalCode = in.readInt();
@@ -37,34 +35,58 @@ public class Account implements Parcelable {
         password = in.readString();
     }
 
+    /**
+     * @return account name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name set new name of account
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * @return account postal code
+     */
     public int getPostalCode() {
         return postalCode;
     }
 
+    /**
+     * @param postalCode set new postal code for account
+     */
     public void setPostalCode(int postalCode) {
         this.postalCode = postalCode;
     }
 
+    /**
+     * @return account email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * @param email set new email for account
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * @return account password
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * @param password set new password for account
+     */
     public void setPassword(String password) {
         this.password = password;
     }
