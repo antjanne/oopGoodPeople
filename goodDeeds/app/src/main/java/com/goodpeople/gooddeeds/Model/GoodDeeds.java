@@ -24,10 +24,13 @@ public class GoodDeeds {
         Deed d = Deed.newOffer(a,"Gräsklipp","Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
         Deed d2 = Deed.newOffer(a,"Hårklipp","Jag klipper gärna håret på folk! Ge mig en pling vetja!");
 
+        Deed d3 = Deed.newRequest(a, "Hjälp", "Jag kan inte knyta mina skor, kan någon hjälpa mig?");
+
         accounts.add(a);
         loggedInAccount = a;
         deeds.add(d);
         deeds.add(d2);
+        deeds.add(d3);
 
     }
 

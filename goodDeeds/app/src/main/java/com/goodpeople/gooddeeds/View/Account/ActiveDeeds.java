@@ -1,8 +1,9 @@
 package com.goodpeople.gooddeeds.View.Account;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,13 +19,23 @@ public class ActiveDeeds extends ViewTemplate {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private TextView deedType;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_active_offers);
+        setContentView(R.layout.active_deeds);
         super.onCreate(savedInstanceState);
+        deedType = findViewById(R.id.deedTypeCurrentlyShowing);
+    }
 
+    public void showMyActiveOffers(View view) {
+        deedType.setText("Offers");
         viewDeeds(deedController.showMyActiveOffersHandler());
+    }
+
+    public void showMyActiveRequests(View view) {
+        deedType.setText("Requests");
+        viewDeeds(deedController.showMyActiveRequestsHandler());
     }
 
     private void viewDeeds(List<IDeed> deeds) {

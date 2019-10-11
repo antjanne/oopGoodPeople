@@ -46,6 +46,7 @@ public class Deed implements IDeed {
         d.setReceivingAccount(receivingAccount);
         d.setSubject(subject);
         d.setDescription(description);
+        d.setUuid(UUID.randomUUID());
         return d;
     }
 
@@ -89,6 +90,11 @@ public class Deed implements IDeed {
 
     public void setUuid(UUID uuid) {
         this.uuid = uuid;
+    }
+
+    @Override
+    public String toString() {
+        return subject + description;
     }
 
 }

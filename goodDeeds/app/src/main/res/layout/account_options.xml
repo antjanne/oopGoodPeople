@@ -29,7 +29,7 @@
         android:id="@+id/show_active_deeds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/show_active_deeds"
+        android:text="@string/my_active_deeds"
         android:onClick="goToActiveDeeds"
         app:layout_constraintBottom_toBottomOf="@+id/tool_bar"
         app:layout_constraintEnd_toEndOf="parent"
