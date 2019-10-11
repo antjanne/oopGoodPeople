@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class AccountTest {
 
-    Account account;
+    IAccount account;
 
     @Before
     public void setUp() throws Exception {

@@ -1,6 +1,7 @@
 package com.goodpeople.gooddeeds.Model;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
+import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -58,7 +59,7 @@ public class GoodDeedsTest {
 
     @Test
     public void updatePassword() {
-        Account account = goodDeeds.getAccount();
+        IAccount account = goodDeeds.getAccount();
         goodDeeds.updatePassword("newPassword");
         Assert.assertEquals(account.getPassword(), "newPassword");
     }

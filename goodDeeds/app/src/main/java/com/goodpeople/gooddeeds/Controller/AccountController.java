@@ -1,6 +1,6 @@
 package com.goodpeople.gooddeeds.Controller;
 
-import com.goodpeople.gooddeeds.Model.Entities.Account;
+import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 import com.goodpeople.gooddeeds.Model.Repositories.AccountRepository;
 import com.goodpeople.gooddeeds.Model.Repositories.AccountRepositoryImpl;
 
@@ -69,7 +69,7 @@ public class AccountController {
     /**
      * @return returns logged in account-object
      */
-    public Account accountHandler() {
+    public IAccount accountHandler() {
         return accountRepository.getAccount();
     }
 

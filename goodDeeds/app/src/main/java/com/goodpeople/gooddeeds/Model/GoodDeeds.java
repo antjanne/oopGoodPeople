@@ -2,6 +2,7 @@ package com.goodpeople.gooddeeds.Model;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.Entities.Deed;
+import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 
 import java.util.ArrayList;
@@ -20,8 +21,8 @@ public class GoodDeeds {
 
 
     private List<IDeed> deeds = new ArrayList<>();
-    private List<Account> accounts = new ArrayList<>();
-    private Account loggedInAccount;
+    private List<IAccount> accounts = new ArrayList<>();
+    private IAccount loggedInAccount;
 
     private GoodDeeds() {
 
@@ -46,7 +47,7 @@ public class GoodDeeds {
     /**
      * @return returns all Account objects that is active
      */
-    public List<Account> getAccounts() {
+    public List<IAccount> getAccounts() {
         return accounts;
     }
 
@@ -69,7 +70,7 @@ public class GoodDeeds {
      * @param password password of user trying to log in
      */
     public void login(String email, String password) {
-        for (Account account : accounts) {
+        for (IAccount account : accounts) {
             if (account.getEmail().equals(email) && account.getPassword().equals(password)) {
                 loggedInAccount = account;
             }
@@ -82,7 +83,7 @@ public class GoodDeeds {
      * @return boolean depending on whether there exists an account with those details or not
      */
     public boolean validateLogin(String email, String password) {
-        for (Account account : accounts) {
+        for (IAccount account : accounts) {
             if (account.getEmail().equals(email) && account.getPassword().equals(password)) {
                 return true;
             }
@@ -97,7 +98,7 @@ public class GoodDeeds {
      * @return boolean depending on whether the email is already used in another account or not
      */
     public boolean isEmailUsed(String email) {
-        for (Account account : accounts) {
+        for (IAccount account : accounts) {
             if (account.getEmail().equals(email)) {
                 return true;
             }
@@ -134,7 +135,7 @@ public class GoodDeeds {
     /**
      * @return the logged in Account-object
      */
-    public Account getAccount() {
+    public IAccount getAccount() {
         return this.loggedInAccount;
     }
 

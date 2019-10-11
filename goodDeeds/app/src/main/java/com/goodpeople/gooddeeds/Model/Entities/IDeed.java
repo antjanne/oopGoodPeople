@@ -17,9 +17,12 @@ public interface IDeed {
      */
     String getDescription();
 
+
     /**
      * @return The account that is registered as a giving account of a deed
      */
-    Account getGivingAccount();
+
+    IAccount getGivingAccount();
+
 
 }

@@ -9,15 +9,16 @@ package com.goodpeople.gooddeeds.Model.Entities;
 public class Deed implements IDeed {
 
 
-    private Account givingAccount;
-    private Account receivingAccount;
+    private IAccount givingAccount;
+    private IAccount receivingAccount;
+
     private String subject;
     private String description;
 
     private Deed() {
     }
 
-    public static Deed newOffer(Account givingAccount, String subject, String description) {
+    public static Deed newOffer(IAccount givingAccount, String subject, String description) {
         Deed d = new Deed();
         d.setGivingAccount(givingAccount);
         d.setSubject(subject);
@@ -33,19 +34,19 @@ public class Deed implements IDeed {
         return d;
     }
 
-    public Account getGivingAccount() {
+    public IAccount getGivingAccount() {
         return givingAccount;
     }
 
-    public void setGivingAccount(Account givingAccount) {
+    public void setGivingAccount(IAccount givingAccount) {
         this.givingAccount = givingAccount;
     }
 
-    public Account getReceivingAccount() {
+    public IAccount getReceivingAccount() {
         return receivingAccount;
     }
 
-    public void setReceivingAccount(Account receivingAccount) {
+    public void setReceivingAccount(IAccount receivingAccount) {
         this.receivingAccount = receivingAccount;
     }
 
