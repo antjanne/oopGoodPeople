@@ -11,13 +11,12 @@ import com.goodpeople.gooddeeds.R;
 
 
 public class ViewOffer extends ViewTemplate {
-    private IDeed deed;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.view_offer);
         super.onCreate(savedInstanceState);
-        this.deed = deedController.getCurrentDeedHandler();
+        IDeed deed = deedController.getCurrentDeedHandler();
         TextView subject = findViewById(R.id.deedSubject);
         subject.setText(deed.getSubject());
         TextView description = findViewById(R.id.deedDescription);
