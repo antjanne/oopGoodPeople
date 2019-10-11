@@ -3,7 +3,7 @@ package com.goodpeople.gooddeeds.Model.Entities;
 import android.os.Parcel;
 
 public class Account implements IAccount {
-    
+
     private String name;
     private int postalCode;
     private String email;
@@ -14,13 +14,6 @@ public class Account implements IAccount {
         this.postalCode = postalCode;
         this.email = email;
         this.password = password;
-    }
-
-    protected Account(Parcel in) {
-        name = in.readString();
-        postalCode = in.readInt();
-        email = in.readString();
-        password = in.readString();
     }
 
     /**
