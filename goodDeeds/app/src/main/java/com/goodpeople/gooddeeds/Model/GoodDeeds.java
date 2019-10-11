@@ -13,7 +13,7 @@ import java.util.UUID;
 public class GoodDeeds {
 
     private static GoodDeeds goodDeeds;
-
+    private IDeed currentDeed;
     private List<IDeed> deeds = new ArrayList<>();
     private List<IAccount> accounts = new ArrayList<>();
     private IAccount loggedInAccount;
@@ -119,15 +119,32 @@ public class GoodDeeds {
         return (myDeeds);
     }
 
-    public IDeed fetchDeed(UUID uuid) {
-        try {
-            for (IDeed deed : deeds) {
-                if (deed.getUuid().equals(uuid))
-                    return deed;
-            }
-        } catch (NullPointerException e) {
-            System.out.println("NullPointerException. No Matching ID found.");
+    private IDeed fetchDeed(UUID id) throws Exception {
+        for (IDeed deed : deeds) {
+            if (deed.getUuid().equals(id))
+                return deed;
         }
+        throw new Exception();
+    }
+
+    /**
+     * Sets currentDeed to Deed with matching UUID.
+     *
+     * @param id UUID search for.
+     */
+    public void setCurrentdeed(UUID id) {
+        try {
+            currentDeed = fetchDeed(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * @return the currently assigned currentDeed.
+     */
+    public IDeed getCurrentDeed() {
+        return currentDeed;
     }
 
     /**

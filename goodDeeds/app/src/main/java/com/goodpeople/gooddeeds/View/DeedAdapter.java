@@ -6,7 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.goodpeople.gooddeeds.Controller.DeedController;
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
+import com.goodpeople.gooddeeds.Model.GoodDeeds;
 import com.goodpeople.gooddeeds.R;
 
 import java.util.List;
@@ -56,7 +58,7 @@ public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder
                 public void onClick(View v) {
                     IDeed deed = mDeeds.get(getAdapterPosition());
                     Intent intent = new Intent(v.getContext(), ViewOffer.class);
-
+                    new DeedController().setCurrentDeedHandler(deed.getUuid());
                     v.getContext().startActivity(intent);
                 }
             });
