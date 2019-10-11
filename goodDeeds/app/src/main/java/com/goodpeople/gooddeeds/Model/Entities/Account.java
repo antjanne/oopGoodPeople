@@ -1,12 +1,13 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
-public class Account implements IAccount{
+import android.os.Parcel;
+
+public class Account implements IAccount {
 
     private String name;
     private int postalCode;
     private String email;
     private String password;
-
 
     public Account(String name, int postalCode, String email, String password) {
         this.name = name;
@@ -14,7 +15,6 @@ public class Account implements IAccount{
         this.email = email;
         this.password = password;
     }
-
 
     /**
      * @return account name
@@ -71,4 +71,5 @@ public class Account implements IAccount{
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

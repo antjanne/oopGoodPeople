@@ -4,6 +4,7 @@ import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.Model.GoodDeeds;
 
 import java.util.List;
+import java.util.UUID;
 
 public class DeedRepositoryImpl implements DeedRepository {
 
@@ -23,4 +24,16 @@ public class DeedRepositoryImpl implements DeedRepository {
     public void createOffer(String subject, String description) {
         goodDeeds.createOffer(subject, description);
     }
+
+    @Override
+    public IDeed getCurrentDeed() {
+        return goodDeeds.getCurrentDeed();
+    }
+
+    @Override
+    public void setCurrentDeed(UUID id) {
+        goodDeeds.setCurrentdeed(id);
+    }
+
+
 }

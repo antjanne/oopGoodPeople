@@ -1,24 +1,30 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
+
+import java.util.UUID;
+
 public class Deed implements IDeed {
 
     private IAccount givingAccount;
     private IAccount receivingAccount;
     private String subject;
     private String description;
+    private UUID uuid;
 
     private Deed() {
     }
 
     public static Deed newOffer(IAccount givingAccount, String subject, String description) {
+
         Deed d = new Deed();
         d.setGivingAccount(givingAccount);
         d.setSubject(subject);
         d.setDescription(description);
+        d.setUuid(UUID.randomUUID());
         return d;
     }
 
-    public static Deed newRequest(Account receivingAccount, String subject, String description) {
+    public static Deed newRequest(IAccount receivingAccount, String subject, String description) {
         Deed d = new Deed();
         d.setReceivingAccount(receivingAccount);
         d.setSubject(subject);
@@ -58,5 +64,12 @@ public class Deed implements IDeed {
         this.description = description;
     }
 
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
 
 }
