@@ -7,6 +7,5 @@ public interface IDeed extends Parcelable {
 
     String getDescription();
 
-    Account getGivingAccount();
-
+    IAccount getGivingAccount();
 }

@@ -4,7 +4,6 @@ import android.os.Parcel;
 
 public class Deed implements IDeed {
 
-    //Parcelable
     public static final Creator<Deed> CREATOR = new Creator<Deed>() {
         @Override
         public Deed createFromParcel(Parcel in) {
@@ -16,8 +15,8 @@ public class Deed implements IDeed {
             return new Deed[size];
         }
     };
-    private Account givingAccount;
-    private Account receivingAccount;
+    private IAccount givingAccount;
+    private IAccount receivingAccount;
     private String subject;
     private String description;
 
@@ -25,13 +24,14 @@ public class Deed implements IDeed {
     }
 
     private Deed(Parcel in) {
-        givingAccount = in.readParcelable(Account.class.getClassLoader());
-        receivingAccount = in.readParcelable(Account.class.getClassLoader());
+        givingAccount = in.readParcelable(IAccount.class.getClassLoader());
+        receivingAccount = in.readParcelable(IAccount.class.getClassLoader());
         subject = in.readString();
         description = in.readString();
     }
 
-    public static Deed newOffer(Account givingAccount, String subject, String description) {
+    public static Deed newOffer(IAccount givingAccount, String subject, String description) {
+
         Deed d = new Deed();
         d.setGivingAccount(givingAccount);
         d.setSubject(subject);
@@ -39,7 +39,7 @@ public class Deed implements IDeed {
         return d;
     }
 
-    public static Deed newRequest(Account receivingAccount, String subject, String description) {
+    public static Deed newRequest(IAccount receivingAccount, String subject, String description) {
         Deed d = new Deed();
         d.setReceivingAccount(receivingAccount);
         d.setSubject(subject);
@@ -47,19 +47,19 @@ public class Deed implements IDeed {
         return d;
     }
 
-    public Account getGivingAccount() {
+    public IAccount getGivingAccount() {
         return givingAccount;
     }
 
-    public void setGivingAccount(Account givingAccount) {
+    public void setGivingAccount(IAccount givingAccount) {
         this.givingAccount = givingAccount;
     }
 
-    public Account getReceivingAccount() {
+    public IAccount getReceivingAccount() {
         return receivingAccount;
     }
 
-    public void setReceivingAccount(Account receivingAccount) {
+    public void setReceivingAccount(IAccount receivingAccount) {
         this.receivingAccount = receivingAccount;
     }
 

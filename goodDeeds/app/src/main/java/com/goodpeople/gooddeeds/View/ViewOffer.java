@@ -2,12 +2,7 @@ package com.goodpeople.gooddeeds.View;
 
 import android.os.Bundle;
 
-import com.goodpeople.gooddeeds.Controller.DeedController;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
@@ -15,9 +10,8 @@ import com.goodpeople.gooddeeds.R;
 
 
 public class ViewOffer extends ViewTemplate {
-    DeedController deedController = new DeedController();
     private IDeed deed;
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.view_offer);

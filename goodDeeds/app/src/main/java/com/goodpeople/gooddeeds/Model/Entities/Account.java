@@ -1,9 +1,8 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 
-public class Account implements Parcelable {
+public class Account implements IAccount {
 
     public static final Creator<Account> CREATOR = new Creator<Account>() {
         @Override
