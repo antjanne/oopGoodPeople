@@ -18,6 +18,7 @@ public class GoodDeeds {
 
     private static GoodDeeds goodDeeds;
 
+
     private List<IDeed> deeds = new ArrayList<>();
     private List<Account> accounts = new ArrayList<>();
     private Account loggedInAccount;
