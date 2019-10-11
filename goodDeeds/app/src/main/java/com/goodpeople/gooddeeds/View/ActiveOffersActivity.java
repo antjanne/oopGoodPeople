@@ -10,6 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.View.Account.AccountDetails;
 
+/**
+ * Responsible for showing active offers.
+ * Holds a recyclerview, adapter, layout manager.
+ */
+
 public class ActiveOffersActivity extends ViewTemplate {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;

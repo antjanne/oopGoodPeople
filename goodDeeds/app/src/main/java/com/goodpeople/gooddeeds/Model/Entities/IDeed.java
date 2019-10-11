@@ -1,10 +1,11 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
+/**
+ * Defines the interface for Deed
+ */
+
 public interface IDeed {
 
-    /**
-     * Defines the interface for Deed
-     */
 
     /**
      * @return The subject of a deed

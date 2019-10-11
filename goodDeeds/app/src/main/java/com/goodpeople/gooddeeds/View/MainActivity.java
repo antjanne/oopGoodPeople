@@ -11,6 +11,10 @@ import com.goodpeople.gooddeeds.Controller.AccountController;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.View.Account.Login;
 
+/**
+ * Responsible for handling events in the MainActivity view
+ */
+
 public class MainActivity extends ViewTemplate {
 
     AccountController accountController = new AccountController();

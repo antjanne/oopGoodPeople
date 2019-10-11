@@ -3,6 +3,10 @@ package com.goodpeople.gooddeeds.Model.Repositories;
 import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.GoodDeeds;
 
+/**
+ * Handles the layer between service and data handler
+ */
+
 public class AccountRepositoryImpl implements AccountRepository {
 
     private GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();

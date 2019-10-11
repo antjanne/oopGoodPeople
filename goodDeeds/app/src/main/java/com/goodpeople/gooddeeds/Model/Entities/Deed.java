@@ -1,16 +1,12 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
+/**
+ * Class Deed: represents a deed, which can be either a request or an offer.
+ * Type of deed is set by initializing either parameter givingAccount or receivingAccount
+ * to the logged in account as the deed is created.
+ */
 
 public class Deed implements IDeed {
-
-    /**
-     * Class Deed: represents a deed, which can be either a request or an offer.
-     * Type of deed is set by initializing either
-     * @param givingAccount
-     * @param receivingAccount
-     * to the logged in account as the deed is created.
-     */
-
 
 
     private Account givingAccount;

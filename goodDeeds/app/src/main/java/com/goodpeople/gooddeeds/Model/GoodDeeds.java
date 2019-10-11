@@ -7,14 +7,14 @@ import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Defines the base for the model.
+ * Holds the list of existing deeds and accounts
+ * and the current logged in account.
+ * */
 
 public class GoodDeeds {
 
-    /**
-     * Defines the base for the model.
-     * Holds the list of existing deeds and accounts
-     * and the current logged in account.
-     * */
 
     private static GoodDeeds goodDeeds;
 

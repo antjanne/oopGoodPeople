@@ -13,6 +13,10 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * Responsible for putting deeds in the recyclerview
+ */
+
 public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder> {
     private List<IDeed> mDeeds;
     public static class DeedViewHolder extends RecyclerView.ViewHolder{

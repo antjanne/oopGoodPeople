@@ -2,6 +2,10 @@ package com.goodpeople.gooddeeds.Model.Repositories;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
 
+/**
+ * Defines the interface for handling account data between service and data handler
+ */
+
 public interface AccountRepository {
 
     void createAccount(String name, int postalCode, String email, String password);
