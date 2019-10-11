@@ -17,26 +17,37 @@
         android:id="@+id/account_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="164dp"
         android:onClick="goToAccountDetails"
         android:text="@string/account_details"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
-        app:layout_constraintStart_toStartOf="@+id/tool_bar"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/show_active_deeds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/my_active_deeds"
         android:onClick="goToActiveDeeds"
+        android:text="@string/my_active_deeds"
         app:layout_constraintBottom_toBottomOf="@+id/tool_bar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/account_details"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.065" />
+
+    <TextView
+        android:id="@+id/my_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/my_account"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/account_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tool_bar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

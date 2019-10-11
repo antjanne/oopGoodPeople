@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import android.widget.TextView;
 
-import com.goodpeople.gooddeeds.Controller.DeedController;
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.R;
 
