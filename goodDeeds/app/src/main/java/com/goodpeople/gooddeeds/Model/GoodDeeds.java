@@ -7,6 +7,7 @@ import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 public class GoodDeeds {
@@ -116,6 +117,17 @@ public class GoodDeeds {
             }
         }
         return (myDeeds);
+    }
+
+    public IDeed fetchDeed(UUID uuid) {
+        try {
+            for (IDeed deed : deeds) {
+                if (deed.getUuid().equals(uuid))
+                    return deed;
+            }
+        } catch (NullPointerException e) {
+            System.out.println("NullPointerException. No Matching ID found.");
+        }
     }
 
     /**
