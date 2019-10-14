@@ -91,10 +91,4 @@ public class Deed implements IDeed {
     public void setUuid(UUID uuid) {
         this.uuid = uuid;
     }
-
-    @Override
-    public String toString() {
-        return subject + description;
-    }
-
 }

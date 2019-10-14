@@ -15,16 +15,35 @@ public class DeedRepositoryImpl implements DeedRepository {
         return goodDeeds.getDeeds();
     }
 
+    /**
+     * Method for getting the active offers for a logged in account.
+     * A account has to be logged in before calling this method.
+     *
+     * @return the list of active offers for the logged in account
+     */
     @Override
     public List<IDeed> getMyActiveOffers() {
         return goodDeeds.getMyActiveOffers();
     }
 
+    /**
+     * Method for getting the active requests for a logged in account.
+     * A account has to be logged in before calling this method.
+     *
+     * @return the list of active requests for the logged in account
+     */
     @Override
     public List<IDeed> getMyActiveRequests() {
         return goodDeeds.getMyActiveRequests();
     }
 
+    /**
+     * Method for creating a new offer with the logged in account as the giving account.
+     * A account has to be logged in before calling this method.
+     *
+     * @param subject The subject of the offer.
+     * @param description The description of the offer.
+     */
     @Override
     public void createOffer(String subject, String description) {
         goodDeeds.createOffer(subject, description);
