@@ -1,0 +1,40 @@
+language: android
+sudo: required
+jdk: oraclejdk8
+
+before_cache:
+ - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+ - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+ directories:
+ - $HOME/.gradle/caches/
+ - $HOME/.gradle/wrapper/
+
+android:
+ components:
+ - tools
+ - tools
+ - platform-tools
+ - android-29
+ - build-tools-29.0.2
+ - android-22
+ - sys-img-armeabi-v7a-google_apis-25
+
+ licenses:
+ - '.+'
+
+before_script:
+ - cd goodDeeds
+ #- echo no | android create avd --force -n test -t android-22 --abi google_apis/armeabi-v7a
+ #- emulator -avd test -no-audio -no-window &
+ #- android-wait-for-emulator
+ #- adb shell input keyevent 82 &
+
+script:
+  - ./gradlew clean build
+  # run tests against the emulator
+  #- ./gradlew connectedAndroidTest
+  # run tests against the JVM
+  - ./gradlew test
+
