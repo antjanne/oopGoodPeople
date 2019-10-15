@@ -21,7 +21,6 @@ public class MarketActivity extends ViewTemplate {
         setContentView(R.layout.activity_market);
         super.onCreate(savedInstanceState);
         viewDeeds(deedController.showOffersHandler());
-
     }
 
     private void viewDeeds(List<IDeed> deeds) {

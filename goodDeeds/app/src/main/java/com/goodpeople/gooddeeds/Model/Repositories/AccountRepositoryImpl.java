@@ -90,5 +90,11 @@ public class AccountRepositoryImpl implements AccountRepository {
         goodDeeds.editAccount(name, email, postalCode);
     }
 
-
+    /**
+     * Logs out the currently logged in account, by calling method in GoodDeeds
+     */
+    @Override
+    public void logout() {
+        goodDeeds.logout();
+    }
 }

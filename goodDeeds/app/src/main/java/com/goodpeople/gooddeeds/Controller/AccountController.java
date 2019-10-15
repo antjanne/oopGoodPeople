@@ -87,4 +87,11 @@ public class AccountController {
         accountRepository.editAccount(name, email, postalCode);
     }
 
+
+    /**
+     * Logs out the account currently logged in, by calling the repository method.
+     */
+    public void logout(){
+        accountRepository.logout();
+    }
 }

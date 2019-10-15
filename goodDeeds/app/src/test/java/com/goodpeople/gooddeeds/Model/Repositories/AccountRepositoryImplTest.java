@@ -69,4 +69,9 @@ public class AccountRepositoryImplTest {
         Assert.assertEquals(repositoryTest.getAccount().getEmail(), "newEmail@email.se");
         Assert.assertEquals(repositoryTest.getAccount().getPostalCode(), 12345);
     }
+
+    @Test
+    public void logout() {
+        repositoryTest.logout();
+    }
 }

@@ -210,4 +210,11 @@ public class GoodDeeds {
         loggedInAccount.setEmail(email);
         loggedInAccount.setPostalCode(postalCode);
     }
+
+    /**
+     * Logs out the currently logged in account.
+     */
+    public void logout() {
+        loggedInAccount=null;
+    }
 }

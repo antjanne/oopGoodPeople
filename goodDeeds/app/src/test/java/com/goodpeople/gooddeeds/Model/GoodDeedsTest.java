@@ -127,4 +127,8 @@ public class GoodDeedsTest {
         assertEquals(goodDeeds.getDeeds().size(), 1);
     }
 
+    @Test
+    public void logout() {
+        goodDeeds.logout();
+    }
 }

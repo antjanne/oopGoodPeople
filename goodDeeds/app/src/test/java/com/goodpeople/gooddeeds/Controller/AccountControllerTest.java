@@ -73,5 +73,8 @@ public class AccountControllerTest {
         Assert.assertEquals(accountController.accountHandler().getPostalCode(), 12345);
     }
 
-
+    @Test
+    public void logout() {
+        accountController.logout();
+    }
 }
