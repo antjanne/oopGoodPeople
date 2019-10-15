@@ -28,6 +28,8 @@ public class DeedController {
         deedRepository.createOffer(subject, description);
     }
 
+
+
     public IDeed getCurrentDeedHandler() {
         return deedRepository.getCurrentDeed();
     }

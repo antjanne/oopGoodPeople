@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".View.MarketActivity"></activity>
+        <activity android:name=".View.MarketActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".View.ActiveOffersActivity" />
         <activity android:name=".View.MainActivity">
             <intent-filter>

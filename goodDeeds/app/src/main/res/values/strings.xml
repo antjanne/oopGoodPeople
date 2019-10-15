@@ -32,6 +32,8 @@
     <string name="invalid_description">Description is missing</string>
     <string name="deeds">Deeds</string>
     <string name="Market">Market</string>
+    <string name="browse_deeds">Browse Deeds</string>
+    <string name="search_field_hint">Search</string>
 
 
 </resources>
