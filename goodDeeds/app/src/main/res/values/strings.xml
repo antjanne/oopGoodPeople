@@ -31,6 +31,7 @@
     <string name="invalid_subject">Subject is missing</string>
     <string name="invalid_description">Description is missing</string>
     <string name="deeds">Deeds</string>
+    <string name="Market">Market</string>
 
 
 </resources>
