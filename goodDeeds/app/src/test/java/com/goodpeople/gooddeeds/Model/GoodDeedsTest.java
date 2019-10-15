@@ -1,101 +1,130 @@
 package com.goodpeople.gooddeeds.Model;
 
 import com.goodpeople.gooddeeds.Model.Entities.Account;
+import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 public class GoodDeedsTest {
 
-    GoodDeeds gd;
+
+    GoodDeeds goodDeeds;
 
     @Before
-    public void initialize(){
-        gd = GoodDeeds.getGoodDeeds();
-        gd.createAccount("Test", 00000, "test@test.com", "123");
-        gd.login("test@test.com", "123");
-        gd.createOffer("Subject", "Description");
+    public void initialize() {
+        goodDeeds = GoodDeeds.getGoodDeeds();
+        goodDeeds.createAccount("Test", 00000, "test@test.com", "123");
+        goodDeeds.login("test@test.com", "123");
+        goodDeeds.createOffer("Subject", "Description");
     }
 
     @After
     public void after() {
-        gd.getAccounts().clear();
-        gd.getDeeds().clear();
+        goodDeeds.getAccounts().clear();
+        goodDeeds.getDeeds().clear();
+    }
+
+
+    @Test
+    public void shouldGetAccountsSize1() {
+        assertEquals(goodDeeds.getAccounts().size(), 1);
+    }
+
+    @Test
+    public void shouldCheckIfLoggedInReturnTrue() {
+        assertTrue(goodDeeds.isLoggedIn());
+    }
+
+    @Test
+    public void shouldValidateLoginReturnTrue() {
+        assertTrue(goodDeeds.validateLogin("test@test.com", "123"));
+    }
+
+    @Test
+    public void shouldValidateInvalidEmailLoginReturnFalse() {
+        assertFalse(goodDeeds.validateLogin("wrong.email", "123"));
+    }
+
+    @Test
+    public void shouldValidateInvalidPasswordLoginReturnFalse() {
+        assertFalse(goodDeeds.validateLogin("test@test.com", "pass123"));
+    }
+
+    @Test
+    public void updatePassword() {
+        IAccount account = goodDeeds.getAccount();
+        goodDeeds.updatePassword("newPassword");
+        Assert.assertEquals(account.getPassword(), "newPassword");
     }
 
     @Test
     public void createOfferShouldBeAddedToOffers() {
-        assertEquals(1, gd.getDeeds().size());
+        assertEquals(1, goodDeeds.getDeeds().size());
     }
 
     @Test
     public void createOfferShouldStoreSubject() {
-        assertEquals("Subject", gd.getDeeds().get(0).getSubject());
+        assertEquals("Subject", goodDeeds.getDeeds().get(0).getSubject());
     }
 
     @Test
     public void createOfferShouldStoreDescription() {
-        assertEquals("Description", gd.getDeeds().get(0).getDescription());
+        assertEquals("Description", goodDeeds.getDeeds().get(0).getDescription());
     }
 
     @Test
-    public void getGoodDeeds() {
+    public void shouldValidateIfEmailIsAlreadyUsedReturnTrue() {
+        Assert.assertTrue(goodDeeds.isEmailUsed("test@test.com"));
+    }
 
+    @Test
+    public void shouldValidateIfEmailIsAlreadyUsedReturnFalse() {
+        Assert.assertFalse(goodDeeds.isEmailUsed("notUsed@email.se"));
     }
 
     @Test
     public void getAccounts() {
-        gd.createAccount("test3",0000,"test3@test3.com","123");
-        assertEquals(gd.getAccounts().size(),2);
+        goodDeeds.createAccount("test3", 0000, "test3@test3.com", "123");
+        assertEquals(goodDeeds.getAccounts().size(), 2);
     }
 
     @Test
     public void createAccount() {
-        gd.createAccount("test3",0000,"test3@test3.com","123");
-        assertEquals(gd.getAccounts().size(), 2);
-
-    }
-
-    @Test
-    public void validateAccountEmail() {
-    }
-
-    @Test
-    public void login() {
-    }
-
-    @Test
-    public void validateLogin() {
-
+        goodDeeds.createAccount("test3", 0000, "test3@test3.com", "123");
+        assertEquals(goodDeeds.getAccounts().size(), 2);
 
     }
 
     @Test
     public void getMyOffers() {
-       assertEquals(gd.getMyOffers().size(),1);
+        assertEquals(goodDeeds.getMyOffers().size(), 1);
 
-    }
-
-    @Test
-    public void isLoggedIn() {
-        Account loggedIn = gd.getAccounts().get(0);
-        assertNotNull(loggedIn);
     }
 
     @Test
     public void createOffer() {
-    assertEquals(gd.getDeeds().size(),1);
+        assertEquals(goodDeeds.getDeeds().size(), 1);
     }
 
     @Test
     public void getDeeds() {
-        assertEquals(gd.getDeeds().size(),1);
+        assertEquals(goodDeeds.getDeeds().size(), 1);
     }
 
     @Test
-    public void getIDeeds() {
-    assertEquals(gd.getDeeds().size(),1);
+    public void shouldUpdateAccountDetails() {
+        goodDeeds.editAccount("newName", "newEmail@email.se", 12345);
+        Assert.assertEquals(goodDeeds.getAccount().getName(), "newName");
+        Assert.assertEquals(goodDeeds.getAccount().getEmail(), "newEmail@email.se");
+        Assert.assertEquals(goodDeeds.getAccount().getPostalCode(), 12345);
+        assertEquals(goodDeeds.getDeeds().size(), 1);
     }
+
 }

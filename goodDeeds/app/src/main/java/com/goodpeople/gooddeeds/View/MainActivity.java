@@ -5,29 +5,21 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
-
-import androidx.appcompat.widget.Toolbar;
 
 import com.goodpeople.gooddeeds.Controller.AccountController;
 import com.goodpeople.gooddeeds.R;
-import android.view.View;
+import com.goodpeople.gooddeeds.View.Account.Login;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ViewTemplate {
 
     AccountController accountController = new AccountController();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
     }
 
@@ -35,10 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        switch (id) {
-            case R.id.toolbar_login:
-                login();
-                break;
+        if (id == R.id.toolbar_login) {
+            login();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -51,12 +41,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void activeOffers(View view) {
-        Intent intent = new Intent(MainActivity.this, ActiveOffersActivity.class);
-        startActivity(intent);
-    }
-
-
     public void login() {
         if (!accountController.isLoggedIn()) {
             Intent myIntent = new Intent(this, Login.class);
@@ -64,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Intent intent = new Intent(this, ActiveOffersActivity.class);
             startActivity(intent);
-
         }
     }
 
