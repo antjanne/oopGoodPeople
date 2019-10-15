@@ -46,7 +46,7 @@ public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder
         public TextView mSubject;
         public TextView mDescription;
 
-        public DeedViewHolder(@NonNull View itemView, final List<IDeed> offers) {
+        public DeedViewHolder(@NonNull View itemView, final List<IDeed> deeds) {
             super(itemView);
             mSubject = itemView.findViewById(R.id.subjectText);
             mDescription = itemView.findViewById(R.id.descriptionText);
@@ -54,7 +54,7 @@ public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    IDeed deed = offers.get(getAdapterPosition());
+                    IDeed deed = deeds.get(getAdapterPosition());
                     Intent intent = new Intent(v.getContext(), ViewOffer.class);
                     new DeedController().setCurrentDeedHandler(deed.getUuid());
                     v.getContext().startActivity(intent);
