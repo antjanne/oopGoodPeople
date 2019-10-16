@@ -8,7 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".View.ActiveOffersActivity"></activity>
+
         <activity android:name=".View.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,10 +19,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.CreateAccount"></activity>
-        <activity android:name=".View.Login"></activity>
+        <activity android:name=".View.Account.CreateAccount"></activity>
+        <activity android:name=".View.Account.Login"></activity>
+        <activity android:name=".View.Account.AccountDetails"></activity>
+        <activity android:name=".View.Account.EditAccount"></activity>
+        <activity android:name=".View.Account.EditAccountPassword"></activity>
         <activity android:name=".View.CreateOffer"></activity>
+<<<<<<< HEAD
         <activity android:name=".View.EditOffer"></activity>
+=======
+        <activity android:name=".View.ViewOffer"></activity>
+>>>>>>> master
     </application>
 
 </manifest>

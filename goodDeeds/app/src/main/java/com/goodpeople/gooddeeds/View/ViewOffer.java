@@ -1,0 +1,26 @@
+package com.goodpeople.gooddeeds.View;
+
+import android.os.Bundle;
+
+
+import android.widget.TextView;
+
+import com.goodpeople.gooddeeds.Controller.DeedController;
+import com.goodpeople.gooddeeds.Model.Entities.IDeed;
+import com.goodpeople.gooddeeds.R;
+
+
+public class ViewOffer extends ViewTemplate {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        setContentView(R.layout.view_offer);
+        super.onCreate(savedInstanceState);
+        IDeed deed = deedController.getCurrentDeedHandler();
+        TextView subject = findViewById(R.id.deedSubject);
+        subject.setText(deed.getSubject());
+        TextView description = findViewById(R.id.deedDescription);
+        description.setText(deed.getDescription());
+
+    }
+}
