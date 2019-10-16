@@ -22,7 +22,7 @@ public class DeedController {
      * @return the list of active offers for the logged in account
      */
     public List<IDeed> showMyActiveOffersHandler() {
-        return (deedRepository.getMyActiveOffers());
+        return deedRepository.getMyActiveOffers();
     }
 
     /**
@@ -32,7 +32,7 @@ public class DeedController {
      * @return the list of active requests for the logged in account
      */
     public List<IDeed> showMyActiveRequestsHandler() {
-        return (deedRepository.getMyActiveRequests());
+        return deedRepository.getMyActiveRequests();
     }
 
     /**
