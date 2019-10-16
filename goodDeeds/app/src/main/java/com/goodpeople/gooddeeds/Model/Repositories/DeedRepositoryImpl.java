@@ -65,4 +65,21 @@ public class DeedRepositoryImpl implements DeedRepository {
     }
 
 
+    /**
+     * Gets a list of active requests by calling goodDeeds
+     * @return a list of deeds that are active requests
+     */
+    @Override
+    public List<IDeed> getActiveRequests() {
+        return goodDeeds.getActiveRequests();
+    }
+
+    /**
+     * Gets a list of active offers by calling goodDeeds
+     * @return a list of deeds that are active offers
+     */
+    @Override
+    public List<IDeed> getActiveOffers() {
+        return goodDeeds.getActiveOffers();
+    }
 }

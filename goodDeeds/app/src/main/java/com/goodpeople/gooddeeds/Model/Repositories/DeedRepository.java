@@ -21,4 +21,8 @@ public interface DeedRepository {
     IDeed getCurrentDeed();
 
     void setCurrentDeed(UUID id);
+
+    List<IDeed> getActiveRequests();
+
+    List<IDeed> getActiveOffers();
 }

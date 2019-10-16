@@ -28,7 +28,7 @@ public class GoodDeeds {
 
         accounts.add(a2);
         Deed d3 = Deed.newRequest(a, "Rosett", "Jag kan inte knyta mina skor, kan någon hjälpa mig?");
-        Deed d4 = Deed.newRequest(a, "Lokalsinne", "Jag har tappat bort mig och skulle behöva hjälpa av någon att hitta hem. Hjälp önskas snarast, gärna innan skymningen.");
+        Deed d4 = Deed.newRequest(a2, "Lokalsinne", "Jag har tappat bort mig och skulle behöva hjälpa av någon att hitta hem. Hjälp önskas snarast, gärna innan skymningen.");
 
         accounts.add(a);
         loggedInAccount = a;
@@ -234,6 +234,38 @@ public class GoodDeeds {
         return (myActiveRequests);
     }
 
+    /**
+     * Creates a list which will gather all deeds that are requests.
+     *
+     * @return a list of deeds with active requests
+     */
+    public List<IDeed> getActiveRequests(){
+        List<IDeed> allActiveRequests = new ArrayList<>();
+
+        for(IDeed d :deeds){
+            if(d.getReceivingAccount() != null){
+                allActiveRequests.add(d);
+            }
+        }
+        return allActiveRequests;
+    }
+
+    /**
+     * Creates a list which will gather all deeds that are offers.
+     *
+     * @return a list of deeds with active offers
+     */
+
+    public List<IDeed> getActiveOffers(){
+        List<IDeed> allActiveOffers = new ArrayList<>();
+
+        for(IDeed d : deeds){
+            if(d.getGivingAccount() != null){
+                allActiveOffers.add(d);
+            }
+        }
+        return allActiveOffers;
+    }
 
     /**
      * Logs out the currently logged in account.

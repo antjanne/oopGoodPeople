@@ -63,4 +63,19 @@ public class DeedController {
         deedRepository.setCurrentDeed(uuid);
     }
 
+    /**
+     * Gets a list of active requests by calling deedRepository
+     * @return a list of active requests
+     */
+    public List<IDeed> showAllActiveRequests() {
+        return deedRepository.getActiveRequests();
+    }
+
+    /**
+     * Gets a list of active offers by calling deedRepository
+     * @return a list of active offers
+     */
+    public List<IDeed> showAllActiveOffers() {
+        return deedRepository.getActiveOffers();
+    }
 }

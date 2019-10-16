@@ -136,4 +136,14 @@ public class GoodDeedsTest {
         goodDeeds.logout();
         assertFalse(goodDeeds.isLoggedIn());
     }
+
+    @Test
+    public void getActiveRequests() {
+        assertEquals(goodDeeds.getActiveRequests().size(),1);
+    }
+
+    @Test
+    public void getActiveOffers() {
+        assertEquals(goodDeeds.getActiveOffers().size(),1);
+    }
 }
