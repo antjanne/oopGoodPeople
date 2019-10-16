@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.goodpeople.gooddeeds.R;
+import com.goodpeople.gooddeeds.View.ActiveDeeds;
 import com.goodpeople.gooddeeds.View.ViewTemplate;
 
 public class AccountOptions extends ViewTemplate {

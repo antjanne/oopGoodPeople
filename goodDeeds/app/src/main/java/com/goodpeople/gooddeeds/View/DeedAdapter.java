@@ -56,7 +56,7 @@ public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder
                 @Override
                 public void onClick(View v) {
                     IDeed deed = mDeeds.get(getAdapterPosition());
-                    Intent intent = new Intent(v.getContext(), ViewOffer.class);
+                    Intent intent = new Intent(v.getContext(), ViewDeed.class);
                     new DeedController().setCurrentDeedHandler(deed.getUuid());
                     v.getContext().startActivity(intent);
                 }

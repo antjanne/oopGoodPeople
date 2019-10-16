@@ -1,4 +1,4 @@
-package com.goodpeople.gooddeeds.View.Account;
+package com.goodpeople.gooddeeds.View;
 
 import android.os.Bundle;
 import android.view.View;

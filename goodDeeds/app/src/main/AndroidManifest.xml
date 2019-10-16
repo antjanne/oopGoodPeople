@@ -10,7 +10,7 @@
         android:supportsRtl="true"
 
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".View.Account.ActiveDeeds"></activity>
+        <activity android:name=".View.ActiveDeeds"></activity>
 
         <activity android:name=".View.MainActivity">
             <intent-filter>
@@ -26,7 +26,7 @@
         <activity android:name=".View.Account.EditAccountPassword"></activity>
         <activity android:name=".View.Account.AccountOptions"></activity>
         <activity android:name=".View.CreateOffer"></activity>
-        <activity android:name=".View.ViewOffer"></activity>
+        <activity android:name=".View.ViewDeed"></activity>
     </application>
 
 </manifest>
