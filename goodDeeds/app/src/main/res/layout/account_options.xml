@@ -49,5 +49,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tool_bar" />
 
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="139dp"
+        android:layout_height="55dp"
+        android:onClick="logOut"
+        android:text="@string/log_out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/show_active_deeds"
+        app:layout_constraintVertical_bias="0.076" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

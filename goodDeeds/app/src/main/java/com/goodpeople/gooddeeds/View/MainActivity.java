@@ -61,4 +61,8 @@ public class MainActivity extends ViewTemplate {
         }
     }
 
+    public void goToMarket(View view) {
+        Intent myIntent = new Intent(this, MarketActivity.class);
+        startActivity(myIntent);
+    }
 }

@@ -15,6 +15,10 @@ public class DeedController {
     public DeedController() {
     }
 
+    public List<IDeed> showAllDeedsHandler(){
+        return deedRepository.getDeeds();
+    }
+
     /**
      * Method for getting the active offers for a logged in account.
      * A account has to be logged in before calling this method.
@@ -46,6 +50,7 @@ public class DeedController {
         deedRepository.createOffer(subject, description);
     }
 
+
     public void createRequestHandler(String subject, String description) {
         deedRepository.createRequest(subject, description);
     }
@@ -58,4 +63,19 @@ public class DeedController {
         deedRepository.setCurrentDeed(uuid);
     }
 
+    /**
+     * Gets a list of active requests by calling deedRepository
+     * @return a list of active requests
+     */
+    public List<IDeed> showAllActiveRequests() {
+        return deedRepository.getActiveRequests();
+    }
+
+    /**
+     * Gets a list of active offers by calling deedRepository
+     * @return a list of active offers
+     */
+    public List<IDeed> showAllActiveOffers() {
+        return deedRepository.getActiveOffers();
+    }
 }
