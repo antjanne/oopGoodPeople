@@ -27,13 +27,7 @@ public class DeedControllerTest {
 
     @After
     public void after(){
-        deedController.showOffersHandler().clear();
         goodDeeds.getDeeds().clear();
-    }
-
-    @Test
-    public void showOffersHandler() {
-        assertEquals(4, deedController.showOffersHandler().size());
     }
 
     @Test
