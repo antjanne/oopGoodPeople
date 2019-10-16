@@ -14,14 +14,14 @@ import java.util.UUID;
 public class GoodDeeds {
 
     private static GoodDeeds goodDeeds;
-    private IDeed currentDeed;
-    private List<IDeed> deeds = new ArrayList<>();
+    private Deed currentDeed;
+    private List<Deed> deeds = new ArrayList<>();
     private List<IAccount> accounts = new ArrayList<>();
     private IAccount loggedInAccount;
 
     private GoodDeeds() {
 
-        /*Account a = new Account("Anton",30597,"anton46304@gmail.com","ahah");
+        Account a = new Account("Anton",30597,"anton46304@gmail.com","ahah");
         Deed d = Deed.newOffer(a,"Gräsklipp","Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
         Deed d2 = Deed.newOffer(a,"Hårklipp","Jag klipper gärna håret på folk! Ge mig en pling vetja!");
 
@@ -29,7 +29,7 @@ public class GoodDeeds {
         loggedInAccount = a;
         deeds.add(d);
         deeds.add(d2);
-        */
+
     }
 
     public static GoodDeeds getGoodDeeds() {
@@ -58,14 +58,17 @@ public class GoodDeeds {
         accounts.add(new Account(name, postalCode, email, password));
     }
 
-<<<<<<< HEAD
+
 
     public boolean validateAccountEmail(String email) {
-        for (Account account :
+        for (IAccount account :
                 accounts) {
             if (account.getEmail().equals(email)) {
                 return true;
-=======
+            }
+        } return false;
+    }
+
     /**
      * Logs in user by assigning it to variable: loggedInAccount
      *
@@ -76,7 +79,7 @@ public class GoodDeeds {
         for (IAccount account : accounts) {
             if (account.getEmail().equals(email) && account.getPassword().equals(password)) {
                 loggedInAccount = account;
->>>>>>> master
+
             }
         }
     }
@@ -129,8 +132,8 @@ public class GoodDeeds {
         return (myDeeds);
     }
 
-    private IDeed fetchDeed(UUID id) throws Exception {
-        for (IDeed deed : deeds) {
+    private Deed fetchDeed(UUID id) throws Exception {
+        for (Deed deed : deeds) {
             if (deed.getUuid().equals(id))
                 return deed;
         }
@@ -153,7 +156,7 @@ public class GoodDeeds {
     /**
      * @return the currently assigned currentDeed.
      */
-    public IDeed getCurrentDeed() {
+    public Deed getCurrentDeed() {
         return currentDeed;
     }
 
@@ -164,9 +167,6 @@ public class GoodDeeds {
         return loggedInAccount != null;
     }
 
-    public List<Deed> getDeeds() {
-        return deeds;
-    }
 
 
     /**
@@ -199,29 +199,32 @@ public class GoodDeeds {
         deeds.add(newOffer);
     }
 
-<<<<<<< HEAD
 
     /**
      * Edits the subject and description of an already existing deed.
      * The logged in account must be the original creator of the deed.
-     * @param deed The deed to be edited.
      * @param subject The subject of the deed.
      * @param description the description of the deed.
      */
-    public void editOffer(Deed deed, String subject, String description) {
-        if (deed.getGivingAccount() == loggedinAccount) {
+    public void editOffer(String subject, String description) {
+        Deed deed = getCurrentDeed();
+        if (deed.getGivingAccount() == loggedInAccount) {
             deed.setSubject(subject);
             deed.setDescription(description);
         }
-=======
+    }
+
     /**
      * Returns a list of all Deeds in the form of IDeed
      *
      * @return all IDeeds
      */
     public List<IDeed> getDeeds() {
-        return deeds;
->>>>>>> master
+        List<IDeed> ideeds = new ArrayList<>();
+        for (IDeed deed : deeds) {
+            ideeds.add(deed);
+        }
+        return ideeds;
     }
 
     /**

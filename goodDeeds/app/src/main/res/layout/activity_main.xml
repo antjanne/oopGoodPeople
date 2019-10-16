@@ -17,17 +17,7 @@
         app:layout_constraintTop_toTopOf="@+id/tool_bar"
         app:layout_constraintVertical_bias="0.110000014" />
 
-    <Button
-        android:id="@+id/edit_offer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit Offer"
-        android:onClick="editOffer"
-        app:layout_constraintBottom_toBottomOf="@+id/tool_bar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tool_bar"
-        app:layout_constraintVertical_bias="0.18" />
+
 
     <include
         android:id="@+id/tool_bar"
@@ -36,9 +26,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<<<<<<< HEAD
-</androidx.constraintlayout.widget.ConstraintLayout>
-=======
 
 </androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> master
+

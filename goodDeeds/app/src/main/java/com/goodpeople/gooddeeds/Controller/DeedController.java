@@ -1,14 +1,12 @@
 package com.goodpeople.gooddeeds.Controller;
 
-<<<<<<< HEAD
-import com.goodpeople.gooddeeds.Model.Entities.Account;
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
-=======
+
+
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
->>>>>>> master
+
 import com.goodpeople.gooddeeds.Model.Repositories.DeedRepository;
 import com.goodpeople.gooddeeds.Model.Repositories.DeedRepositoryImpl;
-import com.goodpeople.gooddeeds.View.CreateAccount;
+
 
 import java.util.UUID;
 
@@ -18,7 +16,7 @@ import java.util.UUID;
 public class DeedController {
 
     private DeedRepository deedRepository = new DeedRepositoryImpl();
-    private Deed deed;
+    private IDeed deed;
 
 
     public DeedController() {
@@ -26,8 +24,6 @@ public class DeedController {
     }
 
 
-<<<<<<< HEAD
-=======
     public List<IDeed> showOffersHandler() {
         return (deedRepository.getDeeds());
     }
@@ -36,15 +32,14 @@ public class DeedController {
         return (deedRepository.getMyOffers());
     }
 
->>>>>>> master
     public void createOfferHandler(String subject, String description) {
         deedRepository.createOffer(subject, description);
     }
 
-<<<<<<< HEAD
 
-    public void editOfferHandler(Deed deed, String subject, String description) {
-        deedRepository.editOffer(deed, subject, description);
+
+    public void editOfferHandler(String subject, String description) {
+        deedRepository.editOffer(subject, description);
 
     }
 
@@ -57,7 +52,7 @@ public class DeedController {
     }
 
 
-=======
+
     public IDeed getCurrentDeedHandler() {
         return deedRepository.getCurrentDeed();
     }
@@ -66,5 +61,4 @@ public class DeedController {
         deedRepository.setCurrentDeed(uuid);
     }
 
->>>>>>> master
 }

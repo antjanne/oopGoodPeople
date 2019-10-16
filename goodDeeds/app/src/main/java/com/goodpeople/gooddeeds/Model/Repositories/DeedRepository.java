@@ -17,13 +17,12 @@ public interface DeedRepository {
 
     void createOffer(String subject, String description);
 
-<<<<<<< HEAD
-    void editOffer(Deed deed, String subject, String description);
+
+    void editOffer(String subject, String description);
 
 
-=======
     IDeed getCurrentDeed();
 
     void setCurrentDeed(UUID id);
->>>>>>> master
+
 }

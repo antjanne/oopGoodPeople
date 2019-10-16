@@ -25,11 +25,11 @@
         <activity android:name=".View.Account.EditAccount"></activity>
         <activity android:name=".View.Account.EditAccountPassword"></activity>
         <activity android:name=".View.CreateOffer"></activity>
-<<<<<<< HEAD
+
         <activity android:name=".View.EditOffer"></activity>
-=======
+
         <activity android:name=".View.ViewOffer"></activity>
->>>>>>> master
+
     </application>
 
 </manifest>
