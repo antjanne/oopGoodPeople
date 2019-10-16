@@ -50,6 +50,11 @@ public class DeedRepositoryImpl implements DeedRepository {
     }
 
     @Override
+    public void createRequest(String subject, String description) {
+        goodDeeds.createRequest(subject, description);
+    }
+
+    @Override
     public IDeed getCurrentDeed() {
         return goodDeeds.getCurrentDeed();
     }

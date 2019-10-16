@@ -51,6 +51,10 @@ public class DeedController {
         deedRepository.createOffer(subject, description);
     }
 
+    public void createRequestHandler(String subject, String description) {
+        deedRepository.createRequest(subject, description);
+    }
+
     public IDeed getCurrentDeedHandler() {
         return deedRepository.getCurrentDeed();
     }

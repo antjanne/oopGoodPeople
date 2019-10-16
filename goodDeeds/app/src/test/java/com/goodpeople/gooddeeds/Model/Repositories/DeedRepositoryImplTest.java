@@ -22,10 +22,10 @@ public class DeedRepositoryImplTest {
         gd.createAccount("B", 11111, "b@b.b", "b");
         gd.login("a@a.a", "a");
         dr.createOffer("test1", "test1");
-        //dr.createRequest("test1", "test1");
+        dr.createRequest("test1", "test1");
         gd.login("b@b.b", "b");
         dr.createOffer("test2", "test2");
-        //dr.createRequest("test2", "test2");
+        dr.createRequest("test2", "test2");
     }
 
     @After
@@ -36,7 +36,7 @@ public class DeedRepositoryImplTest {
 
     @Test
     public void getDeeds() {
-        assertEquals(2, dr.getDeeds().size());
+        assertEquals(4, dr.getDeeds().size());
     }
 
     @Test
@@ -46,11 +46,11 @@ public class DeedRepositoryImplTest {
 
     @Test
     public void getMyActiveRequests() {
-        assertEquals(0, dr.getMyActiveRequests().size());
+        assertEquals(1, dr.getMyActiveRequests().size());
     }
 
     @Test
     public void createOffer() {
-        assertEquals(2, dr.getDeeds().size());
+        assertEquals(4, dr.getDeeds().size());
     }
 }

@@ -16,6 +16,8 @@ public interface DeedRepository {
 
     void createOffer(String subject, String description);
 
+    void createRequest(String subject, String description);
+
     IDeed getCurrentDeed();
 
     void setCurrentDeed(UUID id);

@@ -1,7 +1,5 @@
 package com.goodpeople.gooddeeds.Model;
 
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
-import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 
 import org.junit.After;
@@ -23,7 +21,8 @@ public class GoodDeedsTest {
         goodDeeds = GoodDeeds.getGoodDeeds();
         goodDeeds.createAccount("Test", 00000, "test@test.com", "123");
         goodDeeds.login("test@test.com", "123");
-        goodDeeds.createOffer("Subject", "Description");
+        goodDeeds.createOffer("Subject1", "Description1");
+        goodDeeds.createRequest("Subject2", "Description2");
     }
 
     @After
@@ -66,18 +65,18 @@ public class GoodDeedsTest {
     }
 
     @Test
-    public void createOfferShouldBeAddedToOffers() {
-        assertEquals(1, goodDeeds.getDeeds().size());
+    public void createOfferShouldBeAddedToDeeds() {
+        assertEquals(2, goodDeeds.getDeeds().size());
     }
 
     @Test
     public void createOfferShouldStoreSubject() {
-        assertEquals("Subject", goodDeeds.getDeeds().get(0).getSubject());
+        assertEquals("Subject1", goodDeeds.getDeeds().get(0).getSubject());
     }
 
     @Test
     public void createOfferShouldStoreDescription() {
-        assertEquals("Description", goodDeeds.getDeeds().get(0).getDescription());
+        assertEquals("Description1", goodDeeds.getDeeds().get(0).getDescription());
     }
 
     @Test
@@ -109,21 +108,18 @@ public class GoodDeedsTest {
     }
 
     @Test
-    public void getMyActiveRequests() { // TODO är detta bra?
-        goodDeeds.createOffer("test", "test");
-        IDeed d = Deed.newRequest(goodDeeds.getAccount(), "Subject", "Description");
-        goodDeeds.getDeeds().add(d);
+    public void getMyActiveRequests() {
         assertEquals(1, goodDeeds.getMyActiveRequests().size());
     }
 
     @Test
     public void createOffer() {
-        assertEquals(goodDeeds.getDeeds().size(), 1);
+        assertEquals(goodDeeds.getDeeds().size(), 2);
     }
 
     @Test
     public void getDeeds() {
-        assertEquals(goodDeeds.getDeeds().size(), 1);
+        assertEquals(goodDeeds.getDeeds().size(), 2);
     }
 
     @Test
@@ -132,7 +128,7 @@ public class GoodDeedsTest {
         Assert.assertEquals(goodDeeds.getAccount().getName(), "newName");
         Assert.assertEquals(goodDeeds.getAccount().getEmail(), "newEmail@email.se");
         Assert.assertEquals(goodDeeds.getAccount().getPostalCode(), 12345);
-        assertEquals(goodDeeds.getDeeds().size(), 1);
+        assertEquals(goodDeeds.getDeeds().size(), 2);
     }
 
 }

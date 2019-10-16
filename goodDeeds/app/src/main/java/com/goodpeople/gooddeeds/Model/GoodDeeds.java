@@ -25,7 +25,7 @@ public class GoodDeeds {
         Deed d2 = Deed.newOffer(a,"Hårklipp","Jag klipper gärna håret på folk! Ge mig en pling vetja!");
 
         Deed d3 = Deed.newRequest(a, "Rosett", "Jag kan inte knyta mina skor, kan någon hjälpa mig?");
-        Deed d4 = Deed.newRequest(a, "Lokalsinne", "Jag har tappat bort mig och skulle behöva hjälpa av någon att hitta hem. Hjälp önskas snaras, gärna innan skymningen.");
+        Deed d4 = Deed.newRequest(a, "Lokalsinne", "Jag har tappat bort mig och skulle behöva hjälpa av någon att hitta hem. Hjälp önskas snarast, gärna innan skymningen.");
 
         accounts.add(a);
         loggedInAccount = a;
@@ -230,5 +230,9 @@ public class GoodDeeds {
         return (myActiveRequests);
     }
 
+    public void createRequest(String subject, String description) {
+        Deed newRequest = Deed.newRequest(loggedInAccount, subject, description);
+        deeds.add(newRequest);
+    }
 
 }

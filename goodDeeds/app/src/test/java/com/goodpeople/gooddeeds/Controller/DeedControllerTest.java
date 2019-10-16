@@ -19,8 +19,10 @@ public class DeedControllerTest {
         goodDeeds.createAccount("Test2",0000,"test2@test.se","123");
         goodDeeds.login("test1@test.se","123");
         deedController.createOfferHandler("test","test");
+        deedController.createRequestHandler("test","test");
         goodDeeds.login("test2@test.se","123");
         deedController.createOfferHandler("test","test");
+        deedController.createRequestHandler("test","test");
     }
 
     @After
@@ -31,21 +33,21 @@ public class DeedControllerTest {
 
     @Test
     public void showOffersHandler() {
-        assertEquals(deedController.showOffersHandler().size(), 2);
+        assertEquals(4, deedController.showOffersHandler().size());
     }
 
     @Test
     public void showMyActiveOffersHandler() {
         assertEquals(1, deedController.showMyActiveOffersHandler().size());
     }
-/*
-    @Test // TODO
+
+    @Test
     public void showMyActiveRequestsHandler() {
         assertEquals(1, deedController.showMyActiveRequestsHandler().size());
-    }*/
+    }
 
     @Test
     public void createOfferHandler() {
-        assertEquals(goodDeeds.getDeeds().size(),2);
+        assertEquals(4, goodDeeds.getDeeds().size());
     }
 }
