@@ -2,12 +2,16 @@ package com.goodpeople.gooddeeds.Model.Entities;
 
 
 
+
 /**
  * Class Account: represents an account. Initializes fields name, postalCode,
  * email and password when an account is created.
  */
 
-public class Account implements IAccount{
+
+
+public class Account implements IAccount {
+
 
 
     private String name;
@@ -15,14 +19,12 @@ public class Account implements IAccount{
     private String email;
     private String password;
 
-
     public Account(String name, int postalCode, String email, String password) {
         this.name = name;
         this.postalCode = postalCode;
         this.email = email;
         this.password = password;
     }
-
 
     /**
      * @return account name
@@ -79,4 +81,5 @@ public class Account implements IAccount{
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

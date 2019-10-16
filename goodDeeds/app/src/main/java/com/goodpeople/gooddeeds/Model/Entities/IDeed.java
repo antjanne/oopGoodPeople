@@ -4,6 +4,11 @@ package com.goodpeople.gooddeeds.Model.Entities;
  * Defines the interface for Deed
  */
 
+import android.os.Parcelable;
+
+import java.util.UUID;
+
+
 public interface IDeed {
 
 
@@ -11,6 +16,7 @@ public interface IDeed {
      * @return The subject of a deed
      */
     String getSubject();
+
 
     /**
      * @return The description of a deed
@@ -24,5 +30,8 @@ public interface IDeed {
 
     IAccount getGivingAccount();
 
+
+
+    UUID getUuid();
 
 }
