@@ -73,5 +73,6 @@ public class AccountRepositoryImplTest {
     @Test
     public void logout() {
         repositoryTest.logout();
+        Assert.assertFalse(repositoryTest.isLoggedIn());
     }
 }

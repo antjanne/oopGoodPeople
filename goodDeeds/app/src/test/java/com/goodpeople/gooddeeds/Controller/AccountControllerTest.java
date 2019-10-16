@@ -76,5 +76,7 @@ public class AccountControllerTest {
     @Test
     public void logout() {
         accountController.logout();
+        Assert.assertFalse(accountController.isLoggedIn());
+
     }
 }

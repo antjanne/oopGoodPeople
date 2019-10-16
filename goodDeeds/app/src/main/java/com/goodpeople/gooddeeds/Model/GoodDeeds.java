@@ -19,7 +19,7 @@ public class GoodDeeds {
     private IAccount loggedInAccount;
 
     private GoodDeeds() {
-
+/*
         Account a2 =  new Account("Anton",30597,"1234@gmail.com","ahah");
         Account a = new Account("Anton",30597,"anton46304@gmail.com","ahah");
         Deed d = Deed.newOffer(a,"Gräsklipp","Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
@@ -33,7 +33,7 @@ public class GoodDeeds {
         deeds.add(d);
         deeds.add(d2);
         deeds.add(d3);
-
+*/
     }
 
     public static GoodDeeds getGoodDeeds() {

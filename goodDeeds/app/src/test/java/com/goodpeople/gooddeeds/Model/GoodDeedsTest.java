@@ -130,5 +130,6 @@ public class GoodDeedsTest {
     @Test
     public void logout() {
         goodDeeds.logout();
+        assertFalse(goodDeeds.isLoggedIn());
     }
 }
