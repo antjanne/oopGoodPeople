@@ -6,33 +6,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.goodpeople.gooddeeds.Controller.DeedController;
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
-import com.goodpeople.gooddeeds.Model.GoodDeeds;
 import com.goodpeople.gooddeeds.R;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder> {
-    static private List<IDeed> mDeeds;
+    DeedController deedController = new DeedController();
 
-    public DeedAdapter(List<IDeed> deeds) {
-        mDeeds = deeds;
+    public DeedAdapter() {
     }
 
     @NonNull
     @Override
     public DeedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.deed_cardview, parent, false);
-        return new DeedViewHolder(v);
+        return new DeedViewHolder(v, deedController.showMyOffersHandler());
     }
 
     @Override
     public void onBindViewHolder(@NonNull DeedViewHolder holder, int position) {
-        IDeed currentDeed = mDeeds.get(position);
+        IDeed currentDeed = deedController.showMyOffersHandler().get(position);
 
         holder.mDescription.setText(currentDeed.getDescription());
         holder.mSubject.setText(currentDeed.getSubject());
@@ -41,14 +39,14 @@ public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder
 
     @Override
     public int getItemCount() {
-        return mDeeds.size();
+        return deedController.showMyOffersHandler().size();
     }
 
     public static class DeedViewHolder extends RecyclerView.ViewHolder {
         public TextView mSubject;
         public TextView mDescription;
 
-        public DeedViewHolder(@NonNull View itemView) {
+        public DeedViewHolder(@NonNull View itemView, final List<IDeed> deeds) {
             super(itemView);
             mSubject = itemView.findViewById(R.id.subjectText);
             mDescription = itemView.findViewById(R.id.descriptionText);
@@ -56,7 +54,7 @@ public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    IDeed deed = mDeeds.get(getAdapterPosition());
+                    IDeed deed = deeds.get(getAdapterPosition());
                     Intent intent = new Intent(v.getContext(), ViewOffer.class);
                     new DeedController().setCurrentDeedHandler(deed.getUuid());
                     v.getContext().startActivity(intent);
