@@ -27,7 +27,7 @@ public class MarketActivity extends ViewTemplate {
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new DeedAdapter(deeds);
+        mAdapter = new DeedAdapter();
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
