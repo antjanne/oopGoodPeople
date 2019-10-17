@@ -14,11 +14,19 @@ public interface DeedRepository {
 
     List<IDeed> getDeeds();
 
-    List<IDeed> getMyOffers();
+    List<IDeed> getMyActiveOffers();
+
+    List<IDeed> getMyActiveRequests();
 
     void createOffer(String subject, String description);
+
+    void createRequest(String subject, String description);
 
     IDeed getCurrentDeed();
 
     void setCurrentDeed(UUID id);
+
+    List<IDeed> getActiveRequests();
+
+    List<IDeed> getActiveOffers();
 }

@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.goodpeople.gooddeeds.Controller.AccountController;
 import com.goodpeople.gooddeeds.R;
+import com.goodpeople.gooddeeds.View.Account.AccountOptions;
 import com.goodpeople.gooddeeds.View.Account.Login;
 
 /**
@@ -50,7 +51,7 @@ public class MainActivity extends ViewTemplate {
             Intent myIntent = new Intent(this, Login.class);
             startActivity(myIntent);
         } else {
-            Intent intent = new Intent(this, ActiveOffersActivity.class);
+            Intent intent = new Intent(this, AccountOptions.class);
             startActivity(intent);
         }
     }
@@ -64,4 +65,8 @@ public class MainActivity extends ViewTemplate {
         }
     }
 
+    public void goToMarket(View view) {
+        Intent myIntent = new Intent(this, MarketActivity.class);
+        startActivity(myIntent);
+    }
 }

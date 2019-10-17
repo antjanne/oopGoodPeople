@@ -4,7 +4,8 @@ package com.goodpeople.gooddeeds.Model.Entities;
  * Defines the interface for Deed
  */
 
-import android.os.Parcelable;
+
+
 
 import java.util.UUID;
 
@@ -31,6 +32,8 @@ public interface IDeed {
     IAccount getGivingAccount();
 
 
+
+    IAccount getReceivingAccount();
 
     UUID getUuid();
 

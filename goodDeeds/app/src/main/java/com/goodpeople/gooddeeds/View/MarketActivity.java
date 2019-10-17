@@ -1,46 +1,53 @@
 package com.goodpeople.gooddeeds.View;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Bundle;
+import android.view.View;
+
+import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.R;
-import com.goodpeople.gooddeeds.View.Account.AccountDetails;
+
+import java.util.List;
 
 /**
  * Responsible for showing active offers.
  * Holds a recyclerview, adapter, layout manager.
  */
 
-public class ActiveOffersActivity extends ViewTemplate {
+
+
+public class MarketActivity extends ViewTemplate {
+
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_active_offers);
+        setContentView(R.layout.activity_market);
         super.onCreate(savedInstanceState);
+    }
 
-
+    private void viewDeeds(List<IDeed> deeds) {
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new DeedAdapter();
+        mAdapter = new DeedAdapter(deeds);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    public void showOffers(View view) {
+        viewDeeds(deedController.showAllActiveOffers());
 
     }
 
+    public void showRequests(View view) {
+        viewDeeds(deedController.showAllActiveRequests());
 
-    public void goToAccountDetails(View view) {
-        Intent intent = new Intent(this, AccountDetails.class);
-        startActivity(intent);
     }
-
-
 }

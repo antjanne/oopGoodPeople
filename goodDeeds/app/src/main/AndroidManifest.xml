@@ -8,9 +8,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".View.ActiveOffersActivity"></activity>
+
+        <activity android:name=".View.MarketActivity"
+         />
+        <activity android:name=".View.ActiveDeeds"/>
 
         <activity android:name=".View.MainActivity">
             <intent-filter>
@@ -19,13 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Account.CreateAccount"></activity>
-        <activity android:name=".View.Account.Login"></activity>
-        <activity android:name=".View.Account.AccountDetails"></activity>
-        <activity android:name=".View.Account.EditAccount"></activity>
-        <activity android:name=".View.Account.EditAccountPassword"></activity>
-        <activity android:name=".View.CreateOffer"></activity>
-        <activity android:name=".View.ViewOffer"></activity>
+        <activity android:name=".View.Account.CreateAccount" />
+        <activity android:name=".View.Account.Login" />
+        <activity android:name=".View.Account.AccountDetails" />
+        <activity android:name=".View.Account.EditAccount" />
+        <activity android:name=".View.Account.EditAccountPassword" />
+        <activity android:name=".View.CreateOffer" />
+        <activity android:name=".View.Account.AccountOptions"/>
+        <activity android:name=".View.ViewDeed"/>
     </application>
 
 </manifest>
