@@ -7,6 +7,10 @@ import com.goodpeople.gooddeeds.Model.Repositories.DeedRepositoryImpl;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Handles input from deed-views. Sends and fetches data to/from DeedRepository.
+ */
+
 public class DeedController {
 
     private DeedRepository deedRepository = new DeedRepositoryImpl();

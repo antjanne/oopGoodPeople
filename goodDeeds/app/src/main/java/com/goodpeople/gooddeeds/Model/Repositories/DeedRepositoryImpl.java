@@ -6,6 +6,10 @@ import com.goodpeople.gooddeeds.Model.GoodDeeds;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Handles the layer between service and data handler
+ */
+
 public class DeedRepositoryImpl implements DeedRepository {
 
     private GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();

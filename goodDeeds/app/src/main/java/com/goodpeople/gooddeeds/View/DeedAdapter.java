@@ -15,6 +15,12 @@ import com.goodpeople.gooddeeds.R;
 
 import java.util.List;
 
+
+/**
+ * Responsible for putting deeds in the recyclerview
+ */
+
+
 public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder> {
 
     private List<IDeed> deeds;
