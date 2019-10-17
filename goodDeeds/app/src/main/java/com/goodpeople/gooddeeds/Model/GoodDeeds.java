@@ -21,7 +21,7 @@ public class GoodDeeds {
 
     private GoodDeeds() {
 
-/*
+
         Account a2 =  new Account("Anton",30597,"1234@gmail.com","ahah");
 
         Account a = new Account("Anton",30597,"anton46304@gmail.com","ahah");
@@ -40,7 +40,7 @@ public class GoodDeeds {
 
         deeds.add(d3);
 
-        deeds.add(d4);*/
+        deeds.add(d4);
 
 
     }
@@ -316,6 +316,18 @@ public class GoodDeeds {
     public void createRequest(String subject, String description) {
         Deed newRequest = Deed.newRequest(loggedInAccount, subject, description);
         deeds.add(newRequest);
+    }
+
+    public boolean isMyActiveDeed () {
+        Deed deed = getCurrentDeed();
+
+        List<IDeed> offers = getMyActiveOffers();
+        List<IDeed> requests = getMyActiveRequests();
+
+        if (offers.contains(deed) || requests.contains(deed)) {
+            return true;
+        }
+        return false;
     }
 
 }

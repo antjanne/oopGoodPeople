@@ -102,4 +102,8 @@ public class DeedController {
     public List<IDeed> showAllActiveOffers() {
         return deedRepository.getActiveOffers();
     }
+
+    public boolean isMyActiveDeedHandler() {
+        return deedRepository.isMyActiveDeed();
+    }
 }

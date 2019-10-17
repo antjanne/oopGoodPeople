@@ -19,22 +19,20 @@ public interface DeedRepository {
 
     void createOffer(String subject, String description);
 
-<<<<<<< HEAD
+
 
     void editOffer(String subject, String description);
 
-=======
     void createRequest(String subject, String description);
->>>>>>> origin/master
 
     IDeed getCurrentDeed();
 
     void setCurrentDeed(UUID id);
 
-<<<<<<< HEAD
-=======
     List<IDeed> getActiveRequests();
 
     List<IDeed> getActiveOffers();
->>>>>>> origin/master
+
+    boolean isMyActiveDeed();
+
 }

@@ -92,4 +92,9 @@ public class DeedRepositoryImpl implements DeedRepository {
     public List<IDeed> getActiveOffers() {
         return goodDeeds.getActiveOffers();
     }
+
+    @Override
+    public boolean isMyActiveDeed() {
+        return goodDeeds.isMyActiveDeed();
+    }
 }
