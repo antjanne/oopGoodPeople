@@ -17,9 +17,9 @@ public class Account implements IAccount {
     private String name;
     private int postalCode;
     private String email;
-    private String password;
+    private int password;
 
-    public Account(String name, int postalCode, String email, String password) {
+    public Account(String name, int postalCode, String email, int password) {
         this.name = name;
         this.postalCode = postalCode;
         this.email = email;
@@ -71,14 +71,14 @@ public class Account implements IAccount {
     /**
      * @return account password
      */
-    public String getPassword() {
+    public int getPassword() {
         return password;
     }
 
     /**
      * @param password set new password for account
      */
-    public void setPassword(String password) {
+    public void setPassword(int password) {
         this.password = password;
     }
 
