@@ -11,7 +11,15 @@ import com.goodpeople.gooddeeds.R;
 
 import java.util.List;
 
+/**
+ * Responsible for showing active offers.
+ * Holds a recyclerview, adapter, layout manager.
+ */
+
+
+
 public class MarketActivity extends ViewTemplate {
+
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;

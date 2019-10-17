@@ -12,6 +12,10 @@ import com.goodpeople.gooddeeds.Controller.DeedController;
 import com.goodpeople.gooddeeds.R;
 import com.google.android.material.textfield.TextInputLayout;
 
+/**
+ * The template which other views can extend
+ */
+
 public abstract class ViewTemplate extends AppCompatActivity {
 
     public AccountController accountController = new AccountController();

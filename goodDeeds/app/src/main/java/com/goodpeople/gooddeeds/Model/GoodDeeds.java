@@ -9,13 +9,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Defines the base for the model.
+ * Holds the list of existing deeds and accounts
+ * and the current logged in account.
+ * */
 
 
 public class GoodDeeds {
 
+
     private static GoodDeeds goodDeeds;
+
     private Deed currentDeed;
+
     protected List<Deed> deeds = new ArrayList<>();
+
     private List<IAccount> accounts = new ArrayList<>();
     private IAccount loggedInAccount;
 

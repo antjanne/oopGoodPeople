@@ -6,6 +6,10 @@ import android.widget.EditText;
 
 import com.goodpeople.gooddeeds.R;
 
+/**
+ * Responsible for handling input in the view when creating an offer.
+ */
+
 public class CreateOffer extends ViewTemplate {
 
 

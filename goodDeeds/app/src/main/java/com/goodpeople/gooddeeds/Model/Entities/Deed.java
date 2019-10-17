@@ -1,12 +1,22 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
 
+/**
+ * Class Deed: represents a deed, which can be either a request or an offer.
+ * Type of deed is set by initializing either parameter givingAccount or receivingAccount
+ * to the logged in account as the deed is created.
+ */
+
+
 import java.util.UUID;
+
 
 public class Deed implements IDeed {
 
+
     private IAccount givingAccount;
     private IAccount receivingAccount;
+
     private String subject;
     private String description;
     private UUID uuid;
