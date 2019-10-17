@@ -26,6 +26,7 @@ public class ViewOffer extends ViewTemplate {
 
     }
 
+
     public void editOffer(View view) {
         Intent myIntent = new Intent(this, EditOffer.class);
         startActivity(myIntent);
