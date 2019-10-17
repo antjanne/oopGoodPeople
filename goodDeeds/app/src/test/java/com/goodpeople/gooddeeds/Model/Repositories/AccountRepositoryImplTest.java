@@ -22,7 +22,7 @@ public class AccountRepositoryImplTest {
         repositoryTest.createAccount("richard", 41481, "rm123@rm.se", "pass123");
         repositoryTest.login("rm123@rm.se", "pass123");
         IAccount account = repositoryTest.getAccount();
-        Assert.assertEquals(account.getPassword(), "pass123");
+        Assert.assertEquals(account.getPassword(), "pass123".hashCode());
         Assert.assertEquals(account.getEmail(), "rm123@rm.se");
     }
 
@@ -48,7 +48,7 @@ public class AccountRepositoryImplTest {
     @Test
     public void shouldUpdatePassword() {
         repositoryTest.updatePassword("nyttpass");
-        Assert.assertEquals(repositoryTest.getAccount().getPassword(), "nyttpass");
+        Assert.assertEquals(repositoryTest.getAccount().getPassword(), "nyttpass".hashCode());
     }
 
     @Test

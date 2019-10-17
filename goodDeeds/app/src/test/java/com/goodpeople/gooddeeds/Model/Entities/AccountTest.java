@@ -10,7 +10,7 @@ public class AccountTest {
 
     @Before
     public void setUp() throws Exception {
-        account = new Account("richard", 41481, "rm@rm.se", "pass");
+        account = new Account("richard", 41481, "rm@rm.se", "pass".hashCode());
     }
 
 
@@ -35,7 +35,7 @@ public class AccountTest {
 
     @Test
     public void setPassword() {
-        account.setPassword("lösen");
-        Assert.assertEquals(account.getPassword(), "lösen");
+        account.setPassword("lösen".hashCode());
+        Assert.assertEquals(account.getPassword(), "lösen".hashCode());
     }
 }
