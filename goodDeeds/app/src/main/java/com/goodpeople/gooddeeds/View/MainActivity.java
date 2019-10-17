@@ -18,7 +18,7 @@ import com.goodpeople.gooddeeds.View.Account.Login;
 
 public class MainActivity extends ViewTemplate {
 
-    AccountController accountController = new AccountController();
+    private final AccountController accountController = new AccountController();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class MainActivity extends ViewTemplate {
     }
 
 
-    public void login() {
+    private void login() {
         if (!accountController.isLoggedIn()) {
             Intent myIntent = new Intent(this, Login.class);
             startActivity(myIntent);

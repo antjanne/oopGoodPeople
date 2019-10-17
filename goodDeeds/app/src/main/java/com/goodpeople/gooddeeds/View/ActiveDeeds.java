@@ -2,7 +2,6 @@ package com.goodpeople.gooddeeds.View;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,9 +15,6 @@ import com.goodpeople.gooddeeds.View.ViewTemplate;
 import java.util.List;
 
 public class ActiveDeeds extends ViewTemplate {
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
     private TextView deedType;
 
     @Override
@@ -39,10 +35,10 @@ public class ActiveDeeds extends ViewTemplate {
     }
 
     private void viewDeeds(List<IDeed> deeds) {
-        mRecyclerView = findViewById(R.id.recyclerView);
+        RecyclerView mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new DeedAdapter(deeds);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+        RecyclerView.Adapter mAdapter = new DeedAdapter(deeds);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);

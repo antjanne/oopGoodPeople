@@ -6,10 +6,10 @@ import org.junit.Test;
 
 public class AccountTest {
 
-    IAccount account;
+    private IAccount account;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         account = new Account("richard", 41481, "rm@rm.se", "pass");
     }
 

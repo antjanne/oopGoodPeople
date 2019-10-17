@@ -12,13 +12,13 @@ import java.util.Locale;
 
 public class EditAccount extends ViewTemplate {
 
-    TextView nameView;
-    TextView emailView;
-    TextView postalCodeView;
+    private TextView nameView;
+    private TextView emailView;
+    private TextView postalCodeView;
 
-    String name;
-    String email;
-    int postalCode;
+    private String name;
+    private String email;
+    private int postalCode;
 
 
     @Override
@@ -37,7 +37,7 @@ public class EditAccount extends ViewTemplate {
         this.postalCodeView = (EditText) findViewById(R.id.account_edit_postal_code);
     }
 
-    public void populateFields() {
+    private void populateFields() {
         nameView.setText(accountController.accountHandler().getName());
         emailView.setText(accountController.accountHandler().getEmail());
         postalCodeView.setText(String.format(Locale.getDefault(), "%d", accountController.accountHandler().getPostalCode()));

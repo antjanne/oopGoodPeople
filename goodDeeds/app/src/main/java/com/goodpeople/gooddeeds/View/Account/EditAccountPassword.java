@@ -36,10 +36,7 @@ public class EditAccountPassword extends ViewTemplate {
         if (!accountController.accountHandler().getPassword().equals(oldPassword)) {
             return false;
         }
-        if (newPassword.trim().isEmpty()) {
-            return false;
-        }
-        return true;
+        return !newPassword.trim().isEmpty();
     }
 
     private void setError(String oldPassword, String newPassword) {

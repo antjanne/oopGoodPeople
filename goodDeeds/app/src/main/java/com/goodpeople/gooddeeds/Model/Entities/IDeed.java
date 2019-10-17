@@ -1,14 +1,11 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
+import java.util.UUID;
+
+
 /**
  * Defines the interface for Deed
  */
-
-
-
-
-import java.util.UUID;
-
 
 public interface IDeed {
 

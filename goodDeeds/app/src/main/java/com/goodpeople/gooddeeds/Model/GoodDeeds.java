@@ -22,8 +22,8 @@ public class GoodDeeds {
 
     private IDeed currentDeed;
 
-    private List<IDeed> deeds = new ArrayList<>();
-    private List<IAccount> accounts = new ArrayList<>();
+    private final List<IDeed> deeds = new ArrayList<>();
+    private final List<IAccount> accounts = new ArrayList<>();
     private IAccount loggedInAccount;
 
     private GoodDeeds() {

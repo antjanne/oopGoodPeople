@@ -12,7 +12,7 @@ import com.goodpeople.gooddeeds.Model.Repositories.AccountRepositoryImpl;
 
 public class AccountController {
 
-    private AccountRepository accountRepository = new AccountRepositoryImpl();
+    private final AccountRepository accountRepository = new AccountRepositoryImpl();
 
     public AccountController() {
 

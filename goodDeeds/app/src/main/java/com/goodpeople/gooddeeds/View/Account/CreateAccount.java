@@ -10,12 +10,12 @@ import com.goodpeople.gooddeeds.View.ViewTemplate;
 
 public class CreateAccount extends ViewTemplate {
 
-    String name;
-    String email;
-    Integer postalCode;
-    String password;
+    private String name;
+    private String email;
+    private Integer postalCode;
+    private String password;
 
-    public AccountController accountController = new AccountController();
+    private final AccountController accountController = new AccountController();
 
 
     @Override

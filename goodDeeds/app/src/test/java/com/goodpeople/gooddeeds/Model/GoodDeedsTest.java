@@ -14,7 +14,7 @@ import static org.junit.Assert.assertFalse;
 public class GoodDeedsTest {
 
 
-    GoodDeeds goodDeeds;
+    private GoodDeeds goodDeeds;
 
     @Before
     public void initialize() {
@@ -103,7 +103,7 @@ public class GoodDeedsTest {
     }
 
     @Test
-    public void getMyActiveOffers() { //TODO fixa så att den kollar just här
+    public void getMyActiveOffers() {
         assertEquals(goodDeeds.getMyActiveOffers().size(), 1);
     }
 

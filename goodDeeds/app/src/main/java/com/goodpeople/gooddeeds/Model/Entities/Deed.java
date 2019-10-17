@@ -1,4 +1,5 @@
 package com.goodpeople.gooddeeds.Model.Entities;
+import java.util.UUID;
 
 
 /**
@@ -6,10 +7,6 @@ package com.goodpeople.gooddeeds.Model.Entities;
  * Type of deed is set by initializing either parameter givingAccount or receivingAccount
  * to the logged in account as the deed is created.
  */
-
-
-import java.util.UUID;
-
 
 public class Deed implements IDeed {
 
@@ -66,7 +63,7 @@ public class Deed implements IDeed {
         return givingAccount;
     }
 
-    public void setGivingAccount(IAccount givingAccount) {
+    private void setGivingAccount(IAccount givingAccount) {
         this.givingAccount = givingAccount;
     }
 
@@ -74,7 +71,7 @@ public class Deed implements IDeed {
         return receivingAccount;
     }
 
-    public void setReceivingAccount(IAccount receivingAccount) {
+    private void setReceivingAccount(IAccount receivingAccount) {
         this.receivingAccount = receivingAccount;
     }
 
@@ -82,7 +79,7 @@ public class Deed implements IDeed {
         return subject;
     }
 
-    public void setSubject(String subject) {
+    private void setSubject(String subject) {
         this.subject = subject;
     }
 
@@ -90,7 +87,7 @@ public class Deed implements IDeed {
         return description;
     }
 
-    public void setDescription(String description) {
+    private void setDescription(String description) {
         this.description = description;
     }
 
@@ -98,7 +95,7 @@ public class Deed implements IDeed {
         return uuid;
     }
 
-    public void setUuid(UUID uuid) {
+    private void setUuid(UUID uuid) {
         this.uuid = uuid;
     }
 }

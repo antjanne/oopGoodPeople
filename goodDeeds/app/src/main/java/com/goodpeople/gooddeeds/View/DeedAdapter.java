@@ -23,7 +23,7 @@ import java.util.List;
 
 public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder> {
 
-    private List<IDeed> deeds;
+    private final List<IDeed> deeds;
 
     public DeedAdapter(List<IDeed> deeds) {
         this.deeds = deeds;
@@ -50,10 +50,10 @@ public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder
     }
 
     public static class DeedViewHolder extends RecyclerView.ViewHolder {
-        public TextView mSubject;
-        public TextView mDescription;
+        final TextView mSubject;
+        final TextView mDescription;
 
-        public DeedViewHolder(@NonNull View itemView, final List<IDeed> deeds) {
+        DeedViewHolder(@NonNull View itemView, final List<IDeed> deeds) {
             super(itemView);
             mSubject = itemView.findViewById(R.id.subjectText);
             mDescription = itemView.findViewById(R.id.descriptionText);

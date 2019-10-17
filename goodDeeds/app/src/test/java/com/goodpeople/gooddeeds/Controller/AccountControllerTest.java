@@ -1,6 +1,5 @@
 package com.goodpeople.gooddeeds.Controller;
 
-import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 
 import org.junit.Assert;
@@ -9,7 +8,7 @@ import org.junit.Test;
 
 
 public class AccountControllerTest {
-    AccountController accountController;
+    private AccountController accountController;
 
     @Before
     public void setUp() {

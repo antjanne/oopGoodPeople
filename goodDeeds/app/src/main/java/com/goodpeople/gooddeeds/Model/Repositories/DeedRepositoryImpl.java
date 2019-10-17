@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public class DeedRepositoryImpl implements DeedRepository {
 
-    private GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();
+    private final GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();
 
     @Override
     public List<IDeed> getDeeds() {
