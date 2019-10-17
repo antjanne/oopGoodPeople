@@ -69,7 +69,7 @@ public class GoodDeeds {
     public List<IAccount> getAccounts() {
         return accounts;
     }
-    
+
 
     /**
      * Creates new Account-object and adds it to accounts-list
@@ -216,10 +216,8 @@ public class GoodDeeds {
      */
     public void editOffer(String subject, String description) {
         Deed deed = getCurrentDeed();
-        if (deed.getGivingAccount() == loggedInAccount) {
-            deed.setSubject(subject);
-            deed.setDescription(description);
-        }
+        deed.setSubject(subject);
+        deed.setDescription(description);
     }
 
     /**
