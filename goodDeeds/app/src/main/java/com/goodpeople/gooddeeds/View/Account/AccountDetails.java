@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.View.ViewTemplate;

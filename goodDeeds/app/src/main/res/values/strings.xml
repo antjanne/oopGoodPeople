@@ -31,6 +31,14 @@
     <string name="invalid_subject">Subject is missing</string>
     <string name="invalid_description">Description is missing</string>
     <string name="deeds">Deeds</string>
+    <string name="Market">Market</string>
+    <string name="browse_deeds">Browse Deeds</string>
+    <string name="log_out">Log out</string>
+
+    <string name="my_active_deeds">My active deeds</string>
+    <string name="show_offers">Show offers</string>
+    <string name="show_requests">Show requests</string>
+    <string name="my_account">My account</string>
 
 
 

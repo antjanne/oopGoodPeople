@@ -1,0 +1,56 @@
+sudo: false
+language: android
+jdk: oraclejdk8
+
+env:
+  global:
+    - ANDROID_API_LEVEL=29
+    - ANDROID_EMULATOR_LEVEL=21
+    - ANDROID_BUILD_TOOLS_VERSION=29.0.3
+    - ANDROID_ABI=armeabi-v7a
+    - ANDROID_TAG=google_apis
+    - ADB_INSTALL_TIMEOUT=20
+
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+  - $HOME/.android/build-cache
+
+before_install:
+  - yes | sdkmanager "platforms;android-29"
+
+
+android:
+  components:
+    - tools
+    - tools # Running this twice get's the latest build tools (https://github.com/codepath/android_guides/wiki/Setting-up-Travis-CI)
+    - platform-tools
+    - build-tools-29.0.3
+    - android-29
+    - android-$ANDROID_EMULATOR_LEVEL
+    - sys-img-armeabi-v7a-google_apis-$ANDROID_EMULATOR_LEVEL
+
+  licenses:
+    - '.+'
+
+
+before_script: 
+  - cd goodDeeds
+  - echo no | android create avd --force -n test -t "android-"$ANDROID_EMULATOR_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
+  - emulator -avd test -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
+
+script:
+  - ./gradlew clean build
+  # run tests against the emulator
+  - ./gradlew connectedAndroidTest
+  # run tests against the JVM
+  - ./gradlew test
+
+  

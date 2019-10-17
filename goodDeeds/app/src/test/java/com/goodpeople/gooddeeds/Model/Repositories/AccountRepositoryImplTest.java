@@ -1,6 +1,5 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
-import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 
 import org.junit.Assert;
@@ -68,5 +67,11 @@ public class AccountRepositoryImplTest {
         Assert.assertEquals(repositoryTest.getAccount().getName(), "newName");
         Assert.assertEquals(repositoryTest.getAccount().getEmail(), "newEmail@email.se");
         Assert.assertEquals(repositoryTest.getAccount().getPostalCode(), 12345);
+    }
+
+    @Test
+    public void logout() {
+        repositoryTest.logout();
+        Assert.assertFalse(repositoryTest.isLoggedIn());
     }
 }
