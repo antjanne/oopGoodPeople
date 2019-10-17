@@ -25,11 +25,9 @@ public class ViewDeed extends ViewTemplate {
         description.setText(deed.getDescription());
         View button = (Button) findViewById(R.id.edit_offer);
         if (!deedController.isMyActiveDeedHandler()) {
-            button.setVisibility(View.GONE); }
-
+            button.setVisibility(View.GONE);
+        }
     }
-
-
 
 
     public void editOffer(View view) {

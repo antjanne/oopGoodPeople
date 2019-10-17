@@ -1,9 +1,5 @@
 package com.goodpeople.gooddeeds.Model;
 
-
-
-import com.goodpeople.gooddeeds.Controller.AccountController;
-import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.Entities.Deed;
 
 

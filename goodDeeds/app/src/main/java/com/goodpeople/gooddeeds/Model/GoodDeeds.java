@@ -13,7 +13,7 @@ import java.util.UUID;
  * Defines the base for the model.
  * Holds the list of existing deeds and accounts
  * and the current logged in account.
- * */
+ */
 
 
 public class GoodDeeds {
@@ -69,6 +69,7 @@ public class GoodDeeds {
     public List<IAccount> getAccounts() {
         return accounts;
     }
+    
 
     /**
      * Creates new Account-object and adds it to accounts-list
@@ -80,17 +81,6 @@ public class GoodDeeds {
      */
     public void createAccount(String name, int postalCode, String email, String password) {
         accounts.add(new Account(name, postalCode, email, password));
-    }
-
-
-
-    public boolean validateAccountEmail(String email) {
-        for (IAccount account :
-                accounts) {
-            if (account.getEmail().equals(email)) {
-                return true;
-            }
-        } return false;
     }
 
     /**
@@ -174,7 +164,6 @@ public class GoodDeeds {
     }
 
 
-
     /**
      * @return the logged in Account-object
      */
@@ -221,7 +210,8 @@ public class GoodDeeds {
     /**
      * Edits the subject and description of an already existing deed.
      * The logged in account must be the original creator of the deed.
-     * @param subject The subject of the deed.
+     *
+     * @param subject     The subject of the deed.
      * @param description the description of the deed.
      */
     public void editOffer(String subject, String description) {
@@ -288,11 +278,11 @@ public class GoodDeeds {
      *
      * @return a list of deeds with active requests
      */
-    public List<IDeed> getActiveRequests(){
+    public List<IDeed> getActiveRequests() {
         List<IDeed> allActiveRequests = new ArrayList<>();
 
-        for(IDeed d :deeds){
-            if(d.getReceivingAccount() != null){
+        for (IDeed d : deeds) {
+            if (d.getReceivingAccount() != null) {
                 allActiveRequests.add(d);
             }
         }
@@ -305,11 +295,11 @@ public class GoodDeeds {
      * @return a list of deeds with active offers
      */
 
-    public List<IDeed> getActiveOffers(){
+    public List<IDeed> getActiveOffers() {
         List<IDeed> allActiveOffers = new ArrayList<>();
 
-        for(IDeed d : deeds){
-            if(d.getGivingAccount() != null){
+        for (IDeed d : deeds) {
+            if (d.getGivingAccount() != null) {
                 allActiveOffers.add(d);
             }
         }
@@ -320,7 +310,7 @@ public class GoodDeeds {
      * Logs out the currently logged in account.
      */
     public void logout() {
-        loggedInAccount=null;
+        loggedInAccount = null;
     }
 
 
@@ -329,7 +319,7 @@ public class GoodDeeds {
         deeds.add(newRequest);
     }
 
-    public boolean isMyActiveDeed () {
+    public boolean isMyActiveDeed() {
         Deed deed = getCurrentDeed();
 
         List<IDeed> offers = getMyActiveOffers();

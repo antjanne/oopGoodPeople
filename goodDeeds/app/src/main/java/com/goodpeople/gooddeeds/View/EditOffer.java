@@ -16,8 +16,6 @@ import java.util.UUID;
 public class EditOffer extends AppCompatActivity {
 
     private DeedController deedController = new DeedController();
-    private Deed deed;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +33,6 @@ public class EditOffer extends AppCompatActivity {
                 EditText descriptionEditText = findViewById(R.id.descriptionEditText);
                 deedController.editOfferHandler(subjectEditText.toString(), descriptionEditText.toString());
                 finish();
-
             }
         });
 
