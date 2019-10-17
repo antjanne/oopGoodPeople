@@ -15,14 +15,14 @@ public class GoodDeeds {
 
     private static GoodDeeds goodDeeds;
     private Deed currentDeed;
-    private List<Deed> deeds = new ArrayList<>();
+    protected List<Deed> deeds = new ArrayList<>();
     private List<IAccount> accounts = new ArrayList<>();
     private IAccount loggedInAccount;
 
     private GoodDeeds() {
 
 
-        Account a2 =  new Account("Anton",30597,"1234@gmail.com","ahah");
+        /*Account a2 =  new Account("Anton",30597,"1234@gmail.com","ahah");
 
         Account a = new Account("Anton",30597,"anton46304@gmail.com","ahah");
         Deed d = Deed.newOffer(a,"Gräsklipp","Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
@@ -41,6 +41,8 @@ public class GoodDeeds {
         deeds.add(d3);
 
         deeds.add(d4);
+
+         */
 
 
     }
@@ -328,6 +330,10 @@ public class GoodDeeds {
             return true;
         }
         return false;
+    }
+
+    public List<Deed> returnDeeds() {
+        return deeds;
     }
 
 }
