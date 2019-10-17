@@ -9,26 +9,43 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Defines the base for the model.
+ * Holds the list of existing deeds and accounts
+ * and the current logged in account.
+ * */
 
 public class GoodDeeds {
 
+
     private static GoodDeeds goodDeeds;
+
     private IDeed currentDeed;
+
     private List<IDeed> deeds = new ArrayList<>();
     private List<IAccount> accounts = new ArrayList<>();
     private IAccount loggedInAccount;
 
     private GoodDeeds() {
-
-        /*Account a = new Account("Anton",30597,"anton46304@gmail.com","ahah");
+/*
+        Account a2 =  new Account("Anton",30597,"1234@gmail.com","ahah");
+        Account a = new Account("Anton",30597,"anton46304@gmail.com","ahah");
         Deed d = Deed.newOffer(a,"Gräsklipp","Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
         Deed d2 = Deed.newOffer(a,"Hårklipp","Jag klipper gärna håret på folk! Ge mig en pling vetja!");
+
+
+        accounts.add(a2);
+        Deed d3 = Deed.newRequest(a, "Rosett", "Jag kan inte knyta mina skor, kan någon hjälpa mig?");
+        Deed d4 = Deed.newRequest(a2, "Lokalsinne", "Jag har tappat bort mig och skulle behöva hjälpa av någon att hitta hem. Hjälp önskas snarast, gärna innan skymningen.");
 
         accounts.add(a);
         loggedInAccount = a;
         deeds.add(d);
         deeds.add(d2);
-        */
+        deeds.add(d3);
+
+        deeds.add(d4);*/
+
     }
 
     public static GoodDeeds getGoodDeeds() {
@@ -100,24 +117,6 @@ public class GoodDeeds {
         return false;
     }
 
-    /**
-     * Creates a list of deeds with only the logged in account as owner of the deed.
-     * Filters all deeds to only the ones the logged in account is owner of.
-     * A user has to be logged in before calling this method.
-     *
-     * @return a list of deeds with logged in account as owner
-     */
-
-    public List<IDeed> getMyOffers() {
-        List<IDeed> myDeeds = new ArrayList<>();
-
-        for (IDeed d : deeds) {
-            if (loggedInAccount == d.getGivingAccount()) {
-                myDeeds.add(d);
-            }
-        }
-        return (myDeeds);
-    }
 
     private IDeed fetchDeed(UUID id) throws Exception {
         for (IDeed deed : deeds) {
@@ -170,6 +169,18 @@ public class GoodDeeds {
         loggedInAccount.setPassword(newPassword);
     }
 
+    /**
+     * sets name, email and postal code. It does not care if there actually is new values or not
+     *
+     * @param name       potentially new name
+     * @param email      potentially new email
+     * @param postalCode potentially new postal code
+     */
+    public void editAccount(String name, String email, int postalCode) {
+        loggedInAccount.setName(name);
+        loggedInAccount.setEmail(email);
+        loggedInAccount.setPostalCode(postalCode);
+    }
 
     /**
      * Creates a offer with the currently logged in account as giving account.
@@ -185,24 +196,96 @@ public class GoodDeeds {
     }
 
     /**
-     * Returns a list of all Deeds in the form of IDeed
+     * Returns a list of all existing deeds.
      *
-     * @return all IDeeds
+     * @return all deeds as IDeed
      */
     public List<IDeed> getDeeds() {
         return deeds;
     }
 
     /**
-     * sets name, email and postal code. It does not care if there actually is new values or not
+     * Creates a list of deeds where the logged in account is registered as the giving account
+     * and the receiving account is yet to be claimed.
+     * A user has to be logged in before calling this method.
      *
-     * @param name       potentially new name
-     * @param email      potentially new email
-     * @param postalCode potentially new postal code
+     * @return a list of deeds with logged in account as giving account
      */
-    public void editAccount(String name, String email, int postalCode) {
-        loggedInAccount.setName(name);
-        loggedInAccount.setEmail(email);
-        loggedInAccount.setPostalCode(postalCode);
+
+    public List<IDeed> getMyActiveOffers() {
+        List<IDeed> myActiveOffers = new ArrayList<>();
+
+        for (IDeed d : deeds) {
+            if (loggedInAccount == d.getGivingAccount() && d.getReceivingAccount() == null) {
+                myActiveOffers.add(d);
+            }
+        }
+        return (myActiveOffers);
     }
+
+    /**
+     * Creates a list of deeds where the logged in account is registered as the receiving account
+     * and the giving account is yet to be claimed.
+     * A user has to be logged in before calling this method.
+     *
+     * @return a list of deeds with logged in account as receiving account
+     */
+
+    public List<IDeed> getMyActiveRequests() {
+        List<IDeed> myActiveRequests = new ArrayList<>();
+
+        for (IDeed d : deeds) {
+            if (loggedInAccount == d.getReceivingAccount() && d.getGivingAccount() == null) {
+                myActiveRequests.add(d);
+            }
+        }
+        return (myActiveRequests);
+    }
+
+    /**
+     * Creates a list which will gather all deeds that are requests.
+     *
+     * @return a list of deeds with active requests
+     */
+    public List<IDeed> getActiveRequests(){
+        List<IDeed> allActiveRequests = new ArrayList<>();
+
+        for(IDeed d :deeds){
+            if(d.getReceivingAccount() != null){
+                allActiveRequests.add(d);
+            }
+        }
+        return allActiveRequests;
+    }
+
+    /**
+     * Creates a list which will gather all deeds that are offers.
+     *
+     * @return a list of deeds with active offers
+     */
+
+    public List<IDeed> getActiveOffers(){
+        List<IDeed> allActiveOffers = new ArrayList<>();
+
+        for(IDeed d : deeds){
+            if(d.getGivingAccount() != null){
+                allActiveOffers.add(d);
+            }
+        }
+        return allActiveOffers;
+    }
+
+    /**
+     * Logs out the currently logged in account.
+     */
+    public void logout() {
+        loggedInAccount=null;
+    }
+
+
+    public void createRequest(String subject, String description) {
+        Deed newRequest = Deed.newRequest(loggedInAccount, subject, description);
+        deeds.add(newRequest);
+    }
+
 }

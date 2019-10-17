@@ -3,6 +3,10 @@ package com.goodpeople.gooddeeds.Model.Repositories;
 import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 import com.goodpeople.gooddeeds.Model.GoodDeeds;
 
+/**
+ * Handles the layer between service and data handler
+ */
+
 public class AccountRepositoryImpl implements AccountRepository {
 
     private GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();
@@ -90,5 +94,11 @@ public class AccountRepositoryImpl implements AccountRepository {
         goodDeeds.editAccount(name, email, postalCode);
     }
 
-
+    /**
+     * Logs out the currently logged in account, by calling method in GoodDeeds
+     */
+    @Override
+    public void logout() {
+        goodDeeds.logout();
+    }
 }

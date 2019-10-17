@@ -19,4 +19,5 @@ public interface IAccount {
     String getName();
 
     void setName(String name);
+
 }

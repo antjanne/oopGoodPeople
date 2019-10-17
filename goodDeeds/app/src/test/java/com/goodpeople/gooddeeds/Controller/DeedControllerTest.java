@@ -19,29 +19,39 @@ public class DeedControllerTest {
         goodDeeds.createAccount("Test2",0000,"test2@test.se","123");
         goodDeeds.login("test1@test.se","123");
         deedController.createOfferHandler("test","test");
+        deedController.createRequestHandler("test","test");
         goodDeeds.login("test2@test.se","123");
         deedController.createOfferHandler("test","test");
+        deedController.createRequestHandler("test","test");
     }
 
     @After
     public void after(){
-        deedController.showOffersHandler().clear();
         goodDeeds.getDeeds().clear();
     }
 
     @Test
-    public void showOffersHandler() {
-        assertEquals(deedController.showOffersHandler().size(), 2);
+    public void showMyActiveOffersHandler() {
+        assertEquals(1, deedController.showMyActiveOffersHandler().size());
     }
 
     @Test
-    public void showMyOffersHandler() {
-        assertEquals(deedController.showMyOffersHandler().size(),1);
-
+    public void showMyActiveRequestsHandler() {
+        assertEquals(1, deedController.showMyActiveRequestsHandler().size());
     }
 
     @Test
     public void createOfferHandler() {
-        assertEquals(goodDeeds.getDeeds().size(),2);
+        assertEquals(4, goodDeeds.getDeeds().size());
+    }
+
+    @Test
+    public void showAllActiveRequests() {
+        assertEquals(deedController.showAllActiveRequests().size(),2);
+    }
+
+    @Test
+    public void showAllActiveOffers() {
+        assertEquals(deedController.showAllActiveOffers().size(),2);
     }
 }
