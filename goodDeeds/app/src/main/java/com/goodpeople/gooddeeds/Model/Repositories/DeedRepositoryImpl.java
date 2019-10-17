@@ -41,7 +41,7 @@ public class DeedRepositoryImpl implements DeedRepository {
      * Method for creating a new offer with the logged in account as the giving account.
      * A account has to be logged in before calling this method.
      *
-     * @param subject The subject of the offer.
+     * @param subject     The subject of the offer.
      * @param description The description of the offer.
      */
     @Override
@@ -54,14 +54,45 @@ public class DeedRepositoryImpl implements DeedRepository {
         goodDeeds.createRequest(subject, description);
     }
 
+    /**
+     * Method for getting the currently assigned currentDeed.
+     *
+     * @return the deed to be sent ViewDeed
+     */
     @Override
     public IDeed getCurrentDeed() {
         return goodDeeds.getCurrentDeed();
     }
 
+    /**
+     * Method for reassigning currentDeed.
+     *
+     * @param id UUID of the specific deed to be assigned.
+     */
     @Override
     public void setCurrentDeed(UUID id) {
         goodDeeds.setCurrentdeed(id);
+    }
+
+    /**
+     * Warning!
+     * Removed the currently assigned Deed permanently.
+     * Requires user to be logged in and Deed-owner.
+     */
+    @Override
+    public void deleteCurrentDeed() {
+        goodDeeds.deleteCurrentDeed();
+    }
+
+    /**
+     * Checks if logged in account is the owner of the deed.
+     *
+     * @param deed The deed to check for ownership.
+     * @return True if current account is owner of the deed.
+     */
+    @Override
+    public boolean isDeedOwner(IDeed deed) {
+        return goodDeeds.isDeedOwner(deed);
     }
 
 

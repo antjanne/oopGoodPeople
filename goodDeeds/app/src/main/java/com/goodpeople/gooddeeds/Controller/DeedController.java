@@ -39,7 +39,7 @@ public class DeedController {
      * Method for creating a new offer with the logged in account as the giving account.
      * A account has to be logged in before calling this method.
      *
-     * @param subject The subject of the offer.
+     * @param subject     The subject of the offer.
      * @param description The description of the offer.
      */
     public void createOfferHandler(String subject, String description) {
@@ -50,12 +50,38 @@ public class DeedController {
         deedRepository.createRequest(subject, description);
     }
 
+    /**
+     * @return Gets the currently assigned currentDeed.
+     */
     public IDeed getCurrentDeedHandler() {
         return deedRepository.getCurrentDeed();
     }
 
+    /**
+     * Reassigns currentDeed
+     *
+     * @param uuid the ID of new Deed to be assigned.
+     */
     public void setCurrentDeedHandler(UUID uuid) {
         deedRepository.setCurrentDeed(uuid);
     }
 
+    /**
+     * Warning!
+     * Removes the currently assigned Deed.
+     * Requires user to be logged in and Deed-owner.
+     */
+    public void deleteCurrentDeedHandler() {
+        deedRepository.deleteCurrentDeed();
+    }
+
+    /**
+     * Checks if logged in account is the owner of the deed.
+     *
+     * @param deed The deed to check for ownership.
+     * @return True if current account is owner of the deed.
+     */
+    public boolean isDeedOwnerHandler(IDeed deed) {
+        return deedRepository.isDeedOwner(deed);
+    }
 }

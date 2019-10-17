@@ -21,4 +21,8 @@ public interface DeedRepository {
     IDeed getCurrentDeed();
 
     void setCurrentDeed(UUID id);
+
+    void deleteCurrentDeed();
+
+    boolean isDeedOwner(IDeed deed);
 }

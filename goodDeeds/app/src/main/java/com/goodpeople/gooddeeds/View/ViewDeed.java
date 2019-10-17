@@ -3,6 +3,8 @@ package com.goodpeople.gooddeeds.View;
 import android.os.Bundle;
 
 
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
@@ -20,6 +22,13 @@ public class ViewDeed extends ViewTemplate {
         subject.setText(deed.getSubject());
         TextView description = findViewById(R.id.deedDescription);
         description.setText(deed.getDescription());
+        Button deleteButton = (Button) findViewById(R.id.deleteButton);
+        if (!deedController.isDeedOwnerHandler(deed))
+            deleteButton.setVisibility(View.GONE);
+    }
 
+    public void deleteCurrentDeed(View view) {
+        deedController.deleteCurrentDeedHandler();
+        finish();
     }
 }

@@ -48,5 +48,9 @@ public class ActiveDeeds extends ViewTemplate {
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
 
 }

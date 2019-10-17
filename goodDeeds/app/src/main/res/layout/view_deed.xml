@@ -10,7 +10,7 @@
         android:id="@+id/tool_bar"
         layout="@layout/tool_bar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/deedSubject" />
 
     <TextView
         android:id="@+id/deedSubject"
@@ -27,15 +27,15 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="397dp"
-        android:layout_height="621dp"
+        android:layout_width="393dp"
+        android:layout_height="609dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tool_bar"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/deleteButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tool_bar"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="@+id/tool_bar">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -48,6 +48,22 @@
                 android:textSize="26sp" />
         </RelativeLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="85dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="75dp"
+        android:onClick="deleteCurrentDeed"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintStart_toStartOf="@+id/scrollView2"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
