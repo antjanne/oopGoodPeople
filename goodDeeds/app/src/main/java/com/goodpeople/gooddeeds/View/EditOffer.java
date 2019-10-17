@@ -8,11 +8,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.goodpeople.gooddeeds.Controller.DeedController;
-import com.goodpeople.gooddeeds.Model.Entities.Deed;
-import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.R;
 
-import java.util.UUID;
 
 public class EditOffer extends AppCompatActivity {
 
@@ -33,7 +30,10 @@ public class EditOffer extends AppCompatActivity {
                 EditText subjectEditText = findViewById(R.id.subjectEditText);
                 EditText descriptionEditText = findViewById(R.id.descriptionEditText);
                 deedController.editOfferHandler(subjectEditText.getText().toString(), descriptionEditText.getText().toString());
+                //View desc = findViewById(R.id.view_offer);
+                //desc.requestLayout();
                 finish();
+
             }
         });
 
@@ -44,8 +44,9 @@ public class EditOffer extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
 
 
 }
-
