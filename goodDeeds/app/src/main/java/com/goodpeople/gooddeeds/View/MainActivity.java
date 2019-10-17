@@ -12,6 +12,10 @@ import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.View.Account.AccountOptions;
 import com.goodpeople.gooddeeds.View.Account.Login;
 
+/**
+ * Responsible for handling events in the MainActivity view
+ */
+
 public class MainActivity extends ViewTemplate {
 
     AccountController accountController = new AccountController();
@@ -61,4 +65,8 @@ public class MainActivity extends ViewTemplate {
         }
     }
 
+    public void goToMarket(View view) {
+        Intent myIntent = new Intent(this, MarketActivity.class);
+        startActivity(myIntent);
+    }
 }

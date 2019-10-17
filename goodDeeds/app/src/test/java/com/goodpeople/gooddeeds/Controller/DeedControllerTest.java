@@ -44,4 +44,14 @@ public class DeedControllerTest {
     public void createOfferHandler() {
         assertEquals(4, goodDeeds.getDeeds().size());
     }
+
+    @Test
+    public void showAllActiveRequests() {
+        assertEquals(deedController.showAllActiveRequests().size(),2);
+    }
+
+    @Test
+    public void showAllActiveOffers() {
+        assertEquals(deedController.showAllActiveOffers().size(),2);
+    }
 }

@@ -7,12 +7,20 @@ import com.goodpeople.gooddeeds.Model.Repositories.DeedRepositoryImpl;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Handles input from deed-views. Sends and fetches data to/from DeedRepository.
+ */
+
 public class DeedController {
 
     private DeedRepository deedRepository = new DeedRepositoryImpl();
 
 
     public DeedController() {
+    }
+
+    public List<IDeed> showAllDeedsHandler(){
+        return deedRepository.getDeeds();
     }
 
     /**
@@ -39,7 +47,7 @@ public class DeedController {
      * Method for creating a new offer with the logged in account as the giving account.
      * A account has to be logged in before calling this method.
      *
-     * @param subject     The subject of the offer.
+     * @param subject The subject of the offer.
      * @param description The description of the offer.
      */
     public void createOfferHandler(String subject, String description) {
@@ -66,6 +74,21 @@ public class DeedController {
         deedRepository.setCurrentDeed(uuid);
     }
 
+    /**
+     * Gets a list of active requests by calling deedRepository
+     * @return a list of active requests
+     */
+    public List<IDeed> showAllActiveRequests() {
+        return deedRepository.getActiveRequests();
+    }
+
+    /**
+     * Gets a list of active offers by calling deedRepository
+     * @return a list of active offers
+     */
+    public List<IDeed> showAllActiveOffers() {
+        return deedRepository.getActiveOffers();
+    }
     /**
      * Warning!
      * Removes the currently assigned Deed.
