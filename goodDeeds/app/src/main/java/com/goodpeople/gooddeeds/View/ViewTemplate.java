@@ -62,7 +62,7 @@ public abstract class ViewTemplate extends AppCompatActivity {
 
     }
 
-    void goBack(View view) {
+    public void goBack(View view) {
         finish();
     }
 }

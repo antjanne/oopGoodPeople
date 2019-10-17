@@ -49,7 +49,7 @@ public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder
         return deeds.size();
     }
 
-    public static class DeedViewHolder extends RecyclerView.ViewHolder {
+    static class DeedViewHolder extends RecyclerView.ViewHolder {
         final TextView mSubject;
         final TextView mDescription;
 
