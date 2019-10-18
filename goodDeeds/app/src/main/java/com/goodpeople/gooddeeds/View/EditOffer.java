@@ -5,9 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.goodpeople.gooddeeds.Controller.DeedController;
 import com.goodpeople.gooddeeds.R;
 
 
