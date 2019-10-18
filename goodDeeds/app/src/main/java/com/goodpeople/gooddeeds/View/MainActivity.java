@@ -17,9 +17,7 @@ import com.goodpeople.gooddeeds.View.Account.Login;
  */
 
 public class MainActivity extends ViewTemplate {
-
-    private final AccountController accountController = new AccountController();
-
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
