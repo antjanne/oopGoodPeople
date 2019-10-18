@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.R;
-import com.goodpeople.gooddeeds.View.DeedAdapter;
-import com.goodpeople.gooddeeds.View.ViewTemplate;
 
 import java.util.List;
 
