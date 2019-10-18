@@ -72,9 +72,11 @@ public class GoodDeedsTest {
 
     @Test
     public void updatePassword() {
+
         IAccount account = gd.getAccount();
         gd.updatePassword("newPassword");
-        Assert.assertEquals(account.getPassword(), "newPassword");
+        Assert.assertEquals(account.getPassword(), "newPassword".hashCode());
+
     }
 
     @Test

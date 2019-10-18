@@ -79,7 +79,7 @@ public class GoodDeeds {
      * @param password   Wanted account password
      */
     public void createAccount(String name, int postalCode, String email, String password) {
-        accounts.add(new Account(name, postalCode, email, password));
+        accounts.add(new Account(name, postalCode, email, password.hashCode()));
     }
 
     /**
@@ -90,7 +90,7 @@ public class GoodDeeds {
      */
     public void login(String email, String password) {
         for (IAccount account : accounts) {
-            if (account.getEmail().equals(email) && account.getPassword().equals(password)) {
+            if (account.getEmail().equals(email) && account.getPassword()==password.hashCode()) {
                 loggedInAccount = account;
 
             }
@@ -104,7 +104,7 @@ public class GoodDeeds {
      */
     public boolean validateLogin(String email, String password) {
         for (IAccount account : accounts) {
-            if (account.getEmail().equals(email) && account.getPassword().equals(password)) {
+            if (account.getEmail().equals(email) && account.getPassword()==password.hashCode()) {
                 return true;
             }
         }
@@ -176,7 +176,7 @@ public class GoodDeeds {
      * @param newPassword new password
      */
     public void updatePassword(String newPassword) {
-        loggedInAccount.setPassword(newPassword);
+        loggedInAccount.setPassword(newPassword.hashCode());
     }
 
     /**
