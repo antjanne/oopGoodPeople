@@ -7,7 +7,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.goodpeople.gooddeeds.Controller.AccountController;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.View.Account.AccountOptions;
 import com.goodpeople.gooddeeds.View.Account.Login;
@@ -17,7 +16,7 @@ import com.goodpeople.gooddeeds.View.Account.Login;
  */
 
 public class MainActivity extends ViewTemplate {
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
