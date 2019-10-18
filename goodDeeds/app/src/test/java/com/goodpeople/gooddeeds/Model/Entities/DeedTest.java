@@ -12,7 +12,7 @@ public class DeedTest {
     Deed r;
 
     @Before
-    public void initialize(){
+    public void initialize() {
         a = new Account("Test", 00000, "test@test.com", "123".hashCode());
         o = Deed.newOffer(a, "Subject", "Description");
         r = Deed.newRequest(a, "Subject", "Description");
@@ -25,7 +25,7 @@ public class DeedTest {
 
     @Test
     public void newOfferNotSetReceivingAccount() {
-        assertEquals(o.getReceivingAccount(), null);
+        assertNull(o.getReceivingAccount());
     }
 
     @Test
@@ -40,7 +40,7 @@ public class DeedTest {
 
     @Test
     public void newRequestNotSetGivingAccount() {
-        assertEquals(r.getGivingAccount(), null);
+        assertNull(r.getGivingAccount());
     }
 
     @Test

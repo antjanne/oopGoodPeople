@@ -1,6 +1,5 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
-import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.GoodDeeds;
 
 import org.junit.After;
@@ -59,11 +58,11 @@ public class DeedRepositoryImplTest {
 
     @Test
     public void getActiveRequests() {
-        assertEquals(dr.getActiveRequests().size(),2);
+        assertEquals(dr.getActiveRequests().size(), 2);
     }
 
     @Test
     public void getActiveOffers() {
-        assertEquals(dr.getActiveOffers().size(),2);
+        assertEquals(dr.getActiveOffers().size(), 2);
     }
 }

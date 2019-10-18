@@ -239,9 +239,7 @@ public class GoodDeeds {
      */
     public List<IDeed> getDeeds() {
         List<IDeed> ideeds = new ArrayList<>();
-        for (IDeed deed : deeds) {
-            ideeds.add(deed);
-        }
+        ideeds.addAll(deeds);
         return ideeds;
     }
 
@@ -335,10 +333,7 @@ public class GoodDeeds {
         List<IDeed> offers = getMyActiveOffers();
         List<IDeed> requests = getMyActiveRequests();
 
-        if (offers.contains(deed) || requests.contains(deed)) {
-            return true;
-        }
-        return false;
+        return offers.contains(deed) || requests.contains(deed);
     }
 
     public List<Deed> returnDeeds() {

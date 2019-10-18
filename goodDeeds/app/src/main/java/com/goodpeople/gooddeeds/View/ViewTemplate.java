@@ -41,10 +41,7 @@ public abstract class ViewTemplate extends AppCompatActivity {
     }
 
     public boolean isEmailValid(String email) {
-        if (email.contains("@") && email.contains(".")) {
-            return true;
-        }
-        return false;
+        return email.contains("@") && email.contains(".");
     }
 
     public boolean isPostalCodeValid(Integer postalCode) {

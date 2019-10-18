@@ -1,7 +1,5 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
-import android.os.Parcelable;
-
 public interface IAccount {
 
     String getEmail();

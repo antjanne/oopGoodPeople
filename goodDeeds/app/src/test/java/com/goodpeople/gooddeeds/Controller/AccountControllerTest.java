@@ -1,6 +1,5 @@
 package com.goodpeople.gooddeeds.Controller;
 
-import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.Entities.IAccount;
 
 import org.junit.Assert;
