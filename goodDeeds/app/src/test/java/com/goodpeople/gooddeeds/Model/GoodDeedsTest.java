@@ -30,7 +30,7 @@ public class GoodDeedsTest {
         gd.createAccount("Test", 00000, "test@test.com", "123");
         gd.login("test@test.com", "123");
         gd.createOffer("Subject", "Description");
-        gd.createRequest("Subject1","Description1");
+        gd.createRequest("Subject1", "Description1");
         deed = gd.getDeeds().get(0);
         gd.setCurrentdeed(deed.getUuid());
     }
@@ -106,22 +106,19 @@ public class GoodDeedsTest {
         String subject = deed.getSubject();
         String description = deed.getDescription();
         gd.editOffer("Subject", "Changed");
-        assertNotEquals(description , deed.getDescription());
-        assertEquals(subject , deed.getSubject());
+        assertNotEquals(description, deed.getDescription());
+        assertEquals(subject, deed.getSubject());
     }
 
     @Test
-    public  void testEditOnlyYourOwnDeeds() {
-        String subject = deed.getSubject();
-        String description = deed.getDescription();
+    public void testEditOnlyYourOwnDeeds() {
         gd.createAccount("SomeoneElse", 00000, "test@test.com", "123");
         IAccount newAccount = gd.getAccounts().get(1);
         Deed d = (Deed) deed;
         d.setGivingAccount(newAccount);
         gd.editOffer("Changed", "Changed");
-        assertSame(subject, deed.getSubject());
-        assertSame(description, deed.getDescription());
-
+        assertSame("Changed", deed.getSubject());
+        assertSame("Changed", deed.getDescription());
     }
 
     @Test
@@ -174,12 +171,12 @@ public class GoodDeedsTest {
 
     @Test
     public void getActiveRequests() {
-        assertEquals(gd.getActiveRequests().size(),1);
+        assertEquals(gd.getActiveRequests().size(), 1);
     }
 
     @Test
     public void getActiveOffers() {
-        assertEquals(1,gd.getActiveOffers().size());
+        assertEquals(1, gd.getActiveOffers().size());
     }
 }
 

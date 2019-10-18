@@ -30,10 +30,7 @@ public class EditOffer extends AppCompatActivity {
                 EditText subjectEditText = findViewById(R.id.subjectEditText);
                 EditText descriptionEditText = findViewById(R.id.descriptionEditText);
                 deedController.editOfferHandler(subjectEditText.getText().toString(), descriptionEditText.getText().toString());
-                //View desc = findViewById(R.id.view_offer);
-                //desc.requestLayout();
                 finish();
-
             }
         });
 
