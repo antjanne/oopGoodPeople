@@ -79,7 +79,7 @@ public class Deed implements IDeed {
         return subject;
     }
 
-    private void setSubject(String subject) {
+    public void setSubject(String subject) {
         this.subject = subject;
     }
 
@@ -87,7 +87,7 @@ public class Deed implements IDeed {
         return description;
     }
 
-    private void setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

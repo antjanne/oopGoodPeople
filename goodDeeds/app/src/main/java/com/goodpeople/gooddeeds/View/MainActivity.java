@@ -20,8 +20,10 @@ public class MainActivity extends ViewTemplate {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
+
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
 
     }
 
@@ -42,6 +44,10 @@ public class MainActivity extends ViewTemplate {
         return super.onCreateOptionsMenu(menu);
     }
 
+    public void editOffer(View view) {
+        Intent myIntent = new Intent(this, EditOffer.class);
+        startActivity(myIntent);
+    }
 
     private void login() {
         if (!accountController.isLoggedIn()) {

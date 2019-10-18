@@ -31,7 +31,10 @@ public class DeedRepositoryImplTest {
     public void tearDown() {
         gd.getDeeds().clear();
         gd.getAccounts().clear();
+        gd.returnDeeds().clear();
+        gd = null;
     }
+
 
     @Test
     public void getDeeds() {

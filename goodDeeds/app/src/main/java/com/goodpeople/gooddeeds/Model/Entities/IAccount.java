@@ -6,9 +6,9 @@ public interface IAccount {
 
     void setEmail(String email);
 
-    String getPassword();
+    int getPassword();
 
-    void setPassword(String password);
+    void setPassword(int password);
 
     int getPostalCode();
 

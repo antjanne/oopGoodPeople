@@ -27,7 +27,7 @@ public class DeedControllerTest {
 
     @After
     public void after(){
-        goodDeeds.getDeeds().clear();
+        goodDeeds.returnDeeds().clear();
     }
 
     @Test

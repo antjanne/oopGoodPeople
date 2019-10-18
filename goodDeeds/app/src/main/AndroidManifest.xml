@@ -27,8 +27,14 @@
         <activity android:name=".View.Account.EditAccount" />
         <activity android:name=".View.Account.EditAccountPassword" />
         <activity android:name=".View.CreateOffer" />
+
+        <activity android:name=".View.EditOffer" />
+
+
+
         <activity android:name=".View.Account.AccountOptions"/>
         <activity android:name=".View.ViewDeed"/>
+
     </application>
 
 </manifest>
