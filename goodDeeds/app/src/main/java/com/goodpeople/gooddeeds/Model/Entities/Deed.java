@@ -1,7 +1,6 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 import java.util.UUID;
 
-
 /**
  * Class Deed: represents a deed, which can be either a request or an offer.
  * Type of deed is set by initializing either parameter givingAccount or receivingAccount
@@ -9,7 +8,6 @@ import java.util.UUID;
  */
 
 public class Deed implements IDeed {
-
 
     private IAccount givingAccount;
     private IAccount receivingAccount;
@@ -20,7 +18,6 @@ public class Deed implements IDeed {
 
     private Deed() {
     }
-
 
     /**
      * Method for creating a new offer, the given account is registered as the givingAccount.
@@ -56,8 +53,6 @@ public class Deed implements IDeed {
         d.setUuid(UUID.randomUUID());
         return d;
     }
-
-
 
     public IAccount getGivingAccount() {
         return givingAccount;
