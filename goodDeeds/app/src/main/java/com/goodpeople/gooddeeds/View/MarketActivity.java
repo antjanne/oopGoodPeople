@@ -17,9 +17,9 @@ import java.util.List;
  */
 
 
-
 public class MarketActivity extends ViewTemplate {
 
+    private boolean isOfferPressed;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -42,12 +42,24 @@ public class MarketActivity extends ViewTemplate {
     }
 
     public void showOffers(View view) {
+        isOfferPressed = true;
         viewDeeds(deedController.showAllActiveOffers());
 
     }
 
     public void showRequests(View view) {
+        isOfferPressed = false;
         viewDeeds(deedController.showAllActiveRequests());
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mAdapter != null) {
+            if (isOfferPressed)
+                showOffers(getCurrentFocus());
+            else
+                showRequests(getCurrentFocus());
+        }
     }
 }

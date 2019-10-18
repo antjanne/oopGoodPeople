@@ -2,7 +2,6 @@ package com.goodpeople.gooddeeds.View;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,12 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.R;
-import com.goodpeople.gooddeeds.View.DeedAdapter;
-import com.goodpeople.gooddeeds.View.ViewTemplate;
 
 import java.util.List;
 
 public class ActiveDeeds extends ViewTemplate {
+    private boolean isOfferPressed;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -29,11 +27,13 @@ public class ActiveDeeds extends ViewTemplate {
     }
 
     public void showMyActiveOffers(View view) {
+        isOfferPressed = true;
         deedType.setText("Offers");
         viewDeeds(deedController.showMyActiveOffersHandler());
     }
 
     public void showMyActiveRequests(View view) {
+        isOfferPressed = false;
         deedType.setText("Requests");
         viewDeeds(deedController.showMyActiveRequestsHandler());
     }
@@ -49,8 +49,13 @@ public class ActiveDeeds extends ViewTemplate {
     }
 
     @Override
-    protected void onRestart() {
-        super.onRestart();
+    protected void onResume() {
+        super.onResume();
+        if (mAdapter != null) {
+            if (isOfferPressed)
+                showMyActiveOffers(getCurrentFocus());
+            else
+                showMyActiveRequests(getCurrentFocus());
+        }
     }
-
 }
