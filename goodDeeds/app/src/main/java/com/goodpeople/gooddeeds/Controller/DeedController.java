@@ -1,11 +1,17 @@
 package com.goodpeople.gooddeeds.Controller;
 
+
+
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
+
 import com.goodpeople.gooddeeds.Model.Repositories.DeedRepository;
 import com.goodpeople.gooddeeds.Model.Repositories.DeedRepositoryImpl;
 
-import java.util.List;
+
 import java.util.UUID;
+
+import java.util.List;
+
 
 /**
  * Handles input from deed-views. Sends and fetches data to/from DeedRepository.
@@ -17,6 +23,7 @@ public class DeedController {
 
 
     public DeedController() {
+
     }
 
     public List<IDeed> showAllDeedsHandler(){
@@ -55,9 +62,25 @@ public class DeedController {
     }
 
 
+
+    public void editOfferHandler(String subject, String description) {
+        deedRepository.editOffer(subject, description);
+
+    }
+
+    public String getDeedSubject() {
+        return deedRepository.getCurrentDeed().getSubject();
+    }
+
+    public String getDeedDescription() {
+        return deedRepository.getCurrentDeed().getDescription();
+    }
+
+
     public void createRequestHandler(String subject, String description) {
         deedRepository.createRequest(subject, description);
     }
+
 
     public IDeed getCurrentDeedHandler() {
         return deedRepository.getCurrentDeed();
@@ -81,5 +104,9 @@ public class DeedController {
      */
     public List<IDeed> showAllActiveOffers() {
         return deedRepository.getActiveOffers();
+    }
+
+    public boolean isMyActiveDeedHandler() {
+        return deedRepository.isMyActiveDeed();
     }
 }

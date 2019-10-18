@@ -1,5 +1,8 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
+import com.goodpeople.gooddeeds.Model.Entities.Deed;
+
+
 
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 
@@ -20,6 +23,10 @@ public interface DeedRepository {
 
     void createOffer(String subject, String description);
 
+
+
+    void editOffer(String subject, String description);
+
     void createRequest(String subject, String description);
 
     IDeed getCurrentDeed();
@@ -29,4 +36,7 @@ public interface DeedRepository {
     List<IDeed> getActiveRequests();
 
     List<IDeed> getActiveOffers();
+
+    boolean isMyActiveDeed();
+
 }

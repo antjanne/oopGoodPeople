@@ -27,8 +27,8 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="397dp"
-        android:layout_height="621dp"
+        android:layout_width="391dp"
+        android:layout_height="366dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="100dp"
@@ -48,6 +48,18 @@
                 android:textSize="26sp" />
         </RelativeLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/edit_offer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="editOffer"
+        android:text="Edit Offer"
+        app:layout_constraintBottom_toBottomOf="@+id/tool_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tool_bar"
+        app:layout_constraintVertical_bias="0.78" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
