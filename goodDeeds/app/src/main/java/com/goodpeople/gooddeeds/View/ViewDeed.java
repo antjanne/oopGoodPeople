@@ -1,6 +1,7 @@
 package com.goodpeople.gooddeeds.View;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 
@@ -25,9 +26,17 @@ public class ViewDeed extends ViewTemplate {
         subject.setText(deed.getSubject());
         TextView description = findViewById(R.id.deedDescription);
         description.setText(deed.getDescription());
+        View button = (Button) findViewById(R.id.edit_offer);
         Button deleteButton = (Button) findViewById(R.id.deleteButton);
-        if (!deedController.isDeedOwnerHandler(deed))
+        if (!deedController.isMyActiveDeedHandler()) {
+            button.setVisibility(View.GONE);
             deleteButton.setVisibility(View.GONE);
+        }
+    }
+
+    public void editOffer(View view) {
+        Intent myIntent = new Intent(this, EditOffer.class);
+        startActivity(myIntent);
     }
 
     public void onDeleteClick(View v) {

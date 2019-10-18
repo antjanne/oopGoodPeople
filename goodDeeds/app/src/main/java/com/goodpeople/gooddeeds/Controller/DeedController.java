@@ -19,7 +19,7 @@ public class DeedController {
     public DeedController() {
     }
 
-    public List<IDeed> showAllDeedsHandler(){
+    public List<IDeed> showAllDeedsHandler() {
         return deedRepository.getDeeds();
     }
 
@@ -47,12 +47,27 @@ public class DeedController {
      * Method for creating a new offer with the logged in account as the giving account.
      * A account has to be logged in before calling this method.
      *
-     * @param subject The subject of the offer.
+     * @param subject     The subject of the offer.
      * @param description The description of the offer.
      */
     public void createOfferHandler(String subject, String description) {
         deedRepository.createOffer(subject, description);
     }
+
+
+    public void editOfferHandler(String subject, String description) {
+        deedRepository.editOffer(subject, description);
+
+    }
+
+    public String getDeedSubject() {
+        return deedRepository.getCurrentDeed().getSubject();
+    }
+
+    public String getDeedDescription() {
+        return deedRepository.getCurrentDeed().getDescription();
+    }
+
 
     public void createRequestHandler(String subject, String description) {
         deedRepository.createRequest(subject, description);
@@ -76,6 +91,7 @@ public class DeedController {
 
     /**
      * Gets a list of active requests by calling deedRepository
+     *
      * @return a list of active requests
      */
     public List<IDeed> showAllActiveRequests() {
@@ -84,11 +100,13 @@ public class DeedController {
 
     /**
      * Gets a list of active offers by calling deedRepository
+     *
      * @return a list of active offers
      */
     public List<IDeed> showAllActiveOffers() {
         return deedRepository.getActiveOffers();
     }
+
     /**
      * Warning!
      * Removes the currently assigned Deed.
@@ -99,12 +117,11 @@ public class DeedController {
     }
 
     /**
-     * Checks if logged in account is the owner of the deed.
+     * Checks if logged in account is the owner of currentDeed.
      *
-     * @param deed The deed to check for ownership.
-     * @return True if current account is owner of the deed.
+     * @return True if current account is owner of currentDeed.
      */
-    public boolean isDeedOwnerHandler(IDeed deed) {
-        return deedRepository.isDeedOwner(deed);
+    public boolean isMyActiveDeedHandler() {
+        return deedRepository.isMyActiveDeed();
     }
 }

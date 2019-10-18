@@ -1,7 +1,9 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
-import com.goodpeople.gooddeeds.Model.Entities.IDeed;
+
 import com.goodpeople.gooddeeds.Model.GoodDeeds;
+
+import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 
 import java.util.List;
 import java.util.UUID;
@@ -13,6 +15,7 @@ import java.util.UUID;
 public class DeedRepositoryImpl implements DeedRepository {
 
     private GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();
+
 
     @Override
     public List<IDeed> getDeeds() {
@@ -53,6 +56,18 @@ public class DeedRepositoryImpl implements DeedRepository {
         goodDeeds.createOffer(subject, description);
     }
 
+
+    /**
+     * Edits the subject and/or description of an anlready existing deed
+     *
+     * @param subject     The subject to be edited
+     * @param description The description to be edited
+     */
+    @Override
+    public void editOffer(String subject, String description) {
+        goodDeeds.editOffer(subject, description);
+    }
+
     @Override
     public void createRequest(String subject, String description) {
         goodDeeds.createRequest(subject, description);
@@ -88,20 +103,10 @@ public class DeedRepositoryImpl implements DeedRepository {
         goodDeeds.deleteCurrentDeed();
     }
 
-    /**
-     * Checks if logged in account is the owner of the deed.
-     *
-     * @param deed The deed to check for ownership.
-     * @return True if current account is owner of the deed.
-     */
-    @Override
-    public boolean isDeedOwner(IDeed deed) {
-        return goodDeeds.isDeedOwner(deed);
-    }
-
 
     /**
      * Gets a list of active requests by calling goodDeeds
+     *
      * @return a list of deeds that are active requests
      */
     @Override
@@ -111,10 +116,23 @@ public class DeedRepositoryImpl implements DeedRepository {
 
     /**
      * Gets a list of active offers by calling goodDeeds
+     *
      * @return a list of deeds that are active offers
      */
     @Override
     public List<IDeed> getActiveOffers() {
         return goodDeeds.getActiveOffers();
+    }
+
+    /**
+     * Checks if a deed belongs to the logged in account and
+     * that the deed is not "done" yet
+     *
+     * @return true if the deed is active and created by the logged in account
+     * false otherwise.
+     */
+    @Override
+    public boolean isMyActiveDeed() {
+        return goodDeeds.isMyActiveDeed();
     }
 }

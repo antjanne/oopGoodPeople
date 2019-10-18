@@ -7,6 +7,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+
+
 import com.goodpeople.gooddeeds.Controller.AccountController;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.View.Account.AccountOptions;
@@ -23,8 +25,10 @@ public class MainActivity extends ViewTemplate {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
+
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
 
     }
 
@@ -45,6 +49,10 @@ public class MainActivity extends ViewTemplate {
         return super.onCreateOptionsMenu(menu);
     }
 
+    public void editOffer(View view) {
+        Intent myIntent = new Intent(this, EditOffer.class);
+        startActivity(myIntent);
+    }
 
     public void login() {
         if (!accountController.isLoggedIn()) {
