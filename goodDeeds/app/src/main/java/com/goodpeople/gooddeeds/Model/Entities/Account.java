@@ -69,14 +69,14 @@ public class Account implements IAccount {
     }
 
     /**
-     * @return account password
+     * @return account password as HashCode
      */
     public int getPassword() {
         return password;
     }
 
     /**
-     * @param password set new password for account
+     * @param password set new password as HashCode for account
      */
     public void setPassword(int password) {
         this.password = password;
