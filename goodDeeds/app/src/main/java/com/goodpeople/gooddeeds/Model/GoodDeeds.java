@@ -149,24 +149,15 @@ public class GoodDeeds {
     }
 
     /**
-     * Checks if the logged in account is the owner of the Deed.
-     *
-     * @param deed The Deed to check for ownership.
-     * @return True if current logged in account is owner of deed.
-     */
-    public boolean isDeedOwner(IDeed deed) {
-        return loggedInAccount == deed.getGivingAccount() && deed.getReceivingAccount() == null ||
-                loggedInAccount == deed.getReceivingAccount() && deed.getGivingAccount() == null;
-    }
-
-    /**
      * WARNING
      * removes the CurrentDeed from the app.
      * Requires user to be logged in and Deed-owner.
      */
     public void deleteCurrentDeed() {
-        if (isDeedOwner(currentDeed))
+        if (isMyActiveDeed())
             deeds.remove(currentDeed);
+        else
+            throw new java.lang.RuntimeException("permission denied.");
     }
 
     /**
