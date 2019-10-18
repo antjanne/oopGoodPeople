@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.goodpeople.gooddeeds">
 
     <application
@@ -21,14 +22,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Account.CreateAccount" />
-        <activity android:name=".View.Account.Login" />
-        <activity android:name=".View.Account.AccountDetails" />
-        <activity android:name=".View.Account.EditAccount" />
-        <activity android:name=".View.Account.EditAccountPassword" />
-        <activity android:name=".View.CreateOffer" />
+        <activity android:name=".View.Account.CreateAccount"></activity>
+        <activity android:name=".View.Account.Login"></activity>
+        <activity android:name=".View.Account.AccountDetails"></activity>
+        <activity android:name=".View.Account.EditAccount"></activity>
+        <activity android:name=".View.Account.EditAccountPassword"></activity>
+        <activity android:name=".View.CreateOffer"></activity>
+
+        <activity android:name=".View.EditOffer"></activity>
+
+
+
         <activity android:name=".View.Account.AccountOptions"/>
         <activity android:name=".View.ViewDeed"/>
+
     </application>
 
 </manifest>
