@@ -21,17 +21,21 @@ public class ViewDeed extends ViewTemplate {
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.view_deed);
         super.onCreate(savedInstanceState);
-        IDeed deed = deedController.getCurrentDeedHandler();
-        TextView subject = findViewById(R.id.deedSubject);
-        subject.setText(deed.getSubject());
-        TextView description = findViewById(R.id.deedDescription);
-        description.setText(deed.getDescription());
+        loadDeed();
         View button = (Button) findViewById(R.id.edit_offer);
         Button deleteButton = (Button) findViewById(R.id.deleteButton);
         if (!deedController.isMyActiveDeedHandler()) {
             button.setVisibility(View.GONE);
             deleteButton.setVisibility(View.GONE);
         }
+    }
+
+    private void loadDeed() {
+        IDeed deed = deedController.getCurrentDeedHandler();
+        TextView subject = findViewById(R.id.deedSubject);
+        subject.setText(deed.getSubject());
+        TextView description = findViewById(R.id.deedDescription);
+        description.setText(deed.getDescription());
     }
 
     public void editOffer(View view) {
@@ -56,5 +60,12 @@ public class ViewDeed extends ViewTemplate {
             }
         });
         alert.show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadDeed();
+
     }
 }
