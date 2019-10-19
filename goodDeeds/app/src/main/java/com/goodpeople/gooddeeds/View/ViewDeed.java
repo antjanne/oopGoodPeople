@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
@@ -26,6 +27,18 @@ public class ViewDeed extends ViewTemplate {
         if (!deedController.isMyActiveDeedHandler()) {
             button.setVisibility(View.GONE);
         }
+        View claimbutton = (Button) findViewById(R.id.claim_deed);
+        if (deedController.isMyOwnDeedHandler() &&
+                deedController.isClaimedHandler()) {
+            claimbutton.setVisibility(View.GONE);
+        }
+        claimbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deedController.claimDeed();
+                finish();
+            }
+        });
     }
 
     public void editOffer(View view) {
