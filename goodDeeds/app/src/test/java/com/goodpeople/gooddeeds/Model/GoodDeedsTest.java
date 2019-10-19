@@ -179,5 +179,14 @@ public class GoodDeedsTest {
     public void getActiveOffers() {
         assertEquals(1, gd.getActiveOffers().size());
     }
+
+
+    @Test
+    public void claimDeed() {
+        gd.claimDeed();
+        assertTrue((deed.getGivingAccount() != null) &&
+                (deed.getReceivingAccount() != null));
+    }
+
 }
 
