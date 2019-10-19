@@ -115,4 +115,19 @@ public class DeedRepositoryImpl implements DeedRepository {
     public boolean isMyActiveDeed() {
         return goodDeeds.isMyActiveDeed();
     }
+
+    @Override
+    public boolean isClaimed() {
+        return goodDeeds.isClaimed();
+    }
+
+    @Override
+    public boolean isMyOwnDeed() {
+        return goodDeeds.isMyOwnDeed();
+    }
+
+    @Override
+    public void claimDeed() {
+        goodDeeds.claimDeed();
+    }
 }

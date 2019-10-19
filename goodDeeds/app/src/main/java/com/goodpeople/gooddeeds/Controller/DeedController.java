@@ -103,4 +103,16 @@ public class DeedController {
     public boolean isMyActiveDeedHandler() {
         return deedRepository.isMyActiveDeed();
     }
+
+    public boolean isClaimedHandler() {
+        return deedRepository.isClaimed();
+    }
+
+    public boolean isMyOwnDeedHandler() {
+        return deedRepository.isMyOwnDeed();
+    }
+
+    public void claimDeedHandler() {
+        deedRepository.claimDeed();
+    }
 }

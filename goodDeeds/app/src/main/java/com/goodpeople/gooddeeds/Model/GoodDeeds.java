@@ -1,5 +1,7 @@
 package com.goodpeople.gooddeeds.Model;
 
+import androidx.annotation.Nullable;
+
 import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.Entities.Deed;
 import com.goodpeople.gooddeeds.Model.Entities.IAccount;
@@ -26,8 +28,9 @@ public class GoodDeeds {
 
     private GoodDeeds() {
 
-        /*
+
         Account a2 = new Account("Anton", 30597, "1234@gmail.com", "ahah".hashCode());
+
         Account a = new Account("Anton", 30597, "anton46304@gmail.com", "ahah".hashCode());
         Deed d = Deed.newOffer(a, "Gräsklipp", "Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
         Deed d2 = Deed.newOffer(a, "Hårklipp", "Jag klipper gärna håret på folk! Ge mig en pling vetja!");
@@ -40,7 +43,8 @@ public class GoodDeeds {
         deeds.add(d2);
         deeds.add(d3);
         deeds.add(d4);
-        */
+
+
     }
 
     public static GoodDeeds getGoodDeeds() {
@@ -265,7 +269,7 @@ public class GoodDeeds {
         List<IDeed> allActiveRequests = new ArrayList<>();
 
         for (IDeed d : deeds) {
-            if (d.getReceivingAccount() != null) {
+            if ((d.getReceivingAccount() != null) && (d.getGivingAccount() == null)) {
                 allActiveRequests.add(d);
             }
         }
@@ -282,7 +286,7 @@ public class GoodDeeds {
         List<IDeed> allActiveOffers = new ArrayList<>();
 
         for (IDeed d : deeds) {
-            if (d.getGivingAccount() != null) {
+            if ((d.getGivingAccount() != null) && (d.getReceivingAccount() == null)) {
                 allActiveOffers.add(d);
             }
         }
@@ -302,17 +306,66 @@ public class GoodDeeds {
         deeds.add(newRequest);
     }
 
+    /**
+     * Checks if a deed is active (not claimed) and that
+     * the logged in account is the creator of the deed.
+     *
+     * @return true if the deed belong to the user and is not yet claimed
+     * false otherwise
+     */
     public boolean isMyActiveDeed() {
         Deed deed = getCurrentDeed();
 
         List<IDeed> offers = getMyActiveOffers();
         List<IDeed> requests = getMyActiveRequests();
 
-        return offers.contains(deed) || requests.contains(deed);
+
+        return (offers.contains(deed) || requests.contains(deed));
+
     }
 
+    /**
+     * Method for getting all deeds
+     *
+     * @return a list of deeds
+     */
     public List<Deed> returnDeeds() {
         return deeds;
     }
 
+    /**
+     * Method for checking that the logged in account is not
+     * the creator of the deed
+     *
+     * @return true if the creator of the deed is the logged in account
+     * false otherwise
+     */
+    public boolean isMyOwnDeed() {
+        return ((currentDeed.getGivingAccount() == loggedInAccount)
+                || (currentDeed.getReceivingAccount() == loggedInAccount));
+    }
+
+    /**
+     * Method for checking that the deed is still active, eg not claimed
+     *
+     * @return true if both giving and receiving account of the deed is initialized.
+     * false otherwise
+     */
+    public boolean isClaimed() {
+        return ((currentDeed.getGivingAccount() == null)
+                || (currentDeed.getReceivingAccount() == null));
+    }
+
+
+    /**
+     * Method for claiming deed. Sets, whichever is not already initialized of,
+     * givingAccount or receivingAccount to the loggedInAccount.
+     */
+    public void claimDeed() {
+        if (currentDeed.getReceivingAccount() == null) {
+            currentDeed.setReceivingAccount(loggedInAccount);
+        } else if (currentDeed.getGivingAccount() == null) {
+            currentDeed.setGivingAccount(loggedInAccount);
+        }
+    }
 }

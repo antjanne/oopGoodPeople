@@ -34,4 +34,10 @@ public interface DeedRepository {
 
     boolean isMyActiveDeed();
 
+    boolean isClaimed();
+
+    boolean isMyOwnDeed();
+
+    void claimDeed();
+
 }
