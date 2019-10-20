@@ -8,17 +8,17 @@ import org.junit.Test;
 
 public class AccountRepositoryImplTest {
 
-    AccountRepository repositoryTest;
+    private AccountRepository repositoryTest;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         repositoryTest = new AccountRepositoryImpl();
         repositoryTest.createAccount("richard", 41481, "rm@rm.se", "pass");
         repositoryTest.login("rm@rm.se", "pass");
     }
 
     @Test
-    public void shouldCreateAccountLoginReturnLoggedinAccount() {
+    public void shouldCreateAccountLoginReturnLoggedInAccount() {
         repositoryTest.createAccount("richard", 41481, "rm123@rm.se", "pass123");
         repositoryTest.login("rm123@rm.se", "pass123");
         IAccount account = repositoryTest.getAccount();

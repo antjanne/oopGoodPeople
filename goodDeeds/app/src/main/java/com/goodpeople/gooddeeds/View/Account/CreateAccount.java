@@ -4,19 +4,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.goodpeople.gooddeeds.Controller.AccountController;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.View.ViewTemplate;
 
 public class CreateAccount extends ViewTemplate {
 
-    String name;
-    String email;
-    Integer postalCode;
-    String password;
-
-    public AccountController accountController = new AccountController();
-
+    private String name;
+    private String email;
+    private Integer postalCode;
+    private String password;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -5,23 +5,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.goodpeople.gooddeeds.Controller.DeedController;
 import com.goodpeople.gooddeeds.R;
 
 
-public class EditOffer extends AppCompatActivity {
+public class EditOffer extends ViewTemplate {
 
-    private DeedController deedController = new DeedController();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.edit_offer);
+        super.onCreate(savedInstanceState);
         Button submitButton = findViewById(R.id.submitButton);
-        EditText editSubj = (EditText) findViewById(R.id.subjectEditText);
-        EditText editDesc = (EditText) findViewById(R.id.descriptionEditText);
+        EditText editSubj = findViewById(R.id.subjectEditText);
+        EditText editDesc = findViewById(R.id.descriptionEditText);
         editSubj.setText(deedController.getDeedSubject());
         editDesc.setText(deedController.getDeedDescription());
         submitButton.setOnClickListener(new View.OnClickListener() {

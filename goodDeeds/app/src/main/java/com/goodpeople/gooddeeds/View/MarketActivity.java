@@ -20,10 +20,6 @@ import java.util.List;
 
 public class MarketActivity extends ViewTemplate {
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,10 +28,10 @@ public class MarketActivity extends ViewTemplate {
     }
 
     private void viewDeeds(List<IDeed> deeds) {
-        mRecyclerView = findViewById(R.id.recyclerView);
+        RecyclerView mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new DeedAdapter(deeds);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+        RecyclerView.Adapter mAdapter = new DeedAdapter(deeds);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);

@@ -10,7 +10,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:clickable="false"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"></androidx.appcompat.widget.Toolbar>
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
 
 </LinearLayout>

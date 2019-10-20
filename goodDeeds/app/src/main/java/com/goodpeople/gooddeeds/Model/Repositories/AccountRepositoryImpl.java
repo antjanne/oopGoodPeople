@@ -9,7 +9,7 @@ import com.goodpeople.gooddeeds.Model.GoodDeeds;
 
 public class AccountRepositoryImpl implements AccountRepository {
 
-    private GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();
+    private final GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();
 
     /**
      * Creates account by calling method in GoodDeeds
