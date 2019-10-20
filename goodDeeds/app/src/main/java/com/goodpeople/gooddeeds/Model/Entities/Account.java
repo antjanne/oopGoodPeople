@@ -1,18 +1,11 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
-
-
-
 /**
  * Class Account: represents an account. Initializes fields name, postalCode,
  * email and password when an account is created.
  */
 
-
-
 public class Account implements IAccount {
-
-
 
     private String name;
     private int postalCode;

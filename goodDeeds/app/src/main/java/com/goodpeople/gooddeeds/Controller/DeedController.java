@@ -2,14 +2,11 @@ package com.goodpeople.gooddeeds.Controller;
 
 
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
-
 import com.goodpeople.gooddeeds.Model.Repositories.DeedRepository;
 import com.goodpeople.gooddeeds.Model.Repositories.DeedRepositoryImpl;
 
-
-import java.util.UUID;
-
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -18,11 +15,9 @@ import java.util.List;
 
 public class DeedController {
 
-    private DeedRepository deedRepository = new DeedRepositoryImpl();
-
+    private final DeedRepository deedRepository = new DeedRepositoryImpl();
 
     public DeedController() {
-
     }
 
     public List<IDeed> showAllDeedsHandler() {
@@ -60,10 +55,8 @@ public class DeedController {
         deedRepository.createOffer(subject, description);
     }
 
-
     public void editOfferHandler(String subject, String description) {
         deedRepository.editOffer(subject, description);
-
     }
 
     public String getDeedSubject() {

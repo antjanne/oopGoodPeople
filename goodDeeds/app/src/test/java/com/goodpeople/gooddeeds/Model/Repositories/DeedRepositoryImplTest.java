@@ -1,6 +1,5 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
-import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.GoodDeeds;
 
 import org.junit.After;
@@ -11,8 +10,8 @@ import static org.junit.Assert.*;
 
 public class DeedRepositoryImplTest {
 
-    DeedRepository dr;
-    GoodDeeds gd;
+    private DeedRepository dr;
+    private GoodDeeds gd;
 
     @Before
     public void setUp() {

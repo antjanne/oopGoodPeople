@@ -7,9 +7,9 @@ import static org.junit.Assert.*;
 
 public class DeedTest {
 
-    Account a;
-    Deed o;
-    Deed r;
+    private Account a;
+    private Deed o;
+    private Deed r;
 
     @Before
     public void initialize(){
@@ -25,7 +25,7 @@ public class DeedTest {
 
     @Test
     public void newOfferNotSetReceivingAccount() {
-        assertEquals(o.getReceivingAccount(), null);
+        assertNull(o.getReceivingAccount());
     }
 
     @Test
@@ -40,7 +40,7 @@ public class DeedTest {
 
     @Test
     public void newRequestNotSetGivingAccount() {
-        assertEquals(r.getGivingAccount(), null);
+        assertNull(r.getGivingAccount());
     }
 
     @Test

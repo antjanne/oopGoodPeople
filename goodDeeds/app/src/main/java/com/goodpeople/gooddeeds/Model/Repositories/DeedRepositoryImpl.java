@@ -14,7 +14,7 @@ import java.util.UUID;
 
 public class DeedRepositoryImpl implements DeedRepository {
 
-    private GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();
+    private final GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();
 
 
     @Override
@@ -58,7 +58,7 @@ public class DeedRepositoryImpl implements DeedRepository {
 
 
     /**
-     * Edits the subject and/or description of an anlready existing deed
+     * Edits the subject and/or description of an already existing deed
      *
      * @param subject     The subject to be edited
      * @param description The description to be edited
