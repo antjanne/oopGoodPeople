@@ -105,11 +105,4 @@ public class DeedTest {
         o.setDescription("Description2");
         assertEquals(o.getDescription(), "Description2");
     }
-
-    @Test
-    public void uuid() {
-        UUID id = UUID.randomUUID();
-        o.setUuid(id);
-        assertEquals(o.getUuid(), id);
-    }
 }
