@@ -7,12 +7,11 @@ import com.goodpeople.gooddeeds.Model.Repositories.AccountRepositoryImpl;
 /**
  * Responsible for handling the input from Account-views.
  * Sends and fetches data to/from AccountRepository.
- *
  */
 
 public class AccountController {
 
-    private AccountRepository accountRepository = new AccountRepositoryImpl();
+    private final AccountRepository accountRepository = new AccountRepositoryImpl();
 
     public AccountController() {
 
@@ -93,11 +92,10 @@ public class AccountController {
         accountRepository.editAccount(name, email, postalCode);
     }
 
-
     /**
      * Logs out the account currently logged in, by calling the repository method.
      */
-    public void logout(){
+    public void logout() {
         accountRepository.logout();
     }
 }

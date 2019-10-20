@@ -2,9 +2,7 @@ package com.goodpeople.gooddeeds.View;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
@@ -22,7 +20,7 @@ public class ViewDeed extends ViewTemplate {
         subject.setText(deed.getSubject());
         TextView description = findViewById(R.id.deedDescription);
         description.setText(deed.getDescription());
-        View button = (Button) findViewById(R.id.edit_offer);
+        View button = findViewById(R.id.edit_offer);
         if (!deedController.isMyActiveDeedHandler()) {
             button.setVisibility(View.GONE);
         }

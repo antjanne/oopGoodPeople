@@ -15,44 +15,32 @@ import java.util.UUID;
  * and the current logged in account.
  */
 
-
 public class GoodDeeds {
-
 
     private static GoodDeeds goodDeeds;
 
     private Deed currentDeed;
-
-    protected List<Deed> deeds = new ArrayList<>();
-
-    private List<IAccount> accounts = new ArrayList<>();
+    final List<Deed> deeds = new ArrayList<>();
+    private final List<IAccount> accounts = new ArrayList<>();
     private IAccount loggedInAccount;
 
     private GoodDeeds() {
 
-
-        /*Account a2 = new Account("Anton", 30597, "1234@gmail.com", "ahah");
-
-        Account a = new Account("Anton", 30597, "anton46304@gmail.com", "ahah");
+        /*
+        Account a2 = new Account("Anton", 30597, "1234@gmail.com", "ahah".hashCode());
+        Account a = new Account("Anton", 30597, "anton46304@gmail.com", "ahah".hashCode());
         Deed d = Deed.newOffer(a, "Gräsklipp", "Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
         Deed d2 = Deed.newOffer(a, "Hårklipp", "Jag klipper gärna håret på folk! Ge mig en pling vetja!");
-
-
         accounts.add(a2);
         Deed d3 = Deed.newRequest(a, "Rosett", "Jag kan inte knyta mina skor, kan någon hjälpa mig?");
         Deed d4 = Deed.newRequest(a2, "Lokalsinne", "Jag har tappat bort mig och skulle behöva hjälpa av någon att hitta hem. Hjälp önskas snarast, gärna innan skymningen.");
-
         accounts.add(a);
         loggedInAccount = a;
         deeds.add(d);
         deeds.add(d2);
-
         deeds.add(d3);
-
         deeds.add(d4);
         */
-
-
     }
 
     public static GoodDeeds getGoodDeeds() {
@@ -90,7 +78,7 @@ public class GoodDeeds {
      */
     public void login(String email, String password) {
         for (IAccount account : accounts) {
-            if (account.getEmail().equals(email) && account.getPassword()==password.hashCode()) {
+            if (account.getEmail().equals(email) && account.getPassword() == password.hashCode()) {
                 loggedInAccount = account;
 
             }
@@ -104,7 +92,7 @@ public class GoodDeeds {
      */
     public boolean validateLogin(String email, String password) {
         for (IAccount account : accounts) {
-            if (account.getEmail().equals(email) && account.getPassword()==password.hashCode()) {
+            if (account.getEmail().equals(email) && account.getPassword() == password.hashCode()) {
                 return true;
             }
         }
@@ -226,9 +214,7 @@ public class GoodDeeds {
      */
     public List<IDeed> getDeeds() {
         List<IDeed> ideeds = new ArrayList<>();
-        for (IDeed deed : deeds) {
-            ideeds.add(deed);
-        }
+        ideeds.addAll(deeds);
         return ideeds;
     }
 
@@ -322,10 +308,7 @@ public class GoodDeeds {
         List<IDeed> offers = getMyActiveOffers();
         List<IDeed> requests = getMyActiveRequests();
 
-        if (offers.contains(deed) || requests.contains(deed)) {
-            return true;
-        }
-        return false;
+        return offers.contains(deed) || requests.contains(deed);
     }
 
     public List<Deed> returnDeeds() {

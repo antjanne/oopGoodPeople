@@ -30,9 +30,9 @@ public class AccountDetails extends ViewTemplate {
 
         IAccount account = accountController.accountHandler();
 
-        TextView name = (TextView) findViewById(R.id.account_name_data);
-        TextView email = (TextView) findViewById(R.id.account_email_data);
-        TextView postalCode = (TextView) findViewById(R.id.account_postal_code_data);
+        TextView name = findViewById(R.id.account_name_data);
+        TextView email = findViewById(R.id.account_email_data);
+        TextView postalCode = findViewById(R.id.account_postal_code_data);
 
         name.setText(account.getName());
         email.setText(account.getEmail());
