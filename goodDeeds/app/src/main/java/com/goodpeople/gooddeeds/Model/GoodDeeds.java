@@ -41,9 +41,7 @@ public class GoodDeeds {
         deeds.add(d2);
         deeds.add(d3);
         deeds.add(d4);
-        
-         */
-
+*/
 
     }
 
@@ -353,8 +351,8 @@ public class GoodDeeds {
      * false otherwise
      */
     public boolean isClaimed() {
-        return ((currentDeed.getGivingAccount() == null)
-                || (currentDeed.getReceivingAccount() == null));
+        return ((currentDeed.getGivingAccount() != null)
+                && (currentDeed.getReceivingAccount() != null));
     }
 
 
