@@ -17,8 +17,10 @@ import java.util.List;
  */
 
 
-
 public class MarketActivity extends ViewTemplate {
+
+    RecyclerView.Adapter mAdapter;
+    private boolean isOfferPressed;
 
 
     @Override
@@ -31,13 +33,14 @@ public class MarketActivity extends ViewTemplate {
         RecyclerView mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
-        RecyclerView.Adapter mAdapter = new DeedAdapter(deeds);
+        mAdapter = new DeedAdapter(deeds);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
     }
 
     public void showOffers(View view) {
+        isOfferPressed = true;
         viewDeeds(deedController.showAllActiveOffers());
 
     }
@@ -45,5 +48,16 @@ public class MarketActivity extends ViewTemplate {
     public void showRequests(View view) {
         viewDeeds(deedController.showAllActiveRequests());
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdapter != null) {
+            if (isOfferPressed)
+                showOffers(getCurrentFocus());
+            else
+                showRequests(getCurrentFocus());
+        }
     }
 }
