@@ -10,8 +10,8 @@ import static org.junit.Assert.*;
 
 public class DeedControllerTest {
 
-    DeedController deedController;
-    GoodDeeds goodDeeds;
+    private DeedController deedController;
+    private GoodDeeds goodDeeds;
 
     @Before
     public void initialize() {

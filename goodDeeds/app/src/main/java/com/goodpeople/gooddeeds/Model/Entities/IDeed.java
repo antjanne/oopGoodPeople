@@ -8,28 +8,13 @@ import java.util.UUID;
 
 public interface IDeed {
 
+  String getSubject();
 
-    /**
-     * @return The subject of a deed
-     */
-    String getSubject();
+  String getDescription();
 
+  IAccount getGivingAccount();
 
-    /**
-     * @return The description of a deed
-     */
-    String getDescription();
+  IAccount getReceivingAccount();
 
-
-    /**
-     * @return The account that is registered as a giving account of a deed
-     */
-
-    IAccount getGivingAccount();
-
-
-    IAccount getReceivingAccount();
-
-    UUID getUuid();
-
+  UUID getUuid();
 }

@@ -32,22 +32,13 @@ public class EditAccountPassword extends ViewTemplate {
     }
 
     private boolean validatePassword(String oldPassword, String newPassword) {
-
-        if (!(accountController.accountHandler().getPassword() == oldPassword.hashCode())) {
-            return false;
-        }
-        return !newPassword.trim().isEmpty();
+        return !newPassword.trim().isEmpty() && (accountController.accountHandler().getPassword()==oldPassword.hashCode());
     }
 
     private void setError(String oldPassword, String newPassword) {
-        if (!(accountController.accountHandler().getPassword() == oldPassword.hashCode())) {
+        if (!(accountController.accountHandler().getPassword()==oldPassword.hashCode()|| newPassword.trim().isEmpty())) {
             sendError(R.id.edit_password_old_password_layout, R.string.invalid_password);
         }
-        if (newPassword.trim().isEmpty()) {
-            sendError(R.id.edit_password_new_password_layout, R.string.invalid_password);
-        }
-
-
     }
 
 }

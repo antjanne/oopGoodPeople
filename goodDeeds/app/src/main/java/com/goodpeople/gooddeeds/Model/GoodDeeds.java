@@ -17,37 +17,29 @@ import java.util.UUID;
 
 public class GoodDeeds {
 
-
     private static GoodDeeds goodDeeds;
-    protected List<Deed> deeds = new ArrayList<>();
+    final List<IDeed> deeds = new ArrayList<>();
+    private final List<IAccount> accounts = new ArrayList<>();
     private IDeed currentDeed;
-    private List<IAccount> accounts = new ArrayList<>();
     private IAccount loggedInAccount;
 
     private GoodDeeds() {
 
-
-        /*Account a2 = new Account("Anton", 30597, "1234@gmail.com", "ahah");
-
-        Account a = new Account("Anton", 30597, "anton46304@gmail.com", "ahah");
+        /*
+        Account a2 = new Account("Anton", 30597, "1234@gmail.com", "ahah".hashCode());
+        Account a = new Account("Anton", 30597, "anton46304@gmail.com", "ahah".hashCode());
         Deed d = Deed.newOffer(a, "Gräsklipp", "Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
         Deed d2 = Deed.newOffer(a, "Hårklipp", "Jag klipper gärna håret på folk! Ge mig en pling vetja!");
-
-
         accounts.add(a2);
         Deed d3 = Deed.newRequest(a, "Rosett", "Jag kan inte knyta mina skor, kan någon hjälpa mig?");
         Deed d4 = Deed.newRequest(a2, "Lokalsinne", "Jag har tappat bort mig och skulle behöva hjälpa av någon att hitta hem. Hjälp önskas snarast, gärna innan skymningen.");
-
         accounts.add(a);
         loggedInAccount = a;
         deeds.add(d);
         deeds.add(d2);
         deeds.add(d3);
-
         deeds.add(d4);
         */
-
-
     }
 
     public static GoodDeeds getGoodDeeds() {
@@ -229,8 +221,7 @@ public class GoodDeeds {
      * @return all deeds as IDeed
      */
     public List<IDeed> getDeeds() {
-        List<IDeed> ideeds = new ArrayList<>();
-        ideeds.addAll(deeds);
+        List<IDeed> ideeds = new ArrayList<>(deeds);
         return ideeds;
     }
 
@@ -319,7 +310,7 @@ public class GoodDeeds {
     }
 
     public boolean isMyActiveDeed() {
-        Deed deed = (Deed) getCurrentDeed();
+        IDeed deed = getCurrentDeed();
 
         List<IDeed> offers = getMyActiveOffers();
         List<IDeed> requests = getMyActiveRequests();
@@ -327,7 +318,7 @@ public class GoodDeeds {
         return offers.contains(deed) || requests.contains(deed);
     }
 
-    public List<Deed> returnDeeds() {
+    public List<IDeed> returnDeeds() {
         return deeds;
     }
 

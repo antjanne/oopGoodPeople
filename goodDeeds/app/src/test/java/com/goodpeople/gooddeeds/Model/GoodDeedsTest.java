@@ -21,8 +21,8 @@ import static org.junit.Assert.assertNotEquals;
 public class GoodDeedsTest {
 
 
-    GoodDeeds gd;
-    IDeed deed;
+    private GoodDeeds gd;
+    private IDeed deed;
 
     @Before
     public void initialize() {
@@ -116,8 +116,7 @@ public class GoodDeedsTest {
     public void testEditOnlyYourOwnDeeds() {
         gd.createAccount("SomeoneElse", 00000, "test@test.com", "123");
         IAccount newAccount = gd.getAccounts().get(1);
-        Deed d = (Deed) deed;
-        d.setGivingAccount(newAccount);
+        Deed.newOffer(newAccount,"subject","description");
         gd.editOffer("Changed", "Changed");
         assertSame("Changed", deed.getSubject());
         assertSame("Changed", deed.getDescription());
@@ -142,7 +141,7 @@ public class GoodDeedsTest {
     }
 
     @Test
-    public void getMyActiveOffers() { //TODO fixa så att den kollar just här
+    public void getMyActiveOffers() {
         assertEquals(gd.getMyActiveOffers().size(), 1);
     }
 

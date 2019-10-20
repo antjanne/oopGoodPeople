@@ -8,7 +8,7 @@ import org.junit.Test;
 
 
 public class AccountControllerTest {
-    AccountController accountController;
+    private AccountController accountController;
 
     @Before
     public void setUp() {

@@ -18,14 +18,14 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public abstract class ViewTemplate extends AppCompatActivity {
 
-    public AccountController accountController = new AccountController();
+    protected final AccountController accountController = new AccountController();
 
-    public DeedController deedController = new DeedController();
+    final DeedController deedController = new DeedController();
 
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -40,23 +40,23 @@ public abstract class ViewTemplate extends AppCompatActivity {
         return super.onOptionsItemSelected(menuItem);
     }
 
-    public boolean isEmailValid(String email) {
+    protected boolean isEmailValid(String email) {
         return email.contains("@") && email.contains(".");
     }
 
-    public boolean isPostalCodeValid(Integer postalCode) {
+    protected boolean isPostalCodeValid(Integer postalCode) {
         return (postalCode != null && postalCode.toString().length() == 5);
 
     }
 
 
-    public void sendError(int textInputLayout, int errorCodeId) {
+    protected void sendError(int textInputLayout, int errorCodeId) {
         TextInputLayout layout = findViewById(textInputLayout);
         layout.setError(getString(errorCodeId));
 
     }
 
-    public void removeError(int textInputLayout) {
+    protected void removeError(int textInputLayout) {
         TextInputLayout layout = findViewById(textInputLayout);
         layout.setError(null);
 

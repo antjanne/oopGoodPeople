@@ -10,8 +10,8 @@ import static org.junit.Assert.*;
 
 public class DeedRepositoryImplTest {
 
-    DeedRepository dr;
-    GoodDeeds gd;
+    private DeedRepository dr;
+    private GoodDeeds gd;
 
     @Before
     public void setUp() {
