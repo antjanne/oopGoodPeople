@@ -1,6 +1,5 @@
 package com.goodpeople.gooddeeds.Model.Repositories;
 
-
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 
 import java.util.List;

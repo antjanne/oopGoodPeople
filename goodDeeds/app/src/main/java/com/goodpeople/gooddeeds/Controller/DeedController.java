@@ -57,7 +57,6 @@ public class DeedController {
 
     public void editOfferHandler(String subject, String description) {
         deedRepository.editOffer(subject, description);
-
     }
 
     public String getDeedSubject() {
@@ -112,7 +111,9 @@ public class DeedController {
         return deedRepository.isMyOwnDeed();
     }
 
+
     public void claimDeedHandler() {
+
         deedRepository.claimDeed();
     }
 }

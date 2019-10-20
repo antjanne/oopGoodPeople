@@ -320,6 +320,7 @@ public class GoodDeeds {
 
         return (offers.contains(deed) || requests.contains(deed));
 
+
     }
 
     /**

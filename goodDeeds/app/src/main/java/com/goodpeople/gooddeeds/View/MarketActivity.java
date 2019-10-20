@@ -55,12 +55,10 @@ public class MarketActivity extends ViewTemplate {
     public void onResume() {
         super.onResume();
         if (mAdapter != null) {
-
-            if (isOfferPressed) {
+            if (isOfferPressed)
                 showOffers(getCurrentFocus());
-            } else {
+            else
                 showRequests(getCurrentFocus());
-            }
         }
 
     }
