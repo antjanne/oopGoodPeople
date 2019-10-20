@@ -1,7 +1,5 @@
 package com.goodpeople.gooddeeds.Model;
 
-import androidx.annotation.Nullable;
-
 import com.goodpeople.gooddeeds.Model.Entities.Account;
 import com.goodpeople.gooddeeds.Model.Entities.Deed;
 import com.goodpeople.gooddeeds.Model.Entities.IAccount;
