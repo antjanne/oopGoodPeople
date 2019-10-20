@@ -33,7 +33,7 @@ public class MarketActivity extends ViewTemplate {
         RecyclerView mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
-        RecyclerView.Adapter mAdapter = new DeedAdapter(deeds);
+        mAdapter = new DeedAdapter(deeds);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
@@ -55,6 +55,7 @@ public class MarketActivity extends ViewTemplate {
     public void onResume() {
         super.onResume();
         if (mAdapter != null) {
+
             if (isOfferPressed) {
                 showOffers(getCurrentFocus());
             } else {
