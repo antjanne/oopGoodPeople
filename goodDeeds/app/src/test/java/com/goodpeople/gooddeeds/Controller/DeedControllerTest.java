@@ -25,6 +25,7 @@ public class DeedControllerTest {
         goodDeeds.login("test2@test.se", "123");
         deedController.createOfferHandler("test", "test");
         deedController.createRequestHandler("test", "test");
+        goodDeeds.setCurrentdeed(goodDeeds.getDeeds().get(0).getUuid());
     }
 
     @After
@@ -55,5 +56,34 @@ public class DeedControllerTest {
     @Test
     public void showAllActiveOffers() {
         assertEquals(deedController.showAllActiveOffers().size(), 2);
+    }
+
+    @Test
+    public void isMyActiveDeedHandler() {
+        assertFalse(deedController.isMyActiveDeedHandler());
+    }
+
+    @Test
+    public void isNotClaimed() {
+        assertFalse(deedController.isClaimedHandler());
+    }
+
+    @Test
+    public void isClaimedHandler() {
+        deedController.claimDeedHandler();
+        assertTrue(deedController.isClaimedHandler());
+    }
+
+    @Test
+    public void claimDeedHandler() {
+        deedController.claimDeedHandler();
+        assertTrue(deedController.getCurrentDeedHandler().getGivingAccount() != null
+                && deedController.getCurrentDeedHandler().getReceivingAccount() != null);
+    }
+
+    @Test
+    public void isMyOwnDeedHandler() {
+        goodDeeds.setCurrentdeed(goodDeeds.getDeeds().get(2).getUuid());
+        assertTrue(deedController.isMyOwnDeedHandler());
     }
 }

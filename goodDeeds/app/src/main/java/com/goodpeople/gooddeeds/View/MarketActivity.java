@@ -19,8 +19,9 @@ import java.util.List;
 
 public class MarketActivity extends ViewTemplate {
 
+
+    RecyclerView.Adapter mAdapter;
     private boolean isOfferPressed;
-    private RecyclerView.Adapter mAdapter;
 
 
     @Override
@@ -60,4 +61,5 @@ public class MarketActivity extends ViewTemplate {
                 showRequests(getCurrentFocus());
         }
     }
+
 }
