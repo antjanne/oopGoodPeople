@@ -152,7 +152,18 @@ public class DeedController {
         deedRepository.claimDeed();
     }
 
+    /**
+     * Method for marking a deed as done
+     */
     public void deedIsDoneHandler() {
         deedRepository.deedIsDone();
+    }
+
+    /**
+     * @return A list of deeds that are claimed and where the logged in account is
+     * either giving or receiving account for the deed
+     */
+    public List<IDeed> getMyClaimedDeedsHandler() {
+        return deedRepository.getMyClaimedDeeds();
     }
 }

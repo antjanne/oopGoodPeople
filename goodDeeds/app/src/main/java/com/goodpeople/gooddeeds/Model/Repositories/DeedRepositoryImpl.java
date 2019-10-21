@@ -166,8 +166,16 @@ public class DeedRepositoryImpl implements DeedRepository {
         goodDeeds.claimDeed();
     }
 
+    /**
+     * Method for marking a deed as done
+     */
     @Override
     public void deedIsDone() {
         goodDeeds.deedIsDone();
+    }
+
+    @Override
+    public List<IDeed> getMyClaimedDeeds() {
+        return goodDeeds.getMyClaimedDeeds();
     }
 }

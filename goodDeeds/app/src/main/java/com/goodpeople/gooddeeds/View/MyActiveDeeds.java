@@ -46,6 +46,12 @@ public class MyActiveDeeds extends ViewTemplate {
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    private void showClaimedDeeds(List<IDeed> deeds) {
+        deedType.setText("Claimed Deeds");
+        viewDeeds(deedController.getMyClaimedDeedsHandler());
+
+    }
+
     @Override
     protected void onResume() {
         super.onResume();

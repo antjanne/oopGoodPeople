@@ -25,7 +25,7 @@ public class GoodDeeds {
 
     private GoodDeeds() {
 
-/*
+
         Account a2 = new Account("Anton", 30597, "1234@gmail.com", "ahah".hashCode());
 
         Account a = new Account("Anton", 30597, "anton46304@gmail.com", "ahah".hashCode());
@@ -40,7 +40,7 @@ public class GoodDeeds {
         deeds.add(d2);
         deeds.add(d3);
         deeds.add(d4);
-*/
+
 
     }
 
@@ -263,6 +263,25 @@ public class GoodDeeds {
             }
         }
         return (myActiveRequests);
+    }
+
+    /**
+     * Creates a list of deeds where the logged in account is registered as either the giving
+     * account or the receiving account and the other is not null.
+     *
+     * @return a list of claimed deeds with logged in account
+     * as either volunteer or receiver of help
+     */
+    public List<IDeed> getMyClaimedDeeds() {
+        List<IDeed> myClaimedDeeds = new ArrayList<>();
+
+        for (IDeed d : deeds) {
+            if ((d.getReceivingAccount() == loggedInAccount && d.getGivingAccount() != null) ||
+                    (d.getGivingAccount() == loggedInAccount && d.getReceivingAccount() != null)) {
+                myClaimedDeeds.add(d);
+            }
+        }
+        return myClaimedDeeds;
     }
 
     /**

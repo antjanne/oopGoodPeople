@@ -51,6 +51,17 @@ public class ViewDeed extends ViewTemplate {
                 finish();
             }
         });
+        View doneDeedButton = findViewById(R.id.done_deed);
+        if (!deedController.isClaimedHandler()) {
+            doneDeedButton.setVisibility(View.GONE);
+        }
+        doneDeedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deedController.deedIsDoneHandler();
+                finish();
+            }
+        });
     }
 
     public void editOffer(View view) {
