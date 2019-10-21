@@ -18,10 +18,9 @@ import java.util.UUID;
 public class GoodDeeds {
 
     private static GoodDeeds goodDeeds;
-
-    private Deed currentDeed;
-    final List<Deed> deeds = new ArrayList<>();
+    final List<IDeed> deeds = new ArrayList<>();
     private final List<IAccount> accounts = new ArrayList<>();
+    private IDeed currentDeed;
     private IAccount loggedInAccount;
 
     private GoodDeeds() {
@@ -57,7 +56,6 @@ public class GoodDeeds {
         return accounts;
     }
 
-
     /**
      * Creates new Account-object and adds it to accounts-list
      *
@@ -80,7 +78,6 @@ public class GoodDeeds {
         for (IAccount account : accounts) {
             if (account.getEmail().equals(email) && account.getPassword() == password.hashCode()) {
                 loggedInAccount = account;
-
             }
         }
     }
@@ -115,8 +112,8 @@ public class GoodDeeds {
     }
 
 
-    private Deed fetchDeed(UUID id) throws Exception {
-        for (Deed deed : deeds) {
+    private IDeed fetchDeed(UUID id) throws Exception {
+        for (IDeed deed : deeds) {
             if (deed.getUuid().equals(id))
                 return deed;
         }
@@ -139,8 +136,20 @@ public class GoodDeeds {
     /**
      * @return the currently assigned currentDeed.
      */
-    public Deed getCurrentDeed() {
+    public IDeed getCurrentDeed() {
         return currentDeed;
+    }
+
+    /**
+     * WARNING
+     * removes the CurrentDeed from the app.
+     * Requires user to be logged in and Deed-owner.
+     */
+    public void deleteCurrentDeed() {
+        if (isMyActiveDeed())
+            deeds.remove(currentDeed);
+        else
+            throw new java.lang.RuntimeException("permission denied.");
     }
 
     /**
@@ -149,7 +158,6 @@ public class GoodDeeds {
     public boolean isLoggedIn() {
         return loggedInAccount != null;
     }
-
 
     /**
      * @return the logged in Account-object
@@ -202,7 +210,7 @@ public class GoodDeeds {
      * @param description the description of the deed.
      */
     public void editOffer(String subject, String description) {
-        Deed deed = getCurrentDeed();
+        Deed deed = (Deed) getCurrentDeed();
         deed.setSubject(subject);
         deed.setDescription(description);
     }
@@ -213,8 +221,7 @@ public class GoodDeeds {
      * @return all deeds as IDeed
      */
     public List<IDeed> getDeeds() {
-        List<IDeed> ideeds = new ArrayList<>();
-        ideeds.addAll(deeds);
+        List<IDeed> ideeds = new ArrayList<>(deeds);
         return ideeds;
     }
 
@@ -303,7 +310,7 @@ public class GoodDeeds {
     }
 
     public boolean isMyActiveDeed() {
-        Deed deed = getCurrentDeed();
+        IDeed deed = getCurrentDeed();
 
         List<IDeed> offers = getMyActiveOffers();
         List<IDeed> requests = getMyActiveRequests();
@@ -311,7 +318,7 @@ public class GoodDeeds {
         return offers.contains(deed) || requests.contains(deed);
     }
 
-    public List<Deed> returnDeeds() {
+    public List<IDeed> returnDeeds() {
         return deeds;
     }
 

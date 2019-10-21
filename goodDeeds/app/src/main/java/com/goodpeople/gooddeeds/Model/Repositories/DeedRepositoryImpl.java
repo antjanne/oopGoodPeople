@@ -73,14 +73,34 @@ public class DeedRepositoryImpl implements DeedRepository {
         goodDeeds.createRequest(subject, description);
     }
 
+    /**
+     * Method for getting the currently assigned currentDeed.
+     *
+     * @return the deed to be sent ViewDeed
+     */
     @Override
     public IDeed getCurrentDeed() {
         return goodDeeds.getCurrentDeed();
     }
 
+    /**
+     * Method for reassigning currentDeed.
+     *
+     * @param id UUID of the specific deed to be assigned.
+     */
     @Override
     public void setCurrentDeed(UUID id) {
         goodDeeds.setCurrentdeed(id);
+    }
+
+    /**
+     * Warning!
+     * Removed the currently assigned Deed permanently.
+     * Requires user to be logged in and Deed-owner.
+     */
+    @Override
+    public void deleteCurrentDeed() {
+        goodDeeds.deleteCurrentDeed();
     }
 
 

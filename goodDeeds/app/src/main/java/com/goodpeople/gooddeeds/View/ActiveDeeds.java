@@ -13,6 +13,8 @@ import com.goodpeople.gooddeeds.R;
 import java.util.List;
 
 public class ActiveDeeds extends ViewTemplate {
+    private boolean isOfferPressed;
+    private RecyclerView.Adapter mAdapter;
     private TextView deedType;
 
     @Override
@@ -23,11 +25,13 @@ public class ActiveDeeds extends ViewTemplate {
     }
 
     public void showMyActiveOffers(View view) {
+        isOfferPressed = true;
         deedType.setText("Offers");
         viewDeeds(deedController.showMyActiveOffersHandler());
     }
 
     public void showMyActiveRequests(View view) {
+        isOfferPressed = false;
         deedType.setText("Requests");
         viewDeeds(deedController.showMyActiveRequestsHandler());
     }
@@ -36,11 +40,20 @@ public class ActiveDeeds extends ViewTemplate {
         RecyclerView mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
-        RecyclerView.Adapter mAdapter = new DeedAdapter(deeds);
+        mAdapter = new DeedAdapter(deeds);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mAdapter != null) {
+            if (isOfferPressed)
+                showMyActiveOffers(getCurrentFocus());
+            else
+                showMyActiveRequests(getCurrentFocus());
+        }
+    }
 }

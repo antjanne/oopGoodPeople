@@ -179,5 +179,12 @@ public class GoodDeedsTest {
     public void getActiveOffers() {
         assertEquals(1, gd.getActiveOffers().size());
     }
+
+    @Test
+    public void deleteCurrentDeed() {
+        Assert.assertTrue(gd.getDeeds().contains(deed));
+        gd.deleteCurrentDeed();
+        Assert.assertFalse(gd.getDeeds().contains(deed));
+    }
 }
 
