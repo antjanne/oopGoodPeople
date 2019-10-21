@@ -18,4 +18,6 @@ public interface IAccount {
 
     void setName(String name);
 
+    void updateKarmaPoints(int karmaPoints);
+
 }

@@ -42,4 +42,6 @@ public interface DeedRepository {
 
     void claimDeed();
 
+    void deedIsDone();
+
 }

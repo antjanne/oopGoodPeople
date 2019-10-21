@@ -11,12 +11,14 @@ public class Account implements IAccount {
     private int postalCode;
     private String email;
     private int password;
+    private int karmaPoints;
 
     public Account(String name, int postalCode, String email, int password) {
         this.name = name;
         this.postalCode = postalCode;
         this.email = email;
         this.password = password;
+        karmaPoints = 500;
     }
 
     /**
@@ -73,6 +75,18 @@ public class Account implements IAccount {
      */
     public void setPassword(int password) {
         this.password = password;
+    }
+
+    /**
+     * @return Total amount of karmaPoints for an account
+     */
+    public int getKarmaPoints() {
+        return this.karmaPoints;
+    }
+
+    public void updateKarmaPoints(int points) {
+        this.karmaPoints = +points;
+
     }
 
 }

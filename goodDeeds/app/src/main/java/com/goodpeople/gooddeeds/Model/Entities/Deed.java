@@ -16,6 +16,8 @@ public class Deed implements IDeed {
     private String subject;
     private String description;
     private UUID uuid;
+    private int karmaPoints;
+    private boolean doneDeed;
 
     private Deed() {
     }
@@ -35,7 +37,9 @@ public class Deed implements IDeed {
         d.setSubject(subject);
         d.setDescription(description);
         d.setUuid(UUID.randomUUID());
+        d.karmaPoints = 50;
         return d;
+
     }
 
     /**
@@ -55,38 +59,67 @@ public class Deed implements IDeed {
         return d;
     }
 
+    /**
+     * @return the account that is volunteering to do this deed
+     */
     public IAccount getGivingAccount() {
         return givingAccount;
     }
 
+    /**
+     * @param givingAccount the account that is volunteering to do this deed
+     */
     public void setGivingAccount(IAccount givingAccount) {
         this.givingAccount = givingAccount;
     }
 
+    /**
+     * @return the account that will be getting help with this deed
+     */
     public IAccount getReceivingAccount() {
         return receivingAccount;
     }
 
+    /**
+     * @param receivingAccount the account that will be getting help with this deed
+     */
     public void setReceivingAccount(IAccount receivingAccount) {
         this.receivingAccount = receivingAccount;
     }
 
+    /**
+     * @return the subject of a deed
+     */
     public String getSubject() {
         return subject;
     }
 
+    /**
+     * @param subject the subject of a deed
+     */
     public void setSubject(String subject) {
         this.subject = subject;
     }
 
+    /**
+     * @return the description of a deed
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * the description of a deed
+     *
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * @return the uuid of a deed
+     */
     public UUID getUuid() {
         return uuid;
     }
@@ -94,4 +127,24 @@ public class Deed implements IDeed {
     private void setUuid(UUID uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * @return the amount of karmaPoint asked/offered for a deed
+     */
+    public int getKarmaPoints() {
+        return this.karmaPoints;
+    }
+
+    private void setKarmaPoints(int karmaPoints) {
+        this.karmaPoints = karmaPoints;
+    }
+
+    /**
+     * Method for marking a deed as done
+     */
+    public void deedIsDone() {
+        doneDeed = true;
+    }
+
+
 }

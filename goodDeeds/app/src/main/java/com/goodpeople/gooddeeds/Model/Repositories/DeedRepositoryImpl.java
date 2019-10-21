@@ -165,4 +165,9 @@ public class DeedRepositoryImpl implements DeedRepository {
     public void claimDeed() {
         goodDeeds.claimDeed();
     }
+
+    @Override
+    public void deedIsDone() {
+        goodDeeds.deedIsDone();
+    }
 }

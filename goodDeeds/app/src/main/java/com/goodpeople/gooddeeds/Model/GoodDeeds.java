@@ -374,4 +374,21 @@ public class GoodDeeds {
             currentDeed.setGivingAccount(loggedInAccount);
         }
     }
+
+    /**
+     * Method for marking a deed as done
+     */
+    public void deedIsDone() {
+        currentDeed.deedIsDone();
+        updateKarmaPoints();
+    }
+
+    /**
+     * Method for updating total karmaPoints for an account when a deed is done
+     */
+    public void updateKarmaPoints() {
+        int dPoints = currentDeed.getKarmaPoints();
+        currentDeed.getGivingAccount().updateKarmaPoints(dPoints);
+        currentDeed.getReceivingAccount().updateKarmaPoints(-dPoints);
+    }
 }

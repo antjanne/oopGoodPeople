@@ -149,7 +149,10 @@ public class DeedController {
      * Method for claiming the current deed
      */
     public void claimDeedHandler() {
-
         deedRepository.claimDeed();
+    }
+
+    public void deedIsDoneHandler() {
+        deedRepository.deedIsDone();
     }
 }
