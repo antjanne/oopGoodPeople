@@ -18,16 +18,16 @@ import java.util.UUID;
 public class GoodDeeds {
 
     private static GoodDeeds goodDeeds;
-
-    private Deed currentDeed;
-    final List<Deed> deeds = new ArrayList<>();
+    final List<IDeed> deeds = new ArrayList<>();
     private final List<IAccount> accounts = new ArrayList<>();
+    private Deed currentDeed;
     private IAccount loggedInAccount;
 
     private GoodDeeds() {
 
-        /*
+/*
         Account a2 = new Account("Anton", 30597, "1234@gmail.com", "ahah".hashCode());
+
         Account a = new Account("Anton", 30597, "anton46304@gmail.com", "ahah".hashCode());
         Deed d = Deed.newOffer(a, "Gräsklipp", "Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
         Deed d2 = Deed.newOffer(a, "Hårklipp", "Jag klipper gärna håret på folk! Ge mig en pling vetja!");
@@ -40,7 +40,8 @@ public class GoodDeeds {
         deeds.add(d2);
         deeds.add(d3);
         deeds.add(d4);
-        */
+*/
+
     }
 
     public static GoodDeeds getGoodDeeds() {
@@ -56,7 +57,6 @@ public class GoodDeeds {
     public List<IAccount> getAccounts() {
         return accounts;
     }
-
 
     /**
      * Creates new Account-object and adds it to accounts-list
@@ -80,7 +80,6 @@ public class GoodDeeds {
         for (IAccount account : accounts) {
             if (account.getEmail().equals(email) && account.getPassword() == password.hashCode()) {
                 loggedInAccount = account;
-
             }
         }
     }
@@ -115,8 +114,8 @@ public class GoodDeeds {
     }
 
 
-    private Deed fetchDeed(UUID id) throws Exception {
-        for (Deed deed : deeds) {
+    private IDeed fetchDeed(UUID id) throws Exception {
+        for (IDeed deed : deeds) {
             if (deed.getUuid().equals(id))
                 return deed;
         }
@@ -130,7 +129,7 @@ public class GoodDeeds {
      */
     public void setCurrentdeed(UUID id) {
         try {
-            currentDeed = fetchDeed(id);
+            currentDeed = (Deed) fetchDeed(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -139,8 +138,20 @@ public class GoodDeeds {
     /**
      * @return the currently assigned currentDeed.
      */
-    public Deed getCurrentDeed() {
+    public IDeed getCurrentDeed() {
         return currentDeed;
+    }
+
+    /**
+     * WARNING
+     * removes the CurrentDeed from the app.
+     * Requires user to be logged in and Deed-owner.
+     */
+    public void deleteCurrentDeed() {
+        if (isMyActiveDeed())
+            deeds.remove(currentDeed);
+        else
+            throw new java.lang.RuntimeException("permission denied.");
     }
 
     /**
@@ -149,7 +160,6 @@ public class GoodDeeds {
     public boolean isLoggedIn() {
         return loggedInAccount != null;
     }
-
 
     /**
      * @return the logged in Account-object
@@ -202,7 +212,7 @@ public class GoodDeeds {
      * @param description the description of the deed.
      */
     public void editOffer(String subject, String description) {
-        Deed deed = getCurrentDeed();
+        Deed deed = (Deed) getCurrentDeed();
         deed.setSubject(subject);
         deed.setDescription(description);
     }
@@ -213,8 +223,7 @@ public class GoodDeeds {
      * @return all deeds as IDeed
      */
     public List<IDeed> getDeeds() {
-        List<IDeed> ideeds = new ArrayList<>();
-        ideeds.addAll(deeds);
+        List<IDeed> ideeds = new ArrayList<>(deeds);
         return ideeds;
     }
 
@@ -265,7 +274,7 @@ public class GoodDeeds {
         List<IDeed> allActiveRequests = new ArrayList<>();
 
         for (IDeed d : deeds) {
-            if (d.getReceivingAccount() != null) {
+            if ((d.getReceivingAccount() != null) && (d.getGivingAccount() == null)) {
                 allActiveRequests.add(d);
             }
         }
@@ -282,7 +291,7 @@ public class GoodDeeds {
         List<IDeed> allActiveOffers = new ArrayList<>();
 
         for (IDeed d : deeds) {
-            if (d.getGivingAccount() != null) {
+            if ((d.getGivingAccount() != null) && (d.getReceivingAccount() == null)) {
                 allActiveOffers.add(d);
             }
         }
@@ -302,17 +311,67 @@ public class GoodDeeds {
         deeds.add(newRequest);
     }
 
+    /**
+     * Checks if a deed is active (not claimed) and that
+     * the logged in account is the creator of the deed.
+     *
+     * @return true if the deed belong to the user and is not yet claimed
+     * false otherwise
+     */
     public boolean isMyActiveDeed() {
-        Deed deed = getCurrentDeed();
+        IDeed deed = getCurrentDeed();
 
         List<IDeed> offers = getMyActiveOffers();
         List<IDeed> requests = getMyActiveRequests();
 
-        return offers.contains(deed) || requests.contains(deed);
+
+        return (offers.contains(deed) || requests.contains(deed));
+
+
     }
 
-    public List<Deed> returnDeeds() {
+    /**
+     * Method for getting all deeds
+     *
+     * @return a list of deeds
+     */
+    public List<IDeed> returnDeeds() {
         return deeds;
     }
 
+    /**
+     * Method for checking that the logged in account is not
+     * the creator of the deed
+     *
+     * @return true if the creator of the deed is the logged in account
+     * false otherwise
+     */
+    public boolean isMyOwnDeed() {
+        return ((currentDeed.getGivingAccount() == loggedInAccount)
+                || (currentDeed.getReceivingAccount() == loggedInAccount));
+    }
+
+    /**
+     * Method for checking that the deed is still active, eg not claimed
+     *
+     * @return true if both giving and receiving account of the deed is initialized.
+     * false otherwise
+     */
+    public boolean isClaimed() {
+        return ((currentDeed.getGivingAccount() != null)
+                && (currentDeed.getReceivingAccount() != null));
+    }
+
+
+    /**
+     * Method for claiming deed. Sets, whichever is not already initialized of,
+     * givingAccount or receivingAccount to the loggedInAccount.
+     */
+    public void claimDeed() {
+        if (currentDeed.getReceivingAccount() == null) {
+            currentDeed.setReceivingAccount(loggedInAccount);
+        } else if (currentDeed.getGivingAccount() == null) {
+            currentDeed.setGivingAccount(loggedInAccount);
+        }
+    }
 }

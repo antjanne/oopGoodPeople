@@ -58,11 +58,11 @@ public class DeedRepositoryImplTest {
 
     @Test
     public void getActiveRequests() {
-        assertEquals(dr.getActiveRequests().size(),2);
+        assertEquals(dr.getActiveRequests().size(), 2);
     }
 
     @Test
     public void getActiveOffers() {
-        assertEquals(dr.getActiveOffers().size(),2);
+        assertEquals(dr.getActiveOffers().size(), 2);
     }
 }

@@ -73,14 +73,34 @@ public class DeedRepositoryImpl implements DeedRepository {
         goodDeeds.createRequest(subject, description);
     }
 
+    /**
+     * Method for getting the currently assigned currentDeed.
+     *
+     * @return the deed to be sent ViewDeed
+     */
     @Override
     public IDeed getCurrentDeed() {
         return goodDeeds.getCurrentDeed();
     }
 
+    /**
+     * Method for reassigning currentDeed.
+     *
+     * @param id UUID of the specific deed to be assigned.
+     */
     @Override
     public void setCurrentDeed(UUID id) {
         goodDeeds.setCurrentdeed(id);
+    }
+
+    /**
+     * Warning!
+     * Removed the currently assigned Deed permanently.
+     * Requires user to be logged in and Deed-owner.
+     */
+    @Override
+    public void deleteCurrentDeed() {
+        goodDeeds.deleteCurrentDeed();
     }
 
 
@@ -114,5 +134,35 @@ public class DeedRepositoryImpl implements DeedRepository {
     @Override
     public boolean isMyActiveDeed() {
         return goodDeeds.isMyActiveDeed();
+    }
+
+    /**
+     * Checks if a deed is claimed by someone
+     *
+     * @return true if both givingAccount and ReceivingAccount is not initialized
+     * false otherwise
+     */
+    @Override
+    public boolean isClaimed() {
+        return goodDeeds.isClaimed();
+    }
+
+    /**
+     * Checks if the logged in account is the creator of the deed
+     *
+     * @return true if the logged in user created the deed
+     * false otherwise
+     */
+    @Override
+    public boolean isMyOwnDeed() {
+        return goodDeeds.isMyOwnDeed();
+    }
+
+    /**
+     * Claims the current deed
+     */
+    @Override
+    public void claimDeed() {
+        goodDeeds.claimDeed();
     }
 }

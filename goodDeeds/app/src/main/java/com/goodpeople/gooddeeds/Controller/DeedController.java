@@ -15,7 +15,8 @@ import java.util.UUID;
 
 public class DeedController {
 
-    private final DeedRepository deedRepository = new DeedRepositoryImpl();
+    private DeedRepository deedRepository = new DeedRepositoryImpl();
+
 
     public DeedController() {
     }
@@ -57,7 +58,6 @@ public class DeedController {
 
     public void editOfferHandler(String subject, String description) {
         deedRepository.editOffer(subject, description);
-
     }
 
     public String getDeedSubject() {
@@ -73,11 +73,18 @@ public class DeedController {
         deedRepository.createRequest(subject, description);
     }
 
-
+    /**
+     * @return Gets the currently assigned currentDeed.
+     */
     public IDeed getCurrentDeedHandler() {
         return deedRepository.getCurrentDeed();
     }
 
+    /**
+     * Reassigns currentDeed
+     *
+     * @param uuid the ID of new Deed to be assigned.
+     */
     public void setCurrentDeedHandler(UUID uuid) {
         deedRepository.setCurrentDeed(uuid);
     }
@@ -100,7 +107,49 @@ public class DeedController {
         return deedRepository.getActiveOffers();
     }
 
+    /**
+     * Warning!
+     * Removes the currently assigned Deed.
+     * Requires user to be logged in and Deed-owner.
+     */
+    public void deleteCurrentDeedHandler() {
+        deedRepository.deleteCurrentDeed();
+    }
+
+    /**
+     * Checks if logged in account is the owner of currentDeed.
+     *
+     * @return True if current account is owner of currentDeed.
+     */
     public boolean isMyActiveDeedHandler() {
         return deedRepository.isMyActiveDeed();
+    }
+
+    /**
+     * Checks if a deed is claimed
+     *
+     * @return true if at least one of givingAccount or receivingAccount is not initialized
+     * false otherwise
+     */
+    public boolean isClaimedHandler() {
+        return deedRepository.isClaimed();
+    }
+
+    /**
+     * Checks if the logged in account is the creator of the deed
+     *
+     * @return true if the logged in user created the deed
+     * false otherwise
+     */
+    public boolean isMyOwnDeedHandler() {
+        return deedRepository.isMyOwnDeed();
+    }
+
+    /**
+     * Method for claiming the current deed
+     */
+    public void claimDeedHandler() {
+
+        deedRepository.claimDeed();
     }
 }
