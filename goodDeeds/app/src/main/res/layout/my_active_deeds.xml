@@ -74,7 +74,7 @@
         android:layout_height="64dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:onClick="showMyActiveRequests"
+        android:onClick="showClaimedDeeds"
         android:text="@string/show_claimed_deeds"
         app:layout_constraintBottom_toTopOf="@+id/deedTypeCurrentlyShowing"
         app:layout_constraintEnd_toEndOf="parent"

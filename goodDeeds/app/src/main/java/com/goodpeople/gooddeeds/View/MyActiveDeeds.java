@@ -14,6 +14,7 @@ import java.util.List;
 
 public class MyActiveDeeds extends ViewTemplate {
     private boolean isOfferPressed;
+    private boolean isClaimedPressed;
     private RecyclerView.Adapter mAdapter;
     private TextView deedType;
 
@@ -46,7 +47,8 @@ public class MyActiveDeeds extends ViewTemplate {
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    private void showClaimedDeeds(List<IDeed> deeds) {
+    public void showClaimedDeeds(View view) {
+        isClaimedPressed = true;
         deedType.setText("Claimed Deeds");
         viewDeeds(deedController.getMyClaimedDeedsHandler());
 
@@ -56,6 +58,9 @@ public class MyActiveDeeds extends ViewTemplate {
     protected void onResume() {
         super.onResume();
         if (mAdapter != null) {
+            if (isClaimedPressed) {
+                showClaimedDeeds(getCurrentFocus());
+            }
             if (isOfferPressed)
                 showMyActiveOffers(getCurrentFocus());
             else
