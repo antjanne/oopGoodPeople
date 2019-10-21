@@ -12,7 +12,7 @@
 
         <activity android:name=".View.MarketActivity"
          />
-        <activity android:name=".View.ActiveDeeds"/>
+        <activity android:name=".View.MyActiveDeeds"/>
 
         <activity android:name=".View.MainActivity">
             <intent-filter>
