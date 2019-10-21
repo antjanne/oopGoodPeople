@@ -55,38 +55,69 @@ public class Deed implements IDeed {
         return d;
     }
 
+    /**
+     * @return the deed's givingAccount, the user who is volunteering
+     */
     public IAccount getGivingAccount() {
         return givingAccount;
     }
 
+    /**
+     * Sets the giving account of the deed
+     *
+     * @param givingAccount the user who is volunteering
+     */
     public void setGivingAccount(IAccount givingAccount) {
         this.givingAccount = givingAccount;
     }
 
+    /**
+     * @return the deeds receiving account, the user who is asking for help
+     */
     public IAccount getReceivingAccount() {
         return receivingAccount;
     }
 
+    /**
+     * Sets the receiving account of the deed
+     *
+     * @param receivingAccount the user who is asking for help
+     */
     public void setReceivingAccount(IAccount receivingAccount) {
         this.receivingAccount = receivingAccount;
     }
 
+    /**
+     * @return the subject of a deed
+     */
     public String getSubject() {
         return subject;
     }
 
+    /**
+     * @param subject the subject of a deed
+     */
     public void setSubject(String subject) {
         this.subject = subject;
     }
 
+    /**
+     * @return the subject of a deed
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * @param description the description of a deed
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * @return the uuid belonging to a certain deed
+     */
     public UUID getUuid() {
         return uuid;
     }

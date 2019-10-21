@@ -56,19 +56,38 @@ public class DeedController {
         deedRepository.createOffer(subject, description);
     }
 
+    /**
+     * Method for editing an already existing deed.
+     *
+     * @param subject     the new subject of the deed
+     * @param description the new description of the deed
+     */
     public void editOfferHandler(String subject, String description) {
         deedRepository.editOffer(subject, description);
     }
 
+    /**
+     * @return The subject of a deed
+     */
     public String getDeedSubject() {
         return deedRepository.getCurrentDeed().getSubject();
     }
 
+    /**
+     * @return the description of a deed
+     */
     public String getDeedDescription() {
         return deedRepository.getCurrentDeed().getDescription();
     }
 
 
+    /**
+     * Method for creating a new request with the logged in account as the giving account.
+     * A account has to be logged in before calling this method.
+     *
+     * @param subject     The subject of the offer.
+     * @param description The description of the offer.
+     */
     public void createRequestHandler(String subject, String description) {
         deedRepository.createRequest(subject, description);
     }
