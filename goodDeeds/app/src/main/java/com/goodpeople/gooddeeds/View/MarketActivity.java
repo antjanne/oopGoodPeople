@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
@@ -22,9 +21,12 @@ import java.util.List;
 
 public class MarketActivity extends ViewTemplate {
 
+
+    RecyclerView.Adapter mAdapter;
     private boolean isOfferPressed;
-    private RecyclerView.Adapter mAdapter;
+
     private Context context;
+
 
 
     @Override
@@ -74,4 +76,5 @@ public class MarketActivity extends ViewTemplate {
                 showRequests(getCurrentFocus());
         }
     }
+
 }

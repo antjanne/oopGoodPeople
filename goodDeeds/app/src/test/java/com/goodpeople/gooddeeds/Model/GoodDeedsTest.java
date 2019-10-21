@@ -116,7 +116,7 @@ public class GoodDeedsTest {
     public void testEditOnlyYourOwnDeeds() {
         gd.createAccount("SomeoneElse", 00000, "test@test.com", "123");
         IAccount newAccount = gd.getAccounts().get(1);
-        Deed.newOffer(newAccount,"subject","description");
+        Deed.newOffer(newAccount, "subject", "description");
         gd.editOffer("Changed", "Changed");
         assertSame("Changed", deed.getSubject());
         assertSame("Changed", deed.getDescription());
@@ -181,10 +181,39 @@ public class GoodDeedsTest {
     }
 
     @Test
+    public void claimDeed() {
+        gd.claimDeed();
+        assertTrue((deed.getGivingAccount() != null) &&
+                (deed.getReceivingAccount() != null));
+    }
+
+    @Test
+    public void isNotClaimed() {
+        assertFalse(gd.isClaimed());
+    }
+
+    @Test
+    public void isClaimed() {
+        gd.claimDeed();
+        assertTrue(gd.isClaimed());
+    }
+
+    @Test
+    public void isMyOwnDeed() {
+        assertTrue(gd.isMyOwnDeed());
+    }
+
+    @Test
+    public void isMyActiveDeed() {
+        assertTrue(gd.isMyActiveDeed());
+    }
+
+    @Test
     public void deleteCurrentDeed() {
         Assert.assertTrue(gd.getDeeds().contains(deed));
         gd.deleteCurrentDeed();
         Assert.assertFalse(gd.getDeeds().contains(deed));
     }
+
 }
 

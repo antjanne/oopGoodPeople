@@ -1,6 +1,5 @@
 package com.goodpeople.gooddeeds.Model.Entities;
 
-
 import java.util.UUID;
 
 /**
@@ -60,7 +59,7 @@ public class Deed implements IDeed {
         return givingAccount;
     }
 
-    private void setGivingAccount(IAccount givingAccount) {
+    public void setGivingAccount(IAccount givingAccount) {
         this.givingAccount = givingAccount;
     }
 
@@ -68,7 +67,7 @@ public class Deed implements IDeed {
         return receivingAccount;
     }
 
-    private void setReceivingAccount(IAccount receivingAccount) {
+    public void setReceivingAccount(IAccount receivingAccount) {
         this.receivingAccount = receivingAccount;
     }
 

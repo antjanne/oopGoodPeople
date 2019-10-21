@@ -12,7 +12,7 @@
 
         <activity android:name=".View.MarketActivity"
          />
-        <activity android:name=".View.ActiveDeeds"/>
+        <activity android:name=".View.MyActiveDeeds"/>
 
         <activity android:name=".View.MainActivity">
             <intent-filter>
@@ -21,19 +21,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".View.Account.CreateAccount" />
         <activity android:name=".View.Account.Login" />
         <activity android:name=".View.Account.AccountDetails" />
         <activity android:name=".View.Account.EditAccount" />
         <activity android:name=".View.Account.EditAccountPassword" />
         <activity android:name=".View.CreateOffer" />
-
         <activity android:name=".View.EditOffer" />
-
-
-
         <activity android:name=".View.Account.AccountOptions"/>
         <activity android:name=".View.ViewDeed"/>
+        <activity android:name=".View.NoAccess"/>
 
     </application>
 

@@ -135,4 +135,34 @@ public class DeedRepositoryImpl implements DeedRepository {
     public boolean isMyActiveDeed() {
         return goodDeeds.isMyActiveDeed();
     }
+
+    /**
+     * Checks if a deed is claimed by someone
+     *
+     * @return true if both givingAccount and ReceivingAccount is not initialized
+     * false otherwise
+     */
+    @Override
+    public boolean isClaimed() {
+        return goodDeeds.isClaimed();
+    }
+
+    /**
+     * Checks if the logged in account is the creator of the deed
+     *
+     * @return true if the logged in user created the deed
+     * false otherwise
+     */
+    @Override
+    public boolean isMyOwnDeed() {
+        return goodDeeds.isMyOwnDeed();
+    }
+
+    /**
+     * Claims the current deed
+     */
+    @Override
+    public void claimDeed() {
+        goodDeeds.claimDeed();
+    }
 }

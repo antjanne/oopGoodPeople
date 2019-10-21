@@ -2,7 +2,6 @@ package com.goodpeople.gooddeeds.View;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +14,7 @@ import com.goodpeople.gooddeeds.R;
 
 import java.util.List;
 
-public class ActiveDeeds extends ViewTemplate {
+public class MyActiveDeeds extends ViewTemplate {
     private boolean isOfferPressed;
     private RecyclerView.Adapter mAdapter;
     private TextView deedType;
@@ -23,7 +22,7 @@ public class ActiveDeeds extends ViewTemplate {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.active_deeds);
+        setContentView(R.layout.my_active_deeds);
         super.onCreate(savedInstanceState);
         deedType = findViewById(R.id.deedTypeCurrentlyShowing);
          context = getApplicationContext();

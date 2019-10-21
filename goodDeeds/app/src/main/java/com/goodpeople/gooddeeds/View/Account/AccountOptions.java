@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.goodpeople.gooddeeds.R;
-import com.goodpeople.gooddeeds.View.ActiveDeeds;
+import com.goodpeople.gooddeeds.View.MyActiveDeeds;
 import com.goodpeople.gooddeeds.View.MainActivity;
 import com.goodpeople.gooddeeds.View.ViewTemplate;
 
@@ -23,7 +23,7 @@ public class AccountOptions extends ViewTemplate {
     }
 
     public void goToActiveDeeds(View view) {
-        Intent intent = new Intent(this, ActiveDeeds.class);
+        Intent intent = new Intent(this, MyActiveDeeds.class);
         startActivity(intent);
     }
 

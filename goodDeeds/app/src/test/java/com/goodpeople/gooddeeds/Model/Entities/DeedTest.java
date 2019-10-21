@@ -3,6 +3,8 @@ package com.goodpeople.gooddeeds.Model.Entities;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.UUID;
+
 import static org.junit.Assert.*;
 
 public class DeedTest {
@@ -56,5 +58,51 @@ public class DeedTest {
     @Test
     public void newRequestSetDescription() {
         assertEquals(r.getDescription(), "Description");
+    }
+
+    @Test
+    public void getGivingAccount() {
+        assertEquals(o.getGivingAccount(), a);
+    }
+
+    @Test
+    public void setGivingAccount() {
+        Account b = new Account("b", 00000, "b@b.b", "123".hashCode());
+        o.setGivingAccount(b);
+        assertEquals(o.getGivingAccount(), b);
+    }
+
+    @Test
+    public void getReceivingAccount() {
+        assertEquals(r.getReceivingAccount(), a);
+    }
+
+    @Test
+    public void setReceivingAccount() {
+        Account b = new Account("b", 00000, "b@b.b", "123".hashCode());
+        r.setReceivingAccount(b);
+        assertEquals(r.getReceivingAccount(), b);
+    }
+
+    @Test
+    public void getSubject() {
+        assertEquals(o.getSubject(), "Subject");
+    }
+
+    @Test
+    public void setSubject() {
+        o.setSubject("Subject2");
+        assertEquals(o.getSubject(), "Subject2");
+    }
+
+    @Test
+    public void getDescription() {
+        assertEquals(o.getDescription(), "Description");
+    }
+
+    @Test
+    public void setDescription() {
+        o.setDescription("Description2");
+        assertEquals(o.getDescription(), "Description2");
     }
 }
