@@ -31,6 +31,9 @@ public interface DeedRepository {
 
     List<IDeed> getActiveOffers();
 
+    void deleteCurrentDeed();
+
+
     boolean isMyActiveDeed();
 
     boolean isClaimed();

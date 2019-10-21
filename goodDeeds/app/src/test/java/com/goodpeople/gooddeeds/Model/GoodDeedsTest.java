@@ -180,7 +180,6 @@ public class GoodDeedsTest {
         assertEquals(1, gd.getActiveOffers().size());
     }
 
-
     @Test
     public void claimDeed() {
         gd.claimDeed();
@@ -209,6 +208,12 @@ public class GoodDeedsTest {
         assertTrue(gd.isMyActiveDeed());
     }
 
+    @Test
+    public void deleteCurrentDeed() {
+        Assert.assertTrue(gd.getDeeds().contains(deed));
+        gd.deleteCurrentDeed();
+        Assert.assertFalse(gd.getDeeds().contains(deed));
+    }
 
 }
 

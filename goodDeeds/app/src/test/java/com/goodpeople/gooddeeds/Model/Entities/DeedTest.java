@@ -12,7 +12,7 @@ public class DeedTest {
     private Deed r;
 
     @Before
-    public void initialize(){
+    public void initialize() {
         a = new Account("Test", 00000, "test@test.com", "123".hashCode());
         o = Deed.newOffer(a, "Subject", "Description");
         r = Deed.newRequest(a, "Subject", "Description");

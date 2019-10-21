@@ -61,13 +61,11 @@ public class DeedControllerTest {
     @Test
     public void isMyActiveDeedHandler() {
         assertFalse(deedController.isMyActiveDeedHandler());
-
     }
 
     @Test
     public void isNotClaimed() {
         assertFalse(deedController.isClaimedHandler());
-
     }
 
     @Test
@@ -87,6 +85,5 @@ public class DeedControllerTest {
     public void isMyOwnDeedHandler() {
         goodDeeds.setCurrentdeed(goodDeeds.getDeeds().get(2).getUuid());
         assertTrue(deedController.isMyOwnDeedHandler());
-
     }
 }

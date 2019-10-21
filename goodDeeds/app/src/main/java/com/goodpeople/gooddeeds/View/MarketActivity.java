@@ -19,6 +19,7 @@ import java.util.List;
 
 public class MarketActivity extends ViewTemplate {
 
+
     RecyclerView.Adapter mAdapter;
     private boolean isOfferPressed;
 
@@ -48,11 +49,10 @@ public class MarketActivity extends ViewTemplate {
     public void showRequests(View view) {
         isOfferPressed = false;
         viewDeeds(deedController.showAllActiveRequests());
-
     }
 
     @Override
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
         if (mAdapter != null) {
             if (isOfferPressed)
@@ -60,6 +60,6 @@ public class MarketActivity extends ViewTemplate {
             else
                 showRequests(getCurrentFocus());
         }
-
     }
+
 }
