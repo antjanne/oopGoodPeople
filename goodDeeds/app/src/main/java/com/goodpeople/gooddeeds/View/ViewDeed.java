@@ -23,7 +23,7 @@ public class ViewDeed extends ViewTemplate {
         loadDeed();
         View button = findViewById(R.id.edit_offer);
         Button deleteButton = findViewById(R.id.deleteButton);
-        if (deedController.isMyActiveDeedHandler()) {
+        if (!deedController.isMyActiveDeedHandler()) {
             button.setVisibility(View.GONE);
             deleteButton.setVisibility(View.GONE);
         }
@@ -36,7 +36,7 @@ public class ViewDeed extends ViewTemplate {
         TextView description = findViewById(R.id.deedDescription);
         description.setText(deed.getDescription());
         View button = findViewById(R.id.edit_offer);
-        if (deedController.isMyActiveDeedHandler()) {
+        if (!deedController.isMyActiveDeedHandler()) {
             button.setVisibility(View.GONE);
         }
         View claimbutton = findViewById(R.id.claim_deed);

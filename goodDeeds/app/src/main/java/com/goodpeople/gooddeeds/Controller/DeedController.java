@@ -125,15 +125,29 @@ public class DeedController {
         return deedRepository.isMyActiveDeed();
     }
 
+    /**
+     * Checks if a deed is claimed
+     *
+     * @return true if at least one of givingAccount or receivingAccount is not initialized
+     * false otherwise
+     */
     public boolean isClaimedHandler() {
         return deedRepository.isClaimed();
     }
 
+    /**
+     * Checks if the logged in account is the creator of the deed
+     *
+     * @return true if the logged in user created the deed
+     * false otherwise
+     */
     public boolean isMyOwnDeedHandler() {
         return deedRepository.isMyOwnDeed();
     }
 
-
+    /**
+     * Method for claiming the current deed
+     */
     public void claimDeedHandler() {
 
         deedRepository.claimDeed();
