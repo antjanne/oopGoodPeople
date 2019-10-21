@@ -64,7 +64,8 @@ public class MainActivity extends ViewTemplate {
             Intent myIntent = new Intent(this, CreateOffer.class);
             startActivity(myIntent);
         } else {
-            login();
+            Intent myIntent = new Intent(this, NoAccess.class);
+            startActivity(myIntent);
         }
     }
 

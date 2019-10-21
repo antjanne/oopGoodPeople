@@ -12,14 +12,14 @@ import com.goodpeople.gooddeeds.R;
 
 import java.util.List;
 
-public class ActiveDeeds extends ViewTemplate {
+public class MyActiveDeeds extends ViewTemplate {
     private boolean isOfferPressed;
     private RecyclerView.Adapter mAdapter;
     private TextView deedType;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.active_deeds);
+        setContentView(R.layout.my_active_deeds);
         super.onCreate(savedInstanceState);
         deedType = findViewById(R.id.deedTypeCurrentlyShowing);
     }
