@@ -39,7 +39,9 @@
     <string name="show_requests">Show requests</string>
     <string name="my_account">My account</string>
     <string name="no_access">Login to be able to access this page</string>
+    <string name="my_claimed_deeds">Claimed Deeds</string>
     <string name="show_claimed_deeds">Claimed Deeds</string>
+    <string name="show_done_deeds">Done Deeds</string>
 
 
 </resources>

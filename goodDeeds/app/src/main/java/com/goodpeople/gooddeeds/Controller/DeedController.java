@@ -166,4 +166,15 @@ public class DeedController {
     public List<IDeed> getMyClaimedDeedsHandler() {
         return deedRepository.getMyClaimedDeeds();
     }
+
+    /**
+     * @return A list of deeds that are marked as done, where the logged in account is either
+     * the giving or receiving account for the deed
+     */
+    public List<IDeed> getMyDoneDeedsHandler() {
+        return deedRepository.getMyDoneDeeds();
+    }
+
+
 }
+

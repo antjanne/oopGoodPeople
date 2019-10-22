@@ -285,6 +285,24 @@ public class GoodDeeds {
     }
 
     /**
+     * Creates a list of deeds that are done and where the logged in account has
+     * either given och received help
+     *
+     * @return a list of done deeds with logged in account
+     * as either volunteer or receiver of help
+     */
+    public List<IDeed> getMyDoneDeeds() {
+        List<IDeed> myDoneDeeds = new ArrayList<>();
+
+        for (IDeed d : deeds) {
+            if (d.isDone()) {
+                myDoneDeeds.add(d);
+            }
+        }
+        return myDoneDeeds;
+    }
+
+    /**
      * Creates a list which will gather all deeds that are requests.
      *
      * @return a list of deeds with active requests

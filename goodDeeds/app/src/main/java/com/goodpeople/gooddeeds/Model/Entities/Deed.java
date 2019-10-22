@@ -146,5 +146,13 @@ public class Deed implements IDeed {
         doneDeed = true;
     }
 
+    /**
+     * @return true if deed is done
+     * false otherwise
+     */
+    public boolean isDone() {
+        return doneDeed;
+    }
+
 
 }

@@ -14,38 +14,40 @@ import com.goodpeople.gooddeeds.R;
 
 import java.util.List;
 
-public class MyActiveDeeds extends ViewTemplate {
-    private boolean isOfferPressed;
+
+public class ClaimedDeeds extends ViewTemplate {
+
+    private boolean isClaimedPressed;
     private RecyclerView.Adapter mAdapter;
     private TextView deedType;
     private Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.my_active_deeds);
+        setContentView(R.layout.my_claimed_deeds);
         super.onCreate(savedInstanceState);
         deedType = findViewById(R.id.deedTypeCurrentlyShowing);
         context = getApplicationContext();
     }
 
-    public void showMyActiveOffers(View view) {
-        isOfferPressed = true;
+    public void showClaimedDeeds(View view) {
+        isClaimedPressed = true;
         if (deedController.showMyActiveOffersHandler().isEmpty()) {
-            Toast toast = Toast.makeText(context, "You have no active offers", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(context, "You have no claimed deeds", Toast.LENGTH_SHORT);
             toast.show();
         }
-        deedType.setText("Offers");
-        viewDeeds(deedController.showMyActiveOffersHandler());
+        deedType.setText("Claimed Deeds");
+        viewDeeds(deedController.getMyClaimedDeedsHandler());
     }
 
-    public void showMyActiveRequests(View view) {
-        isOfferPressed = false;
-        deedType.setText("Requests");
+    public void showDoneDeeds(View view) {
+        isClaimedPressed = false;
+        deedType.setText("Done Deeds");
         if (deedController.showMyActiveRequestsHandler().isEmpty()) {
-            Toast toast = Toast.makeText(context, "You have no active requests", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(context, "You have no done deeds", Toast.LENGTH_SHORT);
             toast.show();
         }
-        viewDeeds(deedController.showMyActiveRequestsHandler());
+        viewDeeds(deedController.getMyDoneDeedsHandler());
     }
 
     private void viewDeeds(List<IDeed> deeds) {
@@ -62,10 +64,11 @@ public class MyActiveDeeds extends ViewTemplate {
     protected void onResume() {
         super.onResume();
         if (mAdapter != null) {
-            if (isOfferPressed)
-                showMyActiveOffers(getCurrentFocus());
+            if (isClaimedPressed)
+                showClaimedDeeds(getCurrentFocus());
             else
-                showMyActiveRequests(getCurrentFocus());
+                showDoneDeeds(getCurrentFocus());
         }
     }
 }
+

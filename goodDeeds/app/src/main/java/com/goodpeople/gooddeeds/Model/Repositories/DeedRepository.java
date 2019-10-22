@@ -46,4 +46,6 @@ public interface DeedRepository {
 
     List<IDeed> getMyClaimedDeeds();
 
+    List<IDeed> getMyDoneDeeds();
+
 }

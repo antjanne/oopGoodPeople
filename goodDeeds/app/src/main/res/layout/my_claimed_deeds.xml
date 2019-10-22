@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".View.MyActiveDeeds"
+    tools:context=".View.ClaimedDeeds"
     tools:layout_editor_absoluteY="25dp">
 
     <include
@@ -41,29 +41,29 @@
         app:layout_constraintTop_toTopOf="@+id/tool_bar" />
 
     <Button
-        android:id="@+id/showOffers"
+        android:id="@+id/showClaimedDeeds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/show_offers"
-        android:onClick="showMyActiveOffers"
+        android:onClick="showClaimedDeeds"
+        android:text="@string/show_claimed_deeds"
         app:layout_constraintBottom_toTopOf="@+id/deedTypeCurrentlyShowing"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myActiveDeeds" />
 
     <Button
-        android:id="@+id/showRequests"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/showDoneDeeds"
+        android:layout_width="128dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/show_requests"
-        android:onClick="showMyActiveRequests"
+        android:onClick="showDoneDeeds"
+        android:text="@string/show_done_deeds"
         app:layout_constraintBottom_toTopOf="@+id/deedTypeCurrentlyShowing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myActiveDeeds" />
@@ -73,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/my_active_deeds"
+        android:text="@string/my_claimed_deeds"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/deedTypeCurrentlyShowing"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,3 +82,6 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
