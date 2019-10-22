@@ -18,9 +18,6 @@ public class DeedController {
     private DeedRepository deedRepository = new DeedRepositoryImpl();
 
 
-    public DeedController() {
-    }
-
     public List<IDeed> showAllDeedsHandler() {
         return deedRepository.getDeeds();
     }
@@ -62,8 +59,8 @@ public class DeedController {
      * @param subject     the new subject of the deed
      * @param description the new description of the deed
      */
-    public void editOfferHandler(String subject, String description) {
-        deedRepository.editOffer(subject, description);
+    public void editDeedHandler(String subject, String description) {
+        deedRepository.editDeed(subject, description);
     }
 
     /**

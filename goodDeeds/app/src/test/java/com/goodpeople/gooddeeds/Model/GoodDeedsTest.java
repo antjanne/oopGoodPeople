@@ -98,7 +98,7 @@ public class GoodDeedsTest {
     public void testEditSubject() {
         String subject = deed.getSubject();
         String description = deed.getDescription();
-        gd.editOffer("Changed", "Description");
+        gd.editDeed("Changed", "Description");
         assertNotEquals(subject, deed.getSubject());
         assertEquals(description, deed.getDescription());
     }
@@ -107,7 +107,7 @@ public class GoodDeedsTest {
     public void testEditDescription() {
         String subject = deed.getSubject();
         String description = deed.getDescription();
-        gd.editOffer("Subject", "Changed");
+        gd.editDeed("Subject", "Changed");
         assertNotEquals(description, deed.getDescription());
         assertEquals(subject, deed.getSubject());
     }
@@ -117,7 +117,7 @@ public class GoodDeedsTest {
         gd.createAccount("SomeoneElse", 00000, "test@test.com", "123");
         IAccount newAccount = gd.getAccounts().get(1);
         Deed.newOffer(newAccount, "subject", "description");
-        gd.editOffer("Changed", "Changed");
+        gd.editDeed("Changed", "Changed");
         assertSame("Changed", deed.getSubject());
         assertSame("Changed", deed.getDescription());
     }

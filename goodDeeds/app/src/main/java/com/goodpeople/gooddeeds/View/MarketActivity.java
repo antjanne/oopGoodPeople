@@ -3,8 +3,10 @@ package com.goodpeople.gooddeeds.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.R;
@@ -23,11 +25,15 @@ public class MarketActivity extends ViewTemplate {
     RecyclerView.Adapter mAdapter;
     private boolean isOfferPressed;
 
+    private Context context;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_market);
         super.onCreate(savedInstanceState);
+        context = getApplicationContext();
     }
 
     private void viewDeeds(List<IDeed> deeds) {
@@ -42,12 +48,21 @@ public class MarketActivity extends ViewTemplate {
 
     public void showOffers(View view) {
         isOfferPressed = true;
+        if(deedController.showAllActiveOffers().isEmpty()){
+            Toast toast = Toast.makeText(context,"No available offers",Toast.LENGTH_SHORT);
+            toast.show();
+        }
         viewDeeds(deedController.showAllActiveOffers());
 
     }
 
     public void showRequests(View view) {
         isOfferPressed = false;
+        if(deedController.showAllActiveRequests().isEmpty()){
+            Toast toast = Toast.makeText(context,"No available requests", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
         viewDeeds(deedController.showAllActiveRequests());
     }
 

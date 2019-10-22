@@ -27,7 +27,7 @@
         <activity android:name=".View.Account.EditAccount" />
         <activity android:name=".View.Account.EditAccountPassword" />
         <activity android:name=".View.CreateDeed" />
-        <activity android:name=".View.EditOffer" />
+        <activity android:name=".View.EditDeed" />
         <activity android:name=".View.Account.AccountOptions" />
         <activity android:name=".View.ViewDeed" />
         <activity android:name=".View.NoAccess" />

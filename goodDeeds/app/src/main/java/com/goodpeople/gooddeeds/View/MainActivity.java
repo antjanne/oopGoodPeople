@@ -47,7 +47,7 @@ public class MainActivity extends ViewTemplate {
     }
 
     public void editOffer(View view) {
-        Intent myIntent = new Intent(this, EditOffer.class);
+        Intent myIntent = new Intent(this, EditDeed.class);
         startActivity(myIntent);
     }
 

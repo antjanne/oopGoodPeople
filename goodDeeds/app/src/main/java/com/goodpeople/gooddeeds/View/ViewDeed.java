@@ -7,6 +7,7 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -54,7 +55,7 @@ public class ViewDeed extends ViewTemplate {
     }
 
     public void editOffer(View view) {
-        Intent myIntent = new Intent(this, EditOffer.class);
+        Intent myIntent = new Intent(this, EditDeed.class);
         startActivity(myIntent);
     }
 
@@ -77,6 +78,10 @@ public class ViewDeed extends ViewTemplate {
             });
             alert.show();
         } else {
+            if (deedController.showMyActiveRequestsHandler().isEmpty()) {
+                Toast toast = Toast.makeText(this, "You cannot create a Deed that is claimed.", Toast.LENGTH_SHORT);
+                toast.show();
+            }
 
         }
     }

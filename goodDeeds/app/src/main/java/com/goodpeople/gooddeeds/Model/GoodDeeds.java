@@ -40,8 +40,7 @@ public class GoodDeeds {
         deeds.add(d2);
         deeds.add(d3);
         deeds.add(d4);
-*/
-
+    */
     }
 
     public static GoodDeeds getGoodDeeds() {
@@ -211,7 +210,7 @@ public class GoodDeeds {
      * @param subject     The subject of the deed.
      * @param description the description of the deed.
      */
-    public void editOffer(String subject, String description) {
+    public void editDeed(String subject, String description) {
         Deed deed = (Deed) getCurrentDeed();
         deed.setSubject(subject);
         deed.setDescription(description);

@@ -19,7 +19,7 @@ public interface DeedRepository {
 
     void createOffer(String subject, String description);
 
-    void editOffer(String subject, String description);
+    void editDeed(String subject, String description);
 
     void createRequest(String subject, String description);
 
