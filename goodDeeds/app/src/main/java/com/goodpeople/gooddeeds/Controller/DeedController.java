@@ -18,8 +18,6 @@ public class DeedController {
     private DeedRepository deedRepository = new DeedRepositoryImpl();
 
 
-    public DeedController() {
-    }
 
     public List<IDeed> showAllDeedsHandler() {
         return deedRepository.getDeeds();

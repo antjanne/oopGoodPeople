@@ -40,8 +40,7 @@ public class GoodDeeds {
         deeds.add(d2);
         deeds.add(d3);
         deeds.add(d4);
-*/
-
+    */
     }
 
     public static GoodDeeds getGoodDeeds() {

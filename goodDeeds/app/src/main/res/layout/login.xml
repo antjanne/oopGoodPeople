@@ -94,7 +94,7 @@
             android:layout_marginLeft="256dp"
             android:layout_marginTop="344dp"
             android:onClick="login"
-            android:text="@string/submit"
+            android:text="@string/login"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
