@@ -59,22 +59,26 @@ public class ViewDeed extends ViewTemplate {
     }
 
     public void onDeleteClick(View v) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("Delete");
-        alert.setMessage("Are you sure you want to delete?");
-        alert.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+        if (!deedController.isClaimedHandler()) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("Delete");
+            alert.setMessage("Are you sure you want to delete?");
+            alert.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
-            public void onClick(DialogInterface dialog, int which) {
-                deedController.deleteCurrentDeedHandler();
-                finish();
-            }
-        });
-        alert.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        alert.show();
+                public void onClick(DialogInterface dialog, int which) {
+                    deedController.deleteCurrentDeedHandler();
+                    finish();
+                }
+            });
+            alert.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            alert.show();
+        } else {
+
+        }
     }
 
     @Override

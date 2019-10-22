@@ -1,11 +1,14 @@
 package com.goodpeople.gooddeeds.View;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.View.Account.AccountOptions;
@@ -23,7 +26,6 @@ public class MainActivity extends ViewTemplate {
 
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
 
     }
 
@@ -59,10 +61,29 @@ public class MainActivity extends ViewTemplate {
         }
     }
 
-    public void createOffer(View view) {
+    public void createDeed(View view) {
         if (accountController.isLoggedIn()) {
-            Intent myIntent = new Intent(this, CreateOffer.class);
-            startActivity(myIntent);
+            final Intent myIntent = new Intent(this, CreateDeed.class);
+
+            AlertDialog.Builder alert = new AlertDialog.Builder(this, R.style.Theme_AppCompat_DayNight_Dialog);
+            alert.setMessage("What type of Deed?");
+            alert.setCancelable(true);
+            alert.setPositiveButton("Offer", new DialogInterface.OnClickListener() {
+
+                public void onClick(DialogInterface dialog, int which) {
+                    myIntent.putExtra("isOffer", true);
+                    dialog.cancel();
+                    startActivity(myIntent);
+                }
+            });
+            alert.setNegativeButton("Request", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    myIntent.putExtra("isOffer", false);
+                    dialog.cancel();
+                    startActivity(myIntent);
+                }
+            });
+            alert.show();
         } else {
             Intent myIntent = new Intent(this, NoAccess.class);
             startActivity(myIntent);

@@ -25,7 +25,7 @@
     <string name="edit_password">Edit password</string>
     <string name="old_password">Old password</string>
     <string name="new_password">New password</string>
-    <string name="new_offer">New Offer</string>
+    <string name="new_deed">Create Deed</string>
     <string name="new_offer_subject">Subject</string>
     <string name="new_offer_description">Description</string>
     <string name="invalid_subject">Subject is missing</string>
@@ -39,7 +39,6 @@
     <string name="show_requests">Show requests</string>
     <string name="my_account">My account</string>
     <string name="no_access">Login to be able to access this page</string>
-
 
 
 </resources>
