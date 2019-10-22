@@ -8,12 +8,11 @@ import android.widget.TextView;
 import com.goodpeople.gooddeeds.R;
 
 /**
- * Responsible for handling input in the view when creating an offer.
+ * Responsible for handling input in the view when creating an deed.
  */
 
 public class CreateDeed extends ViewTemplate {
     private boolean isOffer;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,10 +34,10 @@ public class CreateDeed extends ViewTemplate {
             if (isOffer) {
                 deedController.createOfferHandler(subjectText, descriptionText);
                 goBack(view);
+            } else {
+                deedController.createRequestHandler(subjectText, descriptionText);
+                goBack(view);
             }
-        } else {
-            deedController.createRequestHandler(subjectText, descriptionText);
-            goBack(view);
         }
     }
 
