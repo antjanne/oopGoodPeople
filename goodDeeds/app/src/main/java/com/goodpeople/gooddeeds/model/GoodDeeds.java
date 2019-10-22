@@ -303,7 +303,13 @@ public class GoodDeeds {
         loggedInAccount = null;
     }
 
-
+    /**
+     * Method for creating a deed of type request. Sets the logged in account
+     * as receiving account of the deed. User must be logged in fpr creating a deed.
+     *
+     * @param subject     the subject of the deed
+     * @param description the description of the deed
+     */
     public void createRequest(String subject, String description) {
         Deed newRequest = Deed.newRequest(loggedInAccount, subject, description);
         deeds.add(newRequest);
