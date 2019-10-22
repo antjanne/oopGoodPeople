@@ -17,6 +17,9 @@ public class DeedRepositoryImpl implements DeedRepository {
     private final GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();
 
 
+    /**
+     * @return List of all deeds
+     */
     @Override
     public List<IDeed> getDeeds() {
         return goodDeeds.getDeeds();
@@ -68,6 +71,13 @@ public class DeedRepositoryImpl implements DeedRepository {
         goodDeeds.editOffer(subject, description);
     }
 
+    /**
+     * Method for creating a deed of type request, sets the logged in account as receiving account
+     * for the deed. User must be logged in for creating a deed.
+     *
+     * @param subject     the subject of the deed
+     * @param description the description of the deed
+     */
     @Override
     public void createRequest(String subject, String description) {
         goodDeeds.createRequest(subject, description);
