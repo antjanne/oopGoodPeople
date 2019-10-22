@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">Good Deeds</string>
 
-    <string name="BACK">BACK</string>
-    <string name="OFFER">MyOffer</string>
-    <string name="username">MyName</string>
+
+
 
     <string name="create_account">Create Account</string>
     <string name="account_name">Name</string>
@@ -30,7 +29,6 @@
     <string name="new_offer_description">Description</string>
     <string name="invalid_subject">Subject is missing</string>
     <string name="invalid_description">Description is missing</string>
-    <string name="deeds">Deeds</string>
     <string name="Market">Market</string>
     <string name="browse_deeds">Browse Deeds</string>
     <string name="log_out">Log out</string>
@@ -39,7 +37,11 @@
     <string name="show_requests">Show requests</string>
     <string name="my_account">My account</string>
     <string name="no_access">Login to be able to access this page</string>
-
+    <string name="subject_deed">Subject Deed</string>
+    <string name="deed_holder">Deed holder</string>
+    <string name="delete">Delete</string>
+    <string name="edit_offer">Edit Offer</string>
+    <string name="claim">Claim</string>
 
 
 </resources>

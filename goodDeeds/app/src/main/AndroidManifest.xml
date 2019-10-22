@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-        <activity android:name=".View.MarketActivity"
+        <activity android:name=".view.MarketActivity"
          />
-        <activity android:name=".View.MyActiveDeeds"/>
+        <activity android:name=".view.MyActiveDeeds"/>
 
-        <activity android:name=".View.MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,16 +22,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".View.Account.CreateAccount" />
-        <activity android:name=".View.Account.Login" />
-        <activity android:name=".View.Account.AccountDetails" />
-        <activity android:name=".View.Account.EditAccount" />
-        <activity android:name=".View.Account.EditAccountPassword" />
-        <activity android:name=".View.CreateOffer" />
-        <activity android:name=".View.EditOffer" />
-        <activity android:name=".View.Account.AccountOptions"/>
-        <activity android:name=".View.ViewDeed"/>
-        <activity android:name=".View.NoAccess"/>
+        <activity android:name=".view.account.CreateAccount" />
+        <activity android:name=".view.account.Login" />
+        <activity android:name=".view.account.AccountDetails" />
+        <activity android:name=".view.account.EditAccount" />
+        <activity android:name=".view.account.EditAccountPassword" />
+        <activity android:name=".view.CreateOffer" />
+        <activity android:name=".view.EditOffer" />
+        <activity android:name=".view.account.AccountOptions"/>
+        <activity android:name=".view.ViewDeed"/>
+        <activity android:name=".view.NoAccess"/>
 
     </application>
 

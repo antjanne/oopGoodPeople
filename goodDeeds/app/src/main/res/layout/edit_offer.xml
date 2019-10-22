@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.EditOffer">
+    tools:context=".view.EditOffer">
 
     <include
         android:id="@+id/tool_bar"
@@ -16,7 +16,7 @@
         android:id="@+id/editOfferTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Offer"
+        android:text="@string/edit_offer"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
