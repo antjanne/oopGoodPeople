@@ -17,6 +17,7 @@ import static junit.framework.TestCase.assertSame;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class GoodDeedsTest {
 
@@ -214,6 +215,60 @@ public class GoodDeedsTest {
         gd.deleteCurrentDeed();
         Assert.assertFalse(gd.getDeeds().contains(deed));
     }
+
+    @Test
+    public void deedIsDone() {
+        Deed d = (Deed) gd.getCurrentDeed();
+        gd.logout();
+        gd.createAccount("Test2", 00000, "test2@test2.com", "123");
+        gd.login("test2@test2.com", "123");
+        d.setReceivingAccount(gd.getAccount());
+
+        gd.deedIsDone();
+        assertNotNull(deed.getGivingAccount());
+        assertNotNull(deed.getReceivingAccount());
+    }
+
+    @Test
+    public void updateKarmaPoints() {
+        Deed d = (Deed) gd.getCurrentDeed();
+        gd.logout();
+        gd.createAccount("Test2", 00000, "test2@test2.com", "123");
+        gd.login("test2@test2.com", "123");
+        d.setReceivingAccount(gd.getAccount());
+
+
+        IAccount account = d.getGivingAccount();
+        int before = account.getKarmaPoints();
+
+        gd.deedIsDone();
+
+
+        int after = account.getKarmaPoints();
+        assertTrue(before < after);
+
+    }
+
+    @Test
+    public void decrementKarmaPoints() {
+        Deed d = (Deed) gd.getCurrentDeed();
+        gd.logout();
+        gd.createAccount("Test2", 00000, "test2@test2.com", "123");
+        gd.login("test2@test2.com", "123");
+        d.setReceivingAccount(gd.getAccount());
+
+
+        IAccount account = d.getReceivingAccount();
+        int before = account.getKarmaPoints();
+
+        gd.deedIsDone();
+
+
+        int after = account.getKarmaPoints();
+        assertTrue(before > after);
+
+    }
+
 
 }
 

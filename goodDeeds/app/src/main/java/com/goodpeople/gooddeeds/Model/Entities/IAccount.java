@@ -20,4 +20,6 @@ public interface IAccount {
 
     void updateKarmaPoints(int karmaPoints);
 
+    int getKarmaPoints();
+
 }

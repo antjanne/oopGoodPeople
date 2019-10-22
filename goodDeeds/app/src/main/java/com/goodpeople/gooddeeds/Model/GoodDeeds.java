@@ -25,7 +25,7 @@ public class GoodDeeds {
 
     private GoodDeeds() {
 
-
+/*
         Account a2 = new Account("Anton", 30597, "1234@gmail.com", "ahah".hashCode());
 
         Account a = new Account("Anton", 30597, "anton46304@gmail.com", "ahah".hashCode());
@@ -40,7 +40,7 @@ public class GoodDeeds {
         deeds.add(d2);
         deeds.add(d3);
         deeds.add(d4);
-
+*/
 
     }
 
@@ -426,6 +426,6 @@ public class GoodDeeds {
     public void updateKarmaPoints() {
         int dPoints = currentDeed.getKarmaPoints();
         currentDeed.getGivingAccount().updateKarmaPoints(dPoints);
-        currentDeed.getReceivingAccount().updateKarmaPoints(-dPoints);
+        currentDeed.getReceivingAccount().updateKarmaPoints(((-1) * dPoints));
     }
 }
