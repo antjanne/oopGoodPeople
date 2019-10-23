@@ -4,6 +4,6 @@
     <item
         android:id="@+id/toolbar_login"
         android:icon="@drawable/login_icon"
-        android:title="Login"
+        android:title="@string/login"
         app:showAsAction="ifRoom" />
 </menu>

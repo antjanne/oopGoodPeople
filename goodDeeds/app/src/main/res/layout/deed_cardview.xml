@@ -15,7 +15,7 @@
             android:id="@+id/subjectText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Subject Deed"
+            android:text="@string/subject_deed"
 
             android:textColor="@android:color/black"
             android:textSize="24sp">
@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="30dp"
-            android:text="Deed holder"
+            android:text="@string/deed_holder"
             android:textColor="@android:color/background_light"
             android:textSize="15sp">
 

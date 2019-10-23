@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.ViewDeed">
+    tools:context=".view.ViewDeed">
 
     <include
         android:id="@+id/tool_bar"
@@ -55,7 +55,7 @@
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
         android:onClick="onDeleteClick"
-        android:text="Delete"
+        android:text="@string/delete"
         app:layout_constraintBottom_toBottomOf="@+id/tool_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.281"
@@ -67,8 +67,8 @@
         android:id="@+id/edit_offer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="editOffer"
-        android:text="Edit Offer"
+        android:onClick="editDeed"
+        android:text="@string/edit_deed"
         app:layout_constraintBottom_toBottomOf="@+id/tool_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.76"
@@ -80,7 +80,7 @@
         android:id="@+id/claim_deed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Claim"
+        android:text="@string/claim"
         app:layout_constraintBottom_toBottomOf="@+id/tool_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.486"
