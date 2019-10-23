@@ -15,7 +15,7 @@ import java.util.UUID;
 
 public class DeedController {
 
-    private DeedRepository deedRepository = new DeedRepositoryImpl();
+    private final DeedRepository deedRepository = new DeedRepositoryImpl();
 
 
 

@@ -221,7 +221,7 @@ public class GoodDeeds {
      *
      * @return all deeds as IDeed
      */
-    public List<IDeed> getDeeds() {
+    public List<IDeed> getIDeeds() {
         return deeds;
     }
 

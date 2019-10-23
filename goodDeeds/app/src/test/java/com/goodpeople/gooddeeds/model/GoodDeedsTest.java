@@ -31,13 +31,13 @@ public class GoodDeedsTest {
         gd.login("test@test.com", "123");
         gd.createOffer("Subject", "Description");
         gd.createRequest("Subject1", "Description1");
-        deed = gd.getDeeds().get(0);
+        deed = gd.getIDeeds().get(0);
         gd.setCurrentdeed(deed.getUuid());
     }
 
     @After
     public void after() {
-        gd.getDeeds().remove(0);
+        gd.getIDeeds().remove(0);
         gd.getAccounts().clear();
         gd.deeds.clear();
         gd = null;
@@ -81,12 +81,12 @@ public class GoodDeedsTest {
 
     @Test
     public void createOfferShouldStoreSubject() {
-        assertEquals("Subject", gd.getDeeds().get(0).getSubject());
+        assertEquals("Subject", gd.getIDeeds().get(0).getSubject());
     }
 
     @Test
     public void createOfferShouldStoreDescription() {
-        assertEquals("Description", gd.getDeeds().get(0).getDescription());
+        assertEquals("Description", gd.getIDeeds().get(0).getDescription());
     }
 
     @Test
@@ -153,7 +153,7 @@ public class GoodDeedsTest {
 
     @Test
     public void getDeeds() {
-        assertEquals(gd.getDeeds().size(), 2);
+        assertEquals(gd.getIDeeds().size(), 2);
     }
 
     @Test
@@ -210,9 +210,9 @@ public class GoodDeedsTest {
 
     @Test
     public void deleteCurrentDeed() {
-        Assert.assertTrue(gd.getDeeds().contains(deed));
+        Assert.assertTrue(gd.getIDeeds().contains(deed));
         gd.deleteCurrentDeed();
-        Assert.assertFalse(gd.getDeeds().contains(deed));
+        Assert.assertFalse(gd.getIDeeds().contains(deed));
     }
 
 }

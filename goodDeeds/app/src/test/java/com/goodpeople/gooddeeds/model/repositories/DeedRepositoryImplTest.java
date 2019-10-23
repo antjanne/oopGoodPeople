@@ -29,7 +29,7 @@ public class DeedRepositoryImplTest {
 
     @After
     public void tearDown() {
-        gd.getDeeds().clear();
+        gd.getIDeeds().clear();
         gd.getAccounts().clear();
         gd.returnDeeds().clear();
         gd = null;
