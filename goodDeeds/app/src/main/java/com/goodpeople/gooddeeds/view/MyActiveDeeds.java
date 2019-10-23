@@ -28,7 +28,7 @@ public class MyActiveDeeds extends ViewTemplate {
         context = getApplicationContext();
     }
 
-    private void showMyActiveOffers(View view) {
+    public void showMyActiveOffers(View view) {
         isOfferPressed = true;
         if (deedController.showMyActiveOffersHandler().isEmpty()) {
             Toast toast = Toast.makeText(context, "You have no active offers", Toast.LENGTH_SHORT);
