@@ -85,7 +85,7 @@ public class Account implements IAccount {
     }
 
     public void updateKarmaPoints(int points) {
-        this.karmaPoints = this.karmaPoints + points;
+        karmaPoints = karmaPoints + points;
 
     }
 

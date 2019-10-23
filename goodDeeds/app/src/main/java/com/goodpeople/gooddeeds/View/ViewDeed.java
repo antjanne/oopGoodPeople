@@ -45,25 +45,35 @@ public class ViewDeed extends ViewTemplate {
                 deedController.getMyDoneDeedsHandler().contains(deed)) {
             claimbutton.setVisibility(View.GONE);
         }
-        claimbutton.setOnClickListener(new View.OnClickListener() {
+        /*claimbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 deedController.claimDeedHandler();
                 finish();
             }
-        });
+        }); */
         View doneDeedButton = findViewById(R.id.done_deed);
         if (!deedController.isClaimedHandler() ||
                 deedController.getMyDoneDeedsHandler().contains(deed)) {
             doneDeedButton.setVisibility(View.GONE);
         }
-        doneDeedButton.setOnClickListener(new View.OnClickListener() {
+        /*doneDeedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 deedController.deedIsDoneHandler();
                 finish();
             }
-        });
+        }); */
+    }
+
+    public void onDoneDeedClick(View view) {
+        deedController.deedIsDoneHandler();
+        finish();
+    }
+
+    public void onClaimedDeedClick(View view) {
+        deedController.claimDeedHandler();
+        finish();
     }
 
     public void editOffer(View view) {
