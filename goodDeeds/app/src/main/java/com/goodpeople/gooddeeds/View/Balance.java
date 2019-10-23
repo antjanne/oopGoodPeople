@@ -17,7 +17,7 @@ public class Balance extends ViewTemplate {
     private void setPoints() {
         TextView currentBalance = findViewById(R.id.current_balance_data);
         int points = accountController.getKarmaPoints();
-        String showBalance = points + "/n Karma Points";
+        String showBalance = points + "\nKarma Points";
         currentBalance.setText(showBalance);
 
     }

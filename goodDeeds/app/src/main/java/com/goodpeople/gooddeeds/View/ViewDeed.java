@@ -41,7 +41,8 @@ public class ViewDeed extends ViewTemplate {
         }
         View claimbutton = findViewById(R.id.claim_deed);
         if (deedController.isMyOwnDeedHandler() &&
-                (!deedController.isClaimedHandler())) {
+                (!deedController.isClaimedHandler()) ||
+                deedController.getMyDoneDeedsHandler().contains(deed)) {
             claimbutton.setVisibility(View.GONE);
         }
         claimbutton.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +53,8 @@ public class ViewDeed extends ViewTemplate {
             }
         });
         View doneDeedButton = findViewById(R.id.done_deed);
-        if (!deedController.isClaimedHandler()) {
+        if (!deedController.isClaimedHandler() ||
+                deedController.getMyDoneDeedsHandler().contains(deed)) {
             doneDeedButton.setVisibility(View.GONE);
         }
         doneDeedButton.setOnClickListener(new View.OnClickListener() {
