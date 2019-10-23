@@ -45,7 +45,7 @@ public class MarketActivity extends ViewTemplate {
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    private void showOffers(View view) {
+    public void showOffers(View view) {
         isOfferPressed = true;
         if (deedController.showAllActiveOffers().isEmpty()) {
             Toast toast = Toast.makeText(context, "No available offers", Toast.LENGTH_SHORT);
@@ -55,7 +55,7 @@ public class MarketActivity extends ViewTemplate {
 
     }
 
-    private void showRequests(View view) {
+    public void showRequests(View view) {
         isOfferPressed = false;
         if (deedController.showAllActiveRequests().isEmpty()) {
             Toast toast = Toast.makeText(context, "No available requests", Toast.LENGTH_SHORT);

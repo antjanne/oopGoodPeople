@@ -38,7 +38,7 @@ public class MyActiveDeeds extends ViewTemplate {
         viewDeeds(deedController.showMyActiveOffersHandler());
     }
 
-    private void showMyActiveRequests(View view) {
+    public void showMyActiveRequests(View view) {
         isOfferPressed = false;
         deedType.setText("Requests");
         if (deedController.showMyActiveRequestsHandler().isEmpty()) {
