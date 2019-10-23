@@ -28,7 +28,6 @@ public class MarketActivity extends ViewTemplate {
     private Context context;
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_market);
@@ -46,20 +45,20 @@ public class MarketActivity extends ViewTemplate {
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    public void showOffers(View view) {
+    private void showOffers(View view) {
         isOfferPressed = true;
-        if(deedController.showAllActiveOffers().isEmpty()){
-            Toast toast = Toast.makeText(context,"No available offers",Toast.LENGTH_SHORT);
+        if (deedController.showAllActiveOffers().isEmpty()) {
+            Toast toast = Toast.makeText(context, "No available offers", Toast.LENGTH_SHORT);
             toast.show();
         }
         viewDeeds(deedController.showAllActiveOffers());
 
     }
 
-    public void showRequests(View view) {
+    private void showRequests(View view) {
         isOfferPressed = false;
-        if(deedController.showAllActiveRequests().isEmpty()){
-            Toast toast = Toast.makeText(context,"No available requests", Toast.LENGTH_SHORT);
+        if (deedController.showAllActiveRequests().isEmpty()) {
+            Toast toast = Toast.makeText(context, "No available requests", Toast.LENGTH_SHORT);
             toast.show();
         }
 
