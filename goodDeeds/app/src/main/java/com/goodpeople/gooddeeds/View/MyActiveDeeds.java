@@ -25,13 +25,13 @@ public class MyActiveDeeds extends ViewTemplate {
         setContentView(R.layout.my_active_deeds);
         super.onCreate(savedInstanceState);
         deedType = findViewById(R.id.deedTypeCurrentlyShowing);
-         context = getApplicationContext();
+        context = getApplicationContext();
     }
 
     public void showMyActiveOffers(View view) {
         isOfferPressed = true;
-        if(deedController.showMyActiveOffersHandler().isEmpty()){
-            Toast toast = Toast.makeText(context,"You have no active offers",Toast.LENGTH_SHORT);
+        if (deedController.showMyActiveOffersHandler().isEmpty()) {
+            Toast toast = Toast.makeText(context, "You have no active offers", Toast.LENGTH_SHORT);
             toast.show();
         }
         deedType.setText("Offers");
@@ -41,8 +41,8 @@ public class MyActiveDeeds extends ViewTemplate {
     public void showMyActiveRequests(View view) {
         isOfferPressed = false;
         deedType.setText("Requests");
-        if(deedController.showMyActiveRequestsHandler().isEmpty()){
-            Toast toast = Toast.makeText(context,"You have no active requests",Toast.LENGTH_SHORT);
+        if (deedController.showMyActiveRequestsHandler().isEmpty()) {
+            Toast toast = Toast.makeText(context, "You have no active requests", Toast.LENGTH_SHORT);
             toast.show();
         }
         viewDeeds(deedController.showMyActiveRequestsHandler());

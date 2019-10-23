@@ -10,7 +10,11 @@ import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+import java.util.UUID;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertSame;
@@ -188,6 +192,14 @@ public class GoodDeedsTest {
     }
 
     @Test
+    public void claimDeed2() {
+        gd.setCurrentdeed(gd.getDeeds().get(1).getUuid());
+        gd.claimDeed();
+        assertTrue((gd.getCurrentDeed().getGivingAccount() != null) &&
+                (gd.getCurrentDeed().getReceivingAccount() != null));
+    }
+
+    @Test
     public void isNotClaimed() {
         assertFalse(gd.isClaimed());
     }
@@ -204,6 +216,12 @@ public class GoodDeedsTest {
     }
 
     @Test
+    public void isMyOwnDeed2() {
+        gd.setCurrentdeed(gd.getDeeds().get(1).getUuid());
+        assertTrue(gd.isMyOwnDeed());
+    }
+
+    @Test
     public void isMyActiveDeed() {
         assertTrue(gd.isMyActiveDeed());
     }
@@ -215,5 +233,18 @@ public class GoodDeedsTest {
         Assert.assertFalse(gd.getDeeds().contains(deed));
     }
 
+    @Test(expected = RuntimeException.class)
+    public void deleteCurrentDeedExcepiton() {
+        gd.createAccount("test", 12345, "test@mail.test", "test123");
+        gd.login("test@mail.test", "test123");
+        gd.deleteCurrentDeed();
+
+    }
+
+
+    @Test(expected = NullPointerException.class)
+    public void setCurrentDeedException() {
+        gd.setCurrentdeed(new UUID(1234567890, 1234567890));
+    }
 }
 
