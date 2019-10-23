@@ -42,6 +42,7 @@
     <string name="my_claimed_deeds">Claimed Deeds</string>
     <string name="show_claimed_deeds">Claimed Deeds</string>
     <string name="show_done_deeds">Done Deeds</string>
-
+    <string name="show_balance">Balance</string>
+    <string name="account_balance">Your current Balance:</string>
 
 </resources>

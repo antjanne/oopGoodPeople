@@ -98,4 +98,11 @@ public class AccountController {
     public void logout() {
         accountRepository.logout();
     }
+
+    /**
+     * @return The current karmaPoint-balance of the logged in account
+     */
+    public int getKarmaPoints() {
+        return accountRepository.getKarmaPoints();
+    }
 }

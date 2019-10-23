@@ -1,5 +1,7 @@
 package com.goodpeople.gooddeeds.Controller;
 
+import com.goodpeople.gooddeeds.Model.Entities.Deed;
+import com.goodpeople.gooddeeds.Model.Entities.IDeed;
 import com.goodpeople.gooddeeds.Model.GoodDeeds;
 
 import org.junit.After;
@@ -85,6 +87,32 @@ public class DeedControllerTest {
     public void isMyOwnDeedHandler() {
         goodDeeds.setCurrentdeed(goodDeeds.getDeeds().get(2).getUuid());
         assertTrue(deedController.isMyOwnDeedHandler());
+    }
+
+    @Test
+    public void deedIsDoneHandler() {
+        Deed d = (Deed) goodDeeds.getCurrentDeed();
+        d.setReceivingAccount(goodDeeds.getAccount());
+        deedController.deedIsDoneHandler();
+
+        assertTrue(goodDeeds.getCurrentDeed().isDone());
+    }
+
+    @Test
+    public void getMyClaimedDeedsHandler() {
+        deedController.claimDeedHandler();
+        int size = deedController.getMyClaimedDeedsHandler().size();
+        assertTrue(size == 1);
+    }
+
+    @Test
+    public void getMyDoneDeedsHandler() {
+        Deed d = (Deed) goodDeeds.getCurrentDeed();
+        d.setReceivingAccount(goodDeeds.getAccount());
+        deedController.claimDeedHandler();
+        deedController.deedIsDoneHandler();
+        int size = deedController.getMyDoneDeedsHandler().size();
+        assertTrue(size == 1);
     }
 
 

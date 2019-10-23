@@ -25,4 +25,6 @@ public interface AccountRepository {
     void editAccount(String name, String email, int postalCode);
 
     void logout();
+
+    int getKarmaPoints();
 }

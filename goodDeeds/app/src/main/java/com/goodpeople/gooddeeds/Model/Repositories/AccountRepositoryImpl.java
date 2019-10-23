@@ -101,4 +101,12 @@ public class AccountRepositoryImpl implements AccountRepository {
     public void logout() {
         goodDeeds.logout();
     }
+
+    /**
+     * @return The current karmaPoint-balance of the logged in account
+     */
+    @Override
+    public int getKarmaPoints() {
+        return goodDeeds.getAccount().getKarmaPoints();
+    }
 }

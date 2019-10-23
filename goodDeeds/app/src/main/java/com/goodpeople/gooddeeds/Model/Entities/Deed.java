@@ -135,10 +135,6 @@ public class Deed implements IDeed {
         return this.karmaPoints;
     }
 
-    private void setKarmaPoints(int karmaPoints) {
-        this.karmaPoints = karmaPoints;
-    }
-
     /**
      * Method for marking a deed as done
      */

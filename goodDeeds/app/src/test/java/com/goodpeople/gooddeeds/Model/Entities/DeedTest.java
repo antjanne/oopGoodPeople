@@ -105,4 +105,15 @@ public class DeedTest {
         o.setDescription("Description2");
         assertEquals(o.getDescription(), "Description2");
     }
+
+    @Test
+    public void karmaPoints() {
+        assertTrue(o.getKarmaPoints() == 50);
+    }
+
+    @Test
+    public void deedIsDone() {
+        o.deedIsDone();
+        assertTrue(o.isDone());
+    }
 }

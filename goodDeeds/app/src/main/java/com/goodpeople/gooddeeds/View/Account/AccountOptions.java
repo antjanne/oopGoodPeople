@@ -1,10 +1,14 @@
 package com.goodpeople.gooddeeds.View.Account;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.goodpeople.gooddeeds.R;
+import com.goodpeople.gooddeeds.View.Balance;
 import com.goodpeople.gooddeeds.View.ClaimedDeeds;
 import com.goodpeople.gooddeeds.View.MainActivity;
 import com.goodpeople.gooddeeds.View.MyActiveDeeds;
@@ -38,4 +42,11 @@ public class AccountOptions extends ViewTemplate {
         Intent intent = new Intent(this, ClaimedDeeds.class);
         startActivity(intent);
     }
+
+    public void goToMyBalance(View View) {
+        Intent intent = new Intent(this, Balance.class);
+        startActivity(intent);
+    }
+
+
 }

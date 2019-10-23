@@ -32,7 +32,7 @@ public class ClaimedDeeds extends ViewTemplate {
 
     public void showClaimedDeeds(View view) {
         isClaimedPressed = true;
-        if (deedController.showMyActiveOffersHandler().isEmpty()) {
+        if (deedController.getMyClaimedDeedsHandler().isEmpty()) {
             Toast toast = Toast.makeText(context, "You have no claimed deeds", Toast.LENGTH_SHORT);
             toast.show();
         }
@@ -42,11 +42,11 @@ public class ClaimedDeeds extends ViewTemplate {
 
     public void showDoneDeeds(View view) {
         isClaimedPressed = false;
-        deedType.setText("Done Deeds");
-        if (deedController.showMyActiveRequestsHandler().isEmpty()) {
+        if (deedController.getMyDoneDeedsHandler().isEmpty()) {
             Toast toast = Toast.makeText(context, "You have no done deeds", Toast.LENGTH_SHORT);
             toast.show();
         }
+        deedType.setText("Done Deeds");
         viewDeeds(deedController.getMyDoneDeedsHandler());
     }
 

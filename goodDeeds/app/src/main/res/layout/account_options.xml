@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_active_deeds"
-        app:layout_constraintVertical_bias="0.277" />
+        app:layout_constraintVertical_bias="0.745" />
 
     <Button
         android:id="@+id/claimed_deeds"
@@ -71,6 +71,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_active_deeds" />
+
+    <Button
+        android:id="@+id/current_balance_data"
+        android:layout_width="137dp"
+        android:layout_height="49dp"
+        android:onClick="goToMyBalance"
+        android:text="@string/show_balance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/claimed_deeds"
+        app:layout_constraintVertical_bias="0.083" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
