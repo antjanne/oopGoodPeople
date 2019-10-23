@@ -277,7 +277,8 @@ public class GoodDeeds {
 
         for (IDeed d : deeds) {
             if ((d.getReceivingAccount() == loggedInAccount && d.getGivingAccount() != null) ||
-                    (d.getGivingAccount() == loggedInAccount && d.getReceivingAccount() != null)) {
+                    (d.getGivingAccount() == loggedInAccount && d.getReceivingAccount() != null) &&
+                            !d.isDone()) {
                 myClaimedDeeds.add(d);
             }
         }

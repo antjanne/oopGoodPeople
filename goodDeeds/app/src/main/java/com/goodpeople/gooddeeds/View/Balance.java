@@ -22,4 +22,10 @@ public class Balance extends ViewTemplate {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setPoints();
+    }
+
 }
