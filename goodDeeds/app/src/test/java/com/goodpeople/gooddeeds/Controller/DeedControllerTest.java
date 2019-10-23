@@ -86,4 +86,6 @@ public class DeedControllerTest {
         goodDeeds.setCurrentdeed(goodDeeds.getDeeds().get(2).getUuid());
         assertTrue(deedController.isMyOwnDeedHandler());
     }
+
+
 }
