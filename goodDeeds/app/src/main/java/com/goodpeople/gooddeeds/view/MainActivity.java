@@ -46,11 +46,6 @@ public class MainActivity extends ViewTemplate {
         return super.onCreateOptionsMenu(menu);
     }
 
-    public void editOffer(View view) {
-        Intent myIntent = new Intent(this, EditDeed.class);
-        startActivity(myIntent);
-    }
-
     private void login() {
         if (!accountController.isLoggedIn()) {
             Intent myIntent = new Intent(this, Login.class);

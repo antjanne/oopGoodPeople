@@ -183,14 +183,14 @@ public class GoodDeedsTest {
     }
 
     @Test
-    public void claimDeed() {
+    public void claimDeedOfferEdition() {
         gd.claimDeed();
         assertTrue((deed.getGivingAccount() != null) &&
                 (deed.getReceivingAccount() != null));
     }
 
     @Test
-    public void claimDeed2() {
+    public void claimDeedRequestEdition() {
         gd.setCurrentdeed(gd.getIDeeds().get(1).getUuid());
         gd.claimDeed();
         assertTrue((gd.getCurrentDeed().getGivingAccount() != null) &&
@@ -209,12 +209,12 @@ public class GoodDeedsTest {
     }
 
     @Test
-    public void isMyOwnDeed() {
+    public void isMyOwnDeedOfferEdition() {
         assertTrue(gd.isMyOwnDeed());
     }
 
     @Test
-    public void isMyOwnDeed2() {
+    public void isMyOwnDeedRequestEdition() {
         gd.setCurrentdeed(gd.getIDeeds().get(1).getUuid());
         assertTrue(gd.isMyOwnDeed());
     }
@@ -232,7 +232,7 @@ public class GoodDeedsTest {
     }
 
     @Test(expected = RuntimeException.class)
-    public void deleteCurrentDeedExcepiton() {
+    public void deleteCurrentDeedException() {
         gd.createAccount("test", 12345, "test@mail.test", "test123");
         gd.login("test@mail.test", "test123");
         gd.deleteCurrentDeed();
