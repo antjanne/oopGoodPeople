@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.EditDeed">
+    tools:context=".view.EditDeed">
 
     <include
         android:id="@+id/tool_bar"
@@ -13,10 +13,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/editOfferTextView"
+        android:id="@+id/editDeedTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Offer"
+        android:text="@string/edit_deed"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editOfferTextView"
+        app:layout_constraintTop_toBottomOf="@+id/editDeedTextView"
         app:layout_constraintVertical_bias="0.01999998" />
 
     <com.google.android.material.textfield.TextInputEditText

@@ -40,12 +40,12 @@ public class ViewDeed extends ViewTemplate {
         if (!deedController.isMyActiveDeedHandler()) {
             button.setVisibility(View.GONE);
         }
-        View claimbutton = findViewById(R.id.claim_deed);
+        View claimButton = findViewById(R.id.claim_deed);
         if (deedController.isMyOwnDeedHandler() &&
                 (!deedController.isClaimedHandler())) {
-            claimbutton.setVisibility(View.GONE);
+            claimButton.setVisibility(View.GONE);
         }
-        claimbutton.setOnClickListener(new View.OnClickListener() {
+        claimButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 deedController.claimDeedHandler();
@@ -79,7 +79,7 @@ public class ViewDeed extends ViewTemplate {
             alert.show();
         } else {
             if (deedController.showMyActiveRequestsHandler().isEmpty()) {
-                Toast toast = Toast.makeText(this, "You cannot create a Deed that is claimed.", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(this, "You cannot delete a Deed that is claimed.", Toast.LENGTH_SHORT);
                 toast.show();
             }
 

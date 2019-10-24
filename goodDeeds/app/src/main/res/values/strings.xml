@@ -40,5 +40,6 @@
     <string name="delete">Delete</string>
     <string name="edit_deed">Edit Deed</string>
     <string name="claim">Claim</string>
+    <string name="edit_deed">Edit Deed</string>
 
 </resources>
