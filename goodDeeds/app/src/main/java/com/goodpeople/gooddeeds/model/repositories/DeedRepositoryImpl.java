@@ -67,8 +67,8 @@ public class DeedRepositoryImpl implements DeedRepository {
      * @param description The description to be edited
      */
     @Override
-    public void editOffer(String subject, String description) {
-        goodDeeds.editOffer(subject, description);
+    public void editDeed(String subject, String description) {
+        goodDeeds.editDeed(subject, description);
     }
 
     /**

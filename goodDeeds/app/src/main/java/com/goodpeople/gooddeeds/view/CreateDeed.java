@@ -3,20 +3,24 @@ package com.goodpeople.gooddeeds.view;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.goodpeople.gooddeeds.R;
 
 /**
- * Responsible for handling input in the view when creating an offer.
+ * Responsible for handling input in the view when creating an deed.
  */
 
-public class CreateOffer extends ViewTemplate {
-
+public class CreateDeed extends ViewTemplate {
+    private boolean isOffer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.create_offer);
+        isOffer = getIntent().getExtras().getBoolean("isOffer");
+        setContentView(R.layout.create_deed);
         super.onCreate(savedInstanceState);
+        TextView deedType = findViewById(R.id.createDeedTextView);
+        deedType.setText(isOffer ? "Create Offer" : "Create Request");
     }
 
     public void submitOffer(View view) {
@@ -27,8 +31,13 @@ public class CreateOffer extends ViewTemplate {
         String descriptionText = description.getText().toString();
 
         if (validateInput(subjectText, descriptionText)) {
-            deedController.createOfferHandler(subjectText, descriptionText);
-            goBack(view);
+            if (isOffer) {
+                deedController.createOfferHandler(subjectText, descriptionText);
+                goBack(view);
+            } else {
+                deedController.createRequestHandler(subjectText, descriptionText);
+                goBack(view);
+            }
         }
     }
 
@@ -52,5 +61,6 @@ public class CreateOffer extends ViewTemplate {
 
         return returnValue;
     }
+
 
 }

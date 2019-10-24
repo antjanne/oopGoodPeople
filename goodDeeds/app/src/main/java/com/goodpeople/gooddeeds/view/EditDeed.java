@@ -8,12 +8,12 @@ import android.widget.EditText;
 import com.goodpeople.gooddeeds.R;
 
 
-public class EditOffer extends ViewTemplate {
+public class EditDeed extends ViewTemplate {
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.edit_offer);
+        setContentView(R.layout.edit_deed);
         super.onCreate(savedInstanceState);
         Button submitButton = findViewById(R.id.submitButton);
         EditText editSubj = findViewById(R.id.subjectEditText);
@@ -25,7 +25,7 @@ public class EditOffer extends ViewTemplate {
             public void onClick(View v) {
                 EditText subjectEditText = findViewById(R.id.subjectEditText);
                 EditText descriptionEditText = findViewById(R.id.descriptionEditText);
-                deedController.editOfferHandler(subjectEditText.getText().toString(), descriptionEditText.getText().toString());
+                deedController.editDeedHandler(subjectEditText.getText().toString(), descriptionEditText.getText().toString());
                 finish();
             }
         });

@@ -7,6 +7,7 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -39,12 +40,12 @@ public class ViewDeed extends ViewTemplate {
         if (!deedController.isMyActiveDeedHandler()) {
             button.setVisibility(View.GONE);
         }
-        View claimbutton = findViewById(R.id.claim_deed);
+        View claimButton = findViewById(R.id.claim_deed);
         if (deedController.isMyOwnDeedHandler() &&
                 (!deedController.isClaimedHandler())) {
-            claimbutton.setVisibility(View.GONE);
+            claimButton.setVisibility(View.GONE);
         }
-        claimbutton.setOnClickListener(new View.OnClickListener() {
+        claimButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 deedController.claimDeedHandler();
@@ -53,28 +54,36 @@ public class ViewDeed extends ViewTemplate {
         });
     }
 
-    public void editOffer(View view) {
-        Intent myIntent = new Intent(this, EditOffer.class);
+    public void editDeed(View view) {
+        Intent myIntent = new Intent(this, EditDeed.class);
         startActivity(myIntent);
     }
 
     public void onDeleteClick(View v) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("Delete");
-        alert.setMessage("Are you sure you want to delete?");
-        alert.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+        if (!deedController.isClaimedHandler()) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("Delete");
+            alert.setMessage("Are you sure you want to delete?");
+            alert.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
-            public void onClick(DialogInterface dialog, int which) {
-                deedController.deleteCurrentDeedHandler();
-                finish();
+                public void onClick(DialogInterface dialog, int which) {
+                    deedController.deleteCurrentDeedHandler();
+                    finish();
+                }
+            });
+            alert.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            alert.show();
+        } else {
+            if (deedController.showMyActiveRequestsHandler().isEmpty()) {
+                Toast toast = Toast.makeText(this, "You cannot delete a Deed that is claimed.", Toast.LENGTH_SHORT);
+                toast.show();
             }
-        });
-        alert.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        alert.show();
+
+        }
     }
 
     @Override

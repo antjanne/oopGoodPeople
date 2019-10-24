@@ -10,9 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-        <activity android:name=".view.MarketActivity"
-         />
-        <activity android:name=".view.MyActiveDeeds"/>
+        <activity android:name=".view.MarketActivity" />
+        <activity android:name=".view.MyActiveDeeds" />
 
         <activity android:name=".view.MainActivity">
             <intent-filter>
@@ -27,12 +26,11 @@
         <activity android:name=".view.account.AccountDetails" />
         <activity android:name=".view.account.EditAccount" />
         <activity android:name=".view.account.EditAccountPassword" />
-        <activity android:name=".view.CreateOffer" />
-        <activity android:name=".view.EditOffer" />
-        <activity android:name=".view.account.AccountOptions"/>
-        <activity android:name=".view.ViewDeed"/>
-        <activity android:name=".view.NoAccess"/>
-
+        <activity android:name=".view.CreateDeed" />
+        <activity android:name=".view.account.AccountOptions" />
+        <activity android:name=".view.ViewDeed" />
+        <activity android:name=".view.NoAccess" />
+        <activity android:name=".view.EditDeed" />
     </application>
 
 </manifest>

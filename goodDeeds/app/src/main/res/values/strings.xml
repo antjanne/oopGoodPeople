@@ -2,8 +2,6 @@
     <string name="app_name">Good Deeds</string>
 
 
-
-
     <string name="create_account">Create Account</string>
     <string name="account_name">Name</string>
     <string name="account_postal_code">Postal Code</string>
@@ -24,7 +22,7 @@
     <string name="edit_password">Edit password</string>
     <string name="old_password">Old password</string>
     <string name="new_password">New password</string>
-    <string name="new_offer">New Offer</string>
+    <string name="new_deed">Create Deed</string>
     <string name="new_offer_subject">Subject</string>
     <string name="new_offer_description">Description</string>
     <string name="invalid_subject">Subject is missing</string>
@@ -40,8 +38,6 @@
     <string name="subject_deed">Subject Deed</string>
     <string name="deed_holder">Deed holder</string>
     <string name="delete">Delete</string>
-    <string name="edit_offer">Edit Offer</string>
+    <string name="edit_deed">Edit Deed</string>
     <string name="claim">Claim</string>
-
-
 </resources>

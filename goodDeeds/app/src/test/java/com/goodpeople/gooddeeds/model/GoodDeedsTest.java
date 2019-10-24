@@ -12,6 +12,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.UUID;
+
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertSame;
 import static junit.framework.TestCase.assertTrue;
@@ -98,7 +100,7 @@ public class GoodDeedsTest {
     public void testEditSubject() {
         String subject = deed.getSubject();
         String description = deed.getDescription();
-        gd.editOffer("Changed", "Description");
+        gd.editDeed("Changed", "Description");
         assertNotEquals(subject, deed.getSubject());
         assertEquals(description, deed.getDescription());
     }
@@ -107,7 +109,7 @@ public class GoodDeedsTest {
     public void testEditDescription() {
         String subject = deed.getSubject();
         String description = deed.getDescription();
-        gd.editOffer("Subject", "Changed");
+        gd.editDeed("Subject", "Changed");
         assertNotEquals(description, deed.getDescription());
         assertEquals(subject, deed.getSubject());
     }
@@ -117,7 +119,7 @@ public class GoodDeedsTest {
         gd.createAccount("SomeoneElse", 00000, "test@test.com", "123");
         IAccount newAccount = gd.getAccounts().get(1);
         Deed.newOffer(newAccount, "subject", "description");
-        gd.editOffer("Changed", "Changed");
+        gd.editDeed("Changed", "Changed");
         assertSame("Changed", deed.getSubject());
         assertSame("Changed", deed.getDescription());
     }
@@ -152,7 +154,7 @@ public class GoodDeedsTest {
 
 
     @Test
-    public void getDeeds() {
+    public void getIDeeds() {
         assertEquals(gd.getIDeeds().size(), 2);
     }
 
@@ -181,10 +183,18 @@ public class GoodDeedsTest {
     }
 
     @Test
-    public void claimDeed() {
+    public void claimDeedOfferEdition() {
         gd.claimDeed();
         assertTrue((deed.getGivingAccount() != null) &&
                 (deed.getReceivingAccount() != null));
+    }
+
+    @Test
+    public void claimDeedRequestEdition() {
+        gd.setCurrentdeed(gd.getIDeeds().get(1).getUuid());
+        gd.claimDeed();
+        assertTrue((gd.getCurrentDeed().getGivingAccount() != null) &&
+                (gd.getCurrentDeed().getReceivingAccount() != null));
     }
 
     @Test
@@ -199,7 +209,13 @@ public class GoodDeedsTest {
     }
 
     @Test
-    public void isMyOwnDeed() {
+    public void isMyOwnDeedOfferEdition() {
+        assertTrue(gd.isMyOwnDeed());
+    }
+
+    @Test
+    public void isMyOwnDeedRequestEdition() {
+        gd.setCurrentdeed(gd.getIDeeds().get(1).getUuid());
         assertTrue(gd.isMyOwnDeed());
     }
 
@@ -215,5 +231,18 @@ public class GoodDeedsTest {
         Assert.assertFalse(gd.getIDeeds().contains(deed));
     }
 
+    @Test(expected = RuntimeException.class)
+    public void deleteCurrentDeedException() {
+        gd.createAccount("test", 12345, "test@mail.test", "test123");
+        gd.login("test@mail.test", "test123");
+        gd.deleteCurrentDeed();
+
+    }
+
+
+    @Test(expected = NullPointerException.class)
+    public void setCurrentDeedException() {
+        gd.setCurrentdeed(new UUID(1234567890, 1234567890));
+    }
 }
 

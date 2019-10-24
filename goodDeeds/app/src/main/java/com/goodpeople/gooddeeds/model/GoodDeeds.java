@@ -113,12 +113,12 @@ public class GoodDeeds {
     }
 
 
-    private IDeed fetchDeed(UUID id) throws Exception {
+    private IDeed fetchDeed(UUID id) throws NullPointerException {
         for (IDeed deed : deeds) {
             if (deed.getUuid().equals(id))
                 return deed;
         }
-        throw new Exception();
+        throw new NullPointerException();
     }
 
     /**
@@ -126,12 +126,8 @@ public class GoodDeeds {
      *
      * @param id UUID search for.
      */
-    public void setCurrentdeed(UUID id) {
-        try {
-            currentDeed = (Deed) fetchDeed(id);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void setCurrentdeed(UUID id) throws NullPointerException {
+        currentDeed = (Deed) fetchDeed(id);
     }
 
     /**
@@ -210,7 +206,7 @@ public class GoodDeeds {
      * @param subject     The subject of the deed.
      * @param description the description of the deed.
      */
-    public void editOffer(String subject, String description) {
+    public void editDeed(String subject, String description) {
         Deed deed = (Deed) getCurrentDeed();
         deed.setSubject(subject);
         deed.setDescription(description);

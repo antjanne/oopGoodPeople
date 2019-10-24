@@ -8,8 +8,8 @@
         android:id="@+id/newOfferButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="createOffer"
-        android:text="@string/new_offer"
+        android:onClick="createDeed"
+        android:text="@string/new_deed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.215"
@@ -29,7 +29,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tool_bar"
         app:layout_constraintVertical_bias="0.128" />
-
 
 
     <include
