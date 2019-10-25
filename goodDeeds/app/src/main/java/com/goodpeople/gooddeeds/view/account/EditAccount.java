@@ -26,7 +26,7 @@ public class EditAccount extends ViewTemplate {
         setContentView(R.layout.edit_account);
         super.onCreate(savedInstanceState);
 
-        accountController.accountHandler();
+        accountController.getLoggedInAccountHandler();
         getTextViews();
         populateFields();
     }
@@ -38,9 +38,9 @@ public class EditAccount extends ViewTemplate {
     }
 
     private void populateFields() {
-        nameView.setText(accountController.accountHandler().getName());
-        emailView.setText(accountController.accountHandler().getEmail());
-        postalCodeView.setText(String.format(Locale.getDefault(), "%d", accountController.accountHandler().getPostalCode()));
+        nameView.setText(accountController.getLoggedInAccountHandler().getName());
+        emailView.setText(accountController.getLoggedInAccountHandler().getEmail());
+        postalCodeView.setText(String.format(Locale.getDefault(), "%d", accountController.getLoggedInAccountHandler().getPostalCode()));
     }
 
 
@@ -81,7 +81,7 @@ public class EditAccount extends ViewTemplate {
     }
 
     private boolean isEmailChanged() {
-        return !this.email.equals(accountController.accountHandler().getEmail());
+        return !this.email.equals(accountController.getLoggedInAccountHandler().getEmail());
     }
 
 

@@ -28,7 +28,7 @@ public class AccountDetails extends ViewTemplate {
 
     private void populateFields() {
 
-        IAccount account = accountController.accountHandler();
+        IAccount account = accountController.getLoggedInAccountHandler();
 
         TextView name = findViewById(R.id.account_name_data);
         TextView email = findViewById(R.id.account_email_data);

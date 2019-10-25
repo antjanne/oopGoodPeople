@@ -20,7 +20,7 @@ public class AccountControllerTest {
 
     @Test
     public void shouldCreateAccountLoginReturnLoggedinAccount() {
-        IAccount account = accountController.accountHandler();
+        IAccount account = accountController.getLoggedInAccountHandler();
         Assert.assertEquals(account.getPassword(), "pass123".hashCode());
         Assert.assertEquals(account.getEmail(), "rm123@rm.se");
     }
@@ -50,7 +50,7 @@ public class AccountControllerTest {
     @Test
     public void shouldUpdatePasswordStoreNewPassword() {
         accountController.updatePasswordHandler("newPassword");
-        Assert.assertEquals(accountController.accountHandler().getPassword(), "newPassword".hashCode());
+        Assert.assertEquals(accountController.getLoggedInAccountHandler().getPassword(), "newPassword".hashCode());
 
     }
 
@@ -67,9 +67,9 @@ public class AccountControllerTest {
     @Test
     public void shouldUpdateAccountDetails() {
         accountController.editAccountHandler("newName", "newEmail@email.se", 12345);
-        Assert.assertEquals(accountController.accountHandler().getName(), "newName");
-        Assert.assertEquals(accountController.accountHandler().getEmail(), "newEmail@email.se");
-        Assert.assertEquals(accountController.accountHandler().getPostalCode(), 12345);
+        Assert.assertEquals(accountController.getLoggedInAccountHandler().getName(), "newName");
+        Assert.assertEquals(accountController.getLoggedInAccountHandler().getEmail(), "newEmail@email.se");
+        Assert.assertEquals(accountController.getLoggedInAccountHandler().getPostalCode(), 12345);
     }
 
     @Test

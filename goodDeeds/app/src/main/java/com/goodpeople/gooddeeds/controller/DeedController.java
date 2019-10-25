@@ -18,10 +18,6 @@ public class DeedController {
     private final DeedRepository deedRepository = new DeedRepositoryImpl();
 
 
-    public List<IDeed> showAllDeedsHandler() {
-        return deedRepository.getDeeds();
-    }
-
     /**
      * Method for getting the active offers for a logged in account.
      * A account has to be logged in before calling this method.

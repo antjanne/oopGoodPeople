@@ -23,7 +23,7 @@ public class CreateDeed extends ViewTemplate {
         deedType.setText(isOffer ? "Create Offer" : "Create Request");
     }
 
-    public void submitOffer(View view) {
+    public void submitDeed(View view) {
         EditText subject = findViewById(R.id.subject);
         String subjectText = subject.getText().toString();
 

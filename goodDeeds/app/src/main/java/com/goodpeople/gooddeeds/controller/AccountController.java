@@ -68,7 +68,7 @@ public class AccountController {
     /**
      * @return returns logged in account-object
      */
-    public IAccount accountHandler() {
+    public IAccount getLoggedInAccountHandler() {
         return accountRepository.getAccount();
     }
 
