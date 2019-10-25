@@ -24,23 +24,6 @@ public class GoodDeeds {
     private IAccount loggedInAccount;
 
     private GoodDeeds() {
-
-/*
-        Account a2 = new Account("Anton", 30597, "1234@gmail.com", "ahah".hashCode());
-
-        Account a = new Account("Anton", 30597, "anton46304@gmail.com", "ahah".hashCode());
-        Deed d = Deed.newOffer(a, "Gräsklipp", "Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
-        Deed d2 = Deed.newOffer(a, "Hårklipp", "Jag klipper gärna håret på folk! Ge mig en pling vetja!");
-        accounts.add(a2);
-        Deed d3 = Deed.newRequest(a, "Rosett", "Jag kan inte knyta mina skor, kan någon hjälpa mig?");
-        Deed d4 = Deed.newRequest(a2, "Lokalsinne", "Jag har tappat bort mig och skulle behöva hjälpa av någon att hitta hem. Hjälp önskas snarast, gärna innan skymningen.");
-        accounts.add(a);
-        loggedInAccount = a;
-        deeds.add(d);
-        deeds.add(d2);
-        deeds.add(d3);
-        deeds.add(d4);
-    */
     }
 
     public static GoodDeeds getGoodDeeds() {
