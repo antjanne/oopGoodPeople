@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.goodpeople.gooddeeds.R;
 
 /**
- * Responsible for handling input in the view when creating an deed.
+ * Responsible for the form for creating a new deed.
  */
 
 public class CreateDeed extends ViewTemplate {
@@ -23,7 +23,7 @@ public class CreateDeed extends ViewTemplate {
         deedType.setText(isOffer ? "Create Offer" : "Create Request");
     }
 
-    public void submitOffer(View view) {
+    public void submitDeed(View view) {
         EditText subject = findViewById(R.id.subject);
         String subjectText = subject.getText().toString();
 
@@ -47,7 +47,6 @@ public class CreateDeed extends ViewTemplate {
         if (subject == null || subject.trim().isEmpty()) {
             sendError(R.id.subjectLayout, R.string.invalid_subject);
             returnValue = false;
-
         } else {
             removeError(R.id.subjectLayout);
         }
@@ -61,6 +60,4 @@ public class CreateDeed extends ViewTemplate {
 
         return returnValue;
     }
-
-
 }

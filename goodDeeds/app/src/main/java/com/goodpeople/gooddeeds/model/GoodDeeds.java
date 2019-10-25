@@ -24,23 +24,6 @@ public class GoodDeeds {
     private IAccount loggedInAccount;
 
     private GoodDeeds() {
-
-/*
-        Account a2 = new Account("Anton", 30597, "1234@gmail.com", "ahah".hashCode());
-
-        Account a = new Account("Anton", 30597, "anton46304@gmail.com", "ahah".hashCode());
-        Deed d = Deed.newOffer(a, "Gräsklipp", "Jag hjälper gärna till att klippa gräsmattan i storgöteborg, ge mig en pling");
-        Deed d2 = Deed.newOffer(a, "Hårklipp", "Jag klipper gärna håret på folk! Ge mig en pling vetja!");
-        accounts.add(a2);
-        Deed d3 = Deed.newRequest(a, "Rosett", "Jag kan inte knyta mina skor, kan någon hjälpa mig?");
-        Deed d4 = Deed.newRequest(a2, "Lokalsinne", "Jag har tappat bort mig och skulle behöva hjälpa av någon att hitta hem. Hjälp önskas snarast, gärna innan skymningen.");
-        accounts.add(a);
-        loggedInAccount = a;
-        deeds.add(d);
-        deeds.add(d2);
-        deeds.add(d3);
-        deeds.add(d4);
-    */
     }
 
     public static GoodDeeds getGoodDeeds() {
@@ -111,7 +94,6 @@ public class GoodDeeds {
         }
         return false;
     }
-
 
     private IDeed fetchDeed(UUID id) throws NullPointerException {
         for (IDeed deed : deeds) {
@@ -193,11 +175,9 @@ public class GoodDeeds {
      * @param description The description of the offer
      */
     public void createOffer(String subject, String description) {
-
         Deed newOffer = Deed.newOffer(loggedInAccount, subject, description);
         deeds.add(newOffer);
     }
-
 
     /**
      * Edits the subject and description of an already existing deed.
@@ -228,7 +208,6 @@ public class GoodDeeds {
      *
      * @return a list of deeds with logged in account as giving account
      */
-
     public List<IDeed> getMyActiveOffers() {
         List<IDeed> myActiveOffers = new ArrayList<>();
 
@@ -247,7 +226,6 @@ public class GoodDeeds {
      *
      * @return a list of deeds with logged in account as receiving account
      */
-
     public List<IDeed> getMyActiveRequests() {
         List<IDeed> myActiveRequests = new ArrayList<>();
 
@@ -280,7 +258,6 @@ public class GoodDeeds {
      *
      * @return a list of deeds with active offers
      */
-
     public List<IDeed> getActiveOffers() {
         List<IDeed> allActiveOffers = new ArrayList<>();
 
@@ -320,14 +297,9 @@ public class GoodDeeds {
      */
     public boolean isMyActiveDeed() {
         IDeed deed = getCurrentDeed();
-
         List<IDeed> offers = getMyActiveOffers();
         List<IDeed> requests = getMyActiveRequests();
-
-
         return (offers.contains(deed) || requests.contains(deed));
-
-
     }
 
     /**
@@ -361,7 +333,6 @@ public class GoodDeeds {
         return ((currentDeed.getGivingAccount() != null)
                 && (currentDeed.getReceivingAccount() != null));
     }
-
 
     /**
      * Method for claiming deed. Sets, whichever is not already initialized of,

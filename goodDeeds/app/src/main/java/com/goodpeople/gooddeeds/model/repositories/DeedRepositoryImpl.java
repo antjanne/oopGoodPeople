@@ -16,7 +16,6 @@ public class DeedRepositoryImpl implements DeedRepository {
 
     private final GoodDeeds goodDeeds = GoodDeeds.getGoodDeeds();
 
-
     /**
      * @return List of all deeds
      */
@@ -58,7 +57,6 @@ public class DeedRepositoryImpl implements DeedRepository {
     public void createOffer(String subject, String description) {
         goodDeeds.createOffer(subject, description);
     }
-
 
     /**
      * Edits the subject and/or description of an already existing deed
@@ -112,7 +110,6 @@ public class DeedRepositoryImpl implements DeedRepository {
     public void deleteCurrentDeed() {
         goodDeeds.deleteCurrentDeed();
     }
-
 
     /**
      * Gets a list of active requests by calling goodDeeds

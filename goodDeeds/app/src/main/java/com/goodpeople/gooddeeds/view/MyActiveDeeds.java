@@ -14,6 +14,10 @@ import com.goodpeople.gooddeeds.R;
 
 import java.util.List;
 
+/**
+ * Responsible for providing information about a users active deeds.
+ */
+
 public class MyActiveDeeds extends ViewTemplate {
     private boolean isOfferPressed;
     private RecyclerView.Adapter mAdapter;
@@ -53,7 +57,6 @@ public class MyActiveDeeds extends ViewTemplate {
         mRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         mAdapter = new DeedAdapter(deeds);
-
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
     }

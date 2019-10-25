@@ -41,7 +41,6 @@ public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder
         IDeed currentDeed = deeds.get(position);
         holder.mDescription.setText(currentDeed.getDescription());
         holder.mSubject.setText(currentDeed.getSubject());
-
     }
 
     @Override
@@ -68,7 +67,6 @@ public class DeedAdapter extends RecyclerView.Adapter<DeedAdapter.DeedViewHolder
                     v.getContext().startActivity(intent);
                 }
             });
-
         }
     }
 }

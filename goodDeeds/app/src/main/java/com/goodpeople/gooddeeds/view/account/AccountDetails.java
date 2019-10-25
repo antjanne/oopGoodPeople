@@ -9,8 +9,11 @@ import com.goodpeople.gooddeeds.model.entities.IAccount;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.view.ViewTemplate;
 
-public class AccountDetails extends ViewTemplate {
+/**
+ * Responsible for providing information about a users account.
+ */
 
+public class AccountDetails extends ViewTemplate {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -19,7 +22,6 @@ public class AccountDetails extends ViewTemplate {
         populateFields();
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
@@ -27,17 +29,13 @@ public class AccountDetails extends ViewTemplate {
     }
 
     private void populateFields() {
-
-        IAccount account = accountController.accountHandler();
-
+        IAccount account = accountController.getLoggedInAccountHandler();
         TextView name = findViewById(R.id.account_name_data);
         TextView email = findViewById(R.id.account_email_data);
         TextView postalCode = findViewById(R.id.account_postal_code_data);
-
         name.setText(account.getName());
         email.setText(account.getEmail());
         postalCode.setText(Integer.toString(account.getPostalCode()));
-
     }
 
     public void editDetailsView(View view) {
@@ -49,6 +47,4 @@ public class AccountDetails extends ViewTemplate {
         Intent myIntent = new Intent(this, EditAccountPassword.class);
         startActivity(myIntent);
     }
-
-
 }

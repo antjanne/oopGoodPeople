@@ -7,6 +7,10 @@ import android.widget.EditText;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.view.ViewTemplate;
 
+/**
+ * Responsible for handling a form for creating a new account.
+ */
+
 public class CreateAccount extends ViewTemplate {
 
     private String name;
@@ -20,14 +24,12 @@ public class CreateAccount extends ViewTemplate {
         super.onCreate(savedInstanceState);
     }
 
-
     public void submitAccount(View view) {
         getTextFromFields();
 
         if (validateAccountData()) {
-            accountController.createAccount(name, postalCode, email, password);
+            accountController.createAccountHandler(name, postalCode, email, password);
             this.finish();
-
         } else {
             handleError();
         }
@@ -80,6 +82,4 @@ public class CreateAccount extends ViewTemplate {
             removeError(R.id.passwordLayout);
         }
     }
-
-
 }

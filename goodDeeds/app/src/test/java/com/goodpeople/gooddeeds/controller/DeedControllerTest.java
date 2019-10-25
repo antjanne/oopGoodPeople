@@ -50,12 +50,12 @@ public class DeedControllerTest {
 
     @Test
     public void showAllActiveRequests() {
-        assertEquals(deedController.showAllActiveRequests().size(), 2);
+        assertEquals(deedController.showAllActiveRequestsHandler().size(), 2);
     }
 
     @Test
     public void showAllActiveOffers() {
-        assertEquals(deedController.showAllActiveOffers().size(), 2);
+        assertEquals(deedController.showAllActiveOffersHandler().size(), 2);
     }
 
     @Test

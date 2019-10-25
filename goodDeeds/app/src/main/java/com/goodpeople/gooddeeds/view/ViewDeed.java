@@ -14,6 +14,9 @@ import androidx.appcompat.app.AlertDialog;
 import com.goodpeople.gooddeeds.model.entities.IDeed;
 import com.goodpeople.gooddeeds.R;
 
+/**
+ * Responsible for providing information about a deed.
+ */
 
 public class ViewDeed extends ViewTemplate {
 
@@ -82,7 +85,6 @@ public class ViewDeed extends ViewTemplate {
                 Toast toast = Toast.makeText(this, "You cannot delete a Deed that is claimed.", Toast.LENGTH_SHORT);
                 toast.show();
             }
-
         }
     }
 
@@ -90,6 +92,5 @@ public class ViewDeed extends ViewTemplate {
     protected void onResume() {
         super.onResume();
         loadDeed();
-
     }
 }

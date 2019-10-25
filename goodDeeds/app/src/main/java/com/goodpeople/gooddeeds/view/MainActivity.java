@@ -26,7 +26,6 @@ public class MainActivity extends ViewTemplate {
 
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
     }
 
     @Override
@@ -47,7 +46,7 @@ public class MainActivity extends ViewTemplate {
     }
 
     private void login() {
-        if (!accountController.isLoggedIn()) {
+        if (!accountController.isLoggedInHandler()) {
             Intent myIntent = new Intent(this, Login.class);
             startActivity(myIntent);
         } else {
@@ -57,7 +56,7 @@ public class MainActivity extends ViewTemplate {
     }
 
     public void createDeed(View view) {
-        if (accountController.isLoggedIn()) {
+        if (accountController.isLoggedInHandler()) {
             final Intent myIntent = new Intent(this, CreateDeed.class);
 
             AlertDialog.Builder alert = new AlertDialog.Builder(this, R.style.Theme_AppCompat_DayNight_Dialog);

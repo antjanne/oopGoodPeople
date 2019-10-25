@@ -9,15 +9,17 @@ import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.view.MainActivity;
 import com.goodpeople.gooddeeds.view.ViewTemplate;
 
+/**
+ * Responsible for logging in a user.
+ */
+
 public class Login extends ViewTemplate {
 
 
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.login);
-
         super.onCreate(savedInstanceState);
     }
-
 
     public void createAccount(View view) {
         Intent myIntent = new Intent(view.getContext(), CreateAccount.class);
@@ -31,14 +33,12 @@ public class Login extends ViewTemplate {
         EditText editTextName = findViewById(R.id.login_password);
         String password = editTextName.getText().toString();
 
-        if (accountController.validateLogin(email, password)) {
-            accountController.login(email, password);
+        if (accountController.validateLoginHandler(email, password)) {
+            accountController.loginHandler(email, password);
             Intent myIntent = new Intent(view.getContext(), MainActivity.class);
             startActivityForResult(myIntent, 0);
         } else {
             sendError(R.id.login_error_message, R.string.login_error);
         }
-
     }
-
 }

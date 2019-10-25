@@ -7,6 +7,9 @@ import android.widget.EditText;
 
 import com.goodpeople.gooddeeds.R;
 
+/**
+ * Responsible for providing the form for editing a deed.
+ */
 
 public class EditDeed extends ViewTemplate {
 
@@ -18,8 +21,8 @@ public class EditDeed extends ViewTemplate {
         Button submitButton = findViewById(R.id.submitButton);
         EditText editSubj = findViewById(R.id.subjectEditText);
         EditText editDesc = findViewById(R.id.descriptionEditText);
-        editSubj.setText(deedController.getDeedSubject());
-        editDesc.setText(deedController.getDeedDescription());
+        editSubj.setText(deedController.getDeedSubjectHandler());
+        editDesc.setText(deedController.getDeedDescriptionHandler());
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,9 +40,6 @@ public class EditDeed extends ViewTemplate {
                 finish();
             }
         });
-
-
     }
-
 
 }

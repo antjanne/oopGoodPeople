@@ -9,6 +9,10 @@ import com.goodpeople.gooddeeds.view.MyActiveDeeds;
 import com.goodpeople.gooddeeds.view.MainActivity;
 import com.goodpeople.gooddeeds.view.ViewTemplate;
 
+/**
+ * Responsible for providing account options to the user.
+ */
+
 public class AccountOptions extends ViewTemplate {
 
     @Override
@@ -30,6 +34,6 @@ public class AccountOptions extends ViewTemplate {
     public void logOut(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        accountController.logout();
+        accountController.logoutHandler();
     }
 }

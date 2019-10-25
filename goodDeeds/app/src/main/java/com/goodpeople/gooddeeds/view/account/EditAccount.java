@@ -10,6 +10,10 @@ import com.goodpeople.gooddeeds.view.ViewTemplate;
 
 import java.util.Locale;
 
+/**
+ * Responsible for handling a form for editing a account.
+ */
+
 public class EditAccount extends ViewTemplate {
 
     private TextView nameView;
@@ -26,7 +30,7 @@ public class EditAccount extends ViewTemplate {
         setContentView(R.layout.edit_account);
         super.onCreate(savedInstanceState);
 
-        accountController.accountHandler();
+        accountController.getLoggedInAccountHandler();
         getTextViews();
         populateFields();
     }
@@ -38,11 +42,10 @@ public class EditAccount extends ViewTemplate {
     }
 
     private void populateFields() {
-        nameView.setText(accountController.accountHandler().getName());
-        emailView.setText(accountController.accountHandler().getEmail());
-        postalCodeView.setText(String.format(Locale.getDefault(), "%d", accountController.accountHandler().getPostalCode()));
+        nameView.setText(accountController.getLoggedInAccountHandler().getName());
+        emailView.setText(accountController.getLoggedInAccountHandler().getEmail());
+        postalCodeView.setText(String.format(Locale.getDefault(), "%d", accountController.getLoggedInAccountHandler().getPostalCode()));
     }
-
 
     public void saveUpdates(View view) {
         getFilledOutFields();
@@ -81,9 +84,8 @@ public class EditAccount extends ViewTemplate {
     }
 
     private boolean isEmailChanged() {
-        return !this.email.equals(accountController.accountHandler().getEmail());
+        return !this.email.equals(accountController.getLoggedInAccountHandler().getEmail());
     }
-
 
     private void setError() {
         if (name.trim().isEmpty()) {
@@ -94,13 +96,12 @@ public class EditAccount extends ViewTemplate {
 
         if (!isEmailValid(email)) {
             sendError(R.id.account_edit_email_layout, R.string.invalid_email);
-
         } else {
             removeError(R.id.account_edit_email_layout);
         }
+
         if (!isPostalCodeValid(postalCode)) {
             sendError(R.id.account_edit_postal_code_layout, R.string.invalid_postal_code);
-
         } else {
             removeError(R.id.account_edit_postal_code_layout);
         }
