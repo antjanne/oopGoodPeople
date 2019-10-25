@@ -26,7 +26,6 @@ public class MainActivity extends ViewTemplate {
 
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
     }
 
     @Override

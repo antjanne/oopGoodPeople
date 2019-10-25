@@ -112,7 +112,6 @@ public class GoodDeeds {
         return false;
     }
 
-
     private IDeed fetchDeed(UUID id) throws NullPointerException {
         for (IDeed deed : deeds) {
             if (deed.getUuid().equals(id))
@@ -193,11 +192,9 @@ public class GoodDeeds {
      * @param description The description of the offer
      */
     public void createOffer(String subject, String description) {
-
         Deed newOffer = Deed.newOffer(loggedInAccount, subject, description);
         deeds.add(newOffer);
     }
-
 
     /**
      * Edits the subject and description of an already existing deed.
@@ -228,7 +225,6 @@ public class GoodDeeds {
      *
      * @return a list of deeds with logged in account as giving account
      */
-
     public List<IDeed> getMyActiveOffers() {
         List<IDeed> myActiveOffers = new ArrayList<>();
 
@@ -247,7 +243,6 @@ public class GoodDeeds {
      *
      * @return a list of deeds with logged in account as receiving account
      */
-
     public List<IDeed> getMyActiveRequests() {
         List<IDeed> myActiveRequests = new ArrayList<>();
 
@@ -280,7 +275,6 @@ public class GoodDeeds {
      *
      * @return a list of deeds with active offers
      */
-
     public List<IDeed> getActiveOffers() {
         List<IDeed> allActiveOffers = new ArrayList<>();
 
@@ -320,14 +314,9 @@ public class GoodDeeds {
      */
     public boolean isMyActiveDeed() {
         IDeed deed = getCurrentDeed();
-
         List<IDeed> offers = getMyActiveOffers();
         List<IDeed> requests = getMyActiveRequests();
-
-
         return (offers.contains(deed) || requests.contains(deed));
-
-
     }
 
     /**
@@ -361,7 +350,6 @@ public class GoodDeeds {
         return ((currentDeed.getGivingAccount() != null)
                 && (currentDeed.getReceivingAccount() != null));
     }
-
 
     /**
      * Method for claiming deed. Sets, whichever is not already initialized of,

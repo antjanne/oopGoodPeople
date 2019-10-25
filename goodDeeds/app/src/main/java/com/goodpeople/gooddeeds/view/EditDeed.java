@@ -40,9 +40,6 @@ public class EditDeed extends ViewTemplate {
                 finish();
             }
         });
-
-
     }
-
 
 }

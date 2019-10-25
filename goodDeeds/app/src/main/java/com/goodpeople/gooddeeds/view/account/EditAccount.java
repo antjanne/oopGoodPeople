@@ -47,7 +47,6 @@ public class EditAccount extends ViewTemplate {
         postalCodeView.setText(String.format(Locale.getDefault(), "%d", accountController.getLoggedInAccountHandler().getPostalCode()));
     }
 
-
     public void saveUpdates(View view) {
         getFilledOutFields();
 
@@ -88,7 +87,6 @@ public class EditAccount extends ViewTemplate {
         return !this.email.equals(accountController.getLoggedInAccountHandler().getEmail());
     }
 
-
     private void setError() {
         if (name.trim().isEmpty()) {
             sendError(R.id.account_edit_name_layout, R.string.invalid_name);
@@ -98,13 +96,12 @@ public class EditAccount extends ViewTemplate {
 
         if (!isEmailValid(email)) {
             sendError(R.id.account_edit_email_layout, R.string.invalid_email);
-
         } else {
             removeError(R.id.account_edit_email_layout);
         }
+
         if (!isPostalCodeValid(postalCode)) {
             sendError(R.id.account_edit_postal_code_layout, R.string.invalid_postal_code);
-
         } else {
             removeError(R.id.account_edit_postal_code_layout);
         }

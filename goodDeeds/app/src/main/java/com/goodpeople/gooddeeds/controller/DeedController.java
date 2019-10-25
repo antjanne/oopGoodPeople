@@ -17,7 +17,6 @@ public class DeedController {
 
     private final DeedRepository deedRepository = new DeedRepositoryImpl();
 
-
     /**
      * Method for getting the active offers for a logged in account.
      * A account has to be logged in before calling this method.
@@ -72,7 +71,6 @@ public class DeedController {
     public String getDeedDescriptionHandler() {
         return deedRepository.getCurrentDeed().getDescription();
     }
-
 
     /**
      * Method for creating a new request with the logged in account as the giving account.

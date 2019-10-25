@@ -47,7 +47,6 @@ public class CreateDeed extends ViewTemplate {
         if (subject == null || subject.trim().isEmpty()) {
             sendError(R.id.subjectLayout, R.string.invalid_subject);
             returnValue = false;
-
         } else {
             removeError(R.id.subjectLayout);
         }
@@ -61,6 +60,4 @@ public class CreateDeed extends ViewTemplate {
 
         return returnValue;
     }
-
-
 }

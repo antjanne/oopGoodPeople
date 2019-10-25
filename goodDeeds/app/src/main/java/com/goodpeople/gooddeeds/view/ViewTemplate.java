@@ -19,7 +19,6 @@ import com.google.android.material.textfield.TextInputLayout;
 public abstract class ViewTemplate extends AppCompatActivity {
 
     protected final AccountController accountController = new AccountController();
-
     final DeedController deedController = new DeedController();
 
 
@@ -29,7 +28,6 @@ public abstract class ViewTemplate extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
 
     @Override
@@ -46,20 +44,16 @@ public abstract class ViewTemplate extends AppCompatActivity {
 
     protected boolean isPostalCodeValid(Integer postalCode) {
         return (postalCode != null && postalCode.toString().length() == 5);
-
     }
-
 
     protected void sendError(int textInputLayout, int errorCodeId) {
         TextInputLayout layout = findViewById(textInputLayout);
         layout.setError(getString(errorCodeId));
-
     }
 
     protected void removeError(int textInputLayout) {
         TextInputLayout layout = findViewById(textInputLayout);
         layout.setError(null);
-
     }
 
     public void goBack(View view) {

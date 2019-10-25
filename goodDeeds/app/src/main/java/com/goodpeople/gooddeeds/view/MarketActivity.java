@@ -21,12 +21,9 @@ import java.util.List;
 
 public class MarketActivity extends ViewTemplate {
 
-
     private RecyclerView.Adapter mAdapter;
     private boolean isOfferPressed;
-
     private Context context;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,7 +37,6 @@ public class MarketActivity extends ViewTemplate {
         mRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         mAdapter = new DeedAdapter(deeds);
-
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
     }
@@ -61,7 +57,6 @@ public class MarketActivity extends ViewTemplate {
             Toast toast = Toast.makeText(context, "No available requests", Toast.LENGTH_SHORT);
             toast.show();
         }
-
         viewDeeds(deedController.showAllActiveRequestsHandler());
     }
 
@@ -75,5 +70,4 @@ public class MarketActivity extends ViewTemplate {
                 showRequests(getCurrentFocus());
         }
     }
-
 }

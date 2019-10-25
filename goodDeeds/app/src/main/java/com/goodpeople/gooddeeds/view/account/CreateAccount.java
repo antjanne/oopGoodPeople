@@ -24,14 +24,12 @@ public class CreateAccount extends ViewTemplate {
         super.onCreate(savedInstanceState);
     }
 
-
     public void submitAccount(View view) {
         getTextFromFields();
 
         if (validateAccountData()) {
             accountController.createAccountHandler(name, postalCode, email, password);
             this.finish();
-
         } else {
             handleError();
         }
@@ -84,6 +82,4 @@ public class CreateAccount extends ViewTemplate {
             removeError(R.id.passwordLayout);
         }
     }
-
-
 }

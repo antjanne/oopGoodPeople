@@ -20,7 +20,6 @@ public class EditAccountPassword extends ViewTemplate {
         super.onCreate(savedInstanceState);
     }
 
-
     public void onSubmit(View view) {
         String oldPassword = ((EditText) findViewById(R.id.edit_password_old_password)).getText().toString();
         String newPassword = ((EditText) findViewById(R.id.edit_password_new_password)).getText().toString();
@@ -31,18 +30,15 @@ public class EditAccountPassword extends ViewTemplate {
         } else {
             setError(oldPassword, newPassword);
         }
-
-
     }
 
     private boolean validatePassword(String oldPassword, String newPassword) {
-        return !newPassword.trim().isEmpty() && (accountController.getLoggedInAccountHandler().getPassword()==oldPassword.hashCode());
+        return !newPassword.trim().isEmpty() && (accountController.getLoggedInAccountHandler().getPassword() == oldPassword.hashCode());
     }
 
     private void setError(String oldPassword, String newPassword) {
-        if (!(accountController.getLoggedInAccountHandler().getPassword()==oldPassword.hashCode()|| newPassword.trim().isEmpty())) {
+        if (!(accountController.getLoggedInAccountHandler().getPassword() == oldPassword.hashCode() || newPassword.trim().isEmpty())) {
             sendError(R.id.edit_password_old_password_layout, R.string.invalid_password);
         }
     }
-
 }

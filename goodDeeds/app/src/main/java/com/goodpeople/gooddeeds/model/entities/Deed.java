@@ -12,7 +12,6 @@ public class Deed implements IDeed {
 
     private IAccount givingAccount;
     private IAccount receivingAccount;
-
     private String subject;
     private String description;
     private UUID uuid;
@@ -29,7 +28,6 @@ public class Deed implements IDeed {
      * @return the created offer
      */
     public static Deed newOffer(IAccount givingAccount, String subject, String description) {
-
         Deed d = new Deed();
         d.setGivingAccount(givingAccount);
         d.setSubject(subject);

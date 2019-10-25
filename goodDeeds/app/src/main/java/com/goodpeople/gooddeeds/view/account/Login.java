@@ -18,10 +18,8 @@ public class Login extends ViewTemplate {
 
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.login);
-
         super.onCreate(savedInstanceState);
     }
-
 
     public void createAccount(View view) {
         Intent myIntent = new Intent(view.getContext(), CreateAccount.class);
@@ -42,7 +40,5 @@ public class Login extends ViewTemplate {
         } else {
             sendError(R.id.login_error_message, R.string.login_error);
         }
-
     }
-
 }

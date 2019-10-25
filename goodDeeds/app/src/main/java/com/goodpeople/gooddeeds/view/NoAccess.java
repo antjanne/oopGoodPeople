@@ -23,6 +23,4 @@ public class NoAccess extends ViewTemplate {
         Intent myIntent = new Intent(this, Login.class);
         startActivity(myIntent);
     }
-
-
 }

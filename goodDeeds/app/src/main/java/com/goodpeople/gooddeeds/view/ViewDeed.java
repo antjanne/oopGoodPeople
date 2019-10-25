@@ -85,7 +85,6 @@ public class ViewDeed extends ViewTemplate {
                 Toast toast = Toast.makeText(this, "You cannot delete a Deed that is claimed.", Toast.LENGTH_SHORT);
                 toast.show();
             }
-
         }
     }
 
@@ -93,6 +92,5 @@ public class ViewDeed extends ViewTemplate {
     protected void onResume() {
         super.onResume();
         loadDeed();
-
     }
 }
