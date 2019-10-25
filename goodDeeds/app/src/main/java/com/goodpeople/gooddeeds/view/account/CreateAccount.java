@@ -29,7 +29,7 @@ public class CreateAccount extends ViewTemplate {
         getTextFromFields();
 
         if (validateAccountData()) {
-            accountController.createAccount(name, postalCode, email, password);
+            accountController.createAccountHandler(name, postalCode, email, password);
             this.finish();
 
         } else {

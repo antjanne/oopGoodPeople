@@ -13,8 +13,8 @@ public class AccountControllerTest {
     @Before
     public void setUp() {
         accountController = new AccountController();
-        accountController.createAccount("richard", 41481, "rm123@rm.se", "pass123");
-        accountController.login("rm123@rm.se", "pass123");
+        accountController.createAccountHandler("richard", 41481, "rm123@rm.se", "pass123");
+        accountController.loginHandler("rm123@rm.se", "pass123");
     }
 
 
@@ -28,22 +28,22 @@ public class AccountControllerTest {
 
     @Test
     public void shouldValidateValidLogInReturnTrue() {
-        Assert.assertTrue(accountController.validateLogin("rm123@rm.se", "pass123"));
+        Assert.assertTrue(accountController.validateLoginHandler("rm123@rm.se", "pass123"));
     }
 
     @Test
     public void shouldValidateInvalidEmailLogInReturnFalse() {
-        Assert.assertFalse(accountController.validateLogin("wrong.email", "pass123"));
+        Assert.assertFalse(accountController.validateLoginHandler("wrong.email", "pass123"));
     }
 
     @Test
     public void shouldValidateInvalidPasswordLogInReturnFalse() {
-        Assert.assertFalse(accountController.validateLogin("rm123@rm.se", "wrongPassword"));
+        Assert.assertFalse(accountController.validateLoginHandler("rm123@rm.se", "wrongPassword"));
     }
 
     @Test
     public void shouldTestIfLoggedInReturnTrue() {
-        Assert.assertTrue(accountController.isLoggedIn());
+        Assert.assertTrue(accountController.isLoggedInHandler());
     }
 
 
@@ -74,8 +74,8 @@ public class AccountControllerTest {
 
     @Test
     public void logout() {
-        accountController.logout();
-        Assert.assertFalse(accountController.isLoggedIn());
+        accountController.logoutHandler();
+        Assert.assertFalse(accountController.isLoggedInHandler());
 
     }
 }

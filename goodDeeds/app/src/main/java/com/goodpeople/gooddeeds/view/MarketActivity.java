@@ -47,22 +47,22 @@ public class MarketActivity extends ViewTemplate {
 
     public void showOffers(View view) {
         isOfferPressed = true;
-        if (deedController.showAllActiveOffers().isEmpty()) {
+        if (deedController.showAllActiveOffersHandler().isEmpty()) {
             Toast toast = Toast.makeText(context, "No available offers", Toast.LENGTH_SHORT);
             toast.show();
         }
-        viewDeeds(deedController.showAllActiveOffers());
+        viewDeeds(deedController.showAllActiveOffersHandler());
 
     }
 
     public void showRequests(View view) {
         isOfferPressed = false;
-        if (deedController.showAllActiveRequests().isEmpty()) {
+        if (deedController.showAllActiveRequestsHandler().isEmpty()) {
             Toast toast = Toast.makeText(context, "No available requests", Toast.LENGTH_SHORT);
             toast.show();
         }
 
-        viewDeeds(deedController.showAllActiveRequests());
+        viewDeeds(deedController.showAllActiveRequestsHandler());
     }
 
     @Override

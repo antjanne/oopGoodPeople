@@ -62,14 +62,14 @@ public class DeedController {
     /**
      * @return The subject of a deed
      */
-    public String getDeedSubject() {
+    public String getDeedSubjectHandler() {
         return deedRepository.getCurrentDeed().getSubject();
     }
 
     /**
      * @return the description of a deed
      */
-    public String getDeedDescription() {
+    public String getDeedDescriptionHandler() {
         return deedRepository.getCurrentDeed().getDescription();
     }
 
@@ -106,7 +106,7 @@ public class DeedController {
      *
      * @return a list of active requests
      */
-    public List<IDeed> showAllActiveRequests() {
+    public List<IDeed> showAllActiveRequestsHandler() {
         return deedRepository.getActiveRequests();
     }
 
@@ -115,7 +115,7 @@ public class DeedController {
      *
      * @return a list of active offers
      */
-    public List<IDeed> showAllActiveOffers() {
+    public List<IDeed> showAllActiveOffersHandler() {
         return deedRepository.getActiveOffers();
     }
 

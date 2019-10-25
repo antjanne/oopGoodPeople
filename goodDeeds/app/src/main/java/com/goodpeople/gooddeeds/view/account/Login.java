@@ -35,8 +35,8 @@ public class Login extends ViewTemplate {
         EditText editTextName = findViewById(R.id.login_password);
         String password = editTextName.getText().toString();
 
-        if (accountController.validateLogin(email, password)) {
-            accountController.login(email, password);
+        if (accountController.validateLoginHandler(email, password)) {
+            accountController.loginHandler(email, password);
             Intent myIntent = new Intent(view.getContext(), MainActivity.class);
             startActivityForResult(myIntent, 0);
         } else {

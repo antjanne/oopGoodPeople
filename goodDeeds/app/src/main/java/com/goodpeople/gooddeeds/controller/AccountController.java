@@ -25,7 +25,7 @@ public class AccountController {
      * @param email      Email of person creating the account
      * @param password   Password of person creating the account
      */
-    public void createAccount(String name, int postalCode, String email, String password) {
+    public void createAccountHandler(String name, int postalCode, String email, String password) {
         accountRepository.createAccount(name, postalCode, email, password);
     }
 
@@ -36,7 +36,7 @@ public class AccountController {
      * @param password password input
      * @return boolean that validates whether there is a match of account email + password
      */
-    public boolean validateLogin(String email, String password) {
+    public boolean validateLoginHandler(String email, String password) {
         return accountRepository.validateLogin(email, password);
     }
 
@@ -54,14 +54,14 @@ public class AccountController {
      * @param email    email input
      * @param password password input
      */
-    public void login(String email, String password) {
+    public void loginHandler(String email, String password) {
         accountRepository.login(email, password);
     }
 
     /**
      * @return boolean that specifies whether the user is logged in or not
      */
-    public boolean isLoggedIn() {
+    public boolean isLoggedInHandler() {
         return accountRepository.isLoggedIn();
     }
 
@@ -95,7 +95,7 @@ public class AccountController {
     /**
      * Logs out the account currently logged in, by calling the repository method.
      */
-    public void logout() {
+    public void logoutHandler() {
         accountRepository.logout();
     }
 }
