@@ -9,6 +9,10 @@ import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.view.MainActivity;
 import com.goodpeople.gooddeeds.view.ViewTemplate;
 
+/**
+ * Responsible for logging in a user.
+ */
+
 public class Login extends ViewTemplate {
 
 

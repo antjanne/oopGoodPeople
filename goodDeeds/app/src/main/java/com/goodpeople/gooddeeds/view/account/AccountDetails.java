@@ -9,6 +9,10 @@ import com.goodpeople.gooddeeds.model.entities.IAccount;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.view.ViewTemplate;
 
+/**
+ * Responsible for providing information about a users account.
+ */
+
 public class AccountDetails extends ViewTemplate {
 
 

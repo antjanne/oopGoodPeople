@@ -7,6 +7,10 @@ import android.widget.EditText;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.view.ViewTemplate;
 
+/**
+ * Responsible for handling a form for creating a new account.
+ */
+
 public class CreateAccount extends ViewTemplate {
 
     private String name;

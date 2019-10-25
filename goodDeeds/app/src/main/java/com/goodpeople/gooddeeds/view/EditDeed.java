@@ -7,6 +7,9 @@ import android.widget.EditText;
 
 import com.goodpeople.gooddeeds.R;
 
+/**
+ * Responsible for providing the form for editing a deed.
+ */
 
 public class EditDeed extends ViewTemplate {
 

@@ -10,6 +10,10 @@ import com.goodpeople.gooddeeds.view.ViewTemplate;
 
 import java.util.Locale;
 
+/**
+ * Responsible for handling a form for editing a account.
+ */
+
 public class EditAccount extends ViewTemplate {
 
     private TextView nameView;

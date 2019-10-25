@@ -14,6 +14,10 @@ import com.goodpeople.gooddeeds.R;
 
 import java.util.List;
 
+/**
+ * Responsible for providing information about a users active deeds.
+ */
+
 public class MyActiveDeeds extends ViewTemplate {
     private boolean isOfferPressed;
     private RecyclerView.Adapter mAdapter;

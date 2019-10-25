@@ -7,6 +7,10 @@ import android.view.View;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.view.account.Login;
 
+/**
+ * Responsible for providing information to a user that is not logged in.
+ */
+
 public class NoAccess extends ViewTemplate {
 
     @Override

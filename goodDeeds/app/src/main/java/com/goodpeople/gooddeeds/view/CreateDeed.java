@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.goodpeople.gooddeeds.R;
 
 /**
- * Responsible for handling input in the view when creating an deed.
+ * Responsible for the form for creating a new deed.
  */
 
 public class CreateDeed extends ViewTemplate {

@@ -14,6 +14,9 @@ import androidx.appcompat.app.AlertDialog;
 import com.goodpeople.gooddeeds.model.entities.IDeed;
 import com.goodpeople.gooddeeds.R;
 
+/**
+ * Responsible for providing information about a deed.
+ */
 
 public class ViewDeed extends ViewTemplate {
 

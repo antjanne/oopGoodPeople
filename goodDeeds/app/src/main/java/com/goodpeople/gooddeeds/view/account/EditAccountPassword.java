@@ -7,6 +7,10 @@ import android.widget.EditText;
 import com.goodpeople.gooddeeds.R;
 import com.goodpeople.gooddeeds.view.ViewTemplate;
 
+/**
+ * Responsible for handling a form for changing a accounts password.
+ */
+
 public class EditAccountPassword extends ViewTemplate {
 
 
